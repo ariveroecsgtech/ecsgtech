@@ -3,272 +3,399 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ECSG | Contacto / Contact</title>
-  <meta name="description" content="Formulario de contacto bilingüe (ES/EN) para Enterprise Cloud Solutions Group (ECSG)." />
+  <title>ECSG | Servicios en la Nube & Managed Services – Bilingüe</title>
+  <meta name="description" content="ECSG – Cloud Services, Managed Services y Project Management. Formulario de contacto bilingüe (ES/EN)." />
   <style>
     :root{
-      --bg:#0b1220; --card:#121a2b; --muted:#8ea0bc; --text:#e6eefc; --accent:#4cc3ff; --accent2:#7dfc9b; --danger:#ff6b6b;
-      --radius:16px;
+      --bg:#0b1220;            /* fondo oscuro profesional */
+      --card:#0f172a;          /* azul oscuro pizarra */
+      --muted:#94a3b8;         /* texto secundario */
+      --text:#e2e8f0;          /* texto principal */
+      --brand:#41d1ff;         /* acento cian */
+      --brand-2:#7c3aed;       /* acento púrpura */
+      --ok:#22c55e;            /* éxito */
+      --warn:#f59e0b;          /* advertencia */
+      --danger:#ef4444;        /* error */
+      --ring: 0 0 0 3px rgba(65,209,255,.25);
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:radial-gradient(1200px 800px at 10% 10%, #0f1a31 0%, #0b1220 55%), #0b1220;color:var(--text);}
-    a{color:var(--accent)}
-    .wrap{max-width:1100px;margin:auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:8px 0 20px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#001320;font-weight:900}
-    .title{line-height:1}
-    .title h1{margin:0;font-size:1.25rem}
-    .title p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
-    .lang-toggle{display:flex;gap:8px;background:rgba(255,255,255,.05);padding:6px;border-radius:999px}
-    .lang-toggle button{border:0;background:transparent;color:var(--text);padding:8px 14px;border-radius:999px;cursor:pointer}
-    .lang-toggle button.active{background:linear-gradient(135deg,rgba(76,195,255,.2),rgba(125,252,155,.2));}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.25), transparent 60%),
+      radial-gradient(800px 500px at 90% 110%, rgba(65,209,255,.18), transparent 60%), var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1200px, 92%); margin:0 auto}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.7)); backdrop-filter: blur(6px); border-bottom:1px solid rgba(148,163,184,.15)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 30deg, var(--brand), var(--brand-2)); box-shadow:0 6px 24px rgba(65,209,255,.35)}
+    .brand span{letter-spacing:.2px}
+    .navlinks{display:flex;gap:22px}
+    .chip{padding:6px 10px;border:1px solid rgba(148,163,184,.22);border-radius:999px;color:var(--muted)}
 
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .hero{padding:64px 0 36px}
+    .hero h1{font-size: clamp(28px, 4vw, 44px); line-height:1.08; margin:0 0 10px}
+    .hero p{max-width:900px;color:var(--muted);font-size:clamp(14px, 2.2vw, 18px)}
+    .ribbon{margin-top:18px;display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:12px;background:rgba(124,58,237,.12); border:1px solid rgba(124,58,237,.3)}
 
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);backdrop-filter: blur(8px);}
-    .card h2{margin:0 0 8px;font-size:1.15rem}
-    .card p{color:var(--muted)}
+    .section{padding:36px 0}
+    .section h2{font-size: clamp(22px, 3vw, 30px); margin:0 0 12px}
+    .grid{display:grid; gap:16px}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width: 960px){ .grid.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (max-width: 700px){ .grid.cols-2, .grid.cols-3{grid-template-columns:1fr} }
 
-    .pad{padding:18px}
+    .card{background:linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.7)); border:1px solid rgba(148,163,184,.14); border-radius:16px; padding:18px; position:relative; overflow:hidden}
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14.5px}
+    .tag{display:inline-block; font-size:12px; color:#c7d2fe; border:1px solid rgba(99,102,241,.35); padding:4px 8px; border-radius:999px; margin-bottom:12px}
 
-    form{display:grid;gap:12px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
-    label{font-weight:600;font-size:.95rem}
-    input,select,textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1728;color:var(--text)}
-    textarea{min-height:120px;resize:vertical}
+    .pill{display:inline-flex; align-items:center; gap:8px; background:rgba(65,209,255,.08); border:1px solid rgba(65,209,255,.25); padding:6px 10px; border-radius:999px; font-size:12.5px; color:#cffafe}
 
-    .hint{color:var(--muted);font-size:.85rem}
-    .required::after{content:" *";color:var(--accent)}
+    /* Form */
+    form{background:linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.7)); border:1px solid rgba(148,163,184,.14); border-radius:16px; padding:18px}
+    .field{margin-bottom:14px}
+    label{display:block; font-size:13px; color:#cbd5e1; margin:0 0 6px}
+    label .en{opacity:.85}
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea{
+      width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(148,163,184,.22); background:#0b1220; color:var(--text);
+      outline:none
+    }
+    input:focus, select:focus, textarea:focus{ box-shadow: var(--ring); border-color: rgba(65,209,255,.4) }
+    textarea{min-height:120px; resize:vertical}
 
-    .inline{display:flex;gap:10px;align-items:center}
-    .inline input[type=checkbox]{width:auto}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width:700px){ .row{grid-template-columns:1fr} }
 
-    .submit{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:6px}
-    .btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#001320;font-weight:800;border:0;border-radius:12px;padding:12px 18px;cursor:pointer}
-    .btn.sec{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.18)}
+    .checks{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+    @media (max-width:700px){ .checks{grid-template-columns:1fr} }
 
-    .tag{display:inline-block;margin:4px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.85rem}
-    ul.clean{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    @media (max-width:700px){ul.clean{grid-template-columns:1fr}}
-    .clean li{padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.04)}
+    .help{font-size:12px; color:var(--muted)}
 
-    footer{margin:26px 0 8px;color:var(--muted);font-size:.85rem;text-align:center}
-    .small{font-size:.8rem;color:var(--muted)}
+    .actions{display:flex; gap:10px; align-items:center}
+    button{background:linear-gradient(90deg, var(--brand), var(--brand-2)); border:none; color:white; padding:11px 16px; border-radius:12px; font-weight:600; cursor:pointer}
+    button:hover{filter:brightness(1.05)}
+
+    .success, .error{display:none; margin-top:8px; font-size:14px}
+    .success{color:var(--ok)}
+    .error{color:var(--danger)}
+
+    footer{padding:36px 0; color:var(--muted); font-size:13px}
+    .small{font-size:12px;color:var(--muted)}
+
+    .divider{height:1px; background:linear-gradient(90deg, rgba(148,163,184,.02), rgba(148,163,184,.25), rgba(148,163,184,.02)); margin:18px 0}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand" aria-label="ECSG">
-        <div class="logo" aria-hidden="true">E</div>
-        <div class="title">
-          <h1>Enterprise Cloud Solutions Group</h1>
-          <p>MSP • Cloud • Managed Services • Security</p>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <span>ECSG — Enterprise Cloud Solutions Group</span>
         </div>
-      </div>
-      <div class="lang-toggle" role="group" aria-label="Language toggle">
-        <button id="btn-es" class="active" type="button" aria-pressed="true">ES</button>
-        <button id="btn-en" type="button" aria-pressed="false">EN</button>
-      </div>
-    </header>
-
-    <div class="grid">
-      <section class="card pad" aria-labelledby="contact-title">
-        <h2 id="contact-title" data-es="Contacto" data-en="Contact">Contacto</h2>
-        <p class="hint" data-es="Completa el formulario y te responderemos en menos de 1 día hábil." data-en="Fill out the form and we'll reply within 1 business day.">Completa el formulario y te responderemos en menos de 1 día hábil.</p>
-
-        <form id="contact-form" novalidate>
-          <div class="row">
-            <div>
-              <label class="required" for="firstName" data-es="Nombre" data-en="First Name">Nombre</label>
-              <input id="firstName" name="firstName" autocomplete="given-name" required placeholder="Anderson" />
-            </div>
-            <div>
-              <label class="required" for="lastName" data-es="Apellido" data-en="Last Name">Apellido</label>
-              <input id="lastName" name="lastName" autocomplete="family-name" required placeholder="Rivero" />
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="company" data-es="Empresa" data-en="Company">Empresa</label>
-              <input id="company" name="company" autocomplete="organization" placeholder="ECSG" />
-            </div>
-            <div>
-              <label class="required" for="email" data-es="Correo" data-en="Email">Correo</label>
-              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="nombre@empresa.com" />
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="phone" data-es="Teléfono" data-en="Phone">Teléfono</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 (203) 555‑0123" />
-            </div>
-            <div>
-              <label class="required" for="interest" data-es="Interés principal" data-en="Primary Interest">Interés principal</label>
-              <select id="interest" name="interest" required>
-                <option value="" selected disabled data-es="Selecciona una opción" data-en="Select an option">Selecciona una opción</option>
-                <optgroup label="Cloud Services">
-                  <option>Microsoft Azure</option>
-                  <option>Microsoft SharePoint</option>
-                  <option>Microsoft 365</option>
-                  <option>Security Email (Outlook)</option>
-                  <option>Microsoft Teams</option>
-                </optgroup>
-                <optgroup label="Managed Services">
-                  <option>Cybersecurity</option>
-                  <option>vCIO Services</option>
-                  <option>Cybersecurity Training</option>
-                  <option>Remote Monitoring & Management (RMM)</option>
-                </optgroup>
-                <optgroup label="Otros / Other">
-                  <option>Consultoría</option>
-                  <option>Soporte</option>
-                  <option>Proyecto Especial</option>
-                </optgroup>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="services" data-es="Servicios de interés (multiple)" data-en="Services of interest (multiple)">Servicios de interés (multiple)</label>
-            <select id="services" name="services" multiple size="6" aria-describedby="servicesHelp">
-              <optgroup label="Cloud Services">
-                <option>Microsoft Azure</option>
-                <option>Microsoft SharePoint</option>
-                <option>Microsoft 365</option>
-                <option>Security Email (Outlook)</option>
-                <option>Microsoft Teams</option>
-              </optgroup>
-              <optgroup label="Managed Services">
-                <option>Cybersecurity</option>
-                <option>vCIO Services</option>
-                <option>Cybersecurity Training</option>
-                <option>Remote Monitoring & Management (RMM)</option>
-              </optgroup>
-            </select>
-            <div class="hint" id="servicesHelp" data-es="Mantén presionada la tecla Ctrl/⌘ para seleccionar varias opciones." data-en="Hold Ctrl/⌘ to select multiple options.">Mantén presionada la tecla Ctrl/⌘ para seleccionar varias opciones.</div>
-          </div>
-
-          <div>
-            <label class="required" for="message" data-es="Mensaje" data-en="Message">Mensaje</label>
-            <textarea id="message" name="message" required placeholder="Cuéntanos sobre tu necesidad, objetivos y plazos."></textarea>
-          </div>
-
-          <div class="inline">
-            <input id="consent" type="checkbox" required />
-            <label class="required" for="consent" data-es="Acepto ser contactado y el tratamiento de mis datos de acuerdo con la política de privacidad." data-en="I agree to be contacted and for my data to be processed according to the privacy policy.">Acepto ser contactado y el tratamiento de mis datos de acuerdo con la política de privacidad.</label>
-          </div>
-
-          <div class="inline small" aria-live="polite">
-            <span class="tag" data-es="Protegido contra spam" data-en="Spam-protected">Protegido contra spam</span>
-            <span>reCAPTCHA placeholder</span>
-          </div>
-
-          <div class="submit">
-            <button type="reset" class="btn sec" data-es="Limpiar" data-en="Clear">Limpiar</button>
-            <button type="submit" class="btn" data-es="Enviar" data-en="Send">Enviar</button>
-          </div>
-
-          <p id="form-status" class="hint" role="status" aria-live="polite"></p>
-        </form>
-      </section>
-
-      <aside class="card pad">
-        <h2 data-es="Servicios" data-en="Services">Servicios</h2>
-        <p class="hint" data-es="Soluciones administradas de extremo a extremo para acelerar, proteger y escalar tu negocio." data-en="End-to-end managed solutions to accelerate, secure, and scale your business.">Soluciones administradas de extremo a extremo para acelerar, proteger y escalar tu negocio.</p>
-
-        <h3>Cloud Services</h3>
-        <ul class="clean">
-          <li><strong>Microsoft Azure</strong><br><span class="small" data-es="Infraestructura segura, escalable y de alto rendimiento." data-en="Secure, scalable, high‑performance infrastructure.">Infraestructura segura, escalable y de alto rendimiento.</span></li>
-          <li><strong>Microsoft SharePoint</strong><br><span class="small" data-es="Colaboración segura, automatización y gestión documental." data-en="Secure collaboration, automation, and document management.">Colaboración segura, automatización y gestión documental.</span></li>
-          <li><strong>Microsoft 365</strong><br><span class="small" data-es="Productividad en la nube con Outlook, Teams, Word, Excel y más." data-en="Cloud productivity with Outlook, Teams, Word, Excel, and more.">Productividad en la nube con Outlook, Teams, Word, Excel y más.</span></li>
-          <li><strong>Security Email (Outlook)</strong><br><span class="small" data-es="Correo empresarial con protección avanzada contra amenazas." data-en="Business email with advanced threat protection.">Correo empresarial con protección avanzada contra amenazas.</span></li>
-          <li><strong>Microsoft Teams</strong><br><span class="small" data-es="Chat, reuniones, llamadas y archivos en un espacio seguro." data-en="Chat, meetings, calls, and files in a secure workspace.">Chat, reuniones, llamadas y archivos en un espacio seguro.</span></li>
-        </ul>
-
-        <h3 style="margin-top:14px">Managed Services</h3>
-        <ul class="clean">
-          <li><strong>Cybersecurity</strong><br><span class="small" data-es="Estrategia multinivel: detección, endpoints, email y políticas." data-en="Multilayer strategy: detection, endpoints, email, and policies.">Estrategia multinivel: detección, endpoints, email y políticas.</span></li>
-          <li><strong>vCIO Services</strong><br><span class="small" data-es="Planeación, presupuesto y gobierno de TI sin contratar ejecutivo." data-en="IT planning, budgeting, and governance without a full‑time executive.">Planeación, presupuesto y gobierno de TI sin contratar ejecutivo.</span></li>
-          <li><strong>Cybersecurity Training</strong><br><span class="small" data-es="Formación práctica para identificar phishing y reducir riesgos." data-en="Hands‑on training to spot phishing and reduce risk.">Formación práctica para identificar phishing y reducir riesgos.</span></li>
-          <li><strong>Remote Monitoring & Management (RMM)</strong><br><span class="small" data-es="Monitoreo 24/7, mantenimiento automatizado y respuesta rápida." data-en="24/7 monitoring, automated maintenance, rapid response.">Monitoreo 24/7, mantenimiento automatizado y respuesta rápida.</span></li>
-        </ul>
-
-        <div style="margin-top:14px">
-          <span class="tag">SLA‑backed</span>
-          <span class="tag">NIST‑aligned</span>
-          <span class="tag">Zero‑Trust</span>
-          <span class="tag">Microsoft Partner</span>
+        <div class="navlinks">
+          <span class="chip">Servicios / Services</span>
+          <span class="chip">Contacto / Contact</span>
         </div>
-      </aside>
+      </nav>
     </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <h1>Servicios en la Nube & Managed Services <span style="opacity:.6">/ Cloud & Managed Services</span></h1>
+      <p>
+        Somos un MSP que diseña, gestiona y asegura plataformas Microsoft para impulsar a tu organización.
+        <span class="en">We are an MSP specializing in designing, managing, and securing Microsoft platforms to power your organization.</span>
+      </p>
+      <div class="ribbon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#41d1ff"/></svg>
+        <span>Microsoft Cloud • Seguridad • Colaboración</span>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <h2>Servicios en la Nube / Cloud Services</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <span class="tag">Azure</span>
+          <h3>Microsoft Azure <span class="en" style="opacity:.7">/ Cloud Infrastructure</span></h3>
+          <p>Plataforma líder para infraestructura segura, escalable y de alto rendimiento. Entregamos ambientes gestionados con operaciones confiables y optimización de costos.
+            <span class="en">A leading platform delivering secure, scalable, high‑performance infrastructure. We provide fully managed environments with reliable operations and cost optimization.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">SharePoint</span>
+          <h3>Microsoft SharePoint <span class="en" style="opacity:.7">/ Secure Collaboration</span></h3>
+          <p>Centraliza documentos, flujos y colaboración en un solo lugar seguro. Creamos sitios, automatizamos procesos e integramos con Microsoft 365.
+            <span class="en">Centralizes documents, workflows, and collaboration in one secure place. We build sites, automate processes, and integrate with Microsoft 365.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Microsoft 365</span>
+          <h3>Microsoft 365 <span class="en" style="opacity:.7">/ Productivity Suite</span></h3>
+          <p>Suite basada en la nube (Outlook, Teams, Word, Excel, OneDrive) con gestión completa, seguridad reforzada y colaboración fluida.
+            <span class="en">Cloud‑based suite with full management, enhanced security, and seamless collaboration across Outlook, Teams, Word, Excel, OneDrive.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Outlook & Email Security</span>
+          <h3>Correo Seguro <span class="en" style="opacity:.7">/ Secure Email</span></h3>
+          <p>Administramos Outlook con protección avanzada contra amenazas, continuidad operativa e integración con Microsoft 365.
+            <span class="en">We manage Outlook with advanced threat protection, reliable operations, and Microsoft 365 integration.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Teams</span>
+          <h3>Microsoft Teams <span class="en" style="opacity:.7">/ Collaboration Hub</span></h3>
+          <p>Chat, reuniones, llamadas y archivos en un espacio seguro, con configuración optimizada y gestión continua.
+            <span class="en">Chat, meetings, calls, and files in one secure workspace with optimized configuration and ongoing management.</span>
+          </p>
+        </article>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>Servicios Gestionados / Managed Services</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <span class="tag">Cybersecurity</span>
+          <h3>Ciberseguridad <span class="en" style="opacity:.7">/ Multi‑Layered Defense</span></h3>
+          <p>Estrategia multinivel: detección de amenazas, protección de endpoints, seguridad de correo, monitoreo de vulnerabilidades y políticas.
+            <span class="en">Multi‑layered strategy: threat detection, endpoint protection, email security, vulnerability monitoring, and policy enforcement.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">vCIO</span>
+          <h3>Servicios vCIO <span class="en" style="opacity:.7">/ Strategic IT</span></h3>
+          <p>Planeación, presupuesto, desarrollo de políticas y gestión de proveedores para alinear TI con tus objetivos.
+            <span class="en">Planning, budgeting, policy development, and vendor management to align IT with your long‑term objectives.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">Awareness</span>
+          <h3>Entrenamiento en Ciberseguridad <span class="en" style="opacity:.7">/ Security Awareness</span></h3>
+          <p>Capacitaciones prácticas para identificar phishing, evitar riesgos y adoptar mejores prácticas.
+            <span class="en">Engaging training to identify phishing, avoid risky behavior, and adopt best practices.</span>
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag">RMM</span>
+          <h3>Monitoreo & Gestión Remota (RMM) <span class="en" style="opacity:.7">/ Remote Monitoring</span></h3>
+          <p>Monitoreo continuo, mantenimiento automatizado y respuesta rápida antes de que afecte tus operaciones.
+            <span class="en">Continuous monitoring, automated maintenance, and rapid response before issues impact your operations.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contacto / Contact</h2>
+      <p class="small">Completa el formulario y te responderemos en breve. <span class="en">Fill out the form and we’ll get back to you shortly.</span></p>
+
+      <form id="ecsgForm" aria-labelledby="contact-title" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="fullName">Nombre y Apellido / <span class="en">Name and Last Name</span></label>
+            <input id="fullName" name="fullName" type="text" placeholder="Ej.: Ana Pérez / e.g., Jane Doe" required />
+          </div>
+          <div class="field">
+            <label for="company">Empresa / <span class="en">Company</span> <span class="help">(opcional / optional)</span></label>
+            <input id="company" name="company" type="text" placeholder="Tu empresa / Your company" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="email">Correo Electrónico / <span class="en">Email</span></label>
+            <input id="email" name="email" type="email" placeholder="nombre@empresa.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Teléfono / <span class="en">Phone</span> <span class="help">(opcional / optional)</span></label>
+            <input id="phone" name="phone" type="tel" placeholder="(203) 555‑1234" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="area">Área de Interés / <span class="en">Area of Interest</span></label>
+            <select id="area" name="area" required>
+              <option value="" selected disabled>Selecciona / Select</option>
+              <option value="cloud">Servicios en la Nube / Cloud Services</option>
+              <option value="managed">Servicios Gestionados / Managed Services</option>
+              <option value="web">Diseño Web / Web Design</option>
+              <option value="other">Otro / Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Servicios Específicos / <span class="en">Specific Services</span></label>
+            <div id="serviceChecks" class="checks" aria-live="polite"></div>
+            <div class="help">Las opciones cambian según el área. <span class="en">Options change based on selected area.</span></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="budget">Presupuesto Estimado / <span class="en">Estimated Budget</span> <span class="help">(opcional / optional)</span></label>
+            <select id="budget" name="budget">
+              <option value="">Prefiero discutirlo / Prefer to discuss</option>
+              <option value="under5">&lt; $5,000</option>
+              <option value="5to15">$5,000 – $15,000</option>
+              <option value="15to50">$15,000 – $50,000</option>
+              <option value="over50">&gt; $50,000</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contactPref">Preferencia de Contacto / <span class="en">Contact Preference</span></label>
+            <select id="contactPref" name="contactPref">
+              <option value="email">Correo / Email</option>
+              <option value="phone">Teléfono / Phone</option>
+              <option value="teams">Reunión en Teams / Teams meeting</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Mensaje / <span class="en">Message</span></label>
+          <textarea id="message" name="message" placeholder="Cuéntanos brevemente sobre tus necesidades / Tell us briefly about your needs" required></textarea>
+        </div>
+
+        <div class="field" style="display:none">
+          <label for="website">Sitio web</label>
+          <input id="website" name="website" type="text" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label>
+            <input type="checkbox" id="consent" required />
+            Acepto ser contactado / <span class="en">I agree to be contacted</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Enviar / Submit</button>
+          <span class="small">Demo sin backend. <span class="en">Client‑side demo (no backend).</span></span>
+        </div>
+        <div id="formSuccess" class="success">¡Gracias! Hemos recibido tu solicitud. <span class="en">Thanks! Your request has been received.</span></div>
+        <div id="formError" class="error">Ocurrió un error al enviar. <span class="en">There was an error submitting the form.</span></div>
+      </form>
+
+      <p class="small" style="margin-top:10px">
+        ¿Quieres envío real por correo? Cambia <code>action</code> a tu proveedor (por ejemplo, FormSubmit o tu API) y quita el manejador JS.
+        <span class="en">Need real email delivery? Point the form <code>action</code> to your provider (e.g., FormSubmit or your API) and remove the JS handler.</span>
+      </p>
+    </section>
 
     <footer>
-      <p data-es="¿Prefieres una reunión?" data-en="Prefer a meeting?">¿Prefieres una reunión? <a href="#" aria-label="Book a demo">Agenda una demo</a></p>
-      <p class="small">© <span id="year"></span> Enterprise Cloud Solutions Group · ECSG</p>
+      <div class="divider"></div>
+      <div class="grid cols-2">
+        <p>© <span id="year"></span> ECSG. Todos los derechos reservados. <span class="en">All rights reserved.</span></p>
+        <p style="text-align:right">New Haven, CT • <span class="pill">MSP</span> <span class="pill">Microsoft Cloud</span> <span class="pill">Security</span></p>
+      </div>
     </footer>
-  </div>
+  </main>
 
   <script>
-    // Language toggle logic (ES default)
-    const btnEs = document.getElementById('btn-es');
-    const btnEn = document.getElementById('btn-en');
-    const translatable = document.querySelectorAll('[data-es]');
-
-    function setLang(lang){
-      translatable.forEach(el=>{
-        el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
-      });
-      // Update buttons state
-      const isES = lang === 'es';
-      btnEs.classList.toggle('active', isES);
-      btnEs.setAttribute('aria-pressed', isES);
-      btnEn.classList.toggle('active', !isES);
-      btnEn.setAttribute('aria-pressed', !isES);
-      document.documentElement.lang = lang;
-    }
-
-    btnEs.addEventListener('click',()=>setLang('es'));
-    btnEn.addEventListener('click',()=>setLang('en'));
-
-    // Accessible year
+    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Basic client-side validation + demo submit
-    const form = document.getElementById('contact-form');
-    const statusEl = document.getElementById('form-status');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      // simple required checks
-      const requiredIds = ['firstName','lastName','email','interest','message','consent'];
-      let valid = true;
-      requiredIds.forEach(id=>{
-        const el = document.getElementById(id);
-        if((el.type === 'checkbox' && !el.checked) || (!el.value)){
-          el.style.borderColor = 'var(--danger)';
-          valid = false;
-        } else {
-          el.style.borderColor = 'rgba(255,255,255,.12)';
-        }
+    // Opciones de servicios por área (ES/EN en la etiqueta)
+    const options = {
+      cloud: [
+        {v:'azure', l:'Azure / Azure'},
+        {v:'sharepoint', l:'SharePoint / SharePoint'},
+        {v:'m365', l:'Microsoft 365 / Microsoft 365'},
+        {v:'emailsec', l:'Correo Seguro (Outlook) / Secure Email (Outlook)'},
+        {v:'teams', l:'Microsoft Teams / Microsoft Teams'},
+      ],
+      managed: [
+        {v:'cyber', l:'Ciberseguridad / Cybersecurity'},
+        {v:'vcio', l:'Servicios vCIO / vCIO Services'},
+        {v:'training', l:'Entrenamiento de Ciberseguridad / Cybersecurity Training'},
+        {v:'rmm', l:'Monitoreo & Gestión Remota (RMM) / Remote Monitoring & Management'},
+      ],
+      web: [
+        {v:'website', l:'Sitio Web Corporativo / Corporate Website'},
+        {v:'ecommerce', l:'Tienda en Línea / E‑commerce'},
+        {v:'seo', l:'SEO & Rendimiento / SEO & Performance'},
+        {v:'maintenance', l:'Soporte & Mantenimiento / Support & Maintenance'},
+      ],
+      other: [
+        {v:'assessment', l:'Asesoría / Assessment'},
+        {v:'migration', l:'Migraciones / Migrations'},
+        {v:'automation', l:'Automatización / Automation'},
+      ],
+    };
+
+    const serviceChecks = document.getElementById('serviceChecks');
+    const area = document.getElementById('area');
+    area.addEventListener('change', () => {
+      const list = options[area.value] || [];
+      serviceChecks.innerHTML = '';
+      list.forEach(item => {
+        const id = `svc-${item.v}`;
+        const wrapper = document.createElement('label');
+        wrapper.style.display = 'flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.gap = '8px';
+        wrapper.style.border = '1px solid rgba(148,163,184,.22)';
+        wrapper.style.borderRadius = '10px';
+        wrapper.style.padding = '8px 10px';
+        wrapper.style.background = '#0b1220';
+
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.name = 'services';
+        cb.value = item.v;
+        cb.id = id;
+        cb.ariaLabel = item.l;
+
+        const span = document.createElement('span');
+        span.textContent = item.l;
+
+        wrapper.appendChild(cb);
+        wrapper.appendChild(span);
+        serviceChecks.appendChild(wrapper);
       });
-      if(!valid){
-        statusEl.textContent = document.documentElement.lang === 'es' ? 'Por favor completa los campos requeridos.' : 'Please complete the required fields.';
+    });
+
+    // Envío del formulario (demo sin backend). Si quieres usar FormSubmit:
+    // 1) Cambia <form action="https://formsubmit.co/TU_EMAIL" method="POST"> y
+    // 2) elimina este manejador para permitir el POST nativo.
+    const form = document.getElementById('ecsgForm');
+    const ok = document.getElementById('formSuccess');
+    const err = document.getElementById('formError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      ok.style.display = 'none';
+      err.style.display = 'none';
+
+      // Honeypot
+      if (document.getElementById('website').value.trim() !== '') {
+        err.textContent = 'Bot detectado / Bot detected.';
+        err.style.display = 'block';
         return;
       }
 
-      // Build payload (ready for backend integration)
-      const data = Object.fromEntries(new FormData(form).entries());
-      console.log('Form payload →', data);
-      statusEl.textContent = document.documentElement.lang === 'es'
-        ? '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.'
-        : 'Thank you! We received your request and will be in touch soon.';
+      // Validación básica
+      const required = ['fullName','email','area','message'];
+      for (const id of required){
+        const el = document.getElementById(id);
+        if (!el || !el.value || el.value.trim() === '' || (id==='area' && el.value==='')) {
+          err.textContent = 'Por favor completa los campos obligatorios. / Please complete the required fields.';
+          err.style.display = 'block';
+          el && el.focus();
+          return;
+        }
+      }
 
+      // Simulación de éxito
+      await new Promise(r => setTimeout(r, 500));
       form.reset();
+      serviceChecks.innerHTML = '';
+      ok.style.display = 'block';
     });
   </script>
 </body>
