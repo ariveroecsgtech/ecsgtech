@@ -3,19 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ECSG | Servicios en la Nube & Managed Services – Bilingüe</title>
-  <meta name="description" content="ECSG – Cloud Services, Managed Services y Project Management. Formulario de contacto bilingüe (ES/EN)." />
+  <title>ENTERPRISE CLOUD SOLUTIONS GROUP LLC | Cloud & Managed Services</title>
+  <meta name="description" content="ENTERPRISE CLOUD SOLUTIONS GROUP LLC (ECSG) – Cloud Services, Managed Services y Seguridad. Formulario de contacto bilingüe (ES/EN)." />
   <style>
     :root{
-      --bg:#0b1220;            /* fondo oscuro profesional */
-      --card:#0f172a;          /* azul oscuro pizarra */
-      --muted:#94a3b8;         /* texto secundario */
-      --text:#e2e8f0;          /* texto principal */
-      --brand:#41d1ff;         /* acento cian */
-      --brand-2:#7c3aed;       /* acento púrpura */
-      --ok:#22c55e;            /* éxito */
-      --warn:#f59e0b;          /* advertencia */
-      --danger:#ef4444;        /* error */
+      --bg:#0b1220; --card:#0f172a; --muted:#94a3b8; --text:#e2e8f0;
+      --brand:#41d1ff; --brand-2:#7c3aed; --ok:#22c55e; --danger:#ef4444;
       --ring: 0 0 0 3px rgba(65,209,255,.25);
     }
     *{box-sizing:border-box}
@@ -26,9 +19,11 @@
     .container{width:min(1200px, 92%); margin:0 auto}
     header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.7)); backdrop-filter: blur(6px); border-bottom:1px solid rgba(148,163,184,.15)}
     nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
-    .brand .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 30deg, var(--brand), var(--brand-2)); box-shadow:0 6px 24px rgba(65,209,255,.35)}
-    .brand span{letter-spacing:.2px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    .brand img{width:38px;height:38px;object-fit:contain}
+    .brand .name{display:flex;flex-direction:column;line-height:1}
+    .brand .name .line1{font-weight:800;letter-spacing:.2px}
+    .brand .name .line2{color:var(--muted);font-size:12px}
     .navlinks{display:flex;gap:22px}
     .chip{padding:6px 10px;border:1px solid rgba(148,163,184,.22);border-radius:999px;color:var(--muted)}
 
@@ -52,7 +47,6 @@
 
     .pill{display:inline-flex; align-items:center; gap:8px; background:rgba(65,209,255,.08); border:1px solid rgba(65,209,255,.25); padding:6px 10px; border-radius:999px; font-size:12.5px; color:#cffafe}
 
-    /* Form */
     form{background:linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.7)); border:1px solid rgba(148,163,184,.14); border-radius:16px; padding:18px}
     .field{margin-bottom:14px}
     label{display:block; font-size:13px; color:#cbd5e1; margin:0 0 6px}
@@ -70,19 +64,12 @@
     .checks{display:grid; grid-template-columns:1fr 1fr; gap:8px}
     @media (max-width:700px){ .checks{grid-template-columns:1fr} }
 
-    .help{font-size:12px; color:var(--muted)}
-
+    .small{font-size:12px;color:var(--muted)}
     .actions{display:flex; gap:10px; align-items:center}
     button{background:linear-gradient(90deg, var(--brand), var(--brand-2)); border:none; color:white; padding:11px 16px; border-radius:12px; font-weight:600; cursor:pointer}
     button:hover{filter:brightness(1.05)}
 
-    .success, .error{display:none; margin-top:8px; font-size:14px}
-    .success{color:var(--ok)}
-    .error{color:var(--danger)}
-
     footer{padding:36px 0; color:var(--muted); font-size:13px}
-    .small{font-size:12px;color:var(--muted)}
-
     .divider{height:1px; background:linear-gradient(90deg, rgba(148,163,184,.02), rgba(148,163,184,.25), rgba(148,163,184,.02)); margin:18px 0}
   </style>
 </head>
@@ -91,8 +78,11 @@
     <div class="container">
       <nav>
         <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <span>ECSG — Enterprise Cloud Solutions Group</span>
+          <img src="logo1_white.png" alt="ECSG logo" />
+          <div class="name">
+            <span class="line1">ENTERPRISE CLOUD SOLUTIONS GROUP LLC</span>
+            <span class="line2">MSP • Microsoft Cloud • Security • Managed Services</span>
+          </div>
         </div>
         <div class="navlinks">
           <span class="chip">Servicios / Services</span>
@@ -104,7 +94,7 @@
 
   <main class="container">
     <section class="hero" id="top">
-      <h1>Servicios en la Nube & Managed Services <span style="opacity:.6">/ Cloud & Managed Services</span></h1>
+      <h1>Cloud Services & Managed Services <span style="opacity:.6">/ Servicios en la Nube y Gestionados</span></h1>
       <p>
         Somos un MSP que diseña, gestiona y asegura plataformas Microsoft para impulsar a tu organización.
         <span class="en">We are an MSP specializing in designing, managing, and securing Microsoft platforms to power your organization.</span>
@@ -194,14 +184,21 @@
       <h2>Contacto / Contact</h2>
       <p class="small">Completa el formulario y te responderemos en breve. <span class="en">Fill out the form and we’ll get back to you shortly.</span></p>
 
-      <form id="ecsgForm" aria-labelledby="contact-title" novalidate>
+      <form id="ecsgForm" action="https://formsubmit.co/info@ecsgtech.com" method="POST">
+        <!-- FormSubmit controls -->
+        <input type="hidden" name="_subject" value="ECSG • Nueva solicitud desde el sitio" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://ecsgtech.com/thanks" />
+        <input type="hidden" name="source" value="ecsg-website" />
+
         <div class="row">
           <div class="field">
             <label for="fullName">Nombre y Apellido / <span class="en">Name and Last Name</span></label>
             <input id="fullName" name="fullName" type="text" placeholder="Ej.: Ana Pérez / e.g., Jane Doe" required />
           </div>
           <div class="field">
-            <label for="company">Empresa / <span class="en">Company</span> <span class="help">(opcional / optional)</span></label>
+            <label for="company">Empresa / <span class="en">Company</span> <span class="small">(opcional / optional)</span></label>
             <input id="company" name="company" type="text" placeholder="Tu empresa / Your company" />
           </div>
         </div>
@@ -212,7 +209,7 @@
             <input id="email" name="email" type="email" placeholder="nombre@empresa.com" required />
           </div>
           <div class="field">
-            <label for="phone">Teléfono / <span class="en">Phone</span> <span class="help">(opcional / optional)</span></label>
+            <label for="phone">Teléfono / <span class="en">Phone</span> <span class="small">(opcional / optional)</span></label>
             <input id="phone" name="phone" type="tel" placeholder="(203) 555‑1234" />
           </div>
         </div>
@@ -231,13 +228,13 @@
           <div class="field">
             <label>Servicios Específicos / <span class="en">Specific Services</span></label>
             <div id="serviceChecks" class="checks" aria-live="polite"></div>
-            <div class="help">Las opciones cambian según el área. <span class="en">Options change based on selected area.</span></div>
+            <div class="small">Las opciones cambian según el área. <span class="en">Options change based on selected area.</span></div>
           </div>
         </div>
 
         <div class="row">
           <div class="field">
-            <label for="budget">Presupuesto Estimado / <span class="en">Estimated Budget</span> <span class="help">(opcional / optional)</span></label>
+            <label for="budget">Presupuesto Estimado / <span class="en">Estimated Budget</span> <span class="small">(opcional / optional)</span></label>
             <select id="budget" name="budget">
               <option value="">Prefiero discutirlo / Prefer to discuss</option>
               <option value="under5">&lt; $5,000</option>
@@ -275,23 +272,18 @@
 
         <div class="actions">
           <button type="submit">Enviar / Submit</button>
-          <span class="small">Demo sin backend. <span class="en">Client‑side demo (no backend).</span></span>
+          <span class="small">Se enviará a <strong>info@ecsgtech.com</strong> vía FormSubmit.</span>
         </div>
-        <div id="formSuccess" class="success">¡Gracias! Hemos recibido tu solicitud. <span class="en">Thanks! Your request has been received.</span></div>
-        <div id="formError" class="error">Ocurrió un error al enviar. <span class="en">There was an error submitting the form.</span></div>
       </form>
-
-      <p class="small" style="margin-top:10px">
-        ¿Quieres envío real por correo? Cambia <code>action</code> a tu proveedor (por ejemplo, FormSubmit o tu API) y quita el manejador JS.
-        <span class="en">Need real email delivery? Point the form <code>action</code> to your provider (e.g., FormSubmit or your API) and remove the JS handler.</span>
-      </p>
     </section>
 
     <footer>
       <div class="divider"></div>
       <div class="grid cols-2">
-        <p>© <span id="year"></span> ECSG. Todos los derechos reservados. <span class="en">All rights reserved.</span></p>
-        <p style="text-align:right">New Haven, CT • <span class="pill">MSP</span> <span class="pill">Microsoft Cloud</span> <span class="pill">Security</span></p>
+        <p>© <span id="year"></span> ENTERPRISE CLOUD SOLUTIONS GROUP LLC • Todos los derechos reservados. <span class="en">All rights reserved.</span></p>
+        <p style="text-align:right">
+          26 Belden Ave. Norwalk, CT, 06850 • <a href="mailto:info@ecsgtech.com">info@ecsgtech.com</a>
+        </p>
       </div>
     </footer>
   </main>
@@ -358,44 +350,6 @@
         wrapper.appendChild(span);
         serviceChecks.appendChild(wrapper);
       });
-    });
-
-    // Envío del formulario (demo sin backend). Si quieres usar FormSubmit:
-    // 1) Cambia <form action="https://formsubmit.co/TU_EMAIL" method="POST"> y
-    // 2) elimina este manejador para permitir el POST nativo.
-    const form = document.getElementById('ecsgForm');
-    const ok = document.getElementById('formSuccess');
-    const err = document.getElementById('formError');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      ok.style.display = 'none';
-      err.style.display = 'none';
-
-      // Honeypot
-      if (document.getElementById('website').value.trim() !== '') {
-        err.textContent = 'Bot detectado / Bot detected.';
-        err.style.display = 'block';
-        return;
-      }
-
-      // Validación básica
-      const required = ['fullName','email','area','message'];
-      for (const id of required){
-        const el = document.getElementById(id);
-        if (!el || !el.value || el.value.trim() === '' || (id==='area' && el.value==='')) {
-          err.textContent = 'Por favor completa los campos obligatorios. / Please complete the required fields.';
-          err.style.display = 'block';
-          el && el.focus();
-          return;
-        }
-      }
-
-      // Simulación de éxito
-      await new Promise(r => setTimeout(r, 500));
-      form.reset();
-      serviceChecks.innerHTML = '';
-      ok.style.display = 'block';
     });
   </script>
 </body>
