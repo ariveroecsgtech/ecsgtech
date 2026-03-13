@@ -1,0 +1,323 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | ECSG Tech</title>
+  <meta name="description" content="Formulario de contacto para Enterprise Cloud Solutions Group (ECSG). Envíanos tu consulta y te responderemos en menos de 24 horas.">
+  <style>
+    :root{
+      --ecsg-primary:#0d6efd; /* azul corporativo */
+      --ecsg-primary-600:#0b5ed7;
+      --ecsg-bg:#0b1220;      /* fondo oscuro elegante */
+      --ecsg-card:#121a2b;    /* tarjeta */
+      --ecsg-text:#e6eefc;    /* texto claro */
+      --ecsg-muted:#9fb3d2;   /* texto secundario */
+      --ecsg-accent:#22d3ee;  /* cian/acento */
+      --ok:#16a34a;           /* verde */
+      --warn:#f59e0b;         /* ámbar */
+      --err:#ef4444;          /* rojo */
+      --ring: 0 0 0 4px rgba(13,110,253,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--ecsg-text); background:radial-gradient(1200px 800px at 10% -10%, rgba(34,211,238,.08), transparent),
+                              radial-gradient(900px 600px at 110% 10%, rgba(13,110,253,.12), transparent),
+                              var(--ecsg-bg);
+      line-height:1.55;
+    }
+    .wrap{max-width:1100px; margin-inline:auto; padding:32px 20px 80px}
+    header{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:28px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:44px; height:44px; border-radius:12px; background: linear-gradient(135deg, var(--ecsg-primary), var(--ecsg-accent));
+          display:grid; place-items:center; color:white; font-weight:700}
+    .brand h1{font-size:1.25rem; margin:0}
+    .brand span{display:block; font-size:.85rem; color:var(--ecsg-muted)}
+    .badge{font-size:.75rem; color:#081225; background:linear-gradient(135deg,#9ae6b4,#60a5fa); padding:6px 10px; border-radius:999px; font-weight:600}
+
+    .grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:28px}
+    @media (max-width: 900px){ .grid{grid-template-columns: 1fr} }
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+          border:1px solid rgba(255,255,255,.08); border-radius:20px; box-shadow: 0 10px 30px rgba(0,0,0,.25)}
+    .card .content{padding:26px}
+
+    h2{font-size:1.6rem; margin:.25rem 0 1rem}
+    p.lead{color:var(--ecsg-muted); margin-top:0}
+
+    form{display:grid; gap:16px}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width:640px){ .row{grid-template-columns:1fr} }
+
+    label{display:block; font-size:.95rem; margin-bottom:6px; color:#d4e1f7}
+    .input, textarea, select{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15);
+      background:rgba(10,14,25,.6); color:var(--ecsg-text); outline:none; transition:.18s border, .18s box-shadow;
+    }
+    .input::placeholder, textarea::placeholder{color:#98a9c6}
+    .input:focus, textarea:focus, select:focus{border-color:var(--ecsg-primary); box-shadow: var(--ring)}
+
+    .helper{font-size:.82rem; color:var(--ecsg-muted); margin-top:6px}
+    .error{color:var(--err); font-size:.85rem; display:none}
+
+    .actions{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .btn{
+      padding:12px 18px; border-radius:12px; border:0; font-weight:600; letter-spacing:.2px; cursor:pointer;
+      color:white; background:linear-gradient(180deg, var(--ecsg-primary), var(--ecsg-primary-600));
+      box-shadow: 0 8px 20px rgba(13,110,253,.35);
+    }
+    .btn:focus{box-shadow: var(--ring)}
+    .btn.secondary{background:transparent; border:1px solid rgba(255,255,255,.18); color:var(--ecsg-text)}
+
+    .features{display:grid; gap:12px}
+    .chip{display:flex; gap:10px; align-items:flex-start; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+          padding:12px 14px; border-radius:14px}
+    .chip .dot{width:10px; height:10px; border-radius:50%; background: var(--ecsg-accent); margin-top:6px}
+
+    .note{font-size:.85rem; color:var(--ecsg-muted)}
+    .muted{color:var(--ecsg-muted)}
+
+    .success{display:none; background: rgba(22,163,74,.12); border:1px solid rgba(22,163,74,.4); color:#d1fae5; padding:12px 14px; border-radius:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">E</div>
+        <div>
+          <h1>ECSG Tech</h1>
+          <span>Enterprise Cloud Solutions Group</span>
+        </div>
+      </div>
+      <span class="badge">Respuesta en &lt; 24h</span>
+    </header>
+
+    <div class="grid">
+      <!-- Formulario -->
+      <section class="card" aria-labelledby="contacto-title">
+        <div class="content">
+          <h2 id="contacto-title">Contacto y Solicitud de Presupuesto</h2>
+          <p class="lead">Cuéntanos sobre tu proyecto y te enviaremos una propuesta detallada a tu correo. También puedes escribirnos a <a class="muted" href="mailto:info@ecsgtech.com">info@ecsgtech.com</a>.</p>
+
+          <!-- Mensaje de éxito (se muestra tras enviar) -->
+          <div id="successBox" class="success" role="alert" aria-live="polite">¡Gracias! Tu mensaje fue enviado correctamente. Te responderemos muy pronto.</div>
+
+          <!--
+            Integración sin backend usando FormSubmit (https://formsubmit.co/)
+            - Envía el formulario directamente a info@ecsgtech.com
+            - ReCAPTCHA y honeypot para reducir spam
+            - Redirección a esta misma página con hash #ok para mostrar mensaje de éxito
+          -->
+          <form id="contactForm" action="https://formsubmit.co/info@ecsgtech.com" method="POST" novalidate>
+            <!-- Configuración FormSubmit -->
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde ecsgtech.com">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_autoresponse" value="¡Hola! Hemos recibido tu mensaje. Nuestro equipo de ECSG Tech te responderá en menos de 24 horas. Gracias por contactarnos.">
+            <input type="hidden" name="_next" value="{CURRENT_URL}#ok">
+            <!-- Honeypot -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="row">
+              <div>
+                <label for="nombre">Nombre y apellido *</label>
+                <input class="input" id="nombre" name="Nombre" type="text" placeholder="Ej. María Pérez" required minlength="3" autocomplete="name">
+                <div class="helper">Cómo debemos dirigirnos a ti.</div>
+                <div class="error" id="err-nombre">Ingresa un nombre válido (mínimo 3 caracteres).</div>
+              </div>
+              <div>
+                <label for="email">Correo electrónico *</label>
+                <input class="input" id="email" name="Email" type="email" placeholder="tucorreo@dominio.com" required autocomplete="email">
+                <div class="helper">Usaremos este correo para enviarte la propuesta.</div>
+                <div class="error" id="err-email">Ingresa un correo válido.</div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="telefono">Teléfono / WhatsApp</label>
+                <input class="input" id="telefono" name="Telefono" type="tel" placeholder="Ej. +1 203 555 1212" autocomplete="tel">
+                <div class="helper">Opcional, por si prefieres contacto telefónico.</div>
+              </div>
+              <div>
+                <label for="tipo">Tipo de proyecto *</label>
+                <select id="tipo" name="Tipo de proyecto" required>
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option>Landing Page</option>
+                  <option>Sitio Corporativo</option>
+                  <option>Ecommerce</option>
+                  <option>Rediseño</option>
+                  <option>Soporte / Mantenimiento</option>
+                  <option>Otro</option>
+                </select>
+                <div class="error" id="err-tipo">Selecciona el tipo de proyecto.</div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="presupuesto">Presupuesto estimado (USD)</label>
+                <select id="presupuesto" name="Presupuesto estimado">
+                  <option value="No definido">No definido</option>
+                  <option value="250-500">$250 – $500</option>
+                  <option value="500-1k">$500 – $1,000</option>
+                  <option value="1k-3k">$1,000 – $3,000</option>
+                  <option value="3k-6k">$3,000 – $6,000</option>
+                  <option value="6k+">$6,000+</option>
+                </select>
+              </div>
+              <div>
+                <label for="plazo">Plazo objetivo</label>
+                <select id="plazo" name="Plazo objetivo">
+                  <option>Flexible</option>
+                  <option>1–2 semanas</option>
+                  <option>3–4 semanas</option>
+                  <option>5–8 semanas</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="mensaje">Cuéntanos sobre tu proyecto *</label>
+              <textarea id="mensaje" name="Mensaje" rows="6" placeholder="Objetivo del sitio, público objetivo, referencias de diseño, funcionalidades clave (por ejemplo: formularios, e‑commerce, blog, integraciones), contenido disponible, etc." required minlength="20"></textarea>
+              <div class="error" id="err-mensaje">Por favor, brinda al menos 20 caracteres.</div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="archivo">Adjuntar archivo (opcional)</label>
+                <input class="input" id="archivo" name="Archivo" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.png,.zip">
+                <div class="helper">Brief, referencias o bocetos. Tamaño máximo según proveedor.</div>
+              </div>
+              <div>
+                <label for="origen">¿Cómo nos conociste?</label>
+                <select id="origen" name="Origen">
+                  <option>Google</option>
+                  <option>Redes sociales</option>
+                  <option>Recomendación</option>
+                  <option>Evento</option>
+                  <option>Cliente actual</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label>
+                <input type="checkbox" id="acepto" required> Acepto la <a class="muted" href="#" onclick="alert('Política de privacidad: tus datos se usarán solo para responder a tu consulta y no se compartirán con terceros.'); return false;">política de privacidad</a> *
+              </label>
+              <div class="error" id="err-acepto">Debes aceptar la política de privacidad.</div>
+            </div>
+
+            <div class="actions">
+              <button class="btn" type="submit">Enviar consulta</button>
+              <a class="btn secondary" href="mailto:info@ecsgtech.com">Escribir por email</a>
+              <span class="note">Tiempo de respuesta promedio: 4–8 h laborables.</span>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Lateral informativo -->
+      <aside class="card" aria-labelledby="info-title">
+        <div class="content">
+          <h2 id="info-title">¿Qué incluye nuestra propuesta?</h2>
+          <div class="features">
+            <div class="chip"><div class="dot"></div><div>
+              <strong>Alcance y entregables claros</strong>
+              <div class="muted">Listado de funcionalidades, hitos, tiempos y supuestos.</div>
+            </div></div>
+            <div class="chip"><div class="dot" style="background:#34d399"></div><div>
+              <strong>Diseño responsive</strong>
+              <div class="muted">Optimizado para móvil, tablet y escritorio.</div>
+            </div></div>
+            <div class="chip"><div class="dot" style="background:#f59e0b"></div><div>
+              <strong>SEO técnico básico</strong>
+              <div class="muted">Buenas prácticas de estructura, metadatos y rendimiento.</div>
+            </div></div>
+            <div class="chip"><div class="dot" style="background:#60a5fa"></div><div>
+              <strong>Soporte post‑lanzamiento</strong>
+              <div class="muted">Garantía de 15 días y opciones de mantenimiento.</div>
+            </div></div>
+          </div>
+          <hr style="border-color:rgba(255,255,255,.1); margin:18px 0">
+          <p class="note">¿Necesitas NDA o reunión? Indícalo en el mensaje y coordinamos una videollamada.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer style="text-align:center; margin-top:28px; color:var(--ecsg-muted); font-size:.9rem">
+      © <span id="y"></span> ECSG Tech — Enterprise Cloud Solutions Group
+    </footer>
+  </div>
+
+  <script>
+    // Rellena año del footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Reemplaza {CURRENT_URL} en _next con la URL real al cargarse en producción
+    (function(){
+      var next = document.querySelector('input[name="_next"]');
+      if(next){
+        var url = window.location.origin + window.location.pathname;
+        next.value = url + '#ok';
+      }
+    })();
+
+    // Mostrar mensaje de éxito si la URL contiene #ok
+    (function(){
+      if(window.location.hash === '#ok'){
+        var success = document.getElementById('successBox');
+        if(success){ success.style.display = 'block'; }
+      }
+    })();
+
+    // Validación básica en cliente
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+      let valid = true;
+
+      const nombre = document.getElementById('nombre');
+      const email = document.getElementById('email');
+      const tipo = document.getElementById('tipo');
+      const mensaje = document.getElementById('mensaje');
+      const acepto = document.getElementById('acepto');
+
+      // Helpers para mostrar/ocultar errores
+      function showErr(id, cond){
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.style.display = cond ? 'block' : 'none';
+      }
+
+      // Nombre
+      showErr('err-nombre', !(nombre.value && nombre.value.trim().length >= 3));
+      valid = valid && (nombre.value && nombre.value.trim().length >= 3);
+
+      // Email regex simple
+      const emailOk = /.+@.+\..+/.test(email.value);
+      showErr('err-email', !emailOk);
+      valid = valid && emailOk;
+
+      // Tipo
+      showErr('err-tipo', !(tipo.value && tipo.value.trim() !== ''));
+      valid = valid && !!(tipo.value && tipo.value.trim() !== '');
+
+      // Mensaje
+      showErr('err-mensaje', !(mensaje.value && mensaje.value.trim().length >= 20));
+      valid = valid && (mensaje.value && mensaje.value.trim().length >= 20);
+
+      // Acepto
+      showErr('err-acepto', !acepto.checked);
+      valid = valid && acepto.checked;
+
+      if(!valid){
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
