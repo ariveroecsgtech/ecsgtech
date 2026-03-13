@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECSG | Contacto / Contact</title>
+  <meta name="description" content="Formulario de contacto bilingüe (ES/EN) para Enterprise Cloud Solutions Group (ECSG)." />
+  <style>
+    :root{
+      --bg:#0b1220; --card:#121a2b; --muted:#8ea0bc; --text:#e6eefc; --accent:#4cc3ff; --accent2:#7dfc9b; --danger:#ff6b6b;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:radial-gradient(1200px 800px at 10% 10%, #0f1a31 0%, #0b1220 55%), #0b1220;color:var(--text);}
+    a{color:var(--accent)}
+    .wrap{max-width:1100px;margin:auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:8px 0 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#001320;font-weight:900}
+    .title{line-height:1}
+    .title h1{margin:0;font-size:1.25rem}
+    .title p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+    .lang-toggle{display:flex;gap:8px;background:rgba(255,255,255,.05);padding:6px;border-radius:999px}
+    .lang-toggle button{border:0;background:transparent;color:var(--text);padding:8px 14px;border-radius:999px;cursor:pointer}
+    .lang-toggle button.active{background:linear-gradient(135deg,rgba(76,195,255,.2),rgba(125,252,155,.2));}
+
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);backdrop-filter: blur(8px);}
+    .card h2{margin:0 0 8px;font-size:1.15rem}
+    .card p{color:var(--muted)}
+
+    .pad{padding:18px}
+
+    form{display:grid;gap:12px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:700px){.row{grid-template-columns:1fr}}
+    label{font-weight:600;font-size:.95rem}
+    input,select,textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1728;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+
+    .hint{color:var(--muted);font-size:.85rem}
+    .required::after{content:" *";color:var(--accent)}
+
+    .inline{display:flex;gap:10px;align-items:center}
+    .inline input[type=checkbox]{width:auto}
+
+    .submit{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:6px}
+    .btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#001320;font-weight:800;border:0;border-radius:12px;padding:12px 18px;cursor:pointer}
+    .btn.sec{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.18)}
+
+    .tag{display:inline-block;margin:4px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.85rem}
+    ul.clean{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    @media (max-width:700px){ul.clean{grid-template-columns:1fr}}
+    .clean li{padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.04)}
+
+    footer{margin:26px 0 8px;color:var(--muted);font-size:.85rem;text-align:center}
+    .small{font-size:.8rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand" aria-label="ECSG">
+        <div class="logo" aria-hidden="true">E</div>
+        <div class="title">
+          <h1>Enterprise Cloud Solutions Group</h1>
+          <p>MSP • Cloud • Managed Services • Security</p>
+        </div>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language toggle">
+        <button id="btn-es" class="active" type="button" aria-pressed="true">ES</button>
+        <button id="btn-en" type="button" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card pad" aria-labelledby="contact-title">
+        <h2 id="contact-title" data-es="Contacto" data-en="Contact">Contacto</h2>
+        <p class="hint" data-es="Completa el formulario y te responderemos en menos de 1 día hábil." data-en="Fill out the form and we'll reply within 1 business day.">Completa el formulario y te responderemos en menos de 1 día hábil.</p>
+
+        <form id="contact-form" novalidate>
+          <div class="row">
+            <div>
+              <label class="required" for="firstName" data-es="Nombre" data-en="First Name">Nombre</label>
+              <input id="firstName" name="firstName" autocomplete="given-name" required placeholder="Anderson" />
+            </div>
+            <div>
+              <label class="required" for="lastName" data-es="Apellido" data-en="Last Name">Apellido</label>
+              <input id="lastName" name="lastName" autocomplete="family-name" required placeholder="Rivero" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="company" data-es="Empresa" data-en="Company">Empresa</label>
+              <input id="company" name="company" autocomplete="organization" placeholder="ECSG" />
+            </div>
+            <div>
+              <label class="required" for="email" data-es="Correo" data-en="Email">Correo</label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="nombre@empresa.com" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="phone" data-es="Teléfono" data-en="Phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 (203) 555‑0123" />
+            </div>
+            <div>
+              <label class="required" for="interest" data-es="Interés principal" data-en="Primary Interest">Interés principal</label>
+              <select id="interest" name="interest" required>
+                <option value="" selected disabled data-es="Selecciona una opción" data-en="Select an option">Selecciona una opción</option>
+                <optgroup label="Cloud Services">
+                  <option>Microsoft Azure</option>
+                  <option>Microsoft SharePoint</option>
+                  <option>Microsoft 365</option>
+                  <option>Security Email (Outlook)</option>
+                  <option>Microsoft Teams</option>
+                </optgroup>
+                <optgroup label="Managed Services">
+                  <option>Cybersecurity</option>
+                  <option>vCIO Services</option>
+                  <option>Cybersecurity Training</option>
+                  <option>Remote Monitoring & Management (RMM)</option>
+                </optgroup>
+                <optgroup label="Otros / Other">
+                  <option>Consultoría</option>
+                  <option>Soporte</option>
+                  <option>Proyecto Especial</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="services" data-es="Servicios de interés (multiple)" data-en="Services of interest (multiple)">Servicios de interés (multiple)</label>
+            <select id="services" name="services" multiple size="6" aria-describedby="servicesHelp">
+              <optgroup label="Cloud Services">
+                <option>Microsoft Azure</option>
+                <option>Microsoft SharePoint</option>
+                <option>Microsoft 365</option>
+                <option>Security Email (Outlook)</option>
+                <option>Microsoft Teams</option>
+              </optgroup>
+              <optgroup label="Managed Services">
+                <option>Cybersecurity</option>
+                <option>vCIO Services</option>
+                <option>Cybersecurity Training</option>
+                <option>Remote Monitoring & Management (RMM)</option>
+              </optgroup>
+            </select>
+            <div class="hint" id="servicesHelp" data-es="Mantén presionada la tecla Ctrl/⌘ para seleccionar varias opciones." data-en="Hold Ctrl/⌘ to select multiple options.">Mantén presionada la tecla Ctrl/⌘ para seleccionar varias opciones.</div>
+          </div>
+
+          <div>
+            <label class="required" for="message" data-es="Mensaje" data-en="Message">Mensaje</label>
+            <textarea id="message" name="message" required placeholder="Cuéntanos sobre tu necesidad, objetivos y plazos."></textarea>
+          </div>
+
+          <div class="inline">
+            <input id="consent" type="checkbox" required />
+            <label class="required" for="consent" data-es="Acepto ser contactado y el tratamiento de mis datos de acuerdo con la política de privacidad." data-en="I agree to be contacted and for my data to be processed according to the privacy policy.">Acepto ser contactado y el tratamiento de mis datos de acuerdo con la política de privacidad.</label>
+          </div>
+
+          <div class="inline small" aria-live="polite">
+            <span class="tag" data-es="Protegido contra spam" data-en="Spam-protected">Protegido contra spam</span>
+            <span>reCAPTCHA placeholder</span>
+          </div>
+
+          <div class="submit">
+            <button type="reset" class="btn sec" data-es="Limpiar" data-en="Clear">Limpiar</button>
+            <button type="submit" class="btn" data-es="Enviar" data-en="Send">Enviar</button>
+          </div>
+
+          <p id="form-status" class="hint" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="card pad">
+        <h2 data-es="Servicios" data-en="Services">Servicios</h2>
+        <p class="hint" data-es="Soluciones administradas de extremo a extremo para acelerar, proteger y escalar tu negocio." data-en="End-to-end managed solutions to accelerate, secure, and scale your business.">Soluciones administradas de extremo a extremo para acelerar, proteger y escalar tu negocio.</p>
+
+        <h3>Cloud Services</h3>
+        <ul class="clean">
+          <li><strong>Microsoft Azure</strong><br><span class="small" data-es="Infraestructura segura, escalable y de alto rendimiento." data-en="Secure, scalable, high‑performance infrastructure.">Infraestructura segura, escalable y de alto rendimiento.</span></li>
+          <li><strong>Microsoft SharePoint</strong><br><span class="small" data-es="Colaboración segura, automatización y gestión documental." data-en="Secure collaboration, automation, and document management.">Colaboración segura, automatización y gestión documental.</span></li>
+          <li><strong>Microsoft 365</strong><br><span class="small" data-es="Productividad en la nube con Outlook, Teams, Word, Excel y más." data-en="Cloud productivity with Outlook, Teams, Word, Excel, and more.">Productividad en la nube con Outlook, Teams, Word, Excel y más.</span></li>
+          <li><strong>Security Email (Outlook)</strong><br><span class="small" data-es="Correo empresarial con protección avanzada contra amenazas." data-en="Business email with advanced threat protection.">Correo empresarial con protección avanzada contra amenazas.</span></li>
+          <li><strong>Microsoft Teams</strong><br><span class="small" data-es="Chat, reuniones, llamadas y archivos en un espacio seguro." data-en="Chat, meetings, calls, and files in a secure workspace.">Chat, reuniones, llamadas y archivos en un espacio seguro.</span></li>
+        </ul>
+
+        <h3 style="margin-top:14px">Managed Services</h3>
+        <ul class="clean">
+          <li><strong>Cybersecurity</strong><br><span class="small" data-es="Estrategia multinivel: detección, endpoints, email y políticas." data-en="Multilayer strategy: detection, endpoints, email, and policies.">Estrategia multinivel: detección, endpoints, email y políticas.</span></li>
+          <li><strong>vCIO Services</strong><br><span class="small" data-es="Planeación, presupuesto y gobierno de TI sin contratar ejecutivo." data-en="IT planning, budgeting, and governance without a full‑time executive.">Planeación, presupuesto y gobierno de TI sin contratar ejecutivo.</span></li>
+          <li><strong>Cybersecurity Training</strong><br><span class="small" data-es="Formación práctica para identificar phishing y reducir riesgos." data-en="Hands‑on training to spot phishing and reduce risk.">Formación práctica para identificar phishing y reducir riesgos.</span></li>
+          <li><strong>Remote Monitoring & Management (RMM)</strong><br><span class="small" data-es="Monitoreo 24/7, mantenimiento automatizado y respuesta rápida." data-en="24/7 monitoring, automated maintenance, rapid response.">Monitoreo 24/7, mantenimiento automatizado y respuesta rápida.</span></li>
+        </ul>
+
+        <div style="margin-top:14px">
+          <span class="tag">SLA‑backed</span>
+          <span class="tag">NIST‑aligned</span>
+          <span class="tag">Zero‑Trust</span>
+          <span class="tag">Microsoft Partner</span>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p data-es="¿Prefieres una reunión?" data-en="Prefer a meeting?">¿Prefieres una reunión? <a href="#" aria-label="Book a demo">Agenda una demo</a></p>
+      <p class="small">© <span id="year"></span> Enterprise Cloud Solutions Group · ECSG</p>
+    </footer>
+  </div>
+
+  <script>
+    // Language toggle logic (ES default)
+    const btnEs = document.getElementById('btn-es');
+    const btnEn = document.getElementById('btn-en');
+    const translatable = document.querySelectorAll('[data-es]');
+
+    function setLang(lang){
+      translatable.forEach(el=>{
+        el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
+      });
+      // Update buttons state
+      const isES = lang === 'es';
+      btnEs.classList.toggle('active', isES);
+      btnEs.setAttribute('aria-pressed', isES);
+      btnEn.classList.toggle('active', !isES);
+      btnEn.setAttribute('aria-pressed', !isES);
+      document.documentElement.lang = lang;
+    }
+
+    btnEs.addEventListener('click',()=>setLang('es'));
+    btnEn.addEventListener('click',()=>setLang('en'));
+
+    // Accessible year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Basic client-side validation + demo submit
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      // simple required checks
+      const requiredIds = ['firstName','lastName','email','interest','message','consent'];
+      let valid = true;
+      requiredIds.forEach(id=>{
+        const el = document.getElementById(id);
+        if((el.type === 'checkbox' && !el.checked) || (!el.value)){
+          el.style.borderColor = 'var(--danger)';
+          valid = false;
+        } else {
+          el.style.borderColor = 'rgba(255,255,255,.12)';
+        }
+      });
+      if(!valid){
+        statusEl.textContent = document.documentElement.lang === 'es' ? 'Por favor completa los campos requeridos.' : 'Please complete the required fields.';
+        return;
+      }
+
+      // Build payload (ready for backend integration)
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('Form payload →', data);
+      statusEl.textContent = document.documentElement.lang === 'es'
+        ? '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.'
+        : 'Thank you! We received your request and will be in touch soon.';
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
