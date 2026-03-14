@@ -178,26 +178,14 @@
       <h1><span>Contact</span> Our Team<br/><span class="es-inline">Cont&#225;ctenos</span></h1>
       <p class="subtitle">
         <span class="en-inline">We respond within 1 business day &nbsp;&middot;&nbsp;
-          <a href="/cdn-cgi/l/email-protection#80f3e1ece5f3c0e5e3f3e7f4e5e3e8aee3efed"><span class="__cf_email__" data-cfemail="5122303d34221134322236253432397f323e3c">[email&#160;protected]</span></a></span>
+          <a href="mailto:sales@ecsgtech.com">sales@ecsgtech.com</a></span>
         <span class="es-inline">Respondemos en 1 d&#237;a h&#225;bil &nbsp;&middot;&nbsp;
-          <a href="/cdn-cgi/l/email-protection#7e0d1f121b0d3e1b1d0d190a1b1d16501d1113"><span class="__cf_email__" data-cfemail="a6d5c7cac3d5e6c3c5d5c1d2c3c5ce88c5c9cb">[email&#160;protected]</span></a></span>
+          <a href="mailto:sales@ecsgtech.com">sales@ecsgtech.com</a></span>
       </p>
     </div>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a href="https://www.ecsgtech.com" style="
-        display:inline-flex; align-items:center; gap:6px;
-        background:transparent; border:1.5px solid rgba(255,255,255,0.25);
-        color:rgba(255,255,255,0.75); text-decoration:none;
-        padding:7px 16px; border-radius:6px;
-        font-family:'Barlow Condensed',sans-serif; font-size:0.85rem;
-        font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-        transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.75)';">
-        &#8592; Home
-      </a>
-      <div class="lang-toggle">
-        <button class="active" onclick="setLang('en')">EN</button>
-        <button onclick="setLang('es')">ES</button>
-      </div>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('es')">ES</button>
     </div>
   </div>
 </header>
@@ -371,30 +359,6 @@
             </div>
           </label>
           <label class="service-check" onclick="toggleCheck(this)">
-            <input type="checkbox" name="services" value="Web Design"/>
-            <div class="service-check-label">
-              <span class="service-cat">Digital Services</span>
-              <span class="service-name">Web Design</span>
-              <span class="service-name-es">Dise&#241;o y desarrollo de sitios web</span>
-            </div>
-          </label>
-          <label class="service-check" onclick="toggleCheck(this)">
-            <input type="checkbox" name="services" value="Network Installations"/>
-            <div class="service-check-label">
-              <span class="service-cat">Infrastructure</span>
-              <span class="service-name">Network Installations</span>
-              <span class="service-name-es">Instalaci&#243;n y configuraci&#243;n de redes</span>
-            </div>
-          </label>
-          <label class="service-check" onclick="toggleCheck(this)">
-            <input type="checkbox" name="services" value="Camera Installations"/>
-            <div class="service-check-label">
-              <span class="service-cat">Infrastructure</span>
-              <span class="service-name">Camera Installations</span>
-              <span class="service-name-es">Instalaci&#243;n de c&#225;maras de seguridad</span>
-            </div>
-          </label>
-          <label class="service-check" onclick="toggleCheck(this)">
             <input type="checkbox" name="services" value="Not sure - Need consultation"/>
             <div class="service-check-label">
               <span class="service-cat">General</span>
@@ -477,13 +441,13 @@
 <footer>
   <strong>Enterprise Cloud Solutions Group LLC</strong> &nbsp;&middot;&nbsp;
   26 Belden Ave, Norwalk, CT 06850 &nbsp;&middot;&nbsp;
-  <a href="/cdn-cgi/l/email-protection#4132202d24320124223226352422296f222e2c"><span class="__cf_email__" data-cfemail="0271636e677142676171657667616a2c616d6f">[email&#160;protected]</span></a> &nbsp;&middot;&nbsp;
+  <a href="mailto:sales@ecsgtech.com">sales@ecsgtech.com</a> &nbsp;&middot;&nbsp;
   <a href="https://www.ecsgtech.com" target="_blank">www.ecsgtech.com</a>
 </footer>
 
 <div id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Logo
   document.getElementById('logo-img').src = 'logo_ecsg.png';
 
@@ -594,4 +558,18 @@
       }
     })
     .catch(function(err) {
-      console.error('Networ
+      console.error('Network error:', err);
+      showToast(isEs
+        ? '\u274c Error de conexi\u00f3n. Esc\u00edbanos a sales@ecsgtech.com'
+        : '\u274c Connection error. Please email sales@ecsgtech.com');
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+      document.querySelectorAll('.en-inline, .es-inline').forEach(function(el) { el.style.display = ''; });
+      setLang(document.body.classList.contains('lang-es') ? 'es' : 'en');
+    });
+  });
+</script>
+</body>
+</html>
