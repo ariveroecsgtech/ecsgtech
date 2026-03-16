@@ -976,3 +976,10 @@ p  { font-size: 1rem; color: var(--text-muted); }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+
+/* ===== EXTRA SAFETY FOR TIGHT PHONES (added by Copilot) ===== */
+@media (max-width: 480px) {
+  .lang-switch { display: none !important; }
+  .btn.btn-nav { padding: .5rem .9rem !important; font-size: .8rem !important; }
+}
