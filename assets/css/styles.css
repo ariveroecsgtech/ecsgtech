@@ -976,3 +976,10 @@ p  { font-size: 1rem; color: var(--text-muted); }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+
+/* ===== FORCE MOBILE NAVBAR ON ALL PHONES (added by Copilot) ===== */
+@media (max-width: 992px) {
+  .navbar-nav { display: none !important; }
+  .hamburger { display: flex !important; }
+}
