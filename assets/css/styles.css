@@ -216,7 +216,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
 }
 
 .navbar-logo-img {
-  height: 100px;  /* aquí cambias el tamaño del logo */
+  height: 200px;  /* aquí cambias el tamaño del logo */
   width: auto;
 }
 
