@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>vCIO Services | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – Virtual CIO (vCIO) services: strategic IT leadership, technology roadmaps, cybersecurity planning, and budget optimization for growing businesses in Connecticut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
+    }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1B3660 50%, #255EA0 100%);
+      color: #fff; padding: 80px 32px 70px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 92% 45%, rgba(46,117,182,0.4) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── COMPARISON TABLE ─── */
+    .compare-wrap {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th {
+      padding: 16px 20px; text-align: left;
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .compare-table th:first-child { background: var(--gray-50); color: var(--gray-600); width: 40%; }
+    .compare-table th:nth-child(2) { background: var(--navy); color: #fff; text-align: center; }
+    .compare-table th:nth-child(3) { background: var(--gray-100); color: var(--gray-600); text-align: center; }
+    .compare-table td { padding: 13px 20px; border-top: 1px solid var(--gray-100); font-size: 0.87rem; }
+    .compare-table td:first-child { color: var(--gray-800); font-weight: 600; background: var(--gray-50); }
+    .compare-table td:nth-child(2) { text-align: center; background: rgba(30,58,95,0.03); }
+    .compare-table td:nth-child(3) { text-align: center; color: var(--gray-600); }
+    .compare-table tr:hover td { background: var(--blue-pale); }
+    .compare-table tr:hover td:first-child { background: var(--blue-pale); }
+    .check { color: #22C55E; font-size: 1rem; }
+    .cross { color: #CBD5E1; font-size: 1rem; }
+
+    /* ─── ROADMAP VISUAL ─── */
+    .roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .roadmap-grid::after {
+      content: ''; position: absolute; top: 30px; left: 4%; right: 4%; height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--blue)); z-index: 0;
+    }
+    .roadmap-step { position: relative; z-index: 1; text-align: center; padding: 0 12px; }
+    .rm-num {
+      width: 60px; height: 60px; background: var(--navy); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;
+      margin: 0 auto 16px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--blue);
+    }
+    .roadmap-step h4 {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .roadmap-step p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ─── WHY VCIO CARDS ─── */
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .why-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 22px; text-align: center;
+      transition: var(--transition);
+    }
+    .why-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .why-icon {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: #fff; margin: 0 auto 16px;
+    }
+    .why-card h4 {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .why-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── QBR SECTION ─── */
+    .qbr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .qbr-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 26px;
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: var(--transition);
+    }
+    .qbr-card:hover { box-shadow: var(--shadow-md); border-color: var(--blue-light); transform: translateY(-2px); }
+    .qbr-icon {
+      width: 48px; min-width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #fff;
+    }
+    .qbr-card h4 {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 7px;
+    }
+    .qbr-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.68; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .roadmap-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .roadmap-grid::after { display: none; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .qbr-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .compare-table th, .compare-table td { padding: 10px 12px; font-size: 0.82rem; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .roadmap-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+      .compare-wrap { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-user-tie"></i> <span data-en="Virtual Chief Information Officer" data-es="Director de Información Virtual">Virtual Chief Information Officer</span></div>
+    <h1><em data-en="vCIO Services" data-es="Servicios vCIO">vCIO Services</em><br><span data-en="Executive IT Leadership. Fraction of the Cost." data-es="Liderazgo Ejecutivo de TI. Fracción del Costo.">Executive IT Leadership. Fraction of the Cost.</span></h1>
+    <p class="lead"
+       data-en="Transform your business with Enterprise Cloud Solutions Group's vCIO services — your trusted strategic IT advisor in Connecticut, delivering vision, technology roadmaps, and seamless execution to align technology with your growth goals."
+       data-es="Transforme su empresa con los servicios vCIO de Enterprise Cloud Solutions Group — su asesor estratégico de TI de confianza en Connecticut, entregando visión, hojas de ruta tecnológicas y ejecución perfecta para alinear la tecnología con sus metas de crecimiento.">
+      Transform your business with Enterprise Cloud Solutions Group's vCIO services — your trusted strategic IT advisor in Connecticut, delivering vision, technology roadmaps, and seamless execution to align technology with your growth goals.
+    </p>
+    <a href="ecsgcontact_sales.html" class="hero-cta">
+      <i class="fas fa-arrow-right"></i>
+      <span data-en="Schedule a Strategy Session" data-es="Agendar una Sesión Estratégica">Schedule a Strategy Session</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">70%</div>
+        <div class="label" data-en="Less than a Full-Time CIO" data-es="Menos que un CIO de Tiempo Completo">Less than a Full-Time CIO</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">QBR</div>
+        <div class="label" data-en="Quarterly Business Reviews" data-es="Revisiones Trimestrales de Negocio">Quarterly Business Reviews</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">360°</div>
+        <div class="label" data-en="IT Strategy Coverage" data-es="Cobertura Estratégica de TI">IT Strategy Coverage</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">15+</div>
+        <div class="label" data-en="Years of Experience" data-es="Años de Experiencia">Years of Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT IS VCIO ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-circle-question"></i> <span data-en="What Is a vCIO?" data-es="¿Qué Es un vCIO?">What Is a vCIO?</span></div>
+      <h2 data-en="Strategic IT Leadership — Without the Executive Salary" data-es="Liderazgo Estratégico de TI — Sin el Salario Ejecutivo">Strategic IT Leadership — Without the Executive Salary</h2>
+      <p data-en="A Virtual CIO (vCIO) gives your organization access to C-suite level technology strategy and leadership — on a flexible, cost-effective basis. Most SMBs and mid-market companies don't need a $250K+ full-time CIO, but they absolutely need that level of strategic thinking applied to their technology decisions."
+         data-es="Un CIO Virtual (vCIO) le da a su organización acceso a estrategia y liderazgo tecnológico de nivel C-suite — de forma flexible y rentable. La mayoría de las empresas medianas no necesitan un CIO de tiempo completo con salario de $250K+, pero absolutamente necesitan ese nivel de pensamiento estratégico aplicado a sus decisiones tecnológicas.">
+        A Virtual CIO (vCIO) gives your organization access to C-suite level technology strategy and leadership — on a flexible, cost-effective basis. Most SMBs and mid-market companies don't need a $250K+ full-time CIO, but they absolutely need that level of strategic thinking applied to their technology decisions.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Your Technology Partner at the Leadership Level" data-es="Su Socio Tecnológico al Nivel de Liderazgo">Your Technology Partner at the Leadership Level</h3>
+        <p data-en="ECSG's vCIO service embeds a senior technology executive into your leadership team — attending strategy meetings, advising the board, and ensuring every technology investment is tied to a clear business outcome. We don't just manage your IT; we drive it forward with a long-term vision."
+           data-es="El servicio vCIO de ECSG integra a un ejecutivo de tecnología senior en su equipo de liderazgo — asistiendo a reuniones estratégicas, asesorando a la junta directiva y asegurando que cada inversión tecnológica esté vinculada a un resultado de negocio claro. No solo administramos su TI; la impulsamos con una visión a largo plazo.">
+          ECSG's vCIO service embeds a senior technology executive into your leadership team — attending strategy meetings, advising the board, and ensuring every technology investment is tied to a clear business outcome. We don't just manage your IT; we drive it forward with a long-term vision.
+        </p>
+        <p data-en="From building your 3-year technology roadmap to negotiating vendor contracts and presenting IT performance to your board, your ECSG vCIO is accountable — not just advisory. You get the strategic insight of a seasoned CIO with the technical depth of an entire engineering team behind them."
+           data-es="Desde construir su hoja de ruta tecnológica de 3 años hasta negociar contratos con proveedores y presentar el rendimiento de TI a su junta, su vCIO de ECSG es responsable — no solo consultivo. Obtiene la perspectiva estratégica de un CIO experimentado con la profundidad técnica de todo un equipo de ingeniería detrás.">
+          From building your 3-year technology roadmap to negotiating vendor contracts and presenting IT performance to your board, your ECSG vCIO is accountable — not just advisory. You get the strategic insight of a seasoned CIO with the technical depth of an entire engineering team behind them.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Strategic Alignment" data-es="Alineación Estratégica">Strategic Alignment</span>
+          <span class="benefit-pill" data-en="Budget Optimization" data-es="Optimización de Presupuesto">Budget Optimization</span>
+          <span class="benefit-pill" data-en="Board-Level Reporting" data-es="Informes a Nivel de Junta">Board-Level Reporting</span>
+          <span class="benefit-pill" data-en="Vendor Accountability" data-es="Responsabilidad de Proveedores">Vendor Accountability</span>
+          <span class="benefit-pill" data-en="3-Year Roadmap" data-es="Hoja de Ruta de 3 Años">3-Year Roadmap</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="vCIO Focus Areas" data-es="Áreas de Enfoque vCIO">vCIO Focus Areas</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-map"></i></div><span class="cap-name" data-en="IT Strategy & Roadmap" data-es="Estrategia de TI y Hoja de Ruta">IT Strategy & Roadmap</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:98%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-dollar-sign"></i></div><span class="cap-name" data-en="Budget & Cost Management" data-es="Presupuesto y Gestión de Costos">Budget & Cost Management</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-shield-halved"></i></div><span class="cap-name" data-en="Cybersecurity & Compliance" data-es="Ciberseguridad y Cumplimiento">Cybersecurity & Compliance</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:93%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-handshake"></i></div><span class="cap-name" data-en="Vendor Management" data-es="Gestión de Proveedores">Vendor Management</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:92%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-chart-line"></i></div><span class="cap-name" data-en="Performance Reviews" data-es="Revisiones de Rendimiento">Performance Reviews</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-diagram-project"></i></div><span class="cap-name" data-en="Project Oversight" data-es="Supervisión de Proyectos">Project Oversight</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CORE SERVICES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-th-large"></i> <span data-en="What's Included" data-es="Qué Está Incluido">What's Included</span></div>
+      <h2 data-en="What Our vCIO Services Include" data-es="Qué Incluyen Nuestros Servicios vCIO">What Our vCIO Services Include</h2>
+      <p data-en="Our vCIO engagement is comprehensive — covering every dimension of IT strategy, governance, and execution. No gaps, no hand-offs, no finger-pointing."
+         data-es="Nuestro compromiso vCIO es integral — cubriendo cada dimensión de la estrategia, gobernanza y ejecución de TI. Sin brechas, sin transferencias, sin excusas.">
+        Our vCIO engagement is comprehensive — covering every dimension of IT strategy, governance, and execution. No gaps, no hand-offs, no finger-pointing.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-map"></i></div>
+        <h3 data-en="IT Strategy & Technology Roadmap" data-es="Estrategia de TI y Hoja de Ruta">IT Strategy & Technology Roadmap</h3>
+        <p data-en="A clear, actionable 3-year IT roadmap aligned to your business goals — covering cloud adoption, security improvements, hardware refresh cycles, and infrastructure evolution." data-es="Una hoja de ruta de TI clara y accionable de 3 años alineada a sus metas de negocio — cubriendo adopción de la nube, mejoras de seguridad, ciclos de renovación de hardware y evolución de infraestructura.">A clear, actionable 3-year IT roadmap aligned to your business goals — covering cloud adoption, security improvements, hardware refresh cycles, and infrastructure evolution.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="3-year strategic IT roadmap" data-es="Hoja de ruta estratégica de TI de 3 años">3-year strategic IT roadmap</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Business-technology alignment workshops" data-es="Talleres de alineación negocio-tecnología">Business-technology alignment workshops</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Cloud & modernization planning" data-es="Planificación de nube y modernización">Cloud & modernization planning</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Hardware refresh & lifecycle planning" data-es="Renovación de hardware y planificación de ciclo de vida">Hardware refresh & lifecycle planning</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-dollar-sign"></i></div>
+        <h3 data-en="Budgeting & Cost Optimization" data-es="Presupuesto y Optimización de Costos">Budgeting & Cost Optimization</h3>
+        <p data-en="We help you predict and manage IT expenses, eliminate waste, and invest only in solutions that deliver measurable value to your operations and bottom line." data-es="Le ayudamos a predecir y gestionar los gastos de TI, eliminar el desperdicio e invertir solo en soluciones que entreguen valor medible a sus operaciones y resultados.">We help you predict and manage IT expenses, eliminate waste, and invest only in solutions that deliver measurable value to your operations and bottom line.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Annual IT budget development" data-es="Desarrollo del presupuesto anual de TI">Annual IT budget development</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="License & subscription optimization" data-es="Optimización de licencias y suscripciones">License & subscription optimization</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Cloud cost governance & rightsizing" data-es="Gobernanza de costos cloud y dimensionamiento">Cloud cost governance & rightsizing</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="ROI analysis for IT investments" data-es="Análisis de ROI para inversiones de TI">ROI analysis for IT investments</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3 data-en="Cybersecurity & Compliance Planning" data-es="Ciberseguridad y Planificación de Cumplimiento">Cybersecurity & Compliance Planning</h3>
+        <p data-en="We evaluate your risk posture, define security policies, and build a comprehensive cybersecurity strategy that meets compliance standards and protects your organization." data-es="Evaluamos su postura de riesgo, definimos políticas de seguridad y construimos una estrategia integral de ciberseguridad que cumple con los estándares de cumplimiento y protege su organización.">We evaluate your risk posture, define security policies, and build a comprehensive cybersecurity strategy that meets compliance standards and protects your organization.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Annual cybersecurity risk assessment" data-es="Evaluación anual de riesgos de ciberseguridad">Annual cybersecurity risk assessment</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Security policy development & review" data-es="Desarrollo y revisión de políticas de seguridad">Security policy development & review</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="HIPAA, SOC 2, CMMC compliance guidance" data-es="Orientación de cumplimiento HIPAA, SOC 2, CMMC">HIPAA, SOC 2, CMMC compliance guidance</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Incident response planning" data-es="Planificación de respuesta a incidentes">Incident response planning</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-handshake"></i></div>
+        <h3 data-en="Vendor & Licensing Management" data-es="Gestión de Proveedores y Licencias">Vendor & Licensing Management</h3>
+        <p data-en="We manage all communication and contract negotiations with your IT vendors — ensuring you always get the right solutions at the best price, with accountability built in." data-es="Gestionamos toda la comunicación y negociaciones de contratos con sus proveedores de TI — asegurando que siempre obtenga las soluciones correctas al mejor precio, con responsabilidad integrada.">We manage all communication and contract negotiations with your IT vendors — ensuring you always get the right solutions at the best price, with accountability built in.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Vendor contract review & negotiation" data-es="Revisión y negociación de contratos con proveedores">Vendor contract review & negotiation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Software license audits" data-es="Auditorías de licencias de software">Software license audits</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="SLA enforcement & accountability" data-es="Cumplimiento de SLA y responsabilidad">SLA enforcement & accountability</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Vendor consolidation strategy" data-es="Estrategia de consolidación de proveedores">Vendor consolidation strategy</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <h3 data-en="Technology Performance Reviews" data-es="Revisiones de Rendimiento Tecnológico">Technology Performance Reviews</h3>
+        <p data-en="We continuously assess the performance of your systems, networks, and cloud solutions — identifying gaps, inefficiencies, and opportunities for improvement before they become problems." data-es="Evaluamos continuamente el rendimiento de sus sistemas, redes y soluciones cloud — identificando brechas, ineficiencias y oportunidades de mejora antes de que se conviertan en problemas.">We continuously assess the performance of your systems, networks, and cloud solutions — identifying gaps, inefficiencies, and opportunities for improvement before they become problems.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Quarterly Business Reviews (QBRs)" data-es="Revisiones Trimestrales de Negocio (QBRs)">Quarterly Business Reviews (QBRs)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="IT health scorecards & KPI dashboards" data-es="Scorecards de salud de TI y dashboards de KPIs">IT health scorecards & KPI dashboards</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Infrastructure capacity planning" data-es="Planificación de capacidad de infraestructura">Infrastructure capacity planning</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Technology gap analysis" data-es="Análisis de brechas tecnológicas">Technology gap analysis</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-diagram-project"></i></div>
+        <h3 data-en="Project Planning & Oversight" data-es="Planificación y Supervisión de Proyectos">Project Planning & Oversight</h3>
+        <p data-en="From cloud migrations to system upgrades, your vCIO oversees IT projects end-to-end — ensuring flawless execution, on-budget delivery, and minimal disruption to your operations." data-es="Desde migraciones a la nube hasta actualizaciones de sistemas, su vCIO supervisa los proyectos de TI de extremo a extremo — asegurando ejecución perfecta, entrega dentro del presupuesto y mínima interrupción.">From cloud migrations to system upgrades, your vCIO oversees IT projects end-to-end — ensuring flawless execution, on-budget delivery, and minimal disruption to your operations.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="IT project portfolio governance" data-es="Gobernanza del portafolio de proyectos de TI">IT project portfolio governance</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Executive project status reporting" data-es="Informes ejecutivos de estado de proyectos">Executive project status reporting</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Resource & budget oversight" data-es="Supervisión de recursos y presupuesto">Resource & budget oversight</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Change control & risk escalation" data-es="Control de cambios y escalación de riesgos">Change control & risk escalation</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── VCIO VS FULL-TIME CIO ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-scale-balanced"></i> <span data-en="vCIO vs. Full-Time CIO" data-es="vCIO vs. CIO de Tiempo Completo">vCIO vs. Full-Time CIO</span></div>
+      <h2 data-en="Same Strategic Value. Smarter Investment." data-es="Mismo Valor Estratégico. Inversión Más Inteligente.">Same Strategic Value. Smarter Investment.</h2>
+      <p data-en="The average full-time CIO in the US costs $250,000–$350,000 per year in salary alone — before benefits, bonuses, and overhead. ECSG's vCIO delivers equivalent strategic value at a fraction of that cost, with a full team of engineers backing every decision."
+         data-es="El CIO de tiempo completo promedio en EE.UU. cuesta $250,000–$350,000 al año solo en salario — sin beneficios, bonificaciones ni gastos generales. El vCIO de ECSG entrega el mismo valor estratégico a una fracción de ese costo, con un equipo completo de ingenieros respaldando cada decisión.">
+        The average full-time CIO in the US costs $250,000–$350,000 per year in salary alone — before benefits, bonuses, and overhead. ECSG's vCIO delivers equivalent strategic value at a fraction of that cost, with a full team of engineers backing every decision.
+      </p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th data-en="Capability" data-es="Capacidad">Capability</th>
+            <th>ECSG vCIO</th>
+            <th data-en="Full-Time CIO" data-es="CIO de Tiempo Completo">Full-Time CIO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-en="IT Strategy & Roadmap" data-es="Estrategia de TI y Hoja de Ruta">IT Strategy & Roadmap</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-check check"></i></td>
+          </tr>
+          <tr>
+            <td data-en="Cybersecurity Oversight" data-es="Supervisión de Ciberseguridad">Cybersecurity Oversight</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-check check"></i></td>
+          </tr>
+          <tr>
+            <td data-en="Budget & Cost Management" data-es="Presupuesto y Gestión de Costos">Budget & Cost Management</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-check check"></i></td>
+          </tr>
+          <tr>
+            <td data-en="Vendor Negotiation" data-es="Negociación con Proveedores">Vendor Negotiation</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-check check"></i></td>
+          </tr>
+          <tr>
+            <td data-en="Full Engineering Team Included" data-es="Equipo de Ingeniería Completo Incluido">Full Engineering Team Included</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-xmark cross"></i></td>
+          </tr>
+          <tr>
+            <td data-en="24/7 Monitoring & Support" data-es="Monitoreo y Soporte 24/7">24/7 Monitoring & Support</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-xmark cross"></i></td>
+          </tr>
+          <tr>
+            <td data-en="Scalable Engagement (Up/Down)" data-es="Compromiso Escalable (Arriba/Abajo)">Scalable Engagement (Up/Down)</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-xmark cross"></i></td>
+          </tr>
+          <tr>
+            <td data-en="No Salary, Benefits, or HR Overhead" data-es="Sin Salario, Beneficios ni Gastos de RRHH">No Salary, Benefits, or HR Overhead</td>
+            <td><i class="fas fa-circle-check check"></i></td>
+            <td><i class="fas fa-circle-xmark cross"></i></td>
+          </tr>
+          <tr>
+            <td data-en="Typical Annual Cost" data-es="Costo Anual Típico">Typical Annual Cost</td>
+            <td style="color: var(--navy); font-weight:700;" data-en="Fraction of FTE Cost" data-es="Fracción del Costo FTE">Fraction of FTE Cost</td>
+            <td style="color: var(--gray-600);" data-en="$250K–$350K+" data-es="$250K–$350K+">$250K–$350K+</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QBR & DELIVERABLES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-calendar-check"></i> <span data-en="QBRs & Deliverables" data-es="QBRs y Entregables">QBRs & Deliverables</span></div>
+      <h2 data-en="What You Receive Every Quarter" data-es="Lo Que Recibe Cada Trimestre">What You Receive Every Quarter</h2>
+      <p data-en="Your vCIO engagement is structured around a disciplined quarterly cadence — with concrete deliverables, executive presentations, and actionable recommendations at every cycle."
+         data-es="Su compromiso vCIO está estructurado en torno a una cadencia trimestral disciplinada — con entregables concretos, presentaciones ejecutivas y recomendaciones accionables en cada ciclo.">
+        Your vCIO engagement is structured around a disciplined quarterly cadence — with concrete deliverables, executive presentations, and actionable recommendations at every cycle.
+      </p>
+    </div>
+    <div class="qbr-grid">
+      <div class="qbr-card">
+        <div class="qbr-icon"><i class="fas fa-chart-pie"></i></div>
+        <div>
+          <h4 data-en="IT Performance Scorecard" data-es="Scorecard de Rendimiento de TI">IT Performance Scorecard</h4>
+          <p data-en="A comprehensive report covering system uptime, helpdesk metrics, security posture, patch compliance, and infrastructure health — presented in executive-friendly format for your leadership team." data-es="Un informe completo que cubre disponibilidad del sistema, métricas de helpdesk, postura de seguridad, cumplimiento de parches y salud de infraestructura — presentado en formato ejecutivo para su equipo de liderazgo.">A comprehensive report covering system uptime, helpdesk metrics, security posture, patch compliance, and infrastructure health — presented in executive-friendly format for your leadership team.</p>
+        </div>
+      </div>
+      <div class="qbr-card">
+        <div class="qbr-icon"><i class="fas fa-map-location-dot"></i></div>
+        <div>
+          <h4 data-en="Roadmap Progress Review" data-es="Revisión del Avance de la Hoja de Ruta">Roadmap Progress Review</h4>
+          <p data-en="A status update on all active roadmap initiatives — what's been completed, what's in progress, what's upcoming, and any adjustments needed based on business changes or new priorities." data-es="Una actualización del estado de todas las iniciativas activas de la hoja de ruta — qué se ha completado, qué está en progreso, qué viene próximamente y los ajustes necesarios basados en cambios del negocio.">A status update on all active roadmap initiatives — what's been completed, what's in progress, what's upcoming, and any adjustments needed based on business changes or new priorities.</p>
+        </div>
+      </div>
+      <div class="qbr-card">
+        <div class="qbr-icon"><i class="fas fa-triangle-exclamation"></i></div>
+        <div>
+          <h4 data-en="Risk & Threat Summary" data-es="Resumen de Riesgos y Amenazas">Risk & Threat Summary</h4>
+          <p data-en="An executive summary of the current cybersecurity threat landscape, your organization's risk exposure, active vulnerabilities, and the mitigation steps taken or planned during the quarter." data-es="Un resumen ejecutivo del panorama actual de amenazas de ciberseguridad, la exposición al riesgo de su organización, vulnerabilidades activas y los pasos de mitigación tomados o planificados durante el trimestre.">An executive summary of the current cybersecurity threat landscape, your organization's risk exposure, active vulnerabilities, and the mitigation steps taken or planned during the quarter.</p>
+        </div>
+      </div>
+      <div class="qbr-card">
+        <div class="qbr-icon"><i class="fas fa-dollar-sign"></i></div>
+        <div>
+          <h4 data-en="Budget & Spend Review" data-es="Revisión de Presupuesto y Gastos">Budget & Spend Review</h4>
+          <p data-en="A detailed breakdown of IT spend versus budget, cost-saving opportunities identified, vendor contract renewals coming due, and recommended adjustments for the next quarter's IT investment decisions." data-es="Un desglose detallado del gasto de TI versus presupuesto, oportunidades de ahorro identificadas, renovaciones de contratos con proveedores próximas y ajustes recomendados para las decisiones de inversión de TI del próximo trimestre.">A detailed breakdown of IT spend versus budget, cost-saving opportunities identified, vendor contract renewals coming due, and recommended adjustments for the next quarter's IT investment decisions.</p>
+        </div>
+      </div>
+      <div class="qbr-card">
+        <div class="qbr-icon"><i class="fas fa-lightbulb"></i></div>
+        <div>
+          <h4 data-en="Strategic Recommendations" data-es="Recomendaciones Estratégicas">Strategic Recommendations</h4>
+          <p data-en="Forward-looking technology recommendations tailored to your business — new tools to evaluate, architectural improvements to consider, regulatory changes to prepare for, and competitive opportunities enabled by technology." data-es="Recomendaciones tecnológicas orientadas al futuro y adaptadas a su negocio — nuevas herramientas a evaluar, mejoras arquitectónicas a considerar, cambios regulatorios para prepararse y oportunidades competitivas habilitadas por la tecnología.">Forward-looking technology recommendations tailored to your business — new tools to evaluate, architectural improvements to consider, regulatory changes to prepare for, and competitive opportunities enabled by technology.</p>
+        </div>
+      </div>
+      <div class="qbr-card">
+        <div class="qbr-icon"><i class="fas fa-bullseye"></i></div>
+        <div>
+          <h4 data-en="Next Quarter Action Plan" data-es="Plan de Acción del Próximo Trimestre">Next Quarter Action Plan</h4>
+          <p data-en="A clear, prioritized list of IT initiatives, projects, and tasks for the upcoming quarter — with owners, timelines, estimated costs, and expected business outcomes. Your team always knows what's coming and why." data-es="Una lista clara y priorizada de iniciativas, proyectos y tareas de TI para el próximo trimestre — con propietarios, cronogramas, costos estimados y resultados de negocio esperados. Su equipo siempre sabe qué viene y por qué.">A clear, prioritized list of IT initiatives, projects, and tasks for the upcoming quarter — with owners, timelines, estimated costs, and expected business outcomes. Your team always knows what's coming and why.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ENGAGEMENT MODEL ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-route"></i> <span data-en="How We Engage" data-es="Cómo Trabajamos">How We Engage</span></div>
+      <h2 data-en="From Onboarding to Ongoing Partnership" data-es="Del Onboarding a la Asociación Continua">From Onboarding to Ongoing Partnership</h2>
+      <p data-en="Our vCIO engagement follows a structured four-phase model that gets you to strategic value quickly — and keeps delivering it continuously."
+         data-es="Nuestro compromiso vCIO sigue un modelo estructurado de cuatro fases que le lleva al valor estratégico rápidamente — y lo sigue entregando continuamente.">
+        Our vCIO engagement follows a structured four-phase model that gets you to strategic value quickly — and keeps delivering it continuously.
+      </p>
+    </div>
+    <div class="roadmap-grid">
+      <div class="roadmap-step">
+        <div class="rm-num">01</div>
+        <h4 data-en="Discovery & Assessment" data-es="Descubrimiento y Evaluación">Discovery & Assessment</h4>
+        <p data-en="Deep-dive into your current IT environment, business goals, risks, and pain points. We document everything — infrastructure, vendors, contracts, and security posture." data-es="Inmersión profunda en su entorno de TI actual, metas de negocio, riesgos y puntos de dolor. Documentamos todo — infraestructura, proveedores, contratos y postura de seguridad.">Deep-dive into your current IT environment, business goals, risks, and pain points. We document everything — infrastructure, vendors, contracts, and security posture.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="rm-num">02</div>
+        <h4 data-en="Strategy & Roadmap" data-es="Estrategia y Hoja de Ruta">Strategy & Roadmap</h4>
+        <p data-en="We develop your 3-year IT roadmap, annual budget, cybersecurity plan, and vendor strategy — presented to your leadership team and aligned to business priorities." data-es="Desarrollamos su hoja de ruta de TI de 3 años, presupuesto anual, plan de ciberseguridad y estrategia de proveedores — presentada a su equipo directivo y alineada a las prioridades del negocio.">We develop your 3-year IT roadmap, annual budget, cybersecurity plan, and vendor strategy — presented to your leadership team and aligned to business priorities.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="rm-num">03</div>
+        <h4 data-en="Execution & Oversight" data-es="Ejecución y Supervisión">Execution & Oversight</h4>
+        <p data-en="Projects are executed, vendors are managed, and security controls are implemented — with your vCIO maintaining governance and accountability throughout." data-es="Los proyectos se ejecutan, los proveedores se gestionan y los controles de seguridad se implementan — con su vCIO manteniendo la gobernanza y la responsabilidad durante todo el proceso.">Projects are executed, vendors are managed, and security controls are implemented — with your vCIO maintaining governance and accountability throughout.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="rm-num">04</div>
+        <h4 data-en="Review & Evolve" data-es="Revisar y Evolucionar">Review & Evolve</h4>
+        <p data-en="Quarterly Business Reviews keep your strategy current. As your business grows and changes, your technology roadmap evolves with it — always forward-looking." data-es="Las Revisiones Trimestrales de Negocio mantienen su estrategia actualizada. A medida que su negocio crece y cambia, su hoja de ruta tecnológica evoluciona con él — siempre mirando hacia adelante.">Quarterly Business Reviews keep your strategy current. As your business grows and changes, your technology roadmap evolves with it — always forward-looking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY ECSG ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-star"></i> <span data-en="Why ECSG" data-es="Por Qué ECSG">Why ECSG</span></div>
+      <h2 data-en="Why Your Business Needs an ECSG vCIO" data-es="Por Qué Su Empresa Necesita un vCIO de ECSG">Why Your Business Needs an ECSG vCIO</h2>
+      <p data-en="We combine deep technical knowledge with business-level insight — ensuring technology becomes a powerful driver of growth, not an obstacle or afterthought."
+         data-es="Combinamos profundo conocimiento técnico con perspectiva de negocio — asegurando que la tecnología se convierta en un poderoso motor de crecimiento, no en un obstáculo.">
+        We combine deep technical knowledge with business-level insight — ensuring technology becomes a powerful driver of growth, not an obstacle or afterthought.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-bullseye"></i></div>
+        <h4 data-en="Business-Driven Focus" data-es="Enfoque Orientado al Negocio">Business-Driven Focus</h4>
+        <p data-en="Every recommendation we make is anchored in your business objectives — not technology for technology's sake. We speak both languages: C-suite and technical." data-es="Cada recomendación que hacemos está anclada en sus objetivos de negocio — no tecnología por tecnología. Hablamos ambos idiomas: nivel C-suite y técnico.">Every recommendation we make is anchored in your business objectives — not technology for technology's sake. We speak both languages: C-suite and technical.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-users"></i></div>
+        <h4 data-en="Full Team Behind You" data-es="Equipo Completo Detrás de Usted">Full Team Behind You</h4>
+        <p data-en="Your vCIO doesn't work alone. Behind every strategy decision is ECSG's full team of cloud, security, network, and Microsoft engineers — ready to execute." data-es="Su vCIO no trabaja solo. Detrás de cada decisión estratégica está el equipo completo de ECSG de ingenieros de nube, seguridad, red y Microsoft — listos para ejecutar.">Your vCIO doesn't work alone. Behind every strategy decision is ECSG's full team of cloud, security, network, and Microsoft engineers — ready to execute.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-map-pin"></i></div>
+        <h4 data-en="Local & Committed" data-es="Local y Comprometido">Local & Committed</h4>
+        <p data-en="Based in Norwalk, CT — we are embedded in the Connecticut business community, understanding local regulations, industry dynamics, and what your competitors are doing." data-es="Con sede en Norwalk, CT — estamos integrados en la comunidad empresarial de Connecticut, entendiendo regulaciones locales, dinámicas de la industria y lo que hacen sus competidores.">Based in Norwalk, CT — we are embedded in the Connecticut business community, understanding local regulations, industry dynamics, and what your competitors are doing.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+        <h4 data-en="Security-First Mindset" data-es="Mentalidad de Seguridad Primero">Security-First Mindset</h4>
+        <p data-en="Every IT decision we advise on — from vendor selection to cloud architecture — is evaluated through a security and compliance lens. Protection is never an afterthought." data-es="Cada decisión de TI que asesoramos — desde la selección de proveedores hasta la arquitectura cloud — se evalúa a través de un lente de seguridad y cumplimiento. La protección nunca es una ocurrencia tardía.">Every IT decision we advise on — from vendor selection to cloud architecture — is evaluated through a security and compliance lens. Protection is never an afterthought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Ready to Elevate Your IT Strategy?" data-es="¿Listo para Elevar Su Estrategia de TI?">Ready to Elevate Your IT Strategy?</h2>
+    <p data-en="Schedule a complimentary vCIO strategy session with our team. We'll assess your current IT environment, identify your biggest opportunities, and show you what a strategic IT partnership with ECSG can do for your business."
+       data-es="Agende una sesión estratégica vCIO gratuita con nuestro equipo. Evaluaremos su entorno de TI actual, identificaremos sus mayores oportunidades y le mostraremos lo que una asociación estratégica de TI con ECSG puede hacer por su empresa.">
+      Schedule a complimentary vCIO strategy session with our team. We'll assess your current IT environment, identify your biggest opportunities, and show you what a strategic IT partnership with ECSG can do for your business.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="vCIO-services.html" data-en="vCIO Services" data-es="Servicios vCIO">vCIO Services</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+  ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('en'); }); });
+  ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('es'); }); });
+  try { var s=localStorage.getItem('ecsg_lang'); if(s==='es') applyLang('es'); } catch(e) {}
+  var ham=document.getElementById('hamburger');
+  var mob=document.getElementById('mobile-menu');
+  if(ham&&mob){ ham.addEventListener('click', function(){ mob.classList.toggle('open'); }); }
+})();
+</script>
+</body>
+</html>
