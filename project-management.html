@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Project Management | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – IT Project Management services for cloud migrations, infrastructure upgrades, Microsoft 365 deployments, and digital transformation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
+    }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1D3D6B 50%, #2562A0 100%);
+      color: #fff; padding: 80px 32px 70px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 95% 45%, rgba(46,117,182,0.4) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── PROJECT TYPES ─── */
+    .project-types-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-type-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 28px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: var(--transition);
+    }
+    .project-type-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--blue-light); }
+    .pt-icon {
+      width: 54px; min-width: 54px; height: 54px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; color: #fff;
+    }
+    .pt-content h4 {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px;
+    }
+    .pt-content p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.68; margin-bottom: 10px; }
+    .pt-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pt-tag { background: var(--blue-pale); color: var(--blue); border-radius: 20px; padding: 3px 10px; font-size: 0.73rem; font-weight: 600; }
+
+    /* ─── METHODOLOGY ─── */
+    .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .method-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 24px; text-align: center;
+      transition: var(--transition);
+    }
+    .method-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .method-icon {
+      width: 58px; height: 58px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: #fff; margin: 0 auto 16px;
+    }
+    .method-card h4 {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .method-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── PROCESS ─── */
+    .process-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; }
+    .process-steps::after {
+      content: ''; position: absolute; top: 30px; left: 4%; right: 4%; height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--blue)); z-index: 0;
+    }
+    .process-step { position: relative; z-index: 1; text-align: center; padding: 0 10px; }
+    .step-num {
+      width: 60px; height: 60px; background: var(--navy); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;
+      margin: 0 auto 16px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--blue);
+    }
+    .process-step h4 {
+      font-family: var(--font-display); font-size: 0.9rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .process-step p { font-size: 0.78rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ─── TOOLS ─── */
+    .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .tool-item {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 22px 18px; text-align: center;
+      transition: var(--transition);
+    }
+    .tool-item:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .tool-item i { font-size: 1.8rem; color: var(--blue); margin-bottom: 10px; display: block; }
+    .tool-item span {
+      font-family: var(--font-display); font-size: 0.92rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; display: block;
+    }
+    .tool-item small { font-size: 0.75rem; color: var(--gray-600); margin-top: 3px; display: block; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .process-steps::after { display: none; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .method-grid { grid-template-columns: 1fr 1fr; }
+      .project-types-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .method-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-diagram-project"></i> <span data-en="IT Project Delivery" data-es="Entrega de Proyectos de TI">IT Project Delivery</span></div>
+    <h1><em data-en="Project Management" data-es="Gestión de Proyectos">Project Management</em><br><span data-en="On Time. On Budget. On Target." data-es="A Tiempo. En Presupuesto. En Meta.">On Time. On Budget. On Target.</span></h1>
+    <p class="lead"
+       data-en="ECSG delivers complex IT projects with precision — from cloud migrations and infrastructure upgrades to Microsoft 365 rollouts and full digital transformation programs. We keep your business running while we drive change."
+       data-es="ECSG entrega proyectos de TI complejos con precisión — desde migraciones a la nube e infraestructura hasta implementaciones de Microsoft 365 y programas de transformación digital. Mantenemos su negocio funcionando mientras impulsamos el cambio.">
+      ECSG delivers complex IT projects with precision — from cloud migrations and infrastructure upgrades to Microsoft 365 rollouts and full digital transformation programs. We keep your business running while we drive change.
+    </p>
+    <a href="ecsgcontact_sales.html" class="hero-cta">
+      <i class="fas fa-arrow-right"></i>
+      <span data-en="Start Your Project" data-es="Iniciar Su Proyecto">Start Your Project</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">98%</div>
+        <div class="label" data-en="On-Time Delivery" data-es="Entrega a Tiempo">On-Time Delivery</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">200+</div>
+        <div class="label" data-en="Projects Completed" data-es="Proyectos Completados">Projects Completed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">0</div>
+        <div class="label" data-en="Data Loss Incidents" data-es="Incidentes de Pérdida de Datos">Data Loss Incidents</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">15+</div>
+        <div class="label" data-en="Years Experience" data-es="Años de Experiencia">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT WE DO ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-circle-question"></i> <span data-en="Our Approach" data-es="Nuestro Enfoque">Our Approach</span></div>
+      <h2 data-en="IT Projects Done Right — The First Time" data-es="Proyectos de TI Bien Hechos — La Primera Vez">IT Projects Done Right — The First Time</h2>
+      <p data-en="Failed IT projects are costly — in dollars, in downtime, and in trust. ECSG brings a structured, certified project management discipline to every engagement, combining technical depth with clear communication and stakeholder alignment."
+         data-es="Los proyectos de TI fallidos son costosos — en dinero, en tiempo de inactividad y en confianza. ECSG aporta una disciplina de gestión de proyectos estructurada y certificada a cada compromiso, combinando profundidad técnica con comunicación clara y alineación de stakeholders.">
+        Failed IT projects are costly — in dollars, in downtime, and in trust. ECSG brings a structured, certified project management discipline to every engagement, combining technical depth with clear communication and stakeholder alignment.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Structure Meets Agility" data-es="Estructura Combinada con Agilidad">Structure Meets Agility</h3>
+        <p data-en="We adapt our methodology to your project's size and complexity. For large infrastructure migrations, we apply PMI/PMBOK principles — defined scope, risk registers, change control, and executive reporting. For fast-moving digital projects, we use Agile sprints with continuous delivery and stakeholder visibility."
+           data-es="Adaptamos nuestra metodología al tamaño y complejidad de su proyecto. Para grandes migraciones de infraestructura, aplicamos principios PMI/PMBOK — alcance definido, registros de riesgos, control de cambios e informes ejecutivos. Para proyectos digitales ágiles, usamos sprints con entrega continua y visibilidad para los stakeholders.">
+          We adapt our methodology to your project's size and complexity. For large infrastructure migrations, we apply PMI/PMBOK principles — defined scope, risk registers, change control, and executive reporting. For fast-moving digital projects, we use Agile sprints with continuous delivery and stakeholder visibility.
+        </p>
+        <p data-en="Every ECSG project has a dedicated Project Manager, a clear RACI matrix, documented milestones, and weekly status updates. Nothing falls through the cracks — and you're never left wondering where things stand."
+           data-es="Cada proyecto de ECSG tiene un Gerente de Proyecto dedicado, una matriz RACI clara, hitos documentados y actualizaciones semanales de estado. Nada queda sin seguimiento — y usted nunca se queda preguntándose cómo van las cosas.">
+          Every ECSG project has a dedicated Project Manager, a clear RACI matrix, documented milestones, and weekly status updates. Nothing falls through the cracks — and you're never left wondering where things stand.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill">PMI / PMBOK</span>
+          <span class="benefit-pill">Agile / Scrum</span>
+          <span class="benefit-pill" data-en="Risk Management" data-es="Gestión de Riesgos">Risk Management</span>
+          <span class="benefit-pill" data-en="Change Control" data-es="Control de Cambios">Change Control</span>
+          <span class="benefit-pill" data-en="Zero Downtime" data-es="Cero Tiempo de Inactividad">Zero Downtime</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="Project Capabilities" data-es="Capacidades de Proyecto">Project Capabilities</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-cloud-arrow-up"></i></div><span class="cap-name" data-en="Cloud Migrations" data-es="Migraciones a la Nube">Cloud Migrations</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:98%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-grid-2"></i></div><span class="cap-name" data-en="Microsoft 365 Rollouts" data-es="Implementaciones M365">Microsoft 365 Rollouts</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:97%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-server"></i></div><span class="cap-name" data-en="Infrastructure Upgrades" data-es="Actualizaciones de Infraestructura">Infrastructure Upgrades</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-shield-halved"></i></div><span class="cap-name" data-en="Security Implementations" data-es="Implementaciones de Seguridad">Security Implementations</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:92%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-arrows-rotate"></i></div><span class="cap-name" data-en="System Migrations" data-es="Migraciones de Sistemas">System Migrations</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:94%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-rocket"></i></div><span class="cap-name" data-en="Digital Transformation" data-es="Transformación Digital">Digital Transformation</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECT TYPES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-folder-open"></i> <span data-en="Project Types" data-es="Tipos de Proyectos">Project Types</span></div>
+      <h2 data-en="Projects We Deliver" data-es="Proyectos que Entregamos">Projects We Deliver</h2>
+      <p data-en="From single-phase deployments to multi-year transformation programs, ECSG has the expertise to plan, execute, and close your most critical IT initiatives."
+         data-es="Desde despliegues de una sola fase hasta programas de transformación de varios años, ECSG tiene la experiencia para planificar, ejecutar y cerrar sus iniciativas de TI más críticas.">
+        From single-phase deployments to multi-year transformation programs, ECSG has the expertise to plan, execute, and close your most critical IT initiatives.
+      </p>
+    </div>
+    <div class="project-types-grid">
+
+      <div class="project-type-card">
+        <div class="pt-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+        <div class="pt-content">
+          <h4 data-en="Cloud Migration" data-es="Migración a la Nube">Cloud Migration</h4>
+          <p data-en="Full-lifecycle migration from on-premises servers and applications to Microsoft Azure or hybrid cloud. Includes discovery, architecture design, data migration, cutover planning, and post-migration validation — all with zero data loss."
+             data-es="Migración de ciclo completo desde servidores y aplicaciones locales a Microsoft Azure o nube híbrida. Incluye descubrimiento, diseño de arquitectura, migración de datos, planificación de cambio y validación posterior — todo sin pérdida de datos.">
+            Full-lifecycle migration from on-premises servers and applications to Microsoft Azure or hybrid cloud. Includes discovery, architecture design, data migration, cutover planning, and post-migration validation — all with zero data loss.
+          </p>
+          <div class="pt-tags">
+            <span class="pt-tag">Azure Migrate</span>
+            <span class="pt-tag" data-en="Lift & Shift" data-es="Lift & Shift">Lift & Shift</span>
+            <span class="pt-tag" data-en="Hybrid Cloud" data-es="Nube Híbrida">Hybrid Cloud</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-type-card">
+        <div class="pt-icon"><i class="fas fa-grid-2"></i></div>
+        <div class="pt-content">
+          <h4 data-en="Microsoft 365 Deployment" data-es="Despliegue de Microsoft 365">Microsoft 365 Deployment</h4>
+          <p data-en="End-to-end M365 implementation — tenant configuration, identity setup (Entra ID), email migration from Google or on-prem Exchange, Teams governance, SharePoint buildout, and security hardening. Delivered with user training and adoption support."
+             data-es="Implementación M365 de extremo a extremo — configuración del tenant, identidad (Entra ID), migración de correo desde Google o Exchange local, gobernanza de Teams, construcción de SharePoint y endurecimiento de seguridad. Con capacitación de usuarios y soporte de adopción.">
+            End-to-end M365 implementation — tenant configuration, identity setup (Entra ID), email migration from Google or on-prem Exchange, Teams governance, SharePoint buildout, and security hardening. Delivered with user training and adoption support.
+          </p>
+          <div class="pt-tags">
+            <span class="pt-tag">Exchange Migration</span>
+            <span class="pt-tag">Entra ID</span>
+            <span class="pt-tag" data-en="User Adoption" data-es="Adopción de Usuarios">User Adoption</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-type-card">
+        <div class="pt-icon"><i class="fas fa-server"></i></div>
+        <div class="pt-content">
+          <h4 data-en="Infrastructure Refresh" data-es="Renovación de Infraestructura">Infrastructure Refresh</h4>
+          <p data-en="Planned hardware and software upgrades for servers, storage, networking, and endpoints — with minimal disruption to business operations. Includes lifecycle assessment, procurement support, deployment, configuration, and documentation."
+             data-es="Actualizaciones planificadas de hardware y software para servidores, almacenamiento, redes y endpoints — con mínima interrupción a las operaciones. Incluye evaluación de ciclo de vida, soporte de adquisición, despliegue, configuración y documentación.">
+            Planned hardware and software upgrades for servers, storage, networking, and endpoints — with minimal disruption to business operations. Includes lifecycle assessment, procurement support, deployment, configuration, and documentation.
+          </p>
+          <div class="pt-tags">
+            <span class="pt-tag" data-en="Servers & Storage" data-es="Servidores y Almacenamiento">Servers & Storage</span>
+            <span class="pt-tag" data-en="Network Refresh" data-es="Renovación de Red">Network Refresh</span>
+            <span class="pt-tag" data-en="Endpoints" data-es="Endpoints">Endpoints</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-type-card">
+        <div class="pt-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="pt-content">
+          <h4 data-en="Cybersecurity Rollout" data-es="Implementación de Ciberseguridad">Cybersecurity Rollout</h4>
+          <p data-en="Structured deployment of security solutions — EDR/XDR, MFA, email security, SIEM, vulnerability management, and compliance frameworks. We assess your risk posture first, then build a prioritized implementation roadmap."
+             data-es="Despliegue estructurado de soluciones de seguridad — EDR/XDR, MFA, seguridad de correo, SIEM, gestión de vulnerabilidades y marcos de cumplimiento. Evaluamos su postura de riesgo primero, luego construimos una hoja de ruta de implementación priorizada.">
+            Structured deployment of security solutions — EDR/XDR, MFA, email security, SIEM, vulnerability management, and compliance frameworks. We assess your risk posture first, then build a prioritized implementation roadmap.
+          </p>
+          <div class="pt-tags">
+            <span class="pt-tag">EDR / XDR</span>
+            <span class="pt-tag">Zero Trust</span>
+            <span class="pt-tag">HIPAA / SOC 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-type-card">
+        <div class="pt-icon"><i class="fas fa-share-nodes"></i></div>
+        <div class="pt-content">
+          <h4 data-en="SharePoint & Intranet Build" data-es="Construcción de SharePoint e Intranet">SharePoint & Intranet Build</h4>
+          <p data-en="Design and deployment of enterprise SharePoint environments — intranet portals, document management systems, workflow automation with Power Automate, and permission governance. Migrating from legacy intranets or file servers included."
+             data-es="Diseño y despliegue de entornos SharePoint empresariales — portales intranet, sistemas de gestión documental, automatización con Power Automate y gobernanza de permisos. Incluye migración desde intranets legados o servidores de archivos.">
+            Design and deployment of enterprise SharePoint environments — intranet portals, document management systems, workflow automation with Power Automate, and permission governance. Migrating from legacy intranets or file servers included.
+          </p>
+          <div class="pt-tags">
+            <span class="pt-tag">SharePoint Online</span>
+            <span class="pt-tag">Power Automate</span>
+            <span class="pt-tag" data-en="Doc Management" data-es="Gestión Documental">Doc Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-type-card">
+        <div class="pt-icon"><i class="fas fa-rocket"></i></div>
+        <div class="pt-content">
+          <h4 data-en="Digital Transformation" data-es="Transformación Digital">Digital Transformation</h4>
+          <p data-en="Multi-phase programs that modernize your entire technology stack — from legacy application retirement and cloud adoption to process automation and data analytics. We serve as your strategic technology partner through every phase of the journey."
+             data-es="Programas de múltiples fases que modernizan todo su stack tecnológico — desde el retiro de aplicaciones legadas y adopción de la nube hasta la automatización de procesos y análisis de datos. Somos su socio tecnológico estratégico en cada fase del viaje.">
+            Multi-phase programs that modernize your entire technology stack — from legacy application retirement and cloud adoption to process automation and data analytics. We serve as your strategic technology partner through every phase of the journey.
+          </p>
+          <div class="pt-tags">
+            <span class="pt-tag" data-en="Modernization" data-es="Modernización">Modernization</span>
+            <span class="pt-tag" data-en="Automation" data-es="Automatización">Automation</span>
+            <span class="pt-tag" data-en="Multi-year Programs" data-es="Programas Multi-año">Multi-year Programs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── METHODOLOGY ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-compass"></i> <span data-en="Methodology" data-es="Metodología">Methodology</span></div>
+      <h2 data-en="How We Manage Projects" data-es="Cómo Administramos Proyectos">How We Manage Projects</h2>
+      <p data-en="Our project management approach blends industry-proven frameworks with practical IT experience — delivering structure without bureaucracy, and speed without sacrificing quality."
+         data-es="Nuestro enfoque de gestión de proyectos combina marcos probados por la industria con experiencia práctica en TI — brindando estructura sin burocracia, y velocidad sin sacrificar calidad.">
+        Our project management approach blends industry-proven frameworks with practical IT experience — delivering structure without bureaucracy, and speed without sacrificing quality.
+      </p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-icon"><i class="fas fa-sitemap"></i></div>
+        <h4 data-en="Structured Planning" data-es="Planificación Estructurada">Structured Planning</h4>
+        <p data-en="Every project begins with a detailed scope document, work breakdown structure (WBS), risk register, and resource plan — reviewed and signed off by all stakeholders before work begins." data-es="Cada proyecto comienza con un documento de alcance detallado, estructura de desglose de trabajo (WBS), registro de riesgos y plan de recursos — revisado y aprobado por todos los stakeholders antes de comenzar.">Every project begins with a detailed scope document, work breakdown structure (WBS), risk register, and resource plan — reviewed and signed off by all stakeholders before work begins.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><i class="fas fa-rotate"></i></div>
+        <h4 data-en="Agile Delivery" data-es="Entrega Ágil">Agile Delivery</h4>
+        <p data-en="For iterative projects, we use Agile sprints with defined deliverables, daily standups, and retrospectives — giving you working results early and the flexibility to adapt as priorities evolve." data-es="Para proyectos iterativos, usamos sprints ágiles con entregables definidos, standups diarios y retrospectivas — brindándole resultados funcionales desde temprano y flexibilidad para adaptarse.">For iterative projects, we use Agile sprints with defined deliverables, daily standups, and retrospectives — giving you working results early and the flexibility to adapt as priorities evolve.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><i class="fas fa-triangle-exclamation"></i></div>
+        <h4 data-en="Risk Management" data-es="Gestión de Riesgos">Risk Management</h4>
+        <p data-en="We proactively identify, document, and mitigate project risks — with contingency plans and escalation paths defined before they're ever needed. No surprises, no fire drills." data-es="Identificamos, documentamos y mitigamos proactivamente los riesgos del proyecto — con planes de contingencia y rutas de escalación definidas antes de que se necesiten. Sin sorpresas, sin urgencias.">We proactively identify, document, and mitigate project risks — with contingency plans and escalation paths defined before they're ever needed. No surprises, no fire drills.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><i class="fas fa-code-branch"></i></div>
+        <h4 data-en="Change Control" data-es="Control de Cambios">Change Control</h4>
+        <p data-en="Scope changes are formally logged, assessed for impact, and approved before implementation. This protects your budget, timeline, and the integrity of the project — while staying responsive to real business needs." data-es="Los cambios de alcance se registran formalmente, se evalúa su impacto y se aprueban antes de implementarse. Esto protege su presupuesto, cronograma e integridad del proyecto.">Scope changes are formally logged, assessed for impact, and approved before implementation. This protects your budget, timeline, and the integrity of the project — while staying responsive to real business needs.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><i class="fas fa-comments"></i></div>
+        <h4 data-en="Stakeholder Communication" data-es="Comunicación con Stakeholders">Stakeholder Communication</h4>
+        <p data-en="Weekly status reports, milestone dashboards, and executive summaries keep your leadership team informed without overwhelming them. You always know where the project stands — and what's coming next." data-es="Informes semanales, dashboards de hitos y resúmenes ejecutivos mantienen a su equipo directivo informado sin abrumarlo. Siempre sabe dónde está el proyecto — y qué viene después.">Weekly status reports, milestone dashboards, and executive summaries keep your leadership team informed without overwhelming them. You always know where the project stands — and what's coming next.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><i class="fas fa-file-circle-check"></i></div>
+        <h4 data-en="Formal Closure" data-es="Cierre Formal">Formal Closure</h4>
+        <p data-en="Every project closes with a formal handover — including full documentation, knowledge transfer to your team, lessons learned, and a post-project support period to ensure long-term success." data-es="Cada proyecto cierra con una entrega formal — que incluye documentación completa, transferencia de conocimiento a su equipo, lecciones aprendidas y un período de soporte post-proyecto.">Every project closes with a formal handover — including full documentation, knowledge transfer to your team, lessons learned, and a post-project support period to ensure long-term success.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DELIVERY PROCESS ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-route"></i> <span data-en="Project Lifecycle" data-es="Ciclo de Vida del Proyecto">Project Lifecycle</span></div>
+      <h2 data-en="From Kickoff to Closeout" data-es="Del Inicio al Cierre">From Kickoff to Closeout</h2>
+      <p data-en="A disciplined six-phase project lifecycle that gives you full visibility, accountability, and control from the first meeting to the final handover."
+         data-es="Un ciclo de vida de proyecto de seis fases disciplinado que le brinda visibilidad, responsabilidad y control totales desde la primera reunión hasta la entrega final.">
+        A disciplined six-phase project lifecycle that gives you full visibility, accountability, and control from the first meeting to the final handover.
+      </p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h4 data-en="Initiation" data-es="Inicio">Initiation</h4>
+        <p data-en="Scope, goals, stakeholders, and success criteria defined." data-es="Alcance, metas, stakeholders y criterios de éxito definidos.">Scope, goals, stakeholders, and success criteria defined.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h4 data-en="Planning" data-es="Planificación">Planning</h4>
+        <p data-en="WBS, timeline, budget, risk register, and RACI matrix built." data-es="WBS, cronograma, presupuesto, registro de riesgos y matriz RACI elaborados.">WBS, timeline, budget, risk register, and RACI matrix built.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h4 data-en="Execution" data-es="Ejecución">Execution</h4>
+        <p data-en="Technical work delivered in controlled milestones with weekly reporting." data-es="Trabajo técnico entregado en hitos controlados con reportes semanales.">Technical work delivered in controlled milestones with weekly reporting.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h4 data-en="Monitoring" data-es="Monitoreo">Monitoring</h4>
+        <p data-en="KPIs, budget burn, and risk status tracked continuously." data-es="KPIs, consumo de presupuesto y estado de riesgos rastreados continuamente.">KPIs, budget burn, and risk status tracked continuously.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <h4 data-en="Testing & UAT" data-es="Pruebas y UAT">Testing & UAT</h4>
+        <p data-en="Rigorous validation and user acceptance testing before go-live." data-es="Validación rigurosa y pruebas de aceptación de usuarios antes del lanzamiento.">Rigorous validation and user acceptance testing before go-live.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">06</div>
+        <h4 data-en="Closure" data-es="Cierre">Closure</h4>
+        <p data-en="Documentation, knowledge transfer, lessons learned, and handover." data-es="Documentación, transferencia de conocimiento, lecciones aprendidas y entrega.">Documentation, knowledge transfer, lessons learned, and handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CORE SERVICES DETAIL ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-th-large"></i> <span data-en="What's Included" data-es="Qué Está Incluido">What's Included</span></div>
+      <h2 data-en="Full-Service Project Management" data-es="Gestión de Proyectos de Servicio Completo">Full-Service Project Management</h2>
+      <p data-en="Every ECSG project engagement includes a complete set of management services — not just technical execution, but the planning, governance, and communication that make projects succeed."
+         data-es="Cada compromiso de proyecto ECSG incluye un conjunto completo de servicios de gestión — no solo ejecución técnica, sino la planificación, gobernanza y comunicación que hacen que los proyectos tengan éxito.">
+        Every ECSG project engagement includes a complete set of management services — not just technical execution, but the planning, governance, and communication that make projects succeed.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+        <h3 data-en="Dedicated Project Manager" data-es="Gerente de Proyecto Dedicado">Dedicated Project Manager</h3>
+        <p data-en="A certified PM serves as your single point of contact — accountable for scope, budget, timeline, and stakeholder satisfaction throughout the project." data-es="Un PM certificado sirve como su único punto de contacto — responsable del alcance, presupuesto, cronograma y satisfacción de los stakeholders durante todo el proyecto.">A certified PM serves as your single point of contact — accountable for scope, budget, timeline, and stakeholder satisfaction throughout the project.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="PMP-certified project managers" data-es="Gerentes de proyecto certificados PMP">PMP-certified project managers</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Weekly executive status reports" data-es="Informes ejecutivos semanales de estado">Weekly executive status reports</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Milestone tracking dashboards" data-es="Dashboards de seguimiento de hitos">Milestone tracking dashboards</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Escalation management" data-es="Gestión de escalaciones">Escalation management</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+        <h3 data-en="Scope & Requirements" data-es="Alcance y Requisitos">Scope & Requirements</h3>
+        <p data-en="Thorough discovery and documentation of requirements before any work begins — preventing scope creep, misaligned expectations, and costly rework." data-es="Descubrimiento y documentación exhaustiva de requisitos antes de comenzar cualquier trabajo — previniendo el aumento de alcance, expectativas desalineadas y retrabajo costoso.">Thorough discovery and documentation of requirements before any work begins — preventing scope creep, misaligned expectations, and costly rework.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Stakeholder interviews & workshops" data-es="Entrevistas y talleres con stakeholders">Stakeholder interviews & workshops</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Formal scope of work document" data-es="Documento formal de alcance de trabajo">Formal scope of work document</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Technical requirements specification" data-es="Especificación de requisitos técnicos">Technical requirements specification</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Acceptance criteria definition" data-es="Definición de criterios de aceptación">Acceptance criteria definition</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-calendar-days"></i></div>
+        <h3 data-en="Timeline & Scheduling" data-es="Cronograma y Programación">Timeline & Scheduling</h3>
+        <p data-en="Detailed project schedules with dependencies, critical path analysis, resource allocation, and buffer planning — built to absorb real-world variability without missing key deadlines." data-es="Cronogramas detallados con dependencias, análisis de ruta crítica, asignación de recursos y planificación de margen — construidos para absorber la variabilidad del mundo real sin perder fechas clave.">Detailed project schedules with dependencies, critical path analysis, resource allocation, and buffer planning — built to absorb real-world variability without missing key deadlines.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Gantt charts & critical path" data-es="Diagramas Gantt y ruta crítica">Gantt charts & critical path</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Resource & dependency mapping" data-es="Mapeo de recursos y dependencias">Resource & dependency mapping</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Milestone-based delivery" data-es="Entrega basada en hitos">Milestone-based delivery</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Schedule variance tracking" data-es="Seguimiento de variaciones de cronograma">Schedule variance tracking</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-triangle-exclamation"></i></div>
+        <h3 data-en="Risk & Issue Management" data-es="Gestión de Riesgos e Incidencias">Risk & Issue Management</h3>
+        <p data-en="Continuous identification, assessment, and mitigation of project risks — with a formal issue log and escalation process to keep problems from becoming crises." data-es="Identificación, evaluación y mitigación continua de riesgos del proyecto — con un registro formal de incidencias y proceso de escalación para evitar que los problemas se conviertan en crisis.">Continuous identification, assessment, and mitigation of project risks — with a formal issue log and escalation process to keep problems from becoming crises.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Risk register & probability matrix" data-es="Registro de riesgos y matriz de probabilidad">Risk register & probability matrix</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Mitigation & contingency plans" data-es="Planes de mitigación y contingencia">Mitigation & contingency plans</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Issue log & resolution tracking" data-es="Registro de incidencias y seguimiento de resolución">Issue log & resolution tracking</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Executive risk dashboards" data-es="Dashboards ejecutivos de riesgos">Executive risk dashboards</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-users"></i></div>
+        <h3 data-en="Change & Adoption Management" data-es="Gestión del Cambio y Adopción">Change & Adoption Management</h3>
+        <p data-en="Technology projects fail when people don't adopt the change. ECSG embeds change management into every project — stakeholder alignment, communication plans, training, and adoption metrics." data-es="Los proyectos tecnológicos fallan cuando las personas no adoptan el cambio. ECSG integra la gestión del cambio en cada proyecto — alineación de stakeholders, planes de comunicación, capacitación y métricas de adopción.">Technology projects fail when people don't adopt the change. ECSG embeds change management into every project — stakeholder alignment, communication plans, training, and adoption metrics.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="End-user training & documentation" data-es="Capacitación y documentación para usuarios finales">End-user training & documentation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Communication plan & rollout strategy" data-es="Plan de comunicación y estrategia de implementación">Communication plan & rollout strategy</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Champions & super-user programs" data-es="Programas de champions y super-usuarios">Champions & super-user programs</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Adoption metrics & feedback loops" data-es="Métricas de adopción y bucles de retroalimentación">Adoption metrics & feedback loops</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-book-open"></i></div>
+        <h3 data-en="Documentation & Handover" data-es="Documentación y Entrega">Documentation & Handover</h3>
+        <p data-en="Every project closes with a complete documentation package — architecture diagrams, runbooks, configuration records, and lessons learned — ensuring your team can manage and evolve the solution long after ECSG has delivered." data-es="Cada proyecto cierra con un paquete de documentación completo — diagramas de arquitectura, runbooks, registros de configuración y lecciones aprendidas — asegurando que su equipo pueda gestionar y evolucionar la solución mucho después de que ECSG haya entregado.">Every project closes with a complete documentation package — architecture diagrams, runbooks, configuration records, and lessons learned — ensuring your team can manage and evolve the solution long after ECSG has delivered.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Architecture & design documentation" data-es="Documentación de arquitectura y diseño">Architecture & design documentation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Operational runbooks & SOPs" data-es="Runbooks operativos y SOPs">Operational runbooks & SOPs</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Formal knowledge transfer sessions" data-es="Sesiones formales de transferencia de conocimiento">Formal knowledge transfer sessions</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Post-project support period" data-es="Período de soporte post-proyecto">Post-project support period</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── TOOLS & PLATFORMS ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-toolbox"></i> <span data-en="Tools & Platforms" data-es="Herramientas y Plataformas">Tools & Platforms</span></div>
+      <h2 data-en="We Work With Your Stack" data-es="Trabajamos con Su Stack">We Work With Your Stack</h2>
+      <p data-en="Our project managers and engineers are certified and experienced across the platforms your business depends on — no ramp-up time, no learning curve on your dime."
+         data-es="Nuestros gerentes de proyecto e ingenieros están certificados y tienen experiencia en las plataformas de las que depende su negocio — sin tiempo de adaptación, sin curva de aprendizaje a su costa.">
+        Our project managers and engineers are certified and experienced across the platforms your business depends on — no ramp-up time, no learning curve on your dime.
+      </p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-item"><i class="fab fa-microsoft"></i><span>Microsoft Azure</span><small data-en="Cloud Infrastructure" data-es="Infraestructura Cloud">Cloud Infrastructure</small></div>
+      <div class="tool-item"><i class="fas fa-grid-2"></i><span>Microsoft 365</span><small data-en="Productivity Suite" data-es="Suite de Productividad">Productivity Suite</small></div>
+      <div class="tool-item"><i class="fas fa-share-nodes"></i><span>SharePoint</span><small data-en="Collaboration & DMS" data-es="Colaboración y DMS">Collaboration & DMS</small></div>
+      <div class="tool-item"><i class="fas fa-users-rectangle"></i><span>Microsoft Teams</span><small data-en="Communication" data-es="Comunicación">Communication</small></div>
+      <div class="tool-item"><i class="fas fa-shield-halved"></i><span>Defender / Sentinel</span><small data-en="Security & SIEM" data-es="Seguridad y SIEM">Security & SIEM</small></div>
+      <div class="tool-item"><i class="fas fa-diagram-project"></i><span>MS Project / Planner</span><small data-en="Project Tracking" data-es="Seguimiento de Proyectos">Project Tracking</small></div>
+      <div class="tool-item"><i class="fas fa-bolt"></i><span>Power Automate</span><small data-en="Workflow Automation" data-es="Automatización de Flujos">Workflow Automation</small></div>
+      <div class="tool-item"><i class="fas fa-database"></i><span>Azure Backup / DR</span><small data-en="Data Protection" data-es="Protección de Datos">Data Protection</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Have a Project in Mind?" data-es="¿Tiene un Proyecto en Mente?">Have a Project in Mind?</h2>
+    <p data-en="Tell us about your initiative and we'll put together a project plan, timeline, and proposal — at no cost and no commitment. Let's make it happen."
+       data-es="Cuéntenos sobre su iniciativa y elaboraremos un plan de proyecto, cronograma y propuesta — sin costo y sin compromiso. Hagámoslo realidad.">
+      Tell us about your initiative and we'll put together a project plan, timeline, and proposal — at no cost and no commitment. Let's make it happen.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="project-management.html" data-en="Project Management" data-es="Gestión de Proyectos">Project Management</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+
+  ['btnEN','btnEN2'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function(){ applyLang('en'); });
+  });
+  ['btnES','btnES2'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function(){ applyLang('es'); });
+  });
+
+  try { var s = localStorage.getItem('ecsg_lang'); if (s === 'es') applyLang('es'); } catch (e) {}
+
+  var ham = document.getElementById('hamburger');
+  var mob = document.getElementById('mobile-menu');
+  if (ham && mob) {
+    ham.addEventListener('click', function () { mob.classList.toggle('open'); });
+  }
+})();
+</script>
+</body>
+</html>
