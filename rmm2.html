@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Remote Monitoring & Management (RMM) | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – Fully managed RMM services: 24/7 monitoring, automated patching, endpoint security, remote support, and performance optimization for businesses in Connecticut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
+    }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #172F52 50%, #1B4D82 100%);
+      color: #fff; padding: 80px 32px 70px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 92% 45%, rgba(46,117,182,0.38) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── BENEFITS GRID ─── */
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .benefit-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 24px;
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: var(--transition);
+    }
+    .benefit-card:hover { border-color: var(--blue-light); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .ben-icon {
+      width: 48px; min-width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #fff;
+    }
+    .benefit-card h4 {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 7px;
+    }
+    .benefit-card p { font-size: 0.86rem; color: var(--gray-600); line-height: 1.68; }
+
+    /* ─── MONITORING DASHBOARD VISUAL ─── */
+    .dashboard-visual {
+      background: var(--gray-800);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .dash-header {
+      background: var(--navy);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .dash-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dash-title {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6); margin-left: 8px;
+    }
+    .dash-body { padding: 20px; }
+    .dash-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+    .dash-row:last-child { margin-bottom: 0; }
+    .dash-label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.8); flex: 1; }
+    .dash-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .status-ok { background: rgba(34,197,94,0.15); color: #4ADE80; }
+    .status-warn { background: rgba(251,191,36,0.15); color: #FCD34D; }
+    .status-patch { background: rgba(96,165,250,0.15); color: #93C5FD; }
+    .dash-value { font-size: 0.78rem; color: rgba(255,255,255,0.45); min-width: 60px; text-align: right; }
+
+    /* ─── ALERT TYPES ─── */
+    .alerts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .alert-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 22px 18px; text-align: center;
+      transition: var(--transition);
+    }
+    .alert-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .alert-card i { font-size: 1.8rem; color: var(--blue); margin-bottom: 10px; display: block; }
+    .alert-card h4 {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .alert-card p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.55; }
+
+    /* ─── WHY CARDS ─── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .why-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 26px 22px; text-align: center;
+      transition: var(--transition);
+    }
+    .why-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .why-icon {
+      width: 58px; height: 58px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; color: #fff; margin: 0 auto 14px;
+    }
+    .why-card h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .why-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .alerts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .alerts-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-display"></i> <span data-en="Proactive IT Management" data-es="Gestión de TI Proactiva">Proactive IT Management</span></div>
+    <h1><em data-en="Remote Monitoring" data-es="Monitoreo Remoto">Remote Monitoring</em><br><span data-en="& Management (RMM)" data-es="y Gestión (RMM)">&amp; Management (RMM)</span></h1>
+    <p class="lead"
+       data-en="ECSG's fully managed RMM service delivers 24/7 visibility, automated patching, endpoint security, and rapid remote support — keeping your systems healthy, your data protected, and your business productive around the clock."
+       data-es="El servicio RMM totalmente administrado de ECSG entrega visibilidad 24/7, parches automatizados, seguridad de endpoints y soporte remoto rápido — manteniendo sus sistemas saludables, sus datos protegidos y su negocio productivo las 24 horas.">
+      ECSG's fully managed RMM service delivers 24/7 visibility, automated patching, endpoint security, and rapid remote support — keeping your systems healthy, your data protected, and your business productive around the clock.
+    </p>
+    <a href="ecsgcontact_sales.html" class="hero-cta">
+      <i class="fas fa-arrow-right"></i>
+      <span data-en="Get a Free IT Assessment" data-es="Obtener una Evaluación de TI Gratuita">Get a Free IT Assessment</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">24/7</div>
+        <div class="label" data-en="Continuous Monitoring" data-es="Monitoreo Continuo">Continuous Monitoring</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">&lt;15m</div>
+        <div class="label" data-en="Alert Response Time" data-es="Tiempo de Respuesta a Alertas">Alert Response Time</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">100%</div>
+        <div class="label" data-en="Automated Patching" data-es="Parches Automatizados">Automated Patching</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">0</div>
+        <div class="label" data-en="Blind Spots" data-es="Puntos Ciegos">Blind Spots</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT IS RMM ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-circle-question"></i> <span data-en="What Is RMM?" data-es="¿Qué Es RMM?">What Is RMM?</span></div>
+      <h2 data-en="Proactive IT Care — Before Problems Happen" data-es="Cuidado de TI Proactivo — Antes de que Ocurran los Problemas">Proactive IT Care — Before Problems Happen</h2>
+      <p data-en="Remote Monitoring and Management (RMM) is the foundation of modern managed IT. It gives ECSG continuous, real-time visibility into every device, server, and service in your environment — enabling us to detect issues, apply fixes, and enforce security policies automatically, often before you ever notice a problem."
+         data-es="El Monitoreo y Gestión Remota (RMM) es la base de la TI administrada moderna. Le da a ECSG visibilidad continua y en tiempo real de cada dispositivo, servidor y servicio en su entorno — permitiéndonos detectar problemas, aplicar correcciones y hacer cumplir políticas de seguridad automáticamente, a menudo antes de que usted note un problema.">
+        Remote Monitoring and Management (RMM) is the foundation of modern managed IT. It gives ECSG continuous, real-time visibility into every device, server, and service in your environment — enabling us to detect issues, apply fixes, and enforce security policies automatically, often before you ever notice a problem.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Proactive, Not Reactive" data-es="Proactivo, No Reactivo">Proactive, Not Reactive</h3>
+        <p data-en="Traditional IT support waits for things to break — then sends someone to fix it. ECSG's RMM flips that model entirely. A lightweight agent installed on each device sends real-time health data to our platform, where automated rules and our engineering team watch for early warning signs: disk space approaching capacity, memory pressure, CPU spikes, failed services, missed backups, or emerging security threats."
+           data-es="El soporte de TI tradicional espera a que las cosas se rompan — luego envía a alguien a repararlo. El RMM de ECSG invierte ese modelo por completo. Un agente ligero instalado en cada dispositivo envía datos de salud en tiempo real a nuestra plataforma, donde las reglas automatizadas y nuestro equipo de ingeniería vigilan señales de alerta temprana: espacio en disco aproximándose a la capacidad, presión de memoria, picos de CPU, servicios fallidos, backups perdidos o amenazas de seguridad emergentes.">
+          Traditional IT support waits for things to break — then sends someone to fix it. ECSG's RMM flips that model entirely. A lightweight agent installed on each device sends real-time health data to our platform, where automated rules and our engineering team watch for early warning signs: disk space approaching capacity, memory pressure, CPU spikes, failed services, missed backups, or emerging security threats.
+        </p>
+        <p data-en="When an issue is detected, our automated remediation scripts attempt to resolve it instantly — without human intervention. When escalation is needed, our NOC team receives an alert and acts within minutes, resolving most issues remotely before your users experience any disruption."
+           data-es="Cuando se detecta un problema, nuestros scripts de remediación automatizados intentan resolverlo de inmediato — sin intervención humana. Cuando se necesita escalación, nuestro equipo del NOC recibe una alerta y actúa en minutos, resolviendo la mayoría de los problemas de forma remota antes de que sus usuarios experimenten cualquier interrupción.">
+          When an issue is detected, our automated remediation scripts attempt to resolve it instantly — without human intervention. When escalation is needed, our NOC team receives an alert and acts within minutes, resolving most issues remotely before your users experience any disruption.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Always-On Visibility" data-es="Visibilidad Permanente">Always-On Visibility</span>
+          <span class="benefit-pill" data-en="Automated Remediation" data-es="Remediación Automatizada">Automated Remediation</span>
+          <span class="benefit-pill" data-en="Zero Blind Spots" data-es="Cero Puntos Ciegos">Zero Blind Spots</span>
+          <span class="benefit-pill" data-en="Proactive Patching" data-es="Parches Proactivos">Proactive Patching</span>
+          <span class="benefit-pill" data-en="Security Integration" data-es="Integración de Seguridad">Security Integration</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="RMM Coverage" data-es="Cobertura RMM">RMM Coverage</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-display"></i></div><span class="cap-name" data-en="Workstation Monitoring" data-es="Monitoreo de Estaciones de Trabajo">Workstation Monitoring</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-server"></i></div><span class="cap-name" data-en="Server Monitoring" data-es="Monitoreo de Servidores">Server Monitoring</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-rotate"></i></div><span class="cap-name" data-en="Automated Patching" data-es="Parches Automatizados">Automated Patching</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:98%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-shield-halved"></i></div><span class="cap-name" data-en="EDR / AV Integration" data-es="Integración EDR / AV">EDR / AV Integration</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:97%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-network-wired"></i></div><span class="cap-name" data-en="Network Device Monitoring" data-es="Monitoreo de Dispositivos de Red">Network Device Monitoring</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-cloud"></i></div><span class="cap-name" data-en="Cloud Service Monitoring" data-es="Monitoreo de Servicios Cloud">Cloud Service Monitoring</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:92%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LIVE DASHBOARD SECTION ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-gauge-high"></i> <span data-en="Real-Time Visibility" data-es="Visibilidad en Tiempo Real">Real-Time Visibility</span></div>
+      <h2 data-en="Always-On Intelligence Across Your Entire Environment" data-es="Inteligencia Permanente en Todo Su Entorno">Always-On Intelligence Across Your Entire Environment</h2>
+      <p data-en="Our RMM platform provides a unified health dashboard covering every managed device and service — from on-premises servers and workstations to cloud services and network devices."
+         data-es="Nuestra plataforma RMM proporciona un dashboard de salud unificado que cubre cada dispositivo y servicio administrado — desde servidores locales y estaciones de trabajo hasta servicios en la nube y dispositivos de red.">
+        Our RMM platform provides a unified health dashboard covering every managed device and service — from on-premises servers and workstations to cloud services and network devices.
+      </p>
+    </div>
+    <div class="deep-dive reverse">
+      <div class="deep-dive-text">
+        <h3 data-en="Every Device. Every Service. Every Moment." data-es="Cada Dispositivo. Cada Servicio. Cada Momento.">Every Device. Every Service. Every Moment.</h3>
+        <p data-en="ECSG's RMM platform aggregates health data from every managed endpoint into a single pane of glass — giving our engineers immediate visibility into CPU utilization, memory, disk health, network performance, service status, and security posture across your entire organization."
+           data-es="La plataforma RMM de ECSG agrega datos de salud de cada endpoint administrado en una sola vista — dando a nuestros ingenieros visibilidad inmediata sobre la utilización de CPU, memoria, salud del disco, rendimiento de red, estado de servicios y postura de seguridad en toda su organización.">
+          ECSG's RMM platform aggregates health data from every managed endpoint into a single pane of glass — giving our engineers immediate visibility into CPU utilization, memory, disk health, network performance, service status, and security posture across your entire organization.
+        </p>
+        <p data-en="Monthly reports summarize system health trends, patch compliance rates, alert history, and upcoming lifecycle events — giving your leadership team the IT performance data they need to make informed decisions without needing to dig through technical details."
+           data-es="Los informes mensuales resumen las tendencias de salud del sistema, tasas de cumplimiento de parches, historial de alertas y próximos eventos de ciclo de vida — dando a su equipo directivo los datos de rendimiento de TI que necesitan para tomar decisiones informadas sin tener que profundizar en detalles técnicos.">
+          Monthly reports summarize system health trends, patch compliance rates, alert history, and upcoming lifecycle events — giving your leadership team the IT performance data they need to make informed decisions without needing to dig through technical details.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Unified Dashboard" data-es="Dashboard Unificado">Unified Dashboard</span>
+          <span class="benefit-pill" data-en="Monthly Reports" data-es="Informes Mensuales">Monthly Reports</span>
+          <span class="benefit-pill" data-en="Trend Analysis" data-es="Análisis de Tendencias">Trend Analysis</span>
+          <span class="benefit-pill" data-en="Asset Inventory" data-es="Inventario de Activos">Asset Inventory</span>
+        </div>
+      </div>
+      <div class="dashboard-visual">
+        <div class="dash-header">
+          <div class="dash-dot" style="background:#EF4444;"></div>
+          <div class="dash-dot" style="background:#FBBF24; margin-left:4px;"></div>
+          <div class="dash-dot" style="background:#22C55E; margin-left:4px;"></div>
+          <div class="dash-title" data-en="ECSG NOC · Live Environment" data-es="ECSG NOC · Entorno en Vivo">ECSG NOC · Live Environment</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-row">
+            <span class="dash-label" data-en="Server – DC01 (Primary)" data-es="Servidor – DC01 (Principal)">Server – DC01 (Primary)</span>
+            <span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Healthy" data-es="Saludable">Healthy</span></span>
+            <span class="dash-value">CPU 12%</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-label" data-en="Workstations (47 Endpoints)" data-es="Estaciones de Trabajo (47 Endpoints)">Workstations (47 Endpoints)</span>
+            <span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Healthy" data-es="Saludable">Healthy</span></span>
+            <span class="dash-value">46/47 OK</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-label" data-en="Patch Compliance" data-es="Cumplimiento de Parches">Patch Compliance</span>
+            <span class="dash-status status-patch"><i class="fas fa-rotate" style="font-size:0.7rem;"></i> <span data-en="Deploying" data-es="Desplegando">Deploying</span></span>
+            <span class="dash-value">98.7%</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-label" data-en="Firewall – Perimeter" data-es="Firewall – Perímetro">Firewall – Perimeter</span>
+            <span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Healthy" data-es="Saludable">Healthy</span></span>
+            <span class="dash-value">0 Threats</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-label" data-en="Microsoft 365 Services" data-es="Servicios Microsoft 365">Microsoft 365 Services</span>
+            <span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Online" data-es="En Línea">Online</span></span>
+            <span class="dash-value">99.99%</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-label" data-en="Backup Jobs – Last 24h" data-es="Jobs de Backup – Últimas 24h">Backup Jobs – Last 24h</span>
+            <span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Verified" data-es="Verificado">Verified</span></span>
+            <span class="dash-value">12/12 ✓</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-label" data-en="Disk Space – FileServer01" data-es="Espacio en Disco – FileServer01">Disk Space – FileServer01</span>
+            <span class="dash-status status-warn"><i class="fas fa-triangle-exclamation" style="font-size:0.7rem;"></i> <span data-en="Warning" data-es="Advertencia">Warning</span></span>
+            <span class="dash-value">82% Used</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CORE SERVICES ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-th-large"></i> <span data-en="What RMM Includes" data-es="Qué Incluye el RMM">What RMM Includes</span></div>
+      <h2 data-en="End-to-End Visibility & Control" data-es="Visibilidad y Control de Extremo a Extremo">End-to-End Visibility & Control</h2>
+      <p data-en="Our RMM service provides comprehensive coverage of your IT environment — from automated patching and endpoint security to backup monitoring and cloud service visibility."
+         data-es="Nuestro servicio RMM proporciona cobertura integral de su entorno de TI — desde parches automatizados y seguridad de endpoints hasta monitoreo de backups y visibilidad de servicios en la nube.">
+        Our RMM service provides comprehensive coverage of your IT environment — from automated patching and endpoint security to backup monitoring and cloud service visibility.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-display"></i></div>
+        <h3 data-en="Continuous System Monitoring" data-es="Monitoreo Continuo del Sistema">Continuous System Monitoring</h3>
+        <p data-en="Real-time monitoring of servers, workstations, network devices, and cloud services — detecting anomalies, errors, and early failure signs before they become outages." data-es="Monitoreo en tiempo real de servidores, estaciones de trabajo, dispositivos de red y servicios en la nube — detectando anomalías, errores y señales de falla temprana antes de que se conviertan en interrupciones.">Real-time monitoring of servers, workstations, network devices, and cloud services — detecting anomalies, errors, and early failure signs before they become outages.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="CPU, memory, disk & network metrics" data-es="Métricas de CPU, memoria, disco y red">CPU, memory, disk & network metrics</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Service & process health monitoring" data-es="Monitoreo de salud de servicios y procesos">Service & process health monitoring</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Event log monitoring & analysis" data-es="Monitoreo y análisis de registros de eventos">Event log monitoring & analysis</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Hardware failure prediction" data-es="Predicción de fallas de hardware">Hardware failure prediction</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-rotate"></i></div>
+        <h3 data-en="Automated Patch Management" data-es="Gestión Automatizada de Parches">Automated Patch Management</h3>
+        <p data-en="Automated deployment of OS and third-party patches on a controlled schedule — tested, approved, and rolled out with rollback capability if anything goes wrong." data-es="Despliegue automatizado de parches de SO y de terceros en un calendario controlado — probados, aprobados y desplegados con capacidad de reversión si algo sale mal.">Automated deployment of OS and third-party patches on a controlled schedule — tested, approved, and rolled out with rollback capability if anything goes wrong.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Windows, macOS & third-party patching" data-es="Parches de Windows, macOS y terceros">Windows, macOS & third-party patching</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Scheduled maintenance windows" data-es="Ventanas de mantenimiento programadas">Scheduled maintenance windows</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Patch compliance reporting" data-es="Reportes de cumplimiento de parches">Patch compliance reporting</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Rollback for failed updates" data-es="Reversión para actualizaciones fallidas">Rollback for failed updates</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-bolt"></i></div>
+        <h3 data-en="Automated Remediation" data-es="Remediación Automatizada">Automated Remediation</h3>
+        <p data-en="Pre-built and custom automation scripts resolve common issues instantly — restarting stuck services, clearing temp files, freeing disk space — without requiring human intervention or a helpdesk ticket." data-es="Scripts de automatización predefinidos y personalizados resuelven problemas comunes al instante — reiniciando servicios atascados, limpiando archivos temporales, liberando espacio en disco — sin requerir intervención humana ni un ticket de helpdesk.">Pre-built and custom automation scripts resolve common issues instantly — restarting stuck services, clearing temp files, freeing disk space — without requiring human intervention or a helpdesk ticket.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Self-healing scripts for common failures" data-es="Scripts auto-reparadores para fallas comunes">Self-healing scripts for common failures</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Automated disk cleanup & optimization" data-es="Limpieza y optimización automática de disco">Automated disk cleanup & optimization</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Service restart & recovery automation" data-es="Automatización de reinicio y recuperación de servicios">Service restart & recovery automation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Custom scripts for your environment" data-es="Scripts personalizados para su entorno">Custom scripts for your environment</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3 data-en="Endpoint Security & EDR Monitoring" data-es="Seguridad de Endpoints y Monitoreo EDR">Endpoint Security & EDR Monitoring</h3>
+        <p data-en="Integrated monitoring of antivirus and EDR solutions — ensuring every endpoint has active protection, up-to-date definitions, and no unresolved threats lingering in your environment." data-es="Monitoreo integrado de soluciones antivirus y EDR — asegurando que cada endpoint tenga protección activa, definiciones actualizadas y ninguna amenaza sin resolver en su entorno.">Integrated monitoring of antivirus and EDR solutions — ensuring every endpoint has active protection, up-to-date definitions, and no unresolved threats lingering in your environment.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="AV / EDR health & definition monitoring" data-es="Monitoreo de salud y definiciones AV / EDR">AV / EDR health & definition monitoring</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Threat detection alert escalation" data-es="Escalación de alertas de detección de amenazas">Threat detection alert escalation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Endpoint isolation capability" data-es="Capacidad de aislamiento de endpoints">Endpoint isolation capability</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Security posture scoring" data-es="Puntuación de postura de seguridad">Security posture scoring</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-database"></i></div>
+        <h3 data-en="Backup Monitoring & Verification" data-es="Monitoreo y Verificación de Backups">Backup Monitoring & Verification</h3>
+        <p data-en="Every backup job is monitored and verified — failed or missed backups trigger immediate alerts, ensuring your data protection is never silently broken when you need it most." data-es="Cada job de backup es monitoreado y verificado — los backups fallidos o perdidos generan alertas inmediatas, asegurando que su protección de datos nunca falle silenciosamente cuando más la necesita.">Every backup job is monitored and verified — failed or missed backups trigger immediate alerts, ensuring your data protection is never silently broken when you need it most.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Daily backup job status verification" data-es="Verificación diaria del estado de jobs de backup">Daily backup job status verification</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Immediate alert on backup failures" data-es="Alerta inmediata en fallas de backup">Immediate alert on backup failures</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Storage capacity monitoring" data-es="Monitoreo de capacidad de almacenamiento">Storage capacity monitoring</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Restore test coordination" data-es="Coordinación de pruebas de restauración">Restore test coordination</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-boxes-stacked"></i></div>
+        <h3 data-en="Asset & Inventory Management" data-es="Gestión de Activos e Inventario">Asset & Inventory Management</h3>
+        <p data-en="Automated discovery and tracking of every hardware device and software installation in your environment — providing an always-current asset inventory for budgeting, audits, and lifecycle planning." data-es="Descubrimiento y seguimiento automatizado de cada dispositivo de hardware e instalación de software en su entorno — proporcionando un inventario de activos siempre actualizado para presupuesto, auditorías y planificación de ciclo de vida.">Automated discovery and tracking of every hardware device and software installation in your environment — providing an always-current asset inventory for budgeting, audits, and lifecycle planning.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Automated hardware discovery & inventory" data-es="Descubrimiento y inventario automatizado de hardware">Automated hardware discovery & inventory</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Software installation tracking" data-es="Seguimiento de instalaciones de software">Software installation tracking</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="License compliance monitoring" data-es="Monitoreo de cumplimiento de licencias">License compliance monitoring</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Warranty & lifecycle tracking" data-es="Seguimiento de garantías y ciclo de vida">Warranty & lifecycle tracking</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── 24/7 ALERT RESPONSE ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-bell"></i> <span data-en="24/7 Alert Response" data-es="Respuesta a Alertas 24/7">24/7 Alert Response</span></div>
+      <h2 data-en="We Never Sleep. Neither Does Our Monitoring." data-es="Nunca Dormimos. Tampoco Nuestro Monitoreo.">We Never Sleep. Neither Does Our Monitoring.</h2>
+      <p data-en="Your business doesn't stop after 5pm — and neither do we. Our NOC team receives and investigates alerts around the clock, every day of the year. When an issue can't be resolved remotely, we coordinate on-site support to restore operations quickly."
+         data-es="Su negocio no se detiene después de las 5pm — y nosotros tampoco. Nuestro equipo del NOC recibe e investiga alertas las 24 horas, todos los días del año. Cuando un problema no se puede resolver de forma remota, coordinamos soporte en sitio para restaurar las operaciones rápidamente.">
+        Your business doesn't stop after 5pm — and neither do we. Our NOC team receives and investigates alerts around the clock, every day of the year. When an issue can't be resolved remotely, we coordinate on-site support to restore operations quickly.
+      </p>
+    </div>
+    <div class="alerts-grid">
+      <div class="alert-card">
+        <i class="fas fa-hard-drive"></i>
+        <h4 data-en="Failed Backups" data-es="Backups Fallidos">Failed Backups</h4>
+        <p data-en="Immediate alert and investigation when any backup job fails — preventing silent data protection gaps." data-es="Alerta inmediata e investigación cuando cualquier job de backup falla — previniendo brechas silenciosas en la protección de datos.">Immediate alert and investigation when any backup job fails — preventing silent data protection gaps.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-triangle-exclamation"></i>
+        <h4 data-en="Critical System Errors" data-es="Errores Críticos del Sistema">Critical System Errors</h4>
+        <p data-en="Blue screens, kernel panics, application crashes, and critical event log entries trigger immediate NOC investigation and response." data-es="Pantallas azules, kernel panics, fallos de aplicaciones y entradas críticas en el registro de eventos desencadenan investigación y respuesta inmediata del NOC.">Blue screens, kernel panics, application crashes, and critical event log entries trigger immediate NOC investigation and response.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-virus-slash"></i>
+        <h4 data-en="Malware Detections" data-es="Detecciones de Malware">Malware Detections</h4>
+        <p data-en="EDR and antivirus detections are escalated immediately — affected endpoints can be isolated within minutes to contain the threat." data-es="Las detecciones de EDR y antivirus se escalan de inmediato — los endpoints afectados pueden aislarse en minutos para contener la amenaza.">EDR and antivirus detections are escalated immediately — affected endpoints can be isolated within minutes to contain the threat.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-plug-circle-xmark"></i>
+        <h4 data-en="Network & Service Outages" data-es="Interrupciones de Red y Servicios">Network & Service Outages</h4>
+        <p data-en="Connectivity failures, downed services, and WAN outages are detected and investigated in real time — with vendor escalation if needed." data-es="Las fallas de conectividad, servicios caídos y interrupciones WAN se detectan e investigan en tiempo real — con escalación al proveedor si es necesario.">Connectivity failures, downed services, and WAN outages are detected and investigated in real time — with vendor escalation if needed.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-circle-exclamation"></i>
+        <h4 data-en="Performance Degradation" data-es="Degradación del Rendimiento">Performance Degradation</h4>
+        <p data-en="CPU overloads, memory exhaustion, disk space thresholds, and slow response times are flagged before they impact end users." data-es="Las sobrecargas de CPU, el agotamiento de memoria, los umbrales de espacio en disco y los tiempos de respuesta lentos se señalan antes de que afecten a los usuarios finales.">CPU overloads, memory exhaustion, disk space thresholds, and slow response times are flagged before they impact end users.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-key"></i>
+        <h4 data-en="Security Policy Violations" data-es="Violaciones de Políticas de Seguridad">Security Policy Violations</h4>
+        <p data-en="Disabled firewalls, missing AV, unauthorized software, or expired certificates are detected and remediated through automated or manual intervention." data-es="Los firewalls desactivados, AV faltante, software no autorizado o certificados vencidos se detectan y remedian mediante intervención automatizada o manual.">Disabled firewalls, missing AV, unauthorized software, or expired certificates are detected and remediated through automated or manual intervention.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-cloud-xmark"></i>
+        <h4 data-en="Cloud Service Disruptions" data-es="Interrupciones de Servicios Cloud">Cloud Service Disruptions</h4>
+        <p data-en="Microsoft 365, Azure AD, and other cloud services are monitored for authentication failures, sync errors, and service degradation." data-es="Microsoft 365, Azure AD y otros servicios en la nube se monitorean para fallas de autenticación, errores de sincronización y degradación del servicio.">Microsoft 365, Azure AD, and other cloud services are monitored for authentication failures, sync errors, and service degradation.</p>
+      </div>
+      <div class="alert-card">
+        <i class="fas fa-temperature-high"></i>
+        <h4 data-en="Hardware Health Warnings" data-es="Advertencias de Salud del Hardware">Hardware Health Warnings</h4>
+        <p data-en="Disk SMART failures, high temperatures, failed RAID arrays, and PSU warnings are caught early — long before they result in catastrophic hardware failure." data-es="Las fallas SMART de disco, altas temperaturas, arreglos RAID fallidos y advertencias de PSU se detectan temprano — mucho antes de que resulten en una falla catastrófica del hardware.">Disk SMART failures, high temperatures, failed RAID arrays, and PSU warnings are caught early — long before they result in catastrophic hardware failure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BENEFITS ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-star"></i> <span data-en="Benefits for Your Business" data-es="Beneficios para Su Negocio">Benefits for Your Business</span></div>
+      <h2 data-en="What RMM Delivers for Your Organization" data-es="Lo Que el RMM Entrega para Su Organización">What RMM Delivers for Your Organization</h2>
+      <p data-en="RMM isn't just an IT tool — it's a business investment that reduces downtime, strengthens security, improves productivity, and gives your leadership team real visibility into IT health."
+         data-es="El RMM no es solo una herramienta de TI — es una inversión empresarial que reduce el tiempo de inactividad, fortalece la seguridad, mejora la productividad y da a su equipo directivo visibilidad real sobre la salud de TI.">
+        RMM isn't just an IT tool — it's a business investment that reduces downtime, strengthens security, improves productivity, and gives your leadership team real visibility into IT health.
+      </p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="ben-icon"><i class="fas fa-hand-holding-hand"></i></div>
+        <div>
+          <h4 data-en="Prevent Problems Before They Happen" data-es="Prevenir Problemas Antes de que Ocurran">Prevent Problems Before They Happen</h4>
+          <p data-en="Proactive detection of failing hardware, expiring certificates, and growing disk volumes means most issues are resolved before your users ever experience a disruption." data-es="La detección proactiva de hardware fallido, certificados vencidos y volúmenes de disco en crecimiento significa que la mayoría de los problemas se resuelven antes de que sus usuarios experimenten una interrupción.">Proactive detection of failing hardware, expiring certificates, and growing disk volumes means most issues are resolved before your users ever experience a disruption.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="ben-icon"><i class="fas fa-dollar-sign"></i></div>
+        <div>
+          <h4 data-en="Reduce Operational Costs" data-es="Reducir Costos Operativos">Reduce Operational Costs</h4>
+          <p data-en="Automation and remote management eliminate costly on-site visits, reduce emergency repair expenses, and prevent the revenue loss that comes with unplanned downtime." data-es="La automatización y la gestión remota eliminan costosas visitas en sitio, reducen los gastos de reparación de emergencia y previenen la pérdida de ingresos que viene con el tiempo de inactividad no planificado.">Automation and remote management eliminate costly on-site visits, reduce emergency repair expenses, and prevent the revenue loss that comes with unplanned downtime.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="ben-icon"><i class="fas fa-users"></i></div>
+        <div>
+          <h4 data-en="Improve Team Productivity" data-es="Mejorar la Productividad del Equipo">Improve Team Productivity</h4>
+          <p data-en="Reliable, patched, and optimized systems mean fewer IT interruptions — so your employees spend their time doing their jobs, not waiting for IT to fix things." data-es="Los sistemas confiables, parcheados y optimizados significan menos interrupciones de TI — para que sus empleados pasen su tiempo haciendo su trabajo, no esperando que TI arregle las cosas.">Reliable, patched, and optimized systems mean fewer IT interruptions — so your employees spend their time doing their jobs, not waiting for IT to fix things.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="ben-icon"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <h4 data-en="Strengthen Your Security Posture" data-es="Fortalecer Su Postura de Seguridad">Strengthen Your Security Posture</h4>
+          <p data-en="Up-to-date patches, continuous security monitoring, and early threat detection dramatically reduce your attack surface and vulnerability exposure across the entire environment." data-es="Los parches actualizados, el monitoreo continuo de seguridad y la detección temprana de amenazas reducen drásticamente su superficie de ataque y exposición a vulnerabilidades en todo el entorno.">Up-to-date patches, continuous security monitoring, and early threat detection dramatically reduce your attack surface and vulnerability exposure across the entire environment.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="ben-icon"><i class="fas fa-chart-bar"></i></div>
+        <div>
+          <h4 data-en="Full IT Visibility" data-es="Visibilidad Total de TI">Full IT Visibility</h4>
+          <p data-en="Monthly health reports give your leadership team clear insight into system status, patch compliance, alert trends, and upcoming technology lifecycle events — without technical jargon." data-es="Los informes mensuales de salud dan a su equipo directivo una visión clara del estado del sistema, cumplimiento de parches, tendencias de alertas y próximos eventos de ciclo de vida tecnológico — sin jerga técnica.">Monthly health reports give your leadership team clear insight into system status, patch compliance, alert trends, and upcoming technology lifecycle events — without technical jargon.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="ben-icon"><i class="fas fa-arrows-up-down"></i></div>
+        <div>
+          <h4 data-en="Scales With Your Business" data-es="Escala con Su Negocio">Scales With Your Business</h4>
+          <p data-en="Add users, devices, locations, or cloud workloads — our RMM platform scales instantly to cover your growing environment without gaps in coverage or changes to your support model." data-es="Agregue usuarios, dispositivos, ubicaciones o cargas de trabajo en la nube — nuestra plataforma RMM escala instantáneamente para cubrir su entorno en crecimiento sin brechas en la cobertura ni cambios en su modelo de soporte.">Add users, devices, locations, or cloud workloads — our RMM platform scales instantly to cover your growing environment without gaps in coverage or changes to your support model.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY ECSG ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-building"></i> <span data-en="Why Choose ECSG" data-es="Por Qué Elegir ECSG">Why Choose ECSG</span></div>
+      <h2 data-en="Why Choose ECSG for RMM" data-es="Por Qué Elegir ECSG para RMM">Why Choose ECSG for RMM</h2>
+      <p data-en="We don't resell a platform and hand you a dashboard. ECSG delivers a fully managed, human-backed RMM service — where certified engineers are watching, responding, and optimizing your environment every day."
+         data-es="No revendemos una plataforma y le entregamos un dashboard. ECSG entrega un servicio RMM totalmente administrado y respaldado por humanos — donde ingenieros certificados vigilan, responden y optimizan su entorno todos los días.">
+        We don't resell a platform and hand you a dashboard. ECSG delivers a fully managed, human-backed RMM service — where certified engineers are watching, responding, and optimizing your environment every day.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-eye"></i></div>
+        <h4 data-en="Proactive, Not Reactive" data-es="Proactivo, No Reactivo">Proactive, Not Reactive</h4>
+        <p data-en="We fix issues before they impact your business. Our monitoring catches problems early — not after your users call the helpdesk to report an outage." data-es="Resolvemos problemas antes de que impacten su negocio. Nuestro monitoreo detecta problemas temprano — no después de que sus usuarios llamen al helpdesk para reportar una interrupción.">We fix issues before they impact your business. Our monitoring catches problems early — not after your users call the helpdesk to report an outage.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-network-wired"></i></div>
+        <h4 data-en="Comprehensive Coverage" data-es="Cobertura Integral">Comprehensive Coverage</h4>
+        <p data-en="Servers, workstations, cloud services, networks, backup jobs, and security tools — all monitored under one unified platform with zero gaps in visibility." data-es="Servidores, estaciones de trabajo, servicios en la nube, redes, jobs de backup y herramientas de seguridad — todo monitoreado bajo una plataforma unificada con cero brechas en la visibilidad.">Servers, workstations, cloud services, networks, backup jobs, and security tools — all monitored under one unified platform with zero gaps in visibility.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-bolt"></i></div>
+        <h4 data-en="Modern Automation" data-es="Automatización Moderna">Modern Automation</h4>
+        <p data-en="Our automation scripts resolve common issues instantly — no ticket, no wait, no disruption. Faster response, fewer interruptions, greater reliability across your environment." data-es="Nuestros scripts de automatización resuelven problemas comunes al instante — sin ticket, sin espera, sin interrupción. Respuesta más rápida, menos interrupciones, mayor confiabilidad en todo su entorno.">Our automation scripts resolve common issues instantly — no ticket, no wait, no disruption. Faster response, fewer interruptions, greater reliability across your environment.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+        <h4 data-en="Security-First Approach" data-es="Enfoque de Seguridad Primero">Security-First Approach</h4>
+        <p data-en="Patch management, EDR integration, and security posture monitoring ensure your environment is continuously hardened against the latest threats — not just monitored." data-es="La gestión de parches, la integración EDR y el monitoreo de postura de seguridad aseguran que su entorno esté continuamente reforzado contra las últimas amenazas — no solo monitoreado.">Patch management, EDR integration, and security posture monitoring ensure your environment is continuously hardened against the latest threats — not just monitored.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+        <h4 data-en="Dedicated Expert Team" data-es="Equipo de Expertos Dedicados">Dedicated Expert Team</h4>
+        <p data-en="Your environment is managed by certified engineers who know your business — not an anonymous offshore help desk. Personalized, accountable, expert-level care." data-es="Su entorno es administrado por ingenieros certificados que conocen su negocio — no un helpdesk anónimo externo. Atención personalizada, responsable y de nivel experto.">Your environment is managed by certified engineers who know your business — not an anonymous offshore help desk. Personalized, accountable, expert-level care.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-tags"></i></div>
+        <h4 data-en="Predictable Monthly Pricing" data-es="Precios Mensuales Predecibles">Predictable Monthly Pricing</h4>
+        <p data-en="No surprise invoices. No per-incident charges. A flat, predictable monthly fee covers all monitoring, patching, remediation, and reporting — so you can budget with confidence." data-es="Sin facturas sorpresa. Sin cargos por incidente. Una tarifa mensual fija y predecible cubre todo el monitoreo, parches, remediación e informes — para que pueda presupuestar con confianza.">No surprise invoices. No per-incident charges. A flat, predictable monthly fee covers all monitoring, patching, remediation, and reporting — so you can budget with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Keep Your Business Running at Its Best" data-es="Mantenga Su Negocio Funcionando al Máximo">Keep Your Business Running at Its Best</h2>
+    <p data-en="With ECSG's RMM service, your technology becomes more reliable, secure, and efficient — supporting your growth without added complexity. Your systems stay healthy. Your business stays productive. Your team stays protected."
+       data-es="Con el servicio RMM de ECSG, su tecnología se vuelve más confiable, segura y eficiente — apoyando su crecimiento sin complejidad adicional. Sus sistemas se mantienen saludables. Su negocio se mantiene productivo. Su equipo se mantiene protegido.">
+      With ECSG's RMM service, your technology becomes more reliable, secure, and efficient — supporting your growth without added complexity. Your systems stay healthy. Your business stays productive. Your team stays protected.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="rmm.html" data-en="Remote Monitoring (RMM)" data-es="Monitoreo Remoto (RMM)">Remote Monitoring (RMM)</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+  ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('en'); }); });
+  ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('es'); }); });
+  try { var s=localStorage.getItem('ecsg_lang'); if(s==='es') applyLang('es'); } catch(e) {}
+  var ham=document.getElementById('hamburger');
+  var mob=document.getElementById('mobile-menu');
+  if(ham&&mob){ ham.addEventListener('click', function(){ mob.classList.toggle('open'); }); }
+})();
+</script>
+</body>
+</html>
