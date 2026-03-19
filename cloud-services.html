@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Cloud Services | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – Microsoft Azure, SharePoint, Microsoft 365, Email Security, and Microsoft Teams managed services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy: #1E3A5F;
+      --blue: #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale: #EAF2FB;
+      --white: #ffffff;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-600: #475569;
+      --gray-800: #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --shadow-md: 0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg: 0 8px 40px rgba(30,58,95,0.15);
+      --radius: 10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
+    }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #244D7A 55%, var(--blue) 100%);
+      color: #fff; padding: 80px 32px 70px; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(46,117,182,0.35) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 680px; line-height: 1.75; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── SECURITY GRID ─── */
+    .security-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .security-item {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 26px 22px; text-align: center; transition: var(--transition);
+    }
+    .security-item:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .sec-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; color: #fff; margin: 0 auto 14px;
+    }
+    .security-item h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .security-item p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── PROCESS ─── */
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::after {
+      content: ''; position: absolute; top: 30px; left: 5%; right: 5%; height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--blue)); z-index: 0;
+    }
+    .process-step { position: relative; z-index: 1; text-align: center; padding: 0 14px; }
+    .step-num {
+      width: 60px; height: 60px; background: var(--navy); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+      margin: 0 auto 16px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--blue);
+    }
+    .process-step h4 {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .process-step p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .security-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .process-steps::after { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band { padding: 52px 20px; }
+      footer { padding: 36px 20px 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" class="active" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-cloud"></i> <span data-en="Microsoft Cloud Partner" data-es="Partner de Microsoft Cloud">Microsoft Cloud Partner</span></div>
+    <h1><em data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</em><br><span data-en="that Drive Results" data-es="que Impulsan Resultados">that Drive Results</span></h1>
+    <p class="lead" data-en="We design, implement, and manage end-to-end Microsoft cloud solutions — Azure, Microsoft 365, SharePoint, Teams, and Email Security — so your business stays agile, secure, and productive." data-es="Diseñamos, implementamos y administramos soluciones de nube Microsoft de extremo a extremo — Azure, Microsoft 365, SharePoint, Teams y Seguridad de Correo — para que su empresa sea ágil, segura y productiva.">We design, implement, and manage end-to-end Microsoft cloud solutions — Azure, Microsoft 365, SharePoint, Teams, and Email Security — so your business stays agile, secure, and productive.</p>
+    <a href="ecsgcontact_sales.html" class="hero-cta"><i class="fas fa-arrow-right"></i> <span data-en="Schedule a Cloud Assessment" data-es="Agendar una Evaluación Cloud">Schedule a Cloud Assessment</span></a>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="number">500+</div><div class="label" data-en="Cloud Users Managed" data-es="Usuarios Cloud Administrados">Cloud Users Managed</div></div>
+      <div class="hero-stat"><div class="number">99.9%</div><div class="label" data-en="Uptime Guarantee" data-es="Garantía de Disponibilidad">Uptime Guarantee</div></div>
+      <div class="hero-stat"><div class="number">24/7</div><div class="label" data-en="Monitoring & Support" data-es="Monitoreo y Soporte">Monitoring & Support</div></div>
+      <div class="hero-stat"><div class="number">15+</div><div class="label" data-en="Years of Experience" data-es="Años de Experiencia">Years of Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES OVERVIEW ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-th-large"></i> <span data-en="Our Portfolio" data-es="Nuestro Portafolio">Our Portfolio</span></div>
+      <h2 data-en="Microsoft Cloud Solutions" data-es="Soluciones Microsoft Cloud">Microsoft Cloud Solutions</h2>
+      <p data-en="We are a certified Microsoft partner delivering the full cloud stack for growing businesses. From infrastructure to collaboration and security, we cover every layer." data-es="Somos un partner certificado de Microsoft que entrega el stack completo de nube para empresas en crecimiento. Desde infraestructura hasta colaboración y seguridad, cubrimos cada capa.">We are a certified Microsoft partner delivering the full cloud stack for growing businesses. From infrastructure to collaboration and security, we cover every layer.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fab fa-microsoft"></i></div>
+        <h3>Microsoft Azure</h3>
+        <p data-en="Enterprise-grade cloud infrastructure managed, optimized, and secured for your business workloads." data-es="Infraestructura cloud de nivel empresarial, administrada, optimizada y asegurada para sus cargas de trabajo.">Enterprise-grade cloud infrastructure managed, optimized, and secured for your business workloads.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Virtual Machines & IaaS" data-es="Máquinas Virtuales e IaaS">Virtual Machines & IaaS</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Azure Active Directory / Entra ID" data-es="Azure Active Directory / Entra ID">Azure Active Directory / Entra ID</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Disaster Recovery & Backup" data-es="Recuperación ante Desastres y Backup">Disaster Recovery & Backup</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Cost Optimization & Governance" data-es="Optimización de Costos y Gobernanza">Cost Optimization & Governance</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Azure Security Center" data-es="Centro de Seguridad de Azure">Azure Security Center</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
+        <h3>Microsoft SharePoint</h3>
+        <p data-en="Centralize documents, automate workflows, and build powerful internal portals that boost team productivity." data-es="Centralice documentos, automatice flujos de trabajo y construya portales internos que aumenten la productividad.">Centralize documents, automate workflows, and build powerful internal portals that boost team productivity.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Document Management & Version Control" data-es="Gestión de Documentos y Control de Versiones">Document Management & Version Control</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Intranet Portals & Sites" data-es="Portales Intranet y Sitios">Intranet Portals & Sites</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Power Automate Integrations" data-es="Integraciones con Power Automate">Power Automate Integrations</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Permissions & Compliance" data-es="Permisos y Cumplimiento">Permissions & Compliance</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Migration from Legacy Systems" data-es="Migración desde Sistemas Legados">Migration from Legacy Systems</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-grid-2"></i></div>
+        <h3>Microsoft 365</h3>
+        <p data-en="Full lifecycle management of your M365 environment — licensing, deployment, security hardening, and ongoing support." data-es="Gestión completa del ciclo de vida de su entorno M365 — licenciamiento, despliegue, endurecimiento de seguridad y soporte continuo.">Full lifecycle management of your M365 environment — licensing, deployment, security hardening, and ongoing support.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Exchange Online & Outlook" data-es="Exchange Online y Outlook">Exchange Online & Outlook</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="License Optimization" data-es="Optimización de Licencias">License Optimization</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="MFA & Conditional Access" data-es="MFA y Acceso Condicional">MFA & Conditional Access</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="OneDrive & Storage Policies" data-es="OneDrive y Políticas de Almacenamiento">OneDrive & Storage Policies</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Compliance & Data Loss Prevention" data-es="Cumplimiento y Prevención de Pérdida de Datos">Compliance & Data Loss Prevention</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3 data-en="Email Security" data-es="Seguridad de Correo">Email Security</h3>
+        <p data-en="Multi-layered protection against phishing, spoofing, malware, and business email compromise." data-es="Protección multicapa contra phishing, spoofing, malware y compromiso de correo empresarial.">Multi-layered protection against phishing, spoofing, malware, and business email compromise.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Microsoft Defender for Office 365" data-es="Microsoft Defender para Office 365">Microsoft Defender for Office 365</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="SPF, DKIM & DMARC Configuration" data-es="Configuración de SPF, DKIM y DMARC">SPF, DKIM & DMARC Configuration</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Anti-Phishing & Safe Links" data-es="Anti-Phishing y Safe Links">Anti-Phishing & Safe Links</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Email Encryption" data-es="Cifrado de Correo Electrónico">Email Encryption</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Security Awareness Training" data-es="Capacitación en Conciencia de Seguridad">Security Awareness Training</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-users-rectangle"></i></div>
+        <h3>Microsoft Teams</h3>
+        <p data-en="Fully managed Teams environments with voice, video, governance, and device integration." data-es="Entornos de Teams totalmente administrados con voz, video, gobernanza e integración de dispositivos.">Fully managed Teams environments with voice, video, governance, and device integration.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Teams Voice / Phone System" data-es="Teams Voice / Sistema de Telefonía">Teams Voice / Phone System</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Governance & Lifecycle Management" data-es="Gobernanza y Gestión del Ciclo de Vida">Governance & Lifecycle Management</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Guest Access & External Collaboration" data-es="Acceso de Invitados y Colaboración Externa">Guest Access & External Collaboration</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Meeting Rooms & Devices" data-es="Salas de Reuniones y Dispositivos">Meeting Rooms & Devices</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Integration with SharePoint & OneDrive" data-es="Integración con SharePoint y OneDrive">Integration with SharePoint & OneDrive</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-compass-drafting"></i></div>
+        <h3 data-en="vCIO & Cloud Strategy" data-es="vCIO y Estrategia Cloud">vCIO & Cloud Strategy</h3>
+        <p data-en="Strategic technology leadership aligning your cloud investments to business goals." data-es="Liderazgo tecnológico estratégico que alinea sus inversiones cloud con los objetivos de negocio.">Strategic technology leadership aligning your cloud investments to business goals.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Technology Roadmap Planning" data-es="Planificación de Hoja de Ruta Tecnológica">Technology Roadmap Planning</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Cloud ROI & Budget Analysis" data-es="ROI Cloud y Análisis de Presupuesto">Cloud ROI & Budget Analysis</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Vendor Management" data-es="Gestión de Proveedores">Vendor Management</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Quarterly Business Reviews" data-es="Revisiones Trimestrales de Negocio">Quarterly Business Reviews</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Risk & Compliance Consulting" data-es="Consultoría de Riesgo y Cumplimiento">Risk & Compliance Consulting</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── AZURE DEEP DIVE ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fab fa-microsoft"></i> Microsoft Azure</div>
+      <h2 data-en="Your Business in the Azure Cloud" data-es="Su Negocio en la Nube de Azure">Your Business in the Azure Cloud</h2>
+      <p data-en="Azure is the world's most trusted enterprise cloud platform. We help you migrate, modernize, and optimize — paying only for what you use, with the reliability your operations demand." data-es="Azure es la plataforma de nube empresarial más confiable del mundo. Le ayudamos a migrar, modernizar y optimizar — pagando solo por lo que usa, con la confiabilidad que sus operaciones exigen.">Azure is the world's most trusted enterprise cloud platform. We help you migrate, modernize, and optimize — paying only for what you use, with the reliability your operations demand.</p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="End-to-End Azure Management" data-es="Gestión Azure de Extremo a Extremo">End-to-End Azure Management</h3>
+        <p data-en="Whether you're starting your cloud journey or optimizing an existing Azure environment, ECSG provides a complete managed experience. Our certified engineers handle architecture design, deployment, monitoring, cost management, and security — so your team can focus on the business." data-es="Ya sea que esté comenzando su viaje a la nube u optimizando un entorno Azure existente, ECSG proporciona una experiencia administrada completa. Nuestros ingenieros certificados se encargan del diseño de arquitectura, despliegue, monitoreo, gestión de costos y seguridad.">Whether you're starting your cloud journey or optimizing an existing Azure environment, ECSG provides a complete managed experience. Our certified engineers handle architecture design, deployment, monitoring, cost management, and security — so your team can focus on the business.</p>
+        <p data-en="We design architectures that scale with your growth — from single VMs to complex hybrid environments connecting your on-premises infrastructure to Azure with minimal disruption." data-es="Diseñamos arquitecturas que escalan con su crecimiento — desde VMs individuales hasta entornos híbridos complejos que conectan su infraestructura local con Azure con mínima interrupción.">We design architectures that scale with your growth — from single VMs to complex hybrid environments connecting your on-premises infrastructure to Azure with minimal disruption.</p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Cost Reduction" data-es="Reducción de Costos">Cost Reduction</span>
+          <span class="benefit-pill" data-en="High Availability" data-es="Alta Disponibilidad">High Availability</span>
+          <span class="benefit-pill" data-en="Scalability" data-es="Escalabilidad">Scalability</span>
+          <span class="benefit-pill" data-en="Zero-Trust Security" data-es="Seguridad Zero-Trust">Zero-Trust Security</span>
+          <span class="benefit-pill" data-en="Compliance Ready" data-es="Listo para Cumplimiento">Compliance Ready</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="Azure Capabilities" data-es="Capacidades Azure">Azure Capabilities</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-server"></i></div><span class="cap-name" data-en="Infrastructure (IaaS)" data-es="Infraestructura (IaaS)">Infrastructure (IaaS)</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-lock"></i></div><span class="cap-name" data-en="Security & Identity" data-es="Seguridad e Identidad">Security & Identity</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:92%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-database"></i></div><span class="cap-name" data-en="Backup & Recovery" data-es="Backup y Recuperación">Backup & Recovery</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-chart-line"></i></div><span class="cap-name" data-en="Cost Optimization" data-es="Optimización de Costos">Cost Optimization</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-network-wired"></i></div><span class="cap-name" data-en="Hybrid Connectivity" data-es="Conectividad Híbrida">Hybrid Connectivity</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:85%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-robot"></i></div><span class="cap-name" data-en="AI & Automation" data-es="IA y Automatización">AI & Automation</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:80%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SHAREPOINT DEEP DIVE ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-share-nodes"></i> Microsoft SharePoint</div>
+      <h2 data-en="The Digital Backbone of Your Organization" data-es="La Columna Vertebral Digital de Su Organización">The Digital Backbone of Your Organization</h2>
+      <p data-en="SharePoint is more than file storage — it's the foundation for collaboration, knowledge management, and automated business processes." data-es="SharePoint es más que almacenamiento de archivos — es la base para la colaboración, gestión del conocimiento y procesos empresariales automatizados.">SharePoint is more than file storage — it's the foundation for collaboration, knowledge management, and automated business processes.</p>
+    </div>
+    <div class="deep-dive reverse">
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="SharePoint Capabilities" data-es="Capacidades SharePoint">SharePoint Capabilities</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-folder-open"></i></div><span class="cap-name" data-en="Document Libraries" data-es="Bibliotecas de Documentos">Document Libraries</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:98%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-sitemap"></i></div><span class="cap-name" data-en="Intranet Design" data-es="Diseño de Intranet">Intranet Design</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:92%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-bolt"></i></div><span class="cap-name" data-en="Power Automate Flows" data-es="Flujos Power Automate">Power Automate Flows</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-user-shield"></i></div><span class="cap-name" data-en="Permissions & Governance" data-es="Permisos y Gobernanza">Permissions & Governance</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-arrows-rotate"></i></div><span class="cap-name" data-en="Migration Services" data-es="Servicios de Migración">Migration Services</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+      </div>
+      <div class="deep-dive-text">
+        <h3 data-en="Intelligent Content & Collaboration" data-es="Contenido Inteligente y Colaboración">Intelligent Content & Collaboration</h3>
+        <p data-en="ECSG designs and deploys SharePoint environments tailored to your workflows. We build clean, intuitive intranet portals that serve as the central hub for your teams — bringing documents, announcements, and applications into a single place." data-es="ECSG diseña y despliega entornos SharePoint adaptados a sus flujos de trabajo. Construimos portales intranet limpios e intuitivos que sirven como eje central para sus equipos — reuniendo documentos, anuncios y aplicaciones en un solo lugar.">ECSG designs and deploys SharePoint environments tailored to your workflows. We build clean, intuitive intranet portals that serve as the central hub for your teams — bringing documents, announcements, and applications into a single place.</p>
+        <p data-en="Using Power Automate, we eliminate manual, repetitive tasks — from approval workflows and document routing to automated notifications and reporting. The result: less email chaos, faster decisions, and a compliant, auditable paper trail." data-es="Con Power Automate, eliminamos tareas manuales y repetitivas — desde flujos de aprobación y enrutamiento de documentos hasta notificaciones automatizadas e informes. El resultado: menos caos de correo, decisiones más rápidas y un rastro de auditoría conforme.">Using Power Automate, we eliminate manual, repetitive tasks — from approval workflows and document routing to automated notifications and reporting. The result: less email chaos, faster decisions, and a compliant, auditable paper trail.</p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Document Control" data-es="Control de Documentos">Document Control</span>
+          <span class="benefit-pill" data-en="Workflow Automation" data-es="Automatización de Flujos">Workflow Automation</span>
+          <span class="benefit-pill" data-en="Intranet Portal" data-es="Portal Intranet">Intranet Portal</span>
+          <span class="benefit-pill" data-en="HIPAA / SOC2 Ready" data-es="Listo para HIPAA / SOC2">HIPAA / SOC2 Ready</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MICROSOFT 365 ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-grid-2"></i> Microsoft 365</div>
+      <h2 data-en="Maximize Your M365 Investment" data-es="Maximice Su Inversión en M365">Maximize Your M365 Investment</h2>
+      <p data-en="Most businesses use only a fraction of the power inside Microsoft 365. ECSG unlocks the full potential of your subscription — from productivity apps to enterprise-grade security." data-es="La mayoría de las empresas usan solo una fracción del poder de Microsoft 365. ECSG desbloquea el potencial completo de su suscripción — desde aplicaciones de productividad hasta seguridad de nivel empresarial.">Most businesses use only a fraction of the power inside Microsoft 365. ECSG unlocks the full potential of your subscription — from productivity apps to enterprise-grade security.</p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Full Microsoft 365 Lifecycle" data-es="Ciclo de Vida Completo de Microsoft 365">Full Microsoft 365 Lifecycle</h3>
+        <p data-en="From initial tenant setup and user provisioning to license right-sizing and ongoing administration, ECSG manages every aspect of your Microsoft 365 environment. We implement security baselines — MFA, Conditional Access, and DLP policies — that protect your data without slowing your team down." data-es="Desde la configuración inicial del tenant y aprovisionamiento de usuarios hasta la optimización de licencias y administración continua, ECSG gestiona cada aspecto de su entorno Microsoft 365. Implementamos líneas base de seguridad — MFA, Acceso Condicional y políticas DLP.">From initial tenant setup and user provisioning to license right-sizing and ongoing administration, ECSG manages every aspect of your Microsoft 365 environment. We implement security baselines — MFA, Conditional Access, and DLP policies — that protect your data without slowing your team down.</p>
+        <p data-en="We also handle migration projects — moving from Google Workspace, on-premises Exchange, or legacy systems to Microsoft 365 with zero data loss and minimal downtime." data-es="También manejamos proyectos de migración — desde Google Workspace, Exchange local o sistemas legados hacia Microsoft 365 con cero pérdida de datos y mínima interrupción.">We also handle migration projects — moving from Google Workspace, on-premises Exchange, or legacy systems to Microsoft 365 with zero data loss and minimal downtime.</p>
+        <div class="benefit-pills">
+          <span class="benefit-pill">Exchange Online</span>
+          <span class="benefit-pill">OneDrive</span>
+          <span class="benefit-pill">Intune / MDM</span>
+          <span class="benefit-pill" data-en="Compliance Center" data-es="Centro de Cumplimiento">Compliance Center</span>
+          <span class="benefit-pill" data-en="Secure Score" data-es="Puntuación Segura">Secure Score</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="M365 Management Areas" data-es="Áreas de Gestión M365">M365 Management Areas</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-envelope"></i></div><span class="cap-name" data-en="Exchange & Email" data-es="Exchange y Correo">Exchange & Email</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:97%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-user-lock"></i></div><span class="cap-name" data-en="Identity & Access (Entra ID)" data-es="Identidad y Acceso (Entra ID)">Identity & Access (Entra ID)</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-mobile-screen"></i></div><span class="cap-name" data-en="Device Management (Intune)" data-es="Gestión de Dispositivos (Intune)">Device Management (Intune)</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-file-shield"></i></div><span class="cap-name" data-en="Data Loss Prevention" data-es="Prevención de Pérdida de Datos">Data Loss Prevention</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-tags"></i></div><span class="cap-name" data-en="License Optimization" data-es="Optimización de Licencias">License Optimization</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:85%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EMAIL SECURITY ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-shield-halved"></i> <span data-en="Email Security" data-es="Seguridad de Correo">Email Security</span></div>
+      <h2 data-en="Stop Threats Before They Reach Your Inbox" data-es="Detenga las Amenazas Antes de que Lleguen a su Bandeja">Stop Threats Before They Reach Your Inbox</h2>
+      <p data-en="Email is the #1 attack vector. Our multi-layered security stack blocks phishing, malware, impersonation, and ransomware — before they ever reach your users." data-es="El correo electrónico es el vector de ataque #1. Nuestro stack de seguridad multicapa bloquea phishing, malware, suplantación y ransomware — antes de que lleguen a sus usuarios.">Email is the #1 attack vector. Our multi-layered security stack blocks phishing, malware, impersonation, and ransomware — before they ever reach your users.</p>
+    </div>
+    <div class="security-grid">
+      <div class="security-item"><div class="sec-icon"><i class="fas fa-fish-fins"></i></div><h4 data-en="Anti-Phishing" data-es="Anti-Phishing">Anti-Phishing</h4><p data-en="AI-powered detection of spear-phishing, business email compromise, and lookalike domain attacks." data-es="Detección por IA de spear-phishing, compromiso de correo empresarial y ataques de dominios similares.">AI-powered detection of spear-phishing, business email compromise, and lookalike domain attacks.</p></div>
+      <div class="security-item"><div class="sec-icon"><i class="fas fa-bug-slash"></i></div><h4 data-en="Malware & Ransomware" data-es="Malware y Ransomware">Malware & Ransomware</h4><p data-en="Safe Attachments and Safe Links detonate suspicious files and URLs in a sandbox before delivery." data-es="Safe Attachments y Safe Links detonan archivos y URL sospechosos en un entorno aislado antes de la entrega.">Safe Attachments and Safe Links detonate suspicious files and URLs in a sandbox before delivery.</p></div>
+      <div class="security-item"><div class="sec-icon"><i class="fas fa-id-card-clip"></i></div><h4 data-en="Spoofing Protection" data-es="Protección contra Suplantación">Spoofing Protection</h4><p data-en="SPF, DKIM, and DMARC configured correctly — so attackers can't send email impersonating your domain." data-es="SPF, DKIM y DMARC configurados correctamente — para que los atacantes no puedan suplantar su dominio.">SPF, DKIM, and DMARC configured correctly — so attackers can't send email impersonating your domain.</p></div>
+      <div class="security-item"><div class="sec-icon"><i class="fas fa-lock"></i></div><h4 data-en="Email Encryption" data-es="Cifrado de Correo">Email Encryption</h4><p data-en="Sensitive messages encrypted in transit and at rest using Microsoft Information Protection and OME policies." data-es="Mensajes sensibles cifrados en tránsito y en reposo con Microsoft Information Protection y políticas OME.">Sensitive messages encrypted in transit and at rest using Microsoft Information Protection and OME policies.</p></div>
+      <div class="security-item"><div class="sec-icon"><i class="fas fa-graduation-cap"></i></div><h4 data-en="Security Awareness" data-es="Conciencia de Seguridad">Security Awareness</h4><p data-en="Simulated phishing campaigns and training that reduce your human risk factor by up to 70%." data-es="Campañas de phishing simulado y capacitación que reducen el factor de riesgo humano hasta en un 70%.">Simulated phishing campaigns and training that reduce your human risk factor by up to 70%.</p></div>
+      <div class="security-item"><div class="sec-icon"><i class="fas fa-magnifying-glass-chart"></i></div><h4 data-en="Threat Monitoring" data-es="Monitoreo de Amenazas">Threat Monitoring</h4><p data-en="24/7 monitoring of email threat intelligence, incident response, and detailed reporting on blocked threats." data-es="Monitoreo 24/7 de inteligencia de amenazas, respuesta a incidentes e informes detallados de amenazas bloqueadas.">24/7 monitoring of email threat intelligence, incident response, and detailed reporting on blocked threats.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MICROSOFT TEAMS ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-users-rectangle"></i> Microsoft Teams</div>
+      <h2 data-en="Collaborate Without Limits" data-es="Colabore Sin Límites">Collaborate Without Limits</h2>
+      <p data-en="Microsoft Teams is the communication hub for modern organizations. ECSG delivers fully managed Teams deployments — including governance, voice, and device integration." data-es="Microsoft Teams es el hub de comunicación para organizaciones modernas. ECSG entrega despliegues de Teams totalmente administrados — incluyendo gobernanza, voz e integración de dispositivos.">Microsoft Teams is the communication hub for modern organizations. ECSG delivers fully managed Teams deployments — including governance, voice, and device integration.</p>
+    </div>
+    <div class="deep-dive reverse">
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="Teams Capabilities" data-es="Capacidades de Teams">Teams Capabilities</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-phone"></i></div><span class="cap-name" data-en="Teams Voice / Phone System" data-es="Teams Voice / Sistema Telefónico">Teams Voice / Phone System</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:93%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-video"></i></div><span class="cap-name" data-en="Video Conferencing" data-es="Videoconferencias">Video Conferencing</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:97%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-sliders"></i></div><span class="cap-name" data-en="Governance & Policies" data-es="Gobernanza y Políticas">Governance & Policies</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-door-open"></i></div><span class="cap-name" data-en="Guest & External Access" data-es="Acceso de Invitados y Externo">Guest & External Access</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-chalkboard-user"></i></div><span class="cap-name" data-en="Meeting Rooms (MTR)" data-es="Salas de Reunión (MTR)">Meeting Rooms (MTR)</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:85%"></div></div></div>
+      </div>
+      <div class="deep-dive-text">
+        <h3 data-en="Your Modern Communication Platform" data-es="Su Plataforma de Comunicación Moderna">Your Modern Communication Platform</h3>
+        <p data-en="ECSG deploys and manages Microsoft Teams environments designed to match your organizational structure. We configure channels, permissions, retention policies, and compliance settings — ensuring your Teams deployment is secure and well-governed from day one." data-es="ECSG despliega y gestiona entornos de Microsoft Teams diseñados para adaptarse a su estructura organizacional. Configuramos canales, permisos, políticas de retención y configuraciones de cumplimiento — garantizando que su despliegue sea seguro y bien gobernado desde el primer día.">ECSG deploys and manages Microsoft Teams environments designed to match your organizational structure. We configure channels, permissions, retention policies, and compliance settings — ensuring your Teams deployment is secure and well-governed from day one.</p>
+        <p data-en="For businesses looking to replace traditional phone systems, Teams Voice delivers enterprise-grade telephony at a fraction of the cost — with the simplicity of one unified platform for calls, chat, and video." data-es="Para empresas que buscan reemplazar sistemas telefónicos tradicionales, Teams Voice ofrece telefonía de nivel empresarial a una fracción del costo — con la simplicidad de una sola plataforma unificada para llamadas, chat y video.">For businesses looking to replace traditional phone systems, Teams Voice delivers enterprise-grade telephony at a fraction of the cost — with the simplicity of one unified platform for calls, chat, and video.</p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Unified Communications" data-es="Comunicaciones Unificadas">Unified Communications</span>
+          <span class="benefit-pill" data-en="Replace PBX" data-es="Reemplazar PBX">Replace PBX</span>
+          <span class="benefit-pill" data-en="Compliance Recording" data-es="Grabación de Cumplimiento">Compliance Recording</span>
+          <span class="benefit-pill">eDiscovery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-route"></i> <span data-en="How We Work" data-es="Cómo Trabajamos">How We Work</span></div>
+      <h2 data-en="Our Cloud Adoption Process" data-es="Nuestro Proceso de Adopción Cloud">Our Cloud Adoption Process</h2>
+      <p data-en="A proven, structured approach that minimizes risk and maximizes outcomes — from your first conversation to long-term managed success." data-es="Un enfoque probado y estructurado que minimiza riesgos y maximiza resultados — desde su primera conversación hasta el éxito administrado a largo plazo.">A proven, structured approach that minimizes risk and maximizes outcomes — from your first conversation to long-term managed success.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step"><div class="step-num">01</div><h4 data-en="Discovery" data-es="Descubrimiento">Discovery</h4><p data-en="We assess your current environment, goals, and gaps." data-es="Evaluamos su entorno actual, objetivos y brechas.">We assess your current environment, goals, and gaps.</p></div>
+      <div class="process-step"><div class="step-num">02</div><h4 data-en="Design" data-es="Diseño">Design</h4><p data-en="We architect a tailored cloud solution aligned to your business." data-es="Diseñamos una solución cloud adaptada a su negocio.">We architect a tailored cloud solution aligned to your business.</p></div>
+      <div class="process-step"><div class="step-num">03</div><h4 data-en="Migrate" data-es="Migrar">Migrate</h4><p data-en="We execute the migration with zero data loss and minimal downtime." data-es="Ejecutamos la migración con cero pérdida de datos y mínimo tiempo de inactividad.">We execute the migration with zero data loss and minimal downtime.</p></div>
+      <div class="process-step"><div class="step-num">04</div><h4 data-en="Secure" data-es="Asegurar">Secure</h4><p data-en="We harden security, apply policies, and validate compliance." data-es="Fortalecemos la seguridad, aplicamos políticas y validamos el cumplimiento.">We harden security, apply policies, and validate compliance.</p></div>
+      <div class="process-step"><div class="step-num">05</div><h4 data-en="Manage" data-es="Administrar">Manage</h4><p data-en="Ongoing monitoring, support, and optimization." data-es="Monitoreo continuo, soporte y optimización.">Ongoing monitoring, support, and optimization.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Ready to Move to the Cloud?" data-es="¿Listo para Migrar a la Nube?">Ready to Move to the Cloud?</h2>
+    <p data-en="Schedule a free Cloud Assessment with our team. We'll review your environment, identify opportunities, and deliver a roadmap — at no cost." data-es="Agende una Evaluación Cloud gratuita con nuestro equipo. Revisaremos su entorno, identificaremos oportunidades y entregaremos una hoja de ruta — sin costo.">Schedule a free Cloud Assessment with our team. We'll review your environment, identify opportunities, and deliver a roadmap — at no cost.</p>
+    <a href="ecsgcontact_sales.html" class="btn-white"><i class="fas fa-calendar-check"></i> <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span></a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT." data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var currentLang = 'en';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN', 'btnEN2'].forEach(function (id) { var b = document.getElementById(id); if (b) b.classList.toggle('active', lang === 'en'); });
+    ['btnES', 'btnES2'].forEach(function (id) { var b = document.getElementById(id); if (b) b.classList.toggle('active', lang === 'es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+
+  ['btnEN', 'btnEN2'].forEach(function (id) {
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function () { applyLang('en'); });
+  });
+  ['btnES', 'btnES2'].forEach(function (id) {
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function () { applyLang('es'); });
+  });
+
+  try { var s = localStorage.getItem('ecsg_lang'); if (s === 'es') applyLang('es'); } catch (e) {}
+
+  var ham = document.getElementById('hamburger');
+  var mob = document.getElementById('mobile-menu');
+  if (ham && mob) {
+    ham.addEventListener('click', function () { mob.classList.toggle('open'); });
+  }
+})();
+</script>
+</body>
+</html>
