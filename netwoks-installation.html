@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Network Installation | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – Professional network installation: structured cabling, switching, Wi-Fi design, firewalls, VLANs, SD-WAN, and full documentation for businesses in Connecticut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
+    }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #162F50 50%, #1E5080 100%);
+      color: #fff; padding: 80px 32px 70px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 92% 45%, rgba(46,117,182,0.38) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── NETWORK LAYERS ─── */
+    .layers-wrap {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .layer-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      border-bottom: 1px solid var(--gray-100);
+      transition: var(--transition);
+    }
+    .layer-row:last-child { border-bottom: none; }
+    .layer-row:hover { background: var(--blue-pale); }
+    .layer-label {
+      padding: 18px 20px;
+      background: var(--navy); color: #fff;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .layer-label .lyr-num {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 3px;
+    }
+    .layer-label .lyr-name {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: #fff; text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    .layer-content {
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .layer-tag {
+      background: var(--blue-pale); color: var(--navy);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 0.78rem; font-weight: 600;
+    }
+
+    /* ─── TIMELINE CARDS ─── */
+    .timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .timeline-card {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gray-200); transition: var(--transition);
+    }
+    .timeline-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .tl-header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      padding: 22px 24px; color: #fff;
+    }
+    .tl-header .tl-size {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px;
+    }
+    .tl-header .tl-range { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+    .tl-body { padding: 22px 24px; background: var(--white); }
+    .tl-time {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--navy);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 0.8rem; font-weight: 700; margin-bottom: 16px;
+    }
+    .tl-features { list-style: none; }
+    .tl-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 5px 0; border-bottom: 1px solid var(--gray-100); }
+    .tl-features li:last-child { border-bottom: none; }
+    .tl-features li i { color: var(--blue); font-size: 0.68rem; margin-top: 4px; flex-shrink: 0; }
+    .tl-cta {
+      display: block; text-align: center;
+      background: var(--navy); color: #fff;
+      padding: 11px; border-radius: 6px;
+      font-weight: 700; font-size: 0.86rem;
+      text-decoration: none; margin-top: 18px;
+      transition: var(--transition);
+    }
+    .tl-cta:hover { background: var(--blue); }
+
+    /* ─── PROCESS STEPS ─── */
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::after {
+      content: ''; position: absolute; top: 30px; left: 4%; right: 4%; height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--blue)); z-index: 0;
+    }
+    .process-step { position: relative; z-index: 1; text-align: center; padding: 0 14px; }
+    .step-num {
+      width: 60px; height: 60px; background: var(--navy); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;
+      margin: 0 auto 16px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--blue);
+    }
+    .process-step h4 {
+      font-family: var(--font-display); font-size: 0.92rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .process-step p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ─── DELIVERABLES ─── */
+    .deliverables-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .deliverable-item {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 22px 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: var(--transition);
+    }
+    .deliverable-item:hover { border-color: var(--blue-light); box-shadow: var(--shadow-md); }
+    .del-icon {
+      width: 44px; min-width: 44px; height: 44px;
+      background: var(--blue-pale); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--blue);
+    }
+    .deliverable-item h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 5px;
+    }
+    .deliverable-item p { font-size: 0.84rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* ─── OUTCOMES ─── */
+    .outcomes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .outcome-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 22px; text-align: center;
+      transition: var(--transition);
+    }
+    .outcome-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .outcome-card .out-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: #fff; margin: 0 auto 14px;
+    }
+    .outcome-card h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .outcome-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .outcomes-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .layer-row { grid-template-columns: 140px 1fr; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .process-steps::after { display: none; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr 1fr; }
+      .layer-row { grid-template-columns: 1fr; }
+      .layer-label { padding: 12px 16px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-network-wired"></i> <span data-en="Network Infrastructure" data-es="Infraestructura de Red">Network Infrastructure</span></div>
+    <h1><em data-en="Network Installation" data-es="Instalación de Redes">Network Installation</em><br><span data-en="Reliable, Secure & Built to Scale." data-es="Confiable, Segura y Construida para Escalar.">Reliable, Secure & Built to Scale.</span></h1>
+    <p class="lead"
+       data-en="ECSG designs and installs high-performance network infrastructure tailored to your business — from structured cabling and switching to enterprise Wi-Fi, firewalls, and SD-WAN. We don't just install: we engineer networks built to last, scale, and stay secure."
+       data-es="ECSG diseña e instala infraestructura de red de alto rendimiento adaptada a su negocio — desde cableado estructurado y switching hasta Wi-Fi empresarial, firewalls y SD-WAN. No solo instalamos: diseñamos redes construidas para durar, escalar y mantenerse seguras.">
+      ECSG designs and installs high-performance network infrastructure tailored to your business — from structured cabling and switching to enterprise Wi-Fi, firewalls, and SD-WAN. We don't just install: we engineer networks built to last, scale, and stay secure.
+    </p>
+    <a href="ecsgcontact_sales.html" class="hero-cta">
+      <i class="fas fa-arrow-right"></i>
+      <span data-en="Request a Network Assessment" data-es="Solicitar una Evaluación de Red">Request a Network Assessment</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">Cat6A</div>
+        <div class="label" data-en="Structured Cabling" data-es="Cableado Estructurado">Structured Cabling</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">NGFW</div>
+        <div class="label" data-en="Next-Gen Firewalls" data-es="Firewalls de Próxima Generación">Next-Gen Firewalls</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">Wi-Fi 6</div>
+        <div class="label" data-en="Enterprise Wireless" data-es="Inalámbrico Empresarial">Enterprise Wireless</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">100%</div>
+        <div class="label" data-en="Documented & Tested" data-es="Documentado y Probado">Documented & Tested</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OVERVIEW ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-sitemap"></i> <span data-en="Our Approach" data-es="Nuestro Enfoque">Our Approach</span></div>
+      <h2 data-en="Design to Documentation, Seamlessly Delivered" data-es="Del Diseño a la Documentación, Entregado sin Interrupciones">Design to Documentation, Seamlessly Delivered</h2>
+      <p data-en="A strong network is the backbone of every modern business. ECSG delivers complete network installations — engineered from the ground up for performance, security, and long-term scalability. Every project is planned, built, tested, and handed over with full documentation by our certified network engineers."
+         data-es="Una red sólida es la columna vertebral de todo negocio moderno. ECSG entrega instalaciones de red completas — diseñadas desde cero para rendimiento, seguridad y escalabilidad a largo plazo. Cada proyecto es planificado, construido, probado y entregado con documentación completa por nuestros ingenieros de red certificados.">
+        A strong network is the backbone of every modern business. ECSG delivers complete network installations — engineered from the ground up for performance, security, and long-term scalability. Every project is planned, built, tested, and handed over with full documentation by our certified network engineers.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Engineered for Your Business" data-es="Diseñado para Su Negocio">Engineered for Your Business</h3>
+        <p data-en="Every ECSG network installation starts with discovery — understanding your business workflows, application requirements, user density, security posture, and growth plans. We then design a network architecture that meets today's needs while leaving room to scale. No generic templates, no cookie-cutter designs."
+           data-es="Cada instalación de red de ECSG comienza con descubrimiento — entendiendo sus flujos de trabajo empresariales, requisitos de aplicaciones, densidad de usuarios, postura de seguridad y planes de crecimiento. Luego diseñamos una arquitectura de red que satisface las necesidades actuales mientras deja espacio para escalar.">
+          Every ECSG network installation starts with discovery — understanding your business workflows, application requirements, user density, security posture, and growth plans. We then design a network architecture that meets today's needs while leaving room to scale. No generic templates, no cookie-cutter designs.
+        </p>
+        <p data-en="Our certified engineers handle everything: Cat6/Cat6A structured cabling, rack and patch panel installation, core and access switching with VLAN segmentation, next-gen firewall deployment, business-class Wi-Fi with heat-mapped coverage, and QoS policies for voice and video traffic — then close every project with tested as-built documentation and runbooks."
+           data-es="Nuestros ingenieros certificados se encargan de todo: cableado estructurado Cat6/Cat6A, instalación de rack y panel de parcheo, switching de núcleo y acceso con segmentación VLAN, despliegue de firewall de próxima generación, Wi-Fi empresarial con cobertura mapeada por calor, y políticas QoS — cerrando cada proyecto con documentación probada y runbooks.">
+          Our certified engineers handle everything: Cat6/Cat6A structured cabling, rack and patch panel installation, core and access switching with VLAN segmentation, next-gen firewall deployment, business-class Wi-Fi with heat-mapped coverage, and QoS policies for voice and video traffic — then close every project with tested as-built documentation and runbooks.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill">Cat6 / Cat6A</span>
+          <span class="benefit-pill" data-en="VLAN Segmentation" data-es="Segmentación VLAN">VLAN Segmentation</span>
+          <span class="benefit-pill">Wi-Fi 6 / 6E</span>
+          <span class="benefit-pill" data-en="Next-Gen Firewall" data-es="Firewall de Próxima Generación">Next-Gen Firewall</span>
+          <span class="benefit-pill">SD-WAN</span>
+          <span class="benefit-pill" data-en="As-Built Docs" data-es="Documentación Final">As-Built Docs</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="Project Capabilities" data-es="Capacidades del Proyecto">Project Capabilities</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-ethernet"></i></div><span class="cap-name" data-en="Structured Cabling (Cat6/6A)" data-es="Cableado Estructurado (Cat6/6A)">Structured Cabling (Cat6/6A)</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-server"></i></div><span class="cap-name" data-en="Switching & VLAN Design" data-es="Switching y Diseño VLAN">Switching & VLAN Design</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:98%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-shield-halved"></i></div><span class="cap-name" data-en="Firewall & VPN" data-es="Firewall y VPN">Firewall & VPN</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:97%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-wifi"></i></div><span class="cap-name" data-en="Enterprise Wi-Fi Design" data-es="Diseño Wi-Fi Empresarial">Enterprise Wi-Fi Design</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-globe"></i></div><span class="cap-name" data-en="SD-WAN & Failover" data-es="SD-WAN y Failover">SD-WAN & Failover</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-file-lines"></i></div><span class="cap-name" data-en="Documentation & Runbooks" data-es="Documentación y Runbooks">Documentation & Runbooks</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NETWORK LAYERS ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-layer-group"></i> <span data-en="Network Architecture" data-es="Arquitectura de Red">Network Architecture</span></div>
+      <h2 data-en="Every Layer, Engineered to Perform" data-es="Cada Capa, Diseñada para Rendir">Every Layer, Engineered to Perform</h2>
+      <p data-en="We design and install the full network stack — from physical cabling to cloud connectivity — ensuring every layer is optimized, secured, and documented for long-term manageability."
+         data-es="Diseñamos e instalamos el stack de red completo — desde el cableado físico hasta la conectividad a la nube — asegurando que cada capa esté optimizada, asegurada y documentada para una gestión a largo plazo.">
+        We design and install the full network stack — from physical cabling to cloud connectivity — ensuring every layer is optimized, secured, and documented for long-term manageability.
+      </p>
+    </div>
+    <div class="layers-wrap">
+      <div class="layer-row">
+        <div class="layer-label"><div class="lyr-num" data-en="Layer 1" data-es="Capa 1">Layer 1</div><div class="lyr-name" data-en="Physical" data-es="Física">Physical</div></div>
+        <div class="layer-content">
+          <span class="layer-tag">Cat6 / Cat6A</span>
+          <span class="layer-tag" data-en="Fiber Optic" data-es="Fibra Óptica">Fiber Optic</span>
+          <span class="layer-tag" data-en="Racks & Patch Panels" data-es="Racks y Paneles de Parcheo">Racks & Patch Panels</span>
+          <span class="layer-tag" data-en="Cable Management" data-es="Gestión de Cables">Cable Management</span>
+          <span class="layer-tag" data-en="Labeling Standards" data-es="Estándares de Etiquetado">Labeling Standards</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-label"><div class="lyr-num" data-en="Layer 2" data-es="Capa 2">Layer 2</div><div class="lyr-name" data-en="Data Link" data-es="Enlace de Datos">Data Link</div></div>
+        <div class="layer-content">
+          <span class="layer-tag" data-en="Managed Switching" data-es="Switching Administrado">Managed Switching</span>
+          <span class="layer-tag">VLANs</span>
+          <span class="layer-tag">PoE / PoE+</span>
+          <span class="layer-tag">Spanning Tree</span>
+          <span class="layer-tag" data-en="Port Security" data-es="Seguridad de Puertos">Port Security</span>
+          <span class="layer-tag">802.1Q Trunking</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-label"><div class="lyr-num" data-en="Layer 3" data-es="Capa 3">Layer 3</div><div class="lyr-name" data-en="Network" data-es="Red">Network</div></div>
+        <div class="layer-content">
+          <span class="layer-tag" data-en="IP Scheme Design" data-es="Diseño de Esquema IP">IP Scheme Design</span>
+          <span class="layer-tag">DHCP / DNS</span>
+          <span class="layer-tag" data-en="Inter-VLAN Routing" data-es="Enrutamiento Inter-VLAN">Inter-VLAN Routing</span>
+          <span class="layer-tag" data-en="Static & Dynamic Routing" data-es="Enrutamiento Estático y Dinámico">Static & Dynamic Routing</span>
+          <span class="layer-tag">NAT / PAT</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-label"><div class="lyr-num" data-en="Security" data-es="Seguridad">Security</div><div class="lyr-name" data-en="Perimeter" data-es="Perímetro">Perimeter</div></div>
+        <div class="layer-content">
+          <span class="layer-tag" data-en="Next-Gen Firewall" data-es="Firewall de Próxima Generación">Next-Gen Firewall</span>
+          <span class="layer-tag">IPS / IDS</span>
+          <span class="layer-tag">Site-to-Site VPN</span>
+          <span class="layer-tag">SSL VPN</span>
+          <span class="layer-tag">NAC</span>
+          <span class="layer-tag" data-en="Guest Network Isolation" data-es="Aislamiento de Red de Invitados">Guest Network Isolation</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-label"><div class="lyr-num">Wi-Fi</div><div class="lyr-name" data-en="Wireless" data-es="Inalámbrico">Wireless</div></div>
+        <div class="layer-content">
+          <span class="layer-tag">Wi-Fi 6 / 6E</span>
+          <span class="layer-tag" data-en="Heat-Map Design" data-es="Diseño por Mapa de Calor">Heat-Map Design</span>
+          <span class="layer-tag" data-en="Seamless Roaming" data-es="Roaming Transparente">Seamless Roaming</span>
+          <span class="layer-tag" data-en="High Density" data-es="Alta Densidad">High Density</span>
+          <span class="layer-tag" data-en="Guest SSID Isolation" data-es="Aislamiento SSID de Invitados">Guest SSID Isolation</span>
+        </div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-label"><div class="lyr-num">WAN</div><div class="lyr-name" data-en="Connectivity" data-es="Conectividad">Connectivity</div></div>
+        <div class="layer-content">
+          <span class="layer-tag">SD-WAN</span>
+          <span class="layer-tag" data-en="Internet Failover" data-es="Failover de Internet">Internet Failover</span>
+          <span class="layer-tag">QoS</span>
+          <span class="layer-tag" data-en="Bandwidth Management" data-es="Gestión de Ancho de Banda">Bandwidth Management</span>
+          <span class="layer-tag" data-en="Multi-WAN Load Balancing" data-es="Balanceo de Carga Multi-WAN">Multi-WAN Load Balancing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CORE SERVICES ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-th-large"></i> <span data-en="Core Services" data-es="Servicios Principales">Core Services</span></div>
+      <h2 data-en="Everything Included — Nothing Overlooked" data-es="Todo Incluido — Nada Pasado por Alto">Everything Included — Nothing Overlooked</h2>
+      <p data-en="Our network installations are fully scoped — covering every component from physical infrastructure to cloud connectivity, all delivered by certified engineers and backed by complete as-built documentation."
+         data-es="Nuestras instalaciones de red tienen alcance completo — cubriendo cada componente desde la infraestructura física hasta la conectividad a la nube, todo entregado por ingenieros certificados y respaldado por documentación completa.">
+        Our network installations are fully scoped — covering every component from physical infrastructure to cloud connectivity, all delivered by certified engineers and backed by complete as-built documentation.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-ethernet"></i></div>
+        <h3 data-en="Structured Cabling" data-es="Cableado Estructurado">Structured Cabling</h3>
+        <p data-en="Professional Cat6/Cat6A and fiber cabling installed to TIA-568 standards — neatly routed, labeled, and terminated for maximum performance and long-term reliability." data-es="Cableado profesional Cat6/Cat6A y fibra instalado según estándares TIA-568 — ordenadamente enrutado, etiquetado y terminado para máximo rendimiento y confiabilidad a largo plazo.">Professional Cat6/Cat6A and fiber cabling installed to TIA-568 standards — neatly routed, labeled, and terminated for maximum performance and long-term reliability.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Cat6 / Cat6A horizontal runs" data-es="Runs horizontales Cat6 / Cat6A">Cat6 / Cat6A horizontal runs</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Fiber optic backbone (single & multi-mode)" data-es="Backbone de fibra óptica (monomodo y multimodo)">Fiber optic backbone (single & multi-mode)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Rack, patch panel & cable management" data-es="Rack, panel de parcheo y gestión de cables">Rack, patch panel & cable management</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="ANSI/TIA-568 compliant labeling" data-es="Etiquetado conforme a ANSI/TIA-568">ANSI/TIA-568 compliant labeling</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-server"></i></div>
+        <h3 data-en="Switching & VLAN Design" data-es="Switching y Diseño VLAN">Switching & VLAN Design</h3>
+        <p data-en="Core, distribution, and access layer switching with proper VLAN segmentation — isolating servers, workstations, VoIP, IoT, cameras, and guest traffic for performance and security." data-es="Switching de núcleo, distribución y capa de acceso con segmentación VLAN apropiada — aislando servidores, estaciones de trabajo, VoIP, IoT, cámaras y tráfico de invitados para rendimiento y seguridad.">Core, distribution, and access layer switching with proper VLAN segmentation — isolating servers, workstations, VoIP, IoT, cameras, and guest traffic for performance and security.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Core / distribution / access layer design" data-es="Diseño de capa núcleo / distribución / acceso">Core / distribution / access layer design</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="VLAN segmentation & inter-VLAN routing" data-es="Segmentación VLAN y enrutamiento inter-VLAN">VLAN segmentation & inter-VLAN routing</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="PoE / PoE+ for cameras, APs & phones" data-es="PoE / PoE+ para cámaras, APs y teléfonos">PoE / PoE+ for cameras, APs & phones</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Spanning tree, port security & QoS" data-es="Spanning tree, seguridad de puertos y QoS">Spanning tree, port security & QoS</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3 data-en="Firewall & VPN" data-es="Firewall y VPN">Firewall & VPN</h3>
+        <p data-en="Next-generation firewall deployment with IPS/IDS, application control, SSL inspection, and site-to-site or SSL VPN for secure remote access — from leading vendors including Fortinet, Palo Alto, and Cisco." data-es="Despliegue de firewall de próxima generación con IPS/IDS, control de aplicaciones, inspección SSL y VPN site-to-site o SSL para acceso remoto seguro — de proveedores líderes como Fortinet, Palo Alto y Cisco.">Next-generation firewall deployment with IPS/IDS, application control, SSL inspection, and site-to-site or SSL VPN for secure remote access — from leading vendors including Fortinet, Palo Alto, and Cisco.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Next-gen firewall (NGFW) deployment" data-es="Despliegue de firewall de próxima generación (NGFW)">Next-gen firewall (NGFW) deployment</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="IPS / IDS, application & URL filtering" data-es="IPS / IDS, filtrado de aplicaciones y URL">IPS / IDS, application & URL filtering</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Site-to-site VPN & SSL VPN" data-es="VPN site-to-site y SSL VPN">Site-to-site VPN & SSL VPN</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Guest network isolation & NAC" data-es="Aislamiento de red de invitados y NAC">Guest network isolation & NAC</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-wifi"></i></div>
+        <h3 data-en="Enterprise Wi-Fi Design" data-es="Diseño Wi-Fi Empresarial">Enterprise Wi-Fi Design</h3>
+        <p data-en="Business-class wireless deployments engineered with RF heat-mapping, proper AP placement, seamless roaming, and high-density design for open offices, warehouses, and multi-floor environments." data-es="Despliegues inalámbricos de clase empresarial diseñados con mapeo de calor RF, ubicación apropiada de APs, roaming transparente y diseño de alta densidad para oficinas abiertas, almacenes y entornos multi-piso.">Business-class wireless deployments engineered with RF heat-mapping, proper AP placement, seamless roaming, and high-density design for open offices, warehouses, and multi-floor environments.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="RF site survey & heat-map planning" data-es="Relevamiento de RF y planificación por mapa de calor">RF site survey & heat-map planning</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Wi-Fi 6 / 6E access point deployment" data-es="Despliegue de puntos de acceso Wi-Fi 6 / 6E">Wi-Fi 6 / 6E access point deployment</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Seamless roaming & band steering" data-es="Roaming transparente y band steering">Seamless roaming & band steering</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Guest SSID with captive portal" data-es="SSID de invitados con portal cautivo">Guest SSID with captive portal</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <h3 data-en="SD-WAN & Internet Failover" data-es="SD-WAN y Failover de Internet">SD-WAN & Internet Failover</h3>
+        <p data-en="Resilient WAN connectivity with automatic failover, SD-WAN path selection, and QoS policies that prioritize voice, video, and critical business applications across multiple ISP links." data-es="Conectividad WAN resiliente con failover automático, selección de ruta SD-WAN y políticas QoS que priorizan voz, video y aplicaciones empresariales críticas a través de múltiples enlaces de ISP.">Resilient WAN connectivity with automatic failover, SD-WAN path selection, and QoS policies that prioritize voice, video, and critical business applications across multiple ISP links.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Dual ISP / internet failover" data-es="ISP doble / failover de internet">Dual ISP / internet failover</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="SD-WAN intelligent path selection" data-es="Selección inteligente de ruta SD-WAN">SD-WAN intelligent path selection</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="QoS for VoIP, video & cloud apps" data-es="QoS para VoIP, video y aplicaciones en la nube">QoS for VoIP, video & cloud apps</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Multi-WAN load balancing" data-es="Balanceo de carga Multi-WAN">Multi-WAN load balancing</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <h3 data-en="Monitoring & Network Baselines" data-es="Monitoreo y Líneas Base de Red">Monitoring & Network Baselines</h3>
+        <p data-en="After every installation, we configure network monitoring, establish performance baselines, and set up alerting — so you have immediate visibility into your infrastructure from day one." data-es="Después de cada instalación, configuramos el monitoreo de red, establecemos líneas base de rendimiento y configuramos alertas — para que tenga visibilidad inmediata de su infraestructura desde el primer día.">After every installation, we configure network monitoring, establish performance baselines, and set up alerting — so you have immediate visibility into your infrastructure from day one.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="SNMP / syslog monitoring setup" data-es="Configuración de monitoreo SNMP / syslog">SNMP / syslog monitoring setup</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Bandwidth & latency baselines" data-es="Líneas base de ancho de banda y latencia">Bandwidth & latency baselines</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Alert thresholds & notification routing" data-es="Umbrales de alerta y enrutamiento de notificaciones">Alert thresholds & notification routing</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Integration with managed services NOC" data-es="Integración con el NOC de servicios administrados">Integration with managed services NOC</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECT APPROACH ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-route"></i> <span data-en="Project Approach" data-es="Enfoque del Proyecto">Project Approach</span></div>
+      <h2 data-en="From Discovery to Handover in 5 Steps" data-es="Del Descubrimiento a la Entrega en 5 Pasos">From Discovery to Handover in 5 Steps</h2>
+      <p data-en="A structured, certified project process that delivers on time, on budget, and with zero surprises — from the first site visit to the final handover document."
+         data-es="Un proceso de proyecto estructurado y certificado que entrega a tiempo, dentro del presupuesto y sin sorpresas — desde la primera visita al sitio hasta el documento final de entrega.">
+        A structured, certified project process that delivers on time, on budget, and with zero surprises — from the first site visit to the final handover document.
+      </p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h4 data-en="Discovery" data-es="Descubrimiento">Discovery</h4>
+        <p data-en="Requirements gathering, site conditions, constraints, existing infrastructure audit and user density analysis." data-es="Recopilación de requisitos, condiciones del sitio, restricciones, auditoría de infraestructura existente y análisis de densidad de usuarios.">Requirements gathering, site conditions, constraints, existing infrastructure audit and user density analysis.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h4 data-en="Design" data-es="Diseño">Design</h4>
+        <p data-en="Network topology, IP scheme, security architecture, Wi-Fi heat-map, and resiliency plan produced and reviewed." data-es="Topología de red, esquema IP, arquitectura de seguridad, mapa de calor Wi-Fi y plan de resiliencia producidos y revisados.">Network topology, IP scheme, security architecture, Wi-Fi heat-map, and resiliency plan produced and reviewed.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h4 data-en="Build" data-es="Construcción">Build</h4>
+        <p data-en="Cabling, hardware deployment, standardized configurations, VLAN setup, firewall rules, and Wi-Fi installation executed." data-es="Cableado, despliegue de hardware, configuraciones estandarizadas, configuración VLAN, reglas de firewall e instalación Wi-Fi ejecutados.">Cabling, hardware deployment, standardized configurations, VLAN setup, firewall rules, and Wi-Fi installation executed.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h4 data-en="Validation" data-es="Validación">Validation</h4>
+        <p data-en="Performance tests, Wi-Fi coverage verification, failover testing, firewall rule validation, and acceptance test plan completed." data-es="Pruebas de rendimiento, verificación de cobertura Wi-Fi, pruebas de failover, validación de reglas de firewall y plan de prueba de aceptación completados.">Performance tests, Wi-Fi coverage verification, failover testing, firewall rule validation, and acceptance test plan completed.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <h4 data-en="Handover" data-es="Entrega">Handover</h4>
+        <p data-en="As-built diagrams, IP schema, config backups, runbooks, staff training, and ongoing support plan delivered." data-es="Diagramas finales, esquema IP, backups de configuración, runbooks, capacitación del personal y plan de soporte continuo entregados.">As-built diagrams, IP schema, config backups, runbooks, staff training, and ongoing support plan delivered.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TIMELINES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-calendar-days"></i> <span data-en="Estimated Timelines" data-es="Cronogramas Estimados">Estimated Timelines</span></div>
+      <h2 data-en="Project Timeline by Office Size" data-es="Cronograma del Proyecto por Tamaño de Oficina">Project Timeline by Office Size</h2>
+      <p data-en="Our structured delivery process ensures fast, low-disruption installations regardless of complexity. Typical timelines based on user count and environment type."
+         data-es="Nuestro proceso de entrega estructurado garantiza instalaciones rápidas y de baja interrupción independientemente de la complejidad. Cronogramas típicos según el número de usuarios y tipo de entorno.">
+        Our structured delivery process ensures fast, low-disruption installations regardless of complexity. Typical timelines based on user count and environment type.
+      </p>
+    </div>
+    <div class="timeline-grid">
+
+      <div class="timeline-card">
+        <div class="tl-header">
+          <div class="tl-size" data-en="Small Office" data-es="Oficina Pequeña">Small Office</div>
+          <div class="tl-range" data-en="Up to 25 Users" data-es="Hasta 25 Usuarios">Up to 25 Users</div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-time"><i class="fas fa-clock"></i> <span data-en="1 – 2 Weeks" data-es="1 – 2 Semanas">1 – 2 Weeks</span></div>
+          <ul class="tl-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Single-floor or suite environment" data-es="Entorno de planta única o suite">Single-floor or suite environment</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Firewall + managed switch + Wi-Fi" data-es="Firewall + switch administrado + Wi-Fi">Firewall + managed switch + Wi-Fi</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Basic VLAN segmentation" data-es="Segmentación VLAN básica">Basic VLAN segmentation</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Full documentation & training" data-es="Documentación completa y capacitación">Full documentation & training</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tl-cta" data-en="Get a Quote" data-es="Obtener Cotización">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="tl-header">
+          <div class="tl-size" data-en="Mid-Size Office" data-es="Oficina Mediana">Mid-Size Office</div>
+          <div class="tl-range" data-en="25 – 150 Users" data-es="25 – 150 Usuarios">25 – 150 Users</div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-time"><i class="fas fa-clock"></i> <span data-en="2 – 4 Weeks" data-es="2 – 4 Semanas">2 – 4 Weeks</span></div>
+          <ul class="tl-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Multi-floor or multi-zone building" data-es="Edificio multi-piso o multi-zona">Multi-floor or multi-zone building</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Core + distribution + access switching" data-es="Switching núcleo + distribución + acceso">Core + distribution + access switching</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="NGFW with IPS, VPN & SD-WAN" data-es="NGFW con IPS, VPN y SD-WAN">NGFW with IPS, VPN & SD-WAN</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Enterprise Wi-Fi with heat-map design" data-es="Wi-Fi empresarial con diseño de mapa de calor">Enterprise Wi-Fi with heat-map design</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tl-cta" data-en="Get a Quote" data-es="Obtener Cotización">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="tl-header">
+          <div class="tl-size" data-en="Multi-Site / Advanced" data-es="Multi-Sitio / Avanzado">Multi-Site / Advanced</div>
+          <div class="tl-range" data-en="150+ Users or Multiple Locations" data-es="150+ Usuarios o Múltiples Ubicaciones">150+ Users or Multiple Locations</div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-time"><i class="fas fa-clock"></i> <span data-en="Project-Specific Plan" data-es="Plan Específico del Proyecto">Project-Specific Plan</span></div>
+          <ul class="tl-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Campus, warehouse, or multi-site" data-es="Campus, almacén o multi-sitio">Campus, warehouse, or multi-site</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Centralized SD-WAN management" data-es="Gestión centralizada SD-WAN">Centralized SD-WAN management</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Advanced security (SIEM, NAC, Zero Trust)" data-es="Seguridad avanzada (SIEM, NAC, Zero Trust)">Advanced security (SIEM, NAC, Zero Trust)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Dedicated project manager assigned" data-es="Gerente de proyecto dedicado asignado">Dedicated project manager assigned</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tl-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── DELIVERABLES ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-file-circle-check"></i> <span data-en="Deliverables" data-es="Entregables">Deliverables</span></div>
+      <h2 data-en="What You Receive at Project Closeout" data-es="Lo Que Recibe al Cierre del Proyecto">What You Receive at Project Closeout</h2>
+      <p data-en="Every ECSG network installation closes with a comprehensive documentation package — ensuring your team can manage, troubleshoot, and expand your network long after the project ends."
+         data-es="Cada instalación de red de ECSG cierra con un paquete completo de documentación — asegurando que su equipo pueda gestionar, solucionar problemas y expandir su red mucho después de que termine el proyecto.">
+        Every ECSG network installation closes with a comprehensive documentation package — ensuring your team can manage, troubleshoot, and expand your network long after the project ends.
+      </p>
+    </div>
+    <div class="deliverables-grid">
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-diagram-project"></i></div>
+        <div>
+          <h4 data-en="Topology Diagrams" data-es="Diagramas de Topología">Topology Diagrams</h4>
+          <p data-en="Full logical and physical network diagrams showing all devices, connections, VLANs, IP addressing, and WAN links — built as-installed and ready for future reference or expansion planning." data-es="Diagramas de red lógica y física completos que muestran todos los dispositivos, conexiones, VLANs, direccionamiento IP y enlaces WAN — construidos tal como se instalaron y listos para referencia futura o planificación de expansión.">Full logical and physical network diagrams showing all devices, connections, VLANs, IP addressing, and WAN links — built as-installed and ready for future reference or expansion planning.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-list-ol"></i></div>
+        <div>
+          <h4 data-en="IP Addressing Plan" data-es="Plan de Direccionamiento IP">IP Addressing Plan</h4>
+          <p data-en="Complete IP schema documenting all subnets, VLAN IDs, DHCP ranges, static assignments, and gateway addresses — structured for easy future management, audits, and network growth." data-es="Esquema IP completo que documenta todas las subredes, IDs de VLAN, rangos DHCP, asignaciones estáticas y direcciones de puerta de enlace — estructurado para gestión futura, auditorías y crecimiento de red.">Complete IP schema documenting all subnets, VLAN IDs, DHCP ranges, static assignments, and gateway addresses — structured for easy future management, audits, and network growth.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-floppy-disk"></i></div>
+        <div>
+          <h4 data-en="Config Backups & Templates" data-es="Backups de Configuración y Plantillas">Config Backups & Templates</h4>
+          <p data-en="Backed-up configurations for all switches, firewalls, routers, and APs — along with standardized templates so future changes can be made consistently and safely across your environment." data-es="Configuraciones respaldadas de todos los switches, firewalls, routers y APs — junto con plantillas estandarizadas para que los cambios futuros se puedan realizar de manera consistente y segura.">Backed-up configurations for all switches, firewalls, routers, and APs — along with standardized templates so future changes can be made consistently and safely across your environment.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-wifi"></i></div>
+        <div>
+          <h4 data-en="Wi-Fi Heat-Maps & Benchmarks" data-es="Mapas de Calor Wi-Fi y Benchmarks">Wi-Fi Heat-Maps & Benchmarks</h4>
+          <p data-en="Post-installation RF heat-maps confirming coverage across your facility, with throughput benchmarks and channel utilization data — providing a baseline for ongoing performance monitoring." data-es="Mapas de calor RF post-instalación que confirman la cobertura en toda su instalación, con benchmarks de rendimiento y datos de utilización de canales — proporcionando una línea base para el monitoreo de rendimiento continuo.">Post-installation RF heat-maps confirming coverage across your facility, with throughput benchmarks and channel utilization data — providing a baseline for ongoing performance monitoring.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-clipboard-check"></i></div>
+        <div>
+          <h4 data-en="Acceptance Test Report" data-es="Informe de Prueba de Aceptación">Acceptance Test Report</h4>
+          <p data-en="Formal acceptance document confirming that all connectivity, VLAN routing, firewall policies, VPN tunnels, Wi-Fi coverage, and failover behavior have been tested and verified against specification." data-es="Documento formal de aceptación que confirma que toda la conectividad, enrutamiento VLAN, políticas de firewall, túneles VPN, cobertura Wi-Fi y comportamiento de failover han sido probados y verificados.">Formal acceptance document confirming that all connectivity, VLAN routing, firewall policies, VPN tunnels, Wi-Fi coverage, and failover behavior have been tested and verified against specification.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-book"></i></div>
+        <div>
+          <h4 data-en="Runbooks & SOPs" data-es="Runbooks y SOPs">Runbooks & SOPs</h4>
+          <p data-en="Step-by-step operational runbooks for common tasks: adding users, changing VLAN assignments, managing VPN access, performing firmware updates, and basic troubleshooting procedures." data-es="Runbooks operativos paso a paso para tareas comunes: agregar usuarios, cambiar asignaciones VLAN, gestionar acceso VPN, realizar actualizaciones de firmware y procedimientos básicos de solución de problemas.">Step-by-step operational runbooks for common tasks: adding users, changing VLAN assignments, managing VPN access, performing firmware updates, and basic troubleshooting procedures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BUSINESS OUTCOMES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-chart-line"></i> <span data-en="Business Outcomes" data-es="Resultados de Negocio">Business Outcomes</span></div>
+      <h2 data-en="What a Professional Network Delivers" data-es="Lo Que Entrega una Red Profesional">What a Professional Network Delivers</h2>
+      <p data-en="A properly engineered network isn't just faster — it's more secure, easier to manage, and built to grow with your business without requiring a full redesign every few years."
+         data-es="Una red diseñada correctamente no es solo más rápida — es más segura, más fácil de gestionar y construida para crecer con su negocio sin requerir un rediseño completo cada pocos años.">
+        A properly engineered network isn't just faster — it's more secure, easier to manage, and built to grow with your business without requiring a full redesign every few years.
+      </p>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-bolt"></i></div>
+        <h4 data-en="Faster & More Stable" data-es="Más Rápida y Estable">Faster & More Stable</h4>
+        <p data-en="Properly sized switching, QoS policies, and optimized Wi-Fi eliminate the bottlenecks, dead zones, and congestion that slow your team down every day." data-es="El switching dimensionado correctamente, las políticas QoS y el Wi-Fi optimizado eliminan los cuellos de botella, zonas muertas y congestión que ralentizan a su equipo todos los días.">Properly sized switching, QoS policies, and optimized Wi-Fi eliminate the bottlenecks, dead zones, and congestion that slow your team down every day.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-shield-halved"></i></div>
+        <h4 data-en="Reduced Security Risk" data-es="Riesgo de Seguridad Reducido">Reduced Security Risk</h4>
+        <p data-en="VLAN segmentation, next-gen firewalls, and guest isolation contain breaches and limit lateral movement — reducing your attack surface without slowing operations." data-es="La segmentación VLAN, los firewalls de próxima generación y el aislamiento de invitados contienen brechas y limitan el movimiento lateral — reduciendo su superficie de ataque sin ralentizar las operaciones.">VLAN segmentation, next-gen firewalls, and guest isolation contain breaches and limit lateral movement — reducing your attack surface without slowing operations.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-arrows-up-down"></i></div>
+        <h4 data-en="Built to Scale" data-es="Construida para Escalar">Built to Scale</h4>
+        <p data-en="A structured, documented network is easy to expand — add users, locations, or services without redesigning the foundation. Clear documentation means any engineer can pick up where we left off." data-es="Una red estructurada y documentada es fácil de expandir — agregue usuarios, ubicaciones o servicios sin rediseñar la base. La documentación clara significa que cualquier ingeniero puede continuar donde lo dejamos.">A structured, documented network is easy to expand — add users, locations, or services without redesigning the foundation. Clear documentation means any engineer can pick up where we left off.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-rotate"></i></div>
+        <h4 data-en="High Availability" data-es="Alta Disponibilidad">High Availability</h4>
+        <p data-en="Redundant links, automatic failover, and resilient WAN design keep your business connected even when individual components fail — minimizing downtime and its cost." data-es="Los enlaces redundantes, el failover automático y el diseño WAN resiliente mantienen su negocio conectado incluso cuando los componentes individuales fallan — minimizando el tiempo de inactividad y su costo.">Redundant links, automatic failover, and resilient WAN design keep your business connected even when individual components fail — minimizing downtime and its cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Ready to Upgrade Your Network?" data-es="¿Listo para Actualizar Su Red?">Ready to Upgrade Your Network?</h2>
+    <p data-en="Schedule a free network assessment with our certified engineers. We'll audit your current infrastructure, identify gaps and risks, and deliver a tailored network design proposal — at no cost and no commitment."
+       data-es="Agende una evaluación de red gratuita con nuestros ingenieros certificados. Auditaremos su infraestructura actual, identificaremos brechas y riesgos, y entregaremos una propuesta de diseño de red personalizada — sin costo y sin compromiso.">
+      Schedule a free network assessment with our certified engineers. We'll audit your current infrastructure, identify gaps and risks, and deliver a tailored network design proposal — at no cost and no commitment.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="netwoks-installation.html" data-en="Network Installation" data-es="Instalación de Redes">Network Installation</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+  ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('en'); }); });
+  ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('es'); }); });
+  try { var s=localStorage.getItem('ecsg_lang'); if(s==='es') applyLang('es'); } catch(e) {}
+  var ham=document.getElementById('hamburger');
+  var mob=document.getElementById('mobile-menu');
+  if(ham&&mob){ ham.addEventListener('click', function(){ mob.classList.toggle('open'); }); }
+})();
+</script>
+</body>
+</html>

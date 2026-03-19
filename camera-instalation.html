@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Camera Installation | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – Professional security camera installation: site survey, design, cabling, NVR configuration, remote access, and staff training for businesses in Connecticut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
+    }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #162E4D 50%, #1E4F80 100%);
+      color: #fff; padding: 80px 32px 70px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 92% 45%, rgba(46,117,182,0.38) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── CAMERA TYPES GRID ─── */
+    .camera-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .camera-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 26px 20px; text-align: center;
+      transition: var(--transition);
+    }
+    .camera-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .camera-card .cam-icon {
+      width: 58px; height: 58px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: #fff; margin: 0 auto 14px;
+    }
+    .camera-card h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .camera-card p { font-size: 0.82rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* ─── TIMELINE CARDS ─── */
+    .timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .timeline-card {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gray-200); transition: var(--transition);
+    }
+    .timeline-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .tl-header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      padding: 22px 24px; color: #fff;
+    }
+    .tl-header .tl-size {
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px;
+    }
+    .tl-header .tl-range {
+      font-size: 0.82rem; color: rgba(255,255,255,0.7);
+    }
+    .tl-body { padding: 22px 24px; background: var(--white); }
+    .tl-time {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--navy);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 0.8rem; font-weight: 700; margin-bottom: 16px;
+    }
+    .tl-features { list-style: none; }
+    .tl-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 5px 0; border-bottom: 1px solid var(--gray-100); }
+    .tl-features li:last-child { border-bottom: none; }
+    .tl-features li i { color: var(--blue); font-size: 0.68rem; margin-top: 4px; flex-shrink: 0; }
+    .tl-cta {
+      display: block; text-align: center;
+      background: var(--navy); color: #fff;
+      padding: 11px; border-radius: 6px;
+      font-weight: 700; font-size: 0.86rem;
+      text-decoration: none; margin-top: 18px;
+      transition: var(--transition);
+    }
+    .tl-cta:hover { background: var(--blue); }
+
+    /* ─── PROCESS STEPS ─── */
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::after {
+      content: ''; position: absolute; top: 30px; left: 4%; right: 4%; height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--blue)); z-index: 0;
+    }
+    .process-step { position: relative; z-index: 1; text-align: center; padding: 0 14px; }
+    .step-num {
+      width: 60px; height: 60px; background: var(--navy); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;
+      margin: 0 auto 16px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--blue);
+    }
+    .process-step h4 {
+      font-family: var(--font-display); font-size: 0.92rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .process-step p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ─── OUTCOMES ─── */
+    .outcomes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .outcome-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 22px; text-align: center;
+      transition: var(--transition);
+    }
+    .outcome-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .outcome-card .out-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: #fff; margin: 0 auto 14px;
+    }
+    .outcome-card h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .outcome-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── DELIVERABLES ─── */
+    .deliverables-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .deliverable-item {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 22px 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: var(--transition);
+    }
+    .deliverable-item:hover { border-color: var(--blue-light); box-shadow: var(--shadow-md); }
+    .del-icon {
+      width: 44px; min-width: 44px; height: 44px;
+      background: var(--blue-pale); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--blue);
+    }
+    .deliverable-item h4 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 5px;
+    }
+    .deliverable-item p { font-size: 0.84rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .camera-grid { grid-template-columns: repeat(2, 1fr); }
+      .outcomes-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .process-steps::after { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .camera-grid { grid-template-columns: 1fr 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr 1fr; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-camera"></i> <span data-en="Physical Security Solutions" data-es="Soluciones de Seguridad Física">Physical Security Solutions</span></div>
+    <h1><em data-en="Camera Installation" data-es="Instalación de Cámaras">Camera Installation</em><br><span data-en="Smart, Secure & Professionally Managed." data-es="Inteligente, Segura y Administrada Profesionalmente.">Smart, Secure & Professionally Managed.</span></h1>
+    <p class="lead"
+       data-en="ECSG designs and installs enterprise-grade security camera systems that deliver clear visibility, advanced monitoring, and secure remote access — from site survey to successful go-live, all managed end-to-end."
+       data-es="ECSG diseña e instala sistemas de cámaras de seguridad de nivel empresarial que brindan visibilidad clara, monitoreo avanzado y acceso remoto seguro — desde el relevamiento del sitio hasta la puesta en marcha, todo administrado de extremo a extremo.">
+      ECSG designs and installs enterprise-grade security camera systems that deliver clear visibility, advanced monitoring, and secure remote access — from site survey to successful go-live, all managed end-to-end.
+    </p>
+    <a href="ecsgcontact_sales.html" class="hero-cta">
+      <i class="fas fa-arrow-right"></i>
+      <span data-en="Request a Site Survey" data-es="Solicitar un Relevamiento del Sitio">Request a Site Survey</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">HD</div>
+        <div class="label" data-en="4K / HD Resolution" data-es="Resolución 4K / HD">4K / HD Resolution</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">24/7</div>
+        <div class="label" data-en="Remote Monitoring" data-es="Monitoreo Remoto">Remote Monitoring</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">PoE</div>
+        <div class="label" data-en="Power over Ethernet" data-es="Alimentación por Ethernet">Power over Ethernet</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">100%</div>
+        <div class="label" data-en="Managed End-to-End" data-es="Administrado de Extremo a Extremo">Managed End-to-End</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OVERVIEW ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-shield-halved"></i> <span data-en="Our Approach" data-es="Nuestro Enfoque">Our Approach</span></div>
+      <h2 data-en="End-to-End Camera Project Management" data-es="Gestión de Proyectos de Cámaras de Extremo a Extremo">End-to-End Camera Project Management</h2>
+      <p data-en="Protecting your business starts with seeing it clearly. ECSG delivers complete security camera solutions — from site survey and coverage design to cabling, configuration, storage, remote access, and staff training. We handle everything so you can focus on your business."
+         data-es="Proteger su empresa comienza con verla claramente. ECSG entrega soluciones completas de cámaras de seguridad — desde el relevamiento del sitio y diseño de cobertura hasta el cableado, configuración, almacenamiento, acceso remoto y capacitación del personal. Nosotros nos encargamos de todo.">
+        Protecting your business starts with seeing it clearly. ECSG delivers complete security camera solutions — from site survey and coverage design to cabling, configuration, storage, remote access, and staff training. We handle everything so you can focus on your business.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Designed for Your Environment" data-es="Diseñado para Su Entorno">Designed for Your Environment</h3>
+        <p data-en="No two facilities are the same. Every ECSG camera installation begins with a thorough site survey — walking your space, identifying blind spots, analyzing traffic patterns, and mapping critical assets like entrances, server rooms, cash areas, and parking. The result is a custom camera layout that delivers maximum coverage with zero waste."
+           data-es="No hay dos instalaciones iguales. Cada instalación de cámaras de ECSG comienza con un relevamiento exhaustivo del sitio — recorriendo su espacio, identificando puntos ciegos, analizando patrones de tráfico y mapeando activos críticos como entradas, salas de servidores, áreas de efectivo y estacionamientos. El resultado es un diseño personalizado de cámaras.">
+          No two facilities are the same. Every ECSG camera installation begins with a thorough site survey — walking your space, identifying blind spots, analyzing traffic patterns, and mapping critical assets like entrances, server rooms, cash areas, and parking. The result is a custom camera layout that delivers maximum coverage with zero waste.
+        </p>
+        <p data-en="Our engineers handle all structured cabling, PoE switching, VLAN configuration, and NVR setup — integrated into your existing network with proper bandwidth planning and QoS for video traffic. Every camera is configured with motion zones, alert triggers, and role-based access so the right people see the right footage."
+           data-es="Nuestros ingenieros se encargan del cableado estructurado, switching PoE, configuración de VLAN y configuración del NVR — integrados en su red existente con planificación de ancho de banda y QoS para tráfico de video. Cada cámara se configura con zonas de movimiento, disparadores de alertas y acceso basado en roles.">
+          Our engineers handle all structured cabling, PoE switching, VLAN configuration, and NVR setup — integrated into your existing network with proper bandwidth planning and QoS for video traffic. Every camera is configured with motion zones, alert triggers, and role-based access so the right people see the right footage.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Custom Coverage Design" data-es="Diseño de Cobertura Personalizado">Custom Coverage Design</span>
+          <span class="benefit-pill" data-en="PoE Network Integration" data-es="Integración de Red PoE">PoE Network Integration</span>
+          <span class="benefit-pill" data-en="Secure Remote Access" data-es="Acceso Remoto Seguro">Secure Remote Access</span>
+          <span class="benefit-pill" data-en="Evidence-Grade Recording" data-es="Grabación de Grado Evidencia">Evidence-Grade Recording</span>
+          <span class="benefit-pill" data-en="Multi-Site Support" data-es="Soporte Multi-Sitio">Multi-Site Support</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="Project Capabilities" data-es="Capacidades del Proyecto">Project Capabilities</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-map-location-dot"></i></div><span class="cap-name" data-en="Site Survey & Coverage Map" data-es="Relevamiento y Mapa de Cobertura">Site Survey & Coverage Map</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-camera"></i></div><span class="cap-name" data-en="Camera Selection & Layout" data-es="Selección y Diseño de Cámaras">Camera Selection & Layout</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:98%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-network-wired"></i></div><span class="cap-name" data-en="Cabling & PoE Network" data-es="Cableado y Red PoE">Cabling & PoE Network</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:96%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-hard-drive"></i></div><span class="cap-name" data-en="NVR & Storage Design" data-es="Diseño de NVR y Almacenamiento">NVR & Storage Design</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-mobile-screen"></i></div><span class="cap-name" data-en="Remote & Mobile Access" data-es="Acceso Remoto y Móvil">Remote & Mobile Access</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:94%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-graduation-cap"></i></div><span class="cap-name" data-en="Training & Documentation" data-es="Capacitación y Documentación">Training & Documentation</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CAMERA TYPES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-camera-retro"></i> <span data-en="Camera Technologies" data-es="Tecnologías de Cámaras">Camera Technologies</span></div>
+      <h2 data-en="The Right Camera for Every Location" data-es="La Cámara Correcta para Cada Ubicación">The Right Camera for Every Location</h2>
+      <p data-en="We work with industry-leading brands including Hikvision, Axis, Hanwha, and Dahua — selecting the ideal camera type for each coverage zone based on lighting conditions, distance, indoor/outdoor requirements, and budget."
+         data-es="Trabajamos con marcas líderes de la industria como Hikvision, Axis, Hanwha y Dahua — seleccionando el tipo de cámara ideal para cada zona de cobertura según las condiciones de iluminación, distancia, requisitos de interior/exterior y presupuesto.">
+        We work with industry-leading brands including Hikvision, Axis, Hanwha, and Dahua — selecting the ideal camera type for each coverage zone based on lighting conditions, distance, indoor/outdoor requirements, and budget.
+      </p>
+    </div>
+    <div class="camera-grid">
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-camera"></i></div>
+        <h4 data-en="Fixed Cameras" data-es="Cámaras Fijas">Fixed Cameras</h4>
+        <p data-en="Ideal for monitoring a specific area with consistent, high-quality coverage. Perfect for doorways, hallways, registers, and fixed asset areas." data-es="Ideales para monitorear un área específica con cobertura consistente y de alta calidad. Perfectas para entradas, pasillos, cajas registradoras y áreas de activos fijos.">Ideal for monitoring a specific area with consistent, high-quality coverage. Perfect for doorways, hallways, registers, and fixed asset areas.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-arrows-to-eye"></i></div>
+        <h4 data-en="Varifocal Cameras" data-es="Cámaras Varifocales">Varifocal Cameras</h4>
+        <p data-en="Adjustable focal length for flexible coverage — ideal when you need to zoom in on a specific zone without sacrificing field of view. Great for parking lots and open areas." data-es="Longitud focal ajustable para cobertura flexible — ideal cuando necesita acercar un área específica sin sacrificar el campo visual. Excelentes para estacionamientos y áreas abiertas.">Adjustable focal length for flexible coverage — ideal when you need to zoom in on a specific zone without sacrificing field of view. Great for parking lots and open areas.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-rotate"></i></div>
+        <h4 data-en="PTZ Cameras" data-es="Cámaras PTZ">PTZ Cameras</h4>
+        <p data-en="Pan-Tilt-Zoom cameras provide dynamic, operator-controlled coverage across large areas. Used for warehouses, perimeters, and environments requiring active monitoring." data-es="Las cámaras Pan-Tilt-Zoom proporcionan cobertura dinámica controlada por operador en áreas grandes. Se usan para almacenes, perímetros y entornos que requieren monitoreo activo.">Pan-Tilt-Zoom cameras provide dynamic, operator-controlled coverage across large areas. Used for warehouses, perimeters, and environments requiring active monitoring.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-circle-dot"></i></div>
+        <h4 data-en="Dome Cameras" data-es="Cámaras Domo">Dome Cameras</h4>
+        <p data-en="Vandal-resistant dome design for indoor and outdoor use. The 360° housing makes it difficult to determine where the camera is pointing — providing a strong visual deterrent." data-es="Diseño domo resistente al vandalismo para uso interior y exterior. La carcasa de 360° dificulta determinar hacia dónde apunta la cámara — proporcionando un fuerte elemento disuasorio.">Vandal-resistant dome design for indoor and outdoor use. The 360° housing makes it difficult to determine where the camera is pointing — providing a strong visual deterrent.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-moon"></i></div>
+        <h4 data-en="IR / Low-Light Cameras" data-es="Cámaras IR / Baja Luz">IR / Low-Light Cameras</h4>
+        <p data-en="Infrared and low-light cameras maintain clear footage in complete darkness or challenging lighting environments — essential for exterior, parking, and 24/7 coverage areas." data-es="Las cámaras infrarrojas y de baja luz mantienen imágenes claras en oscuridad total o entornos de iluminación difíciles — esenciales para exteriores, estacionamientos y áreas de cobertura 24/7.">Infrared and low-light cameras maintain clear footage in complete darkness or challenging lighting environments — essential for exterior, parking, and 24/7 coverage areas.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-border-all"></i></div>
+        <h4 data-en="Fisheye / 360° Cameras" data-es="Cámaras Ojo de Pez / 360°">Fisheye / 360° Cameras</h4>
+        <p data-en="Single-camera 360-degree coverage for open spaces like lobbies, showrooms, and warehouses. Reduces camera count while maximizing coverage — with dewarping for detailed review." data-es="Cobertura de 360 grados con una sola cámara para espacios abiertos como lobbies, salas de exposición y almacenes. Reduce el número de cámaras maximizando la cobertura.">Single-camera 360-degree coverage for open spaces like lobbies, showrooms, and warehouses. Reduces camera count while maximizing coverage — with dewarping for detailed review.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+        <h4 data-en="Cloud-Managed Cameras" data-es="Cámaras Administradas en Nube">Cloud-Managed Cameras</h4>
+        <p data-en="Cloud-connected cameras for businesses that want simplified management, remote configuration, and off-site storage — no NVR required. Ideal for distributed or multi-site deployments." data-es="Cámaras conectadas a la nube para empresas que desean gestión simplificada, configuración remota y almacenamiento externo — sin NVR requerido. Ideal para despliegues distribuidos o multi-sitio.">Cloud-connected cameras for businesses that want simplified management, remote configuration, and off-site storage — no NVR required. Ideal for distributed or multi-site deployments.</p>
+      </div>
+      <div class="camera-card">
+        <div class="cam-icon"><i class="fas fa-bolt"></i></div>
+        <h4 data-en="PoE Cameras" data-es="Cámaras PoE">PoE Cameras</h4>
+        <p data-en="Power over Ethernet cameras receive both power and data through a single cable — simplifying installation, reducing costs, and enabling centralized power management via PoE switches." data-es="Las cámaras Power over Ethernet reciben tanto energía como datos a través de un solo cable — simplificando la instalación, reduciendo costos y habilitando la gestión centralizada de energía.">Power over Ethernet cameras receive both power and data through a single cable — simplifying installation, reducing costs, and enabling centralized power management via PoE switches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SCOPE OF WORK ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-list-check"></i> <span data-en="Scope of Work" data-es="Alcance del Trabajo">Scope of Work</span></div>
+      <h2 data-en="Everything Included — Nothing Overlooked" data-es="Todo Incluido — Nada Pasado por Alto">Everything Included — Nothing Overlooked</h2>
+      <p data-en="Our camera installation projects are fully scoped from day one — covering every phase from initial design through final handover, with no hidden extras or surprise invoices."
+         data-es="Nuestros proyectos de instalación de cámaras tienen alcance completo desde el primer día — cubriendo cada fase desde el diseño inicial hasta la entrega final, sin extras ocultos ni facturas sorpresa.">
+        Our camera installation projects are fully scoped from day one — covering every phase from initial design through final handover, with no hidden extras or surprise invoices.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-map-location-dot"></i></div>
+        <h3 data-en="Site Survey & Coverage Design" data-es="Relevamiento y Diseño de Cobertura">Site Survey & Coverage Design</h3>
+        <p data-en="We walk your facility before touching a single cable — documenting coverage requirements, identifying blind spots, and producing a full camera layout drawing." data-es="Recorremos su instalación antes de tocar un solo cable — documentando los requisitos de cobertura, identificando puntos ciegos y produciendo un plano completo de diseño de cámaras.">We walk your facility before touching a single cable — documenting coverage requirements, identifying blind spots, and producing a full camera layout drawing.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Entrance, exit & perimeter mapping" data-es="Mapeo de entradas, salidas y perímetro">Entrance, exit & perimeter mapping</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="High-traffic & critical asset zones" data-es="Zonas de alto tráfico y activos críticos">High-traffic & critical asset zones</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Lighting & environmental assessment" data-es="Evaluación de iluminación y condiciones ambientales">Lighting & environmental assessment</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Camera layout drawings & device list" data-es="Planos de diseño de cámaras y lista de dispositivos">Camera layout drawings & device list</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-hard-drive"></i></div>
+        <h3 data-en="NVR & Storage Design" data-es="Diseño de NVR y Almacenamiento">NVR & Storage Design</h3>
+        <p data-en="We right-size your recording and storage infrastructure — calculating retention requirements, storage capacity, redundancy, and backup to meet your security and compliance needs." data-es="Dimensionamos correctamente su infraestructura de grabación y almacenamiento — calculando requisitos de retención, capacidad de almacenamiento, redundancia y backup para cumplir sus necesidades de seguridad y cumplimiento.">We right-size your recording and storage infrastructure — calculating retention requirements, storage capacity, redundancy, and backup to meet your security and compliance needs.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="NVR/DVR selection & configuration" data-es="Selección y configuración de NVR/DVR">NVR/DVR selection & configuration</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Storage sizing (30/60/90-day retention)" data-es="Dimensionamiento de almacenamiento (retención 30/60/90 días)">Storage sizing (30/60/90-day retention)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="RAID & redundancy planning" data-es="Planificación de RAID y redundancia">RAID & redundancy planning</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Cloud backup integration (optional)" data-es="Integración de backup en nube (opcional)">Cloud backup integration (optional)</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+        <h3 data-en="Cabling, Mounting & Network" data-es="Cableado, Montaje y Red">Cabling, Mounting & Network</h3>
+        <p data-en="Professional structured cabling, camera mounting, PoE switching, and network integration — all neatly labeled, documented, and installed to commercial standards." data-es="Cableado estructurado profesional, montaje de cámaras, switching PoE e integración de red — todo etiquetado ordenadamente, documentado e instalado según estándares comerciales.">Professional structured cabling, camera mounting, PoE switching, and network integration — all neatly labeled, documented, and installed to commercial standards.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Cat6 / fiber structured cabling" data-es="Cableado estructurado Cat6 / fibra">Cat6 / fiber structured cabling</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="PoE switch installation & configuration" data-es="Instalación y configuración de switch PoE">PoE switch installation & configuration</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="VLAN & QoS for video traffic" data-es="VLAN y QoS para tráfico de video">VLAN & QoS for video traffic</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Cable labeling & patch panel work" data-es="Etiquetado de cables y trabajo en panel de parcheo">Cable labeling & patch panel work</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-sliders"></i></div>
+        <h3 data-en="Camera Configuration & Alerts" data-es="Configuración de Cámaras y Alertas">Camera Configuration & Alerts</h3>
+        <p data-en="Every camera is professionally configured — motion zones, image quality, alert triggers, schedules, and user roles — ensuring you only get notified when it matters." data-es="Cada cámara se configura profesionalmente — zonas de movimiento, calidad de imagen, disparadores de alertas, horarios y roles de usuario — asegurando que solo reciba notificaciones cuando importa.">Every camera is professionally configured — motion zones, image quality, alert triggers, schedules, and user roles — ensuring you only get notified when it matters.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Motion detection zones & sensitivity" data-es="Zonas de detección de movimiento y sensibilidad">Motion detection zones & sensitivity</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Alert rules & notification routing" data-es="Reglas de alertas y enrutamiento de notificaciones">Alert rules & notification routing</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Recording schedules (24/7 or motion)" data-es="Programas de grabación (24/7 o por movimiento)">Recording schedules (24/7 or motion)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Role-based user access & permissions" data-es="Acceso de usuarios y permisos basados en roles">Role-based user access & permissions</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-mobile-screen"></i></div>
+        <h3 data-en="Remote & Mobile Access" data-es="Acceso Remoto y Móvil">Remote & Mobile Access</h3>
+        <p data-en="Access your cameras from anywhere — securely. We configure mobile apps, web portals, and multi-site views with encrypted connections and role-based access controls." data-es="Acceda a sus cámaras desde cualquier lugar — de forma segura. Configuramos aplicaciones móviles, portales web y vistas multi-sitio con conexiones cifradas y controles de acceso basados en roles.">Access your cameras from anywhere — securely. We configure mobile apps, web portals, and multi-site views with encrypted connections and role-based access controls.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="iOS & Android mobile app setup" data-es="Configuración de app móvil iOS y Android">iOS & Android mobile app setup</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Encrypted remote access (VPN/HTTPS)" data-es="Acceso remoto cifrado (VPN/HTTPS)">Encrypted remote access (VPN/HTTPS)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Multi-site & multi-camera views" data-es="Vistas multi-sitio y multi-cámara">Multi-site & multi-camera views</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="User account & permission management" data-es="Gestión de cuentas de usuario y permisos">User account & permission management</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-book-open"></i></div>
+        <h3 data-en="Documentation & Training" data-es="Documentación y Capacitación">Documentation & Training</h3>
+        <p data-en="Your team receives a complete documentation package and hands-on training — so you can manage day-to-day operations confidently without relying on us for every small task." data-es="Su equipo recibe un paquete completo de documentación y capacitación práctica — para que pueda gestionar las operaciones del día a día con confianza sin depender de nosotros para cada pequeña tarea.">Your team receives a complete documentation package and hands-on training — so you can manage day-to-day operations confidently without relying on us for every small task.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="As-built drawings & IP schema" data-es="Planos finales y esquema de IP">As-built drawings & IP schema</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Device inventory & configuration records" data-es="Inventario de dispositivos y registros de configuración">Device inventory & configuration records</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="User guides & SOPs" data-es="Guías de usuario y SOPs">User guides & SOPs</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Live staff training session" data-es="Sesión de capacitación en vivo para el personal">Live staff training session</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECT APPROACH ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-route"></i> <span data-en="Project Approach" data-es="Enfoque del Proyecto">Project Approach</span></div>
+      <h2 data-en="From Site Walk to Go-Live in 5 Steps" data-es="Del Recorrido del Sitio a la Puesta en Marcha en 5 Pasos">From Site Walk to Go-Live in 5 Steps</h2>
+      <p data-en="A proven, structured installation process that minimizes disruption to your business while delivering a professional, documented, and fully tested system."
+         data-es="Un proceso de instalación probado y estructurado que minimiza la interrupción a su negocio mientras entrega un sistema profesional, documentado y completamente probado.">
+        A proven, structured installation process that minimizes disruption to your business while delivering a professional, documented, and fully tested system.
+      </p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h4 data-en="Assessment" data-es="Evaluación">Assessment</h4>
+        <p data-en="Site walk-through, risk & coverage analysis, lighting conditions, and network review." data-es="Recorrido del sitio, análisis de riesgo y cobertura, condiciones de iluminación y revisión de red.">Site walk-through, risk & coverage analysis, lighting conditions, and network review.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h4 data-en="Design" data-es="Diseño">Design</h4>
+        <p data-en="Camera layout, network plan, NVR/storage sizing, and retention policy defined." data-es="Diseño de cámaras, plan de red, dimensionamiento de NVR/almacenamiento y política de retención definidos.">Camera layout, network plan, NVR/storage sizing, and retention policy defined.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h4 data-en="Build" data-es="Construcción">Build</h4>
+        <p data-en="Cabling, mounting, PoE switching, NVR installation, and full camera configuration." data-es="Cableado, montaje, switching PoE, instalación de NVR y configuración completa de cámaras.">Cabling, mounting, PoE switching, NVR installation, and full camera configuration.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h4 data-en="Validate" data-es="Validación">Validate</h4>
+        <p data-en="Image quality, angles, retention, alerting, and remote access tested and verified." data-es="Calidad de imagen, ángulos, retención, alertas y acceso remoto probados y verificados.">Image quality, angles, retention, alerting, and remote access tested and verified.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <h4 data-en="Handover" data-es="Entrega">Handover</h4>
+        <p data-en="Documentation, staff training, acceptance report, and ongoing support plan delivered." data-es="Documentación, capacitación del personal, informe de aceptación y plan de soporte continuo entregados.">Documentation, staff training, acceptance report, and ongoing support plan delivered.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECT TIMELINES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-calendar-days"></i> <span data-en="Estimated Timelines" data-es="Cronogramas Estimados">Estimated Timelines</span></div>
+      <h2 data-en="Project Timeline by Site Size" data-es="Cronograma del Proyecto por Tamaño del Sitio">Project Timeline by Site Size</h2>
+      <p data-en="Every site is different, but our structured approach delivers consistently fast, disruption-free installations. Below are typical timelines based on camera count."
+         data-es="Cada sitio es diferente, pero nuestro enfoque estructurado entrega instalaciones consistentemente rápidas y sin interrupciones. A continuación se muestran los cronogramas típicos según el número de cámaras.">
+        Every site is different, but our structured approach delivers consistently fast, disruption-free installations. Below are typical timelines based on camera count.
+      </p>
+    </div>
+    <div class="timeline-grid">
+
+      <div class="timeline-card">
+        <div class="tl-header">
+          <div class="tl-size" data-en="Small Site" data-es="Sitio Pequeño">Small Site</div>
+          <div class="tl-range" data-en="8 – 16 Cameras" data-es="8 – 16 Cámaras">8 – 16 Cameras</div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-time"><i class="fas fa-clock"></i> <span data-en="1 – 2 Weeks" data-es="1 – 2 Semanas">1 – 2 Weeks</span></div>
+          <ul class="tl-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Single-floor or small office" data-es="Planta única o oficina pequeña">Single-floor or small office</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="1 NVR + structured cabling" data-es="1 NVR + cableado estructurado">1 NVR + structured cabling</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Full configuration & training" data-es="Configuración completa y capacitación">Full configuration & training</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Documentation package included" data-es="Paquete de documentación incluido">Documentation package included</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tl-cta" data-en="Get a Quote" data-es="Obtener Cotización">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="tl-header">
+          <div class="tl-size" data-en="Medium Site" data-es="Sitio Mediano">Medium Site</div>
+          <div class="tl-range" data-en="16 – 48 Cameras" data-es="16 – 48 Cámaras">16 – 48 Cameras</div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-time"><i class="fas fa-clock"></i> <span data-en="2 – 4 Weeks" data-es="2 – 4 Semanas">2 – 4 Weeks</span></div>
+          <ul class="tl-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Multi-floor or multi-zone building" data-es="Edificio multi-piso o multi-zona">Multi-floor or multi-zone building</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Multiple NVRs or PoE switches" data-es="Múltiples NVRs o switches PoE">Multiple NVRs or PoE switches</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="VLAN segmentation & QoS" data-es="Segmentación VLAN y QoS">VLAN segmentation & QoS</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Remote access & mobile setup" data-es="Acceso remoto y configuración móvil">Remote access & mobile setup</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tl-cta" data-en="Get a Quote" data-es="Obtener Cotización">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="tl-header">
+          <div class="tl-size" data-en="Large / Multi-Site" data-es="Grande / Multi-Sitio">Large / Multi-Site</div>
+          <div class="tl-range" data-en="48+ Cameras" data-es="48+ Cámaras">48+ Cameras</div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-time"><i class="fas fa-clock"></i> <span data-en="Project-Specific Plan" data-es="Plan Específico del Proyecto">Project-Specific Plan</span></div>
+          <ul class="tl-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Warehouse, campus, or multi-location" data-es="Almacén, campus o múltiples ubicaciones">Warehouse, campus, or multi-location</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Centralized VMS & unified management" data-es="VMS centralizado y gestión unificada">Centralized VMS & unified management</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Phased rollout with minimal disruption" data-es="Implementación por fases con mínima interrupción">Phased rollout with minimal disruption</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Dedicated project manager assigned" data-es="Gerente de proyecto dedicado asignado">Dedicated project manager assigned</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tl-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── DELIVERABLES ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-file-circle-check"></i> <span data-en="Deliverables" data-es="Entregables">Deliverables</span></div>
+      <h2 data-en="What You Receive at Project Closeout" data-es="Lo Que Recibe al Cierre del Proyecto">What You Receive at Project Closeout</h2>
+      <p data-en="Every ECSG camera installation closes with a formal handover package — so your team has everything needed to operate, expand, and support the system long after we've completed our work."
+         data-es="Cada instalación de cámaras de ECSG cierra con un paquete formal de entrega — para que su equipo tenga todo lo necesario para operar, expandir y soportar el sistema mucho después de que hayamos completado nuestro trabajo.">
+        Every ECSG camera installation closes with a formal handover package — so your team has everything needed to operate, expand, and support the system long after we've completed our work.
+      </p>
+    </div>
+    <div class="deliverables-grid">
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-map"></i></div>
+        <div>
+          <h4 data-en="Camera Layout Drawings" data-es="Planos de Diseño de Cámaras">Camera Layout Drawings</h4>
+          <p data-en="Annotated floor plan showing every camera position, field of view, cable run, and device label — as-built and ready for future reference or expansion." data-es="Plano anotado que muestra cada posición de cámara, campo visual, recorrido de cable y etiqueta de dispositivo — construido tal cual e listo para referencia futura o expansión.">Annotated floor plan showing every camera position, field of view, cable run, and device label — as-built and ready for future reference or expansion.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-database"></i></div>
+        <div>
+          <h4 data-en="NVR & Storage Configuration" data-es="Configuración de NVR y Almacenamiento">NVR & Storage Configuration</h4>
+          <p data-en="Full NVR configuration record including retention policy, recording schedules, storage allocation, and backup settings — documented and signed off at acceptance." data-es="Registro completo de configuración del NVR incluyendo política de retención, programas de grabación, asignación de almacenamiento y configuraciones de backup — documentado y aprobado en la aceptación.">Full NVR configuration record including retention policy, recording schedules, storage allocation, and backup settings — documented and signed off at acceptance.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-list-ol"></i></div>
+        <div>
+          <h4 data-en="Device Inventory & IP Schema" data-es="Inventario de Dispositivos y Esquema IP">Device Inventory & IP Schema</h4>
+          <p data-en="Complete device list with make, model, serial number, IP address, camera name, and location — structured for future maintenance, warranty claims, and network audits." data-es="Lista completa de dispositivos con marca, modelo, número de serie, dirección IP, nombre de cámara y ubicación — estructurada para mantenimiento futuro, reclamaciones de garantía y auditorías de red.">Complete device list with make, model, serial number, IP address, camera name, and location — structured for future maintenance, warranty claims, and network audits.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <h4 data-en="Access Control List" data-es="Lista de Control de Acceso">Access Control List</h4>
+          <p data-en="Documented roles and permissions for all NVR and remote access users — including admin, operator, and viewer roles, with instructions for adding or removing users." data-es="Roles y permisos documentados para todos los usuarios de NVR y acceso remoto — incluyendo roles de administrador, operador y visor, con instrucciones para agregar o eliminar usuarios.">Documented roles and permissions for all NVR and remote access users — including admin, operator, and viewer roles, with instructions for adding or removing users.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-clipboard-check"></i></div>
+        <div>
+          <h4 data-en="Test & Acceptance Report" data-es="Informe de Prueba y Aceptación">Test & Acceptance Report</h4>
+          <p data-en="Formal sign-off document confirming that all cameras, recording, motion detection, alerting, and remote access have been tested and verified to specification before handover." data-es="Documento formal de aprobación que confirma que todas las cámaras, grabación, detección de movimiento, alertas y acceso remoto han sido probados y verificados según especificación antes de la entrega.">Formal sign-off document confirming that all cameras, recording, motion detection, alerting, and remote access have been tested and verified to specification before handover.</p>
+        </div>
+      </div>
+      <div class="deliverable-item">
+        <div class="del-icon"><i class="fas fa-book"></i></div>
+        <div>
+          <h4 data-en="User Guides & Training Materials" data-es="Guías de Usuario y Materiales de Capacitación">User Guides & Training Materials</h4>
+          <p data-en="Step-by-step user guides for daily operations — including how to review footage, manage alerts, add users, and perform basic troubleshooting — plus a recorded training session." data-es="Guías de usuario paso a paso para operaciones diarias — incluyendo cómo revisar grabaciones, gestionar alertas, agregar usuarios y realizar solución de problemas básica — más una sesión de capacitación grabada.">Step-by-step user guides for daily operations — including how to review footage, manage alerts, add users, and perform basic troubleshooting — plus a recorded training session.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BUSINESS OUTCOMES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-chart-line"></i> <span data-en="Business Outcomes" data-es="Resultados de Negocio">Business Outcomes</span></div>
+      <h2 data-en="What a Professional Camera System Delivers" data-es="Lo Que Entrega un Sistema de Cámaras Profesional">What a Professional Camera System Delivers</h2>
+      <p data-en="A well-designed surveillance system doesn't just record — it actively improves your security posture, reduces liability, and supports faster incident resolution."
+         data-es="Un sistema de videovigilancia bien diseñado no solo graba — mejora activamente su postura de seguridad, reduce la responsabilidad y apoya una resolución de incidentes más rápida.">
+        A well-designed surveillance system doesn't just record — it actively improves your security posture, reduces liability, and supports faster incident resolution.
+      </p>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-eye"></i></div>
+        <h4 data-en="Full Visibility" data-es="Visibilidad Total">Full Visibility</h4>
+        <p data-en="Eliminate blind spots and monitor every critical area of your facility — in real time and on-demand — from any device, anywhere in the world." data-es="Elimine los puntos ciegos y monitoree cada área crítica de su instalación — en tiempo real y bajo demanda — desde cualquier dispositivo, en cualquier parte del mundo.">Eliminate blind spots and monitor every critical area of your facility — in real time and on-demand — from any device, anywhere in the world.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-bolt"></i></div>
+        <h4 data-en="Faster Incident Response" data-es="Respuesta Más Rápida a Incidentes">Faster Incident Response</h4>
+        <p data-en="Real-time motion alerts and instant remote access enable your team to respond to incidents immediately — reducing response time from hours to minutes." data-es="Las alertas de movimiento en tiempo real y el acceso remoto instantáneo permiten a su equipo responder a incidentes de inmediato — reduciendo el tiempo de respuesta de horas a minutos.">Real-time motion alerts and instant remote access enable your team to respond to incidents immediately — reducing response time from hours to minutes.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-gavel"></i></div>
+        <h4 data-en="Evidence-Grade Recordings" data-es="Grabaciones de Grado Evidencia">Evidence-Grade Recordings</h4>
+        <p data-en="High-definition, timestamped footage stored with defined retention policies — providing legally admissible evidence for insurance claims, law enforcement, and HR incidents." data-es="Grabaciones en alta definición con marca de tiempo almacenadas con políticas de retención definidas — proporcionando evidencia legalmente admisible para reclamaciones de seguros, fuerzas del orden e incidentes de RRHH.">High-definition, timestamped footage stored with defined retention policies — providing legally admissible evidence for insurance claims, law enforcement, and HR incidents.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="out-icon"><i class="fas fa-lock"></i></div>
+        <h4 data-en="Secure Role-Based Access" data-es="Acceso Seguro Basado en Roles">Secure Role-Based Access</h4>
+        <p data-en="Control who sees what — from floor supervisors to executive management — with granular role-based permissions and encrypted access from any authorized device." data-es="Controle quién ve qué — desde supervisores de piso hasta la gerencia ejecutiva — con permisos granulares basados en roles y acceso cifrado desde cualquier dispositivo autorizado.">Control who sees what — from floor supervisors to executive management — with granular role-based permissions and encrypted access from any authorized device.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Ready to Secure Your Facility?" data-es="¿Listo para Asegurar Su Instalación?">Ready to Secure Your Facility?</h2>
+    <p data-en="Schedule a free site survey with our team. We'll walk your space, identify coverage gaps, and deliver a full camera design proposal — at no cost and no commitment."
+       data-es="Agende un relevamiento del sitio gratuito con nuestro equipo. Recorreremos su espacio, identificaremos brechas de cobertura y entregaremos una propuesta completa de diseño de cámaras — sin costo y sin compromiso.">
+      Schedule a free site survey with our team. We'll walk your space, identify coverage gaps, and deliver a full camera design proposal — at no cost and no commitment.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="camera-instalation.html" data-en="Camera Installation" data-es="Instalación de Cámaras">Camera Installation</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+  ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('en'); }); });
+  ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('es'); }); });
+  try { var s=localStorage.getItem('ecsg_lang'); if(s==='es') applyLang('es'); } catch(e) {}
+  var ham=document.getElementById('hamburger');
+  var mob=document.getElementById('mobile-menu');
+  if(ham&&mob){ ham.addEventListener('click', function(){ mob.classList.toggle('open'); }); }
+})();
+</script>
+</body>
+</html>
