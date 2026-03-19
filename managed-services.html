@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Managed Services | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – Proactive IT managed services for SMBs and mid-market companies in Connecticut and beyond.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── LANG TOGGLE STRIP ─── */
+    .lang-strip {
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 32px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .lang-strip .brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .lang-strip .brand img { height: 36px; display: block; }
+    .lang-strip .brand span {
+      font-family: var(--font-display);
+      font-size: 0.85rem; font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .lang-strip-right { display: flex; align-items: center; gap: 14px; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px; padding: 3px 5px;
+    }
+    .lang-btn {
+      border: none; background: transparent;
+      padding: 4px 12px; border-radius: 24px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
+    }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .strip-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-light); color: #fff;
+      padding: 7px 16px; border-radius: 6px;
+      font-size: 0.8rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition);
+    }
+    .strip-cta:hover { background: #4EA3E8; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1A3354 50%, #244D7A 100%);
+      color: #fff; padding: 80px 32px 70px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 90% at 95% 40%, rgba(46,117,182,0.4) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 30px; padding: 5px 14px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: -0.01em;
+    }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead {
+      font-size: 1.05rem; max-width: 640px;
+      line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy);
+      padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SECTIONS ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 30px; padding: 4px 14px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── SERVICE CARDS ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0); transform-origin: left; transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 50px; height: 50px; background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue); margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--gray-600); padding: 4px 0; }
+    .feature-list li i { color: var(--blue); font-size: 0.68rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em;
+      margin-bottom: 14px; line-height: 1.1;
+    }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+
+    .deep-dive-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .deep-dive-visual .visual-title {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .capability-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico {
+      width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0;
+    }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── WHY ECSG CARDS ─── */
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .why-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 28px 22px; text-align: center;
+      transition: var(--transition);
+    }
+    .why-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .why-icon {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: #fff; margin: 0 auto 16px;
+    }
+    .why-card h4 {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .why-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── TIERS TABLE ─── */
+    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .tier-card {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+    .tier-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .tier-card.featured {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px var(--blue), var(--shadow-lg);
+    }
+    .tier-header {
+      padding: 28px 26px 22px;
+      background: var(--gray-50);
+    }
+    .tier-card.featured .tier-header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+    }
+    .tier-badge {
+      display: inline-block;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 20px; padding: 3px 12px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .tier-card.featured .tier-badge { background: rgba(255,255,255,0.2); color: #fff; }
+    .tier-name {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .tier-card.featured .tier-name { color: #fff; }
+    .tier-desc { font-size: 0.85rem; color: var(--gray-600); line-height: 1.55; }
+    .tier-card.featured .tier-desc { color: rgba(255,255,255,0.8); }
+    .tier-body { padding: 24px 26px; background: var(--white); }
+    .tier-features { list-style: none; }
+    .tier-features li {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 0.85rem; color: var(--gray-600); padding: 6px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .tier-features li:last-child { border-bottom: none; }
+    .tier-features li i { color: var(--blue); font-size: 0.7rem; margin-top: 4px; flex-shrink: 0; }
+    .tier-cta {
+      display: block; text-align: center;
+      background: var(--navy); color: #fff;
+      padding: 12px; border-radius: 6px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; margin-top: 20px;
+      transition: var(--transition);
+    }
+    .tier-cta:hover { background: var(--blue); }
+    .tier-card.featured .tier-cta { background: var(--blue-light); }
+    .tier-card.featured .tier-cta:hover { background: #4EA3E8; }
+
+    /* ─── PROCESS ─── */
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::after {
+      content: ''; position: absolute; top: 30px; left: 5%; right: 5%; height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--blue)); z-index: 0;
+    }
+    .process-step { position: relative; z-index: 1; text-align: center; padding: 0 14px; }
+    .step-num {
+      width: 60px; height: 60px; background: var(--navy); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+      margin: 0 auto 16px; border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--blue);
+    }
+    .process-step h4 {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+    }
+    .process-step p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ─── INDUSTRIES ─── */
+    .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .industry-item {
+      background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+      padding: 22px 18px; text-align: center; transition: var(--transition);
+    }
+    .industry-item:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .industry-item i { font-size: 1.8rem; color: var(--blue); margin-bottom: 10px; display: block; }
+    .industry-item span { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px;
+      pointer-events: none;
+    }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px;
+      font-weight: 700; font-size: 0.92rem; text-decoration: none;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 {
+      font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px;
+    }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .industry-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .tiers-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .process-steps::after { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .lang-strip { padding: 10px 20px; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .industry-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .strip-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── LANG STRIP ─── -->
+<div class="lang-strip">
+  <a href="index.html" class="brand">
+    <img src="assets/img/logo1_white.png" alt="ECSG Logo">
+    <span data-en="Managed Services" data-es="Servicios Administrados">Managed Services</span>
+  </a>
+  <div class="lang-strip-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnEN">EN</button>
+      <button class="lang-btn" id="btnES">ES</button>
+    </div>
+    <a href="ecsgcontact_sales.html" class="strip-cta">
+      <i class="fas fa-envelope"></i>
+      <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+    </a>
+  </div>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-server"></i> <span data-en="Proactive IT Management" data-es="Gestión de TI Proactiva">Proactive IT Management</span></div>
+    <h1><em data-en="Managed Services" data-es="Servicios Administrados">Managed Services</em><br><span data-en="Your IT. Our Responsibility." data-es="Su TI. Nuestra Responsabilidad.">Your IT. Our Responsibility.</span></h1>
+    <p class="lead"
+       data-en="ECSG acts as your dedicated IT department — proactively monitoring, managing, and securing your technology so you can focus 100% on your business. No surprises. No downtime. Just results."
+       data-es="ECSG actúa como su departamento de TI dedicado — monitoreando, administrando y asegurando su tecnología de forma proactiva para que pueda enfocarse 100% en su negocio. Sin sorpresas. Sin tiempo de inactividad. Solo resultados.">
+      ECSG acts as your dedicated IT department — proactively monitoring, managing, and securing your technology so you can focus 100% on your business. No surprises. No downtime. Just results.
+    </p>
+    <a href="ecsgcontact_sales.html" class="hero-cta">
+      <i class="fas fa-arrow-right"></i>
+      <span data-en="Get a Free IT Assessment" data-es="Obtener una Evaluación de TI Gratuita">Get a Free IT Assessment</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">99.9%</div>
+        <div class="label" data-en="Uptime SLA" data-es="SLA de Disponibilidad">Uptime SLA</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">&lt;1hr</div>
+        <div class="label" data-en="Avg. Response Time" data-es="Tiempo de Respuesta Prom.">Avg. Response Time</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">24/7</div>
+        <div class="label" data-en="Monitoring & NOC" data-es="Monitoreo y NOC">Monitoring & NOC</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">15+</div>
+        <div class="label" data-en="Years Experience" data-es="Años de Experiencia">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT IS MANAGED SERVICES ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-circle-question"></i> <span data-en="What We Do" data-es="Qué Hacemos">What We Do</span></div>
+      <h2 data-en="Complete IT Management, Done For You" data-es="Gestión de TI Completa, Hecha Para Usted">Complete IT Management, Done For You</h2>
+      <p data-en="Most small and mid-sized businesses can't afford — or don't need — a full in-house IT team. ECSG bridges that gap with a flat-rate, all-inclusive managed services model that gives you enterprise-grade support at a predictable monthly cost."
+         data-es="La mayoría de las empresas pequeñas y medianas no pueden permitirse — o no necesitan — un equipo de TI interno completo. ECSG cierra esa brecha con un modelo de servicios administrados de tarifa plana que le brinda soporte de nivel empresarial a un costo mensual predecible.">
+        Most small and mid-sized businesses can't afford — or don't need — a full in-house IT team. ECSG bridges that gap with a flat-rate, all-inclusive managed services model that gives you enterprise-grade support at a predictable monthly cost.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Proactive, Not Reactive" data-es="Proactivo, No Reactivo">Proactive, Not Reactive</h3>
+        <p data-en="Traditional IT support waits for things to break. ECSG's managed services model is built around prevention — continuous monitoring, automated patching, real-time threat detection, and regular system health reviews keep your environment stable before issues arise."
+           data-es="El soporte de TI tradicional espera a que las cosas se rompan. El modelo de servicios administrados de ECSG está construido en torno a la prevención — monitoreo continuo, parches automatizados, detección de amenazas en tiempo real y revisiones regulares de salud del sistema mantienen su entorno estable antes de que surjan problemas.">
+          Traditional IT support waits for things to break. ECSG's managed services model is built around prevention — continuous monitoring, automated patching, real-time threat detection, and regular system health reviews keep your environment stable before issues arise.
+        </p>
+        <p data-en="When issues do occur, our helpdesk team is available around the clock. Your employees get fast, friendly support — by phone, email, or chat — with ticket tracking and SLA-backed response times."
+           data-es="Cuando surgen problemas, nuestro equipo de helpdesk está disponible las 24 horas. Sus empleados obtienen soporte rápido y amigable — por teléfono, correo electrónico o chat — con seguimiento de tickets y tiempos de respuesta respaldados por SLA.">
+          When issues do occur, our helpdesk team is available around the clock. Your employees get fast, friendly support — by phone, email, or chat — with ticket tracking and SLA-backed response times.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Flat Monthly Rate" data-es="Tarifa Mensual Fija">Flat Monthly Rate</span>
+          <span class="benefit-pill" data-en="No Hidden Fees" data-es="Sin Cargos Ocultos">No Hidden Fees</span>
+          <span class="benefit-pill" data-en="Scalable" data-es="Escalable">Scalable</span>
+          <span class="benefit-pill" data-en="SLA Guaranteed" data-es="Garantizado por SLA">SLA Guaranteed</span>
+          <span class="benefit-pill" data-en="US-Based Support" data-es="Soporte en EE.UU.">US-Based Support</span>
+        </div>
+      </div>
+      <div class="deep-dive-visual">
+        <div class="visual-title" data-en="What's Included" data-es="Qué Está Incluido">What's Included</div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-display"></i></div><span class="cap-name" data-en="24/7 Remote Monitoring" data-es="Monitoreo Remoto 24/7">24/7 Remote Monitoring</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:100%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-headset"></i></div><span class="cap-name" data-en="Helpdesk Support" data-es="Soporte de Helpdesk">Helpdesk Support</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:97%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-shield-halved"></i></div><span class="cap-name" data-en="Endpoint Security" data-es="Seguridad de Endpoints">Endpoint Security</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:95%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-rotate"></i></div><span class="cap-name" data-en="Patch Management" data-es="Gestión de Parches">Patch Management</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:93%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-database"></i></div><span class="cap-name" data-en="Backup & DR" data-es="Backup y DR">Backup & DR</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:90%"></div></div></div>
+        <div class="capability-row"><div class="cap-ico"><i class="fas fa-file-lines"></i></div><span class="cap-name" data-en="vCIO Reporting" data-es="Reportes vCIO">vCIO Reporting</span><div class="cap-bar-wrap"><div class="cap-bar" style="width:88%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CORE SERVICES ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-th-large"></i> <span data-en="Core Services" data-es="Servicios Principales">Core Services</span></div>
+      <h2 data-en="Everything Your Business Needs" data-es="Todo Lo Que Su Empresa Necesita">Everything Your Business Needs</h2>
+      <p data-en="Our managed services stack covers every layer of your IT — from the device on the desk to the server in the cloud — under a single, unified support model."
+         data-es="Nuestro stack de servicios administrados cubre cada capa de su TI — desde el dispositivo en el escritorio hasta el servidor en la nube — bajo un modelo de soporte único y unificado.">
+        Our managed services stack covers every layer of your IT — from the device on the desk to the server in the cloud — under a single, unified support model.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-display"></i></div>
+        <h3 data-en="Remote Monitoring & Management" data-es="Monitoreo y Gestión Remota">Remote Monitoring & Management</h3>
+        <p data-en="24/7 automated monitoring of all your devices, servers, and network. We detect and resolve issues before they impact your users." data-es="Monitoreo automatizado 24/7 de todos sus dispositivos, servidores y red. Detectamos y resolvemos problemas antes de que afecten a sus usuarios.">24/7 automated monitoring of all your devices, servers, and network. We detect and resolve issues before they impact your users.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Real-time alerts & automated remediation" data-es="Alertas en tiempo real y remediación automatizada">Real-time alerts & automated remediation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Server, workstation & network monitoring" data-es="Monitoreo de servidores, estaciones de trabajo y red">Server, workstation & network monitoring</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Performance & capacity reporting" data-es="Reportes de rendimiento y capacidad">Performance & capacity reporting</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="SLA-backed uptime guarantee" data-es="Garantía de disponibilidad respaldada por SLA">SLA-backed uptime guarantee</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-headset"></i></div>
+        <h3 data-en="Helpdesk & End-User Support" data-es="Helpdesk y Soporte al Usuario">Helpdesk & End-User Support</h3>
+        <p data-en="Your employees deserve fast, knowledgeable IT support. Our helpdesk handles Tier 1–3 issues so your team stays productive." data-es="Sus empleados merecen soporte de TI rápido y experto. Nuestro helpdesk maneja problemas Tier 1-3 para que su equipo permanezca productivo.">Your employees deserve fast, knowledgeable IT support. Our helpdesk handles Tier 1–3 issues so your team stays productive.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Phone, email & chat support channels" data-es="Canales de soporte por teléfono, correo y chat">Phone, email & chat support channels</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Ticketing system with full audit trail" data-es="Sistema de tickets con rastro de auditoría completo">Ticketing system with full audit trail</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Remote desktop support (instant access)" data-es="Soporte de escritorio remoto (acceso instantáneo)">Remote desktop support (instant access)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="On-site dispatch when needed" data-es="Despacho en sitio cuando se necesite">On-site dispatch when needed</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-rotate"></i></div>
+        <h3 data-en="Patch Management" data-es="Gestión de Parches">Patch Management</h3>
+        <p data-en="Unpatched systems are the #1 cause of breaches. We automate OS and software updates across all endpoints — tested, scheduled, and documented." data-es="Los sistemas sin parches son la causa #1 de brechas. Automatizamos actualizaciones de SO y software en todos los endpoints — probadas, programadas y documentadas.">Unpatched systems are the #1 cause of breaches. We automate OS and software updates across all endpoints — tested, scheduled, and documented.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Windows, macOS & third-party patching" data-es="Parches de Windows, macOS y terceros">Windows, macOS & third-party patching</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Scheduled maintenance windows" data-es="Ventanas de mantenimiento programadas">Scheduled maintenance windows</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Patch compliance reporting" data-es="Reportes de cumplimiento de parches">Patch compliance reporting</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Rollback capability for failed updates" data-es="Capacidad de reversión para actualizaciones fallidas">Rollback capability for failed updates</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3 data-en="Endpoint Security & EDR" data-es="Seguridad de Endpoints y EDR">Endpoint Security & EDR</h3>
+        <p data-en="Next-generation antivirus, Endpoint Detection & Response (EDR), and device policy enforcement — protecting every laptop, desktop, and server." data-es="Antivirus de próxima generación, Detección y Respuesta en Endpoints (EDR) y aplicación de políticas de dispositivos — protegiendo cada laptop, escritorio y servidor.">Next-generation antivirus, Endpoint Detection & Response (EDR), and device policy enforcement — protecting every laptop, desktop, and server.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="AI-driven threat detection (EDR/XDR)" data-es="Detección de amenazas basada en IA (EDR/XDR)">AI-driven threat detection (EDR/XDR)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Ransomware & malware protection" data-es="Protección contra ransomware y malware">Ransomware & malware protection</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="USB & removable media control" data-es="Control de USB y medios removibles">USB & removable media control</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Threat isolation & automated response" data-es="Aislamiento de amenazas y respuesta automatizada">Threat isolation & automated response</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-database"></i></div>
+        <h3 data-en="Backup & Disaster Recovery" data-es="Backup y Recuperación ante Desastres">Backup & Disaster Recovery</h3>
+        <p data-en="Comprehensive backup solutions for workstations, servers, and cloud workloads — with tested recovery procedures so you're never caught unprepared." data-es="Soluciones de backup completas para estaciones de trabajo, servidores y cargas en la nube — con procedimientos de recuperación probados para que nunca lo tomen desprevenido.">Comprehensive backup solutions for workstations, servers, and cloud workloads — with tested recovery procedures so you're never caught unprepared.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Automated daily backups (local + cloud)" data-es="Backups diarios automatizados (local + nube)">Automated daily backups (local + cloud)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Rapid restore (RTO < 4 hours)" data-es="Restauración rápida (RTO &lt; 4 horas)">Rapid restore (RTO &lt; 4 hours)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Quarterly DR testing & documentation" data-es="Pruebas de DR trimestrales y documentación">Quarterly DR testing & documentation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Ransomware-proof immutable backups" data-es="Backups inmutables a prueba de ransomware">Ransomware-proof immutable backups</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+        <h3 data-en="Network Management" data-es="Gestión de Red">Network Management</h3>
+        <p data-en="Your network is the foundation of your business. We design, monitor, and manage firewalls, switches, Wi-Fi, and connectivity for optimal performance and security." data-es="Su red es la base de su negocio. Diseñamos, monitoreamos y administramos firewalls, switches, Wi-Fi y conectividad para un rendimiento y seguridad óptimos.">Your network is the foundation of your business. We design, monitor, and manage firewalls, switches, Wi-Fi, and connectivity for optimal performance and security.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Firewall management & rule optimization" data-es="Gestión de firewall y optimización de reglas">Firewall management & rule optimization</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Managed Wi-Fi & segmentation" data-es="Wi-Fi administrado y segmentación">Managed Wi-Fi & segmentation</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="VPN & secure remote access" data-es="VPN y acceso remoto seguro">VPN & secure remote access</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Bandwidth monitoring & QoS" data-es="Monitoreo de ancho de banda y QoS">Bandwidth monitoring & QoS</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+        <h3 data-en="vCIO & Strategic Advisory" data-es="vCIO y Asesoría Estratégica">vCIO & Strategic Advisory</h3>
+        <p data-en="Your virtual CIO keeps your technology aligned with your business goals — planning investments, managing vendors, and delivering quarterly business reviews." data-es="Su CIO virtual mantiene su tecnología alineada con sus objetivos de negocio — planificando inversiones, administrando proveedores y entregando revisiones trimestrales de negocio.">Your virtual CIO keeps your technology aligned with your business goals — planning investments, managing vendors, and delivering quarterly business reviews.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Quarterly Business Reviews (QBRs)" data-es="Revisiones Trimestrales de Negocio (QBRs)">Quarterly Business Reviews (QBRs)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Technology roadmap & budget planning" data-es="Hoja de ruta tecnológica y planificación presupuestaria">Technology roadmap & budget planning</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Vendor negotiation & management" data-es="Negociación y gestión de proveedores">Vendor negotiation & management</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Risk assessment & compliance planning" data-es="Evaluación de riesgos y planificación de cumplimiento">Risk assessment & compliance planning</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-lock"></i></div>
+        <h3 data-en="Cybersecurity Management" data-es="Gestión de Ciberseguridad">Cybersecurity Management</h3>
+        <p data-en="Layered security that goes beyond antivirus — identity protection, email security, dark web monitoring, and compliance readiness for your industry." data-es="Seguridad en capas que va más allá del antivirus — protección de identidad, seguridad de correo, monitoreo en la dark web y preparación para el cumplimiento de su industria.">Layered security that goes beyond antivirus — identity protection, email security, dark web monitoring, and compliance readiness for your industry.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="Multi-Factor Authentication (MFA)" data-es="Autenticación Multifactor (MFA)">Multi-Factor Authentication (MFA)</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Dark web credential monitoring" data-es="Monitoreo de credenciales en la dark web">Dark web credential monitoring</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Security awareness training" data-es="Capacitación en conciencia de seguridad">Security awareness training</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="HIPAA, SOC 2 & CMMC readiness" data-es="Preparación para HIPAA, SOC 2 y CMMC">HIPAA, SOC 2 & CMMC readiness</span></li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+        <h3 data-en="Cloud & Microsoft 365 Management" data-es="Gestión Cloud y Microsoft 365">Cloud & Microsoft 365 Management</h3>
+        <p data-en="Included in our managed services: complete administration of your Microsoft 365 and Azure environments, keeping them secure, compliant, and optimized." data-es="Incluido en nuestros servicios administrados: administración completa de sus entornos Microsoft 365 y Azure, manteniéndolos seguros, conformes y optimizados.">Included in our managed services: complete administration of your Microsoft 365 and Azure environments, keeping them secure, compliant, and optimized.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-circle-check"></i><span data-en="M365 user & license management" data-es="Gestión de usuarios y licencias M365">M365 user & license management</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Azure resource monitoring & cost control" data-es="Monitoreo de recursos Azure y control de costos">Azure resource monitoring & cost control</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Teams, SharePoint & OneDrive governance" data-es="Gobernanza de Teams, SharePoint y OneDrive">Teams, SharePoint & OneDrive governance</span></li>
+          <li><i class="fas fa-circle-check"></i><span data-en="Conditional Access & MFA policies" data-es="Políticas de Acceso Condicional y MFA">Conditional Access & MFA policies</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICE TIERS ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 48px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-layer-group"></i> <span data-en="Service Tiers" data-es="Niveles de Servicio">Service Tiers</span></div>
+      <h2 data-en="Choose the Right Plan for Your Business" data-es="Elija el Plan Correcto para Su Empresa">Choose the Right Plan for Your Business</h2>
+      <p data-en="Flexible managed service tiers designed for businesses of every size. All plans include our core monitoring, helpdesk, and security stack."
+         data-es="Niveles de servicio administrado flexibles diseñados para empresas de todos los tamaños. Todos los planes incluyen nuestro stack principal de monitoreo, helpdesk y seguridad.">
+        Flexible managed service tiers designed for businesses of every size. All plans include our core monitoring, helpdesk, and security stack.
+      </p>
+    </div>
+    <div class="tiers-grid">
+
+      <!-- Essentials -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge" data-en="Starter" data-es="Inicial">Starter</div>
+          <div class="tier-name" data-en="Essentials" data-es="Esenciales">Essentials</div>
+          <div class="tier-desc" data-en="Core protection and support for small businesses with up to 25 users." data-es="Protección y soporte básico para pequeñas empresas con hasta 25 usuarios.">Core protection and support for small businesses with up to 25 users.</div>
+        </div>
+        <div class="tier-body">
+          <ul class="tier-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="24/7 Remote Monitoring (RMM)" data-es="Monitoreo Remoto 24/7 (RMM)">24/7 Remote Monitoring (RMM)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Business Hours Helpdesk (8am–6pm)" data-es="Helpdesk en Horario Laboral (8am–6pm)">Business Hours Helpdesk (8am–6pm)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Automated Patch Management" data-es="Gestión Automatizada de Parches">Automated Patch Management</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Next-Gen Antivirus / EDR" data-es="Antivirus / EDR de Próxima Generación">Next-Gen Antivirus / EDR</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Cloud Backup (up to 500GB)" data-es="Backup en Nube (hasta 500GB)">Cloud Backup (up to 500GB)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Monthly System Health Report" data-es="Informe Mensual de Salud del Sistema">Monthly System Health Report</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tier-cta" data-en="Get Started" data-es="Comenzar">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Professional (featured) -->
+      <div class="tier-card featured">
+        <div class="tier-header">
+          <div class="tier-badge" data-en="Most Popular" data-es="Más Popular">Most Popular</div>
+          <div class="tier-name" data-en="Professional" data-es="Profesional">Professional</div>
+          <div class="tier-desc" data-en="Full-stack IT management for growing businesses from 25 to 100 users." data-es="Gestión de TI completa para empresas en crecimiento de 25 a 100 usuarios.">Full-stack IT management for growing businesses from 25 to 100 users.</div>
+        </div>
+        <div class="tier-body">
+          <ul class="tier-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Everything in Essentials" data-es="Todo en Esenciales">Everything in Essentials</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="24/7 Helpdesk & Emergency Response" data-es="Helpdesk 24/7 y Respuesta de Emergencia">24/7 Helpdesk & Emergency Response</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Network & Firewall Management" data-es="Gestión de Red y Firewall">Network & Firewall Management</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Microsoft 365 Full Administration" data-es="Administración Completa de Microsoft 365">Microsoft 365 Full Administration</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Email Security (Defender for O365)" data-es="Seguridad de Correo (Defender para O365)">Email Security (Defender for O365)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Dark Web Monitoring" data-es="Monitoreo en Dark Web">Dark Web Monitoring</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Quarterly Business Reviews (vCIO)" data-es="Revisiones Trimestrales de Negocio (vCIO)">Quarterly Business Reviews (vCIO)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Unlimited Remote Support" data-es="Soporte Remoto Ilimitado">Unlimited Remote Support</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tier-cta" data-en="Get Started" data-es="Comenzar">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge" data-en="Full Coverage" data-es="Cobertura Total">Full Coverage</div>
+          <div class="tier-name" data-en="Enterprise" data-es="Empresarial">Enterprise</div>
+          <div class="tier-desc" data-en="White-glove IT management for complex environments with 100+ users." data-es="Gestión de TI de nivel premium para entornos complejos con 100+ usuarios.">White-glove IT management for complex environments with 100+ users.</div>
+        </div>
+        <div class="tier-body">
+          <ul class="tier-features">
+            <li><i class="fas fa-circle-check"></i><span data-en="Everything in Professional" data-es="Todo en Profesional">Everything in Professional</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Dedicated Account Manager" data-es="Gerente de Cuenta Dedicado">Dedicated Account Manager</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Azure Infrastructure Management" data-es="Gestión de Infraestructura Azure">Azure Infrastructure Management</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Advanced SOC / SIEM Monitoring" data-es="Monitoreo Avanzado SOC / SIEM">Advanced SOC / SIEM Monitoring</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Compliance Management (HIPAA/SOC2)" data-es="Gestión de Cumplimiento (HIPAA/SOC2)">Compliance Management (HIPAA/SOC2)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="On-Site Support (scheduled & emergency)" data-es="Soporte en Sitio (programado y emergencias)">On-Site Support (scheduled & emergency)</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Monthly vCIO Strategy Sessions" data-es="Sesiones Mensuales de Estrategia vCIO">Monthly vCIO Strategy Sessions</span></li>
+            <li><i class="fas fa-circle-check"></i><span data-en="Custom SLA & Priority Escalation" data-es="SLA Personalizado y Escalación Prioritaria">Custom SLA & Priority Escalation</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="tier-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY ECSG ─── -->
+<section class="content-section alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-star"></i> <span data-en="Why ECSG" data-es="Por Qué ECSG">Why ECSG</span></div>
+      <h2 data-en="What Sets Us Apart" data-es="Lo Que Nos Distingue">What Sets Us Apart</h2>
+      <p data-en="Hundreds of IT companies offer managed services. Here's why leading Connecticut businesses choose ECSG."
+         data-es="Cientos de empresas de TI ofrecen servicios administrados. Aquí está por qué las principales empresas de Connecticut eligen ECSG.">
+        Hundreds of IT companies offer managed services. Here's why leading Connecticut businesses choose ECSG.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-eye"></i></div>
+        <h4 data-en="Always-On Visibility" data-es="Visibilidad Permanente">Always-On Visibility</h4>
+        <p data-en="Our NOC monitors your environment 24/7/365 — every alert is triaged and acted on, not just logged." data-es="Nuestro NOC monitorea su entorno 24/7/365 — cada alerta es clasificada y atendida, no solo registrada.">Our NOC monitors your environment 24/7/365 — every alert is triaged and acted on, not just logged.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-handshake"></i></div>
+        <h4 data-en="Local & Responsive" data-es="Local y Receptivo">Local & Responsive</h4>
+        <p data-en="Based in Norwalk, CT — we know your community, your compliance needs, and we're on-site fast when it matters." data-es="Con sede en Norwalk, CT — conocemos su comunidad, sus necesidades de cumplimiento y llegamos en sitio rápidamente cuando importa.">Based in Norwalk, CT — we know your community, your compliance needs, and we're on-site fast when it matters.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-certificate"></i></div>
+        <h4 data-en="Certified Expertise" data-es="Experiencia Certificada">Certified Expertise</h4>
+        <p data-en="Microsoft, CompTIA, and cybersecurity certified engineers — not generalists, but specialists who know your stack." data-es="Ingenieros certificados en Microsoft, CompTIA y ciberseguridad — no generalistas, sino especialistas que conocen su stack.">Microsoft, CompTIA, and cybersecurity certified engineers — not generalists, but specialists who know your stack.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-dollar-sign"></i></div>
+        <h4 data-en="Transparent Pricing" data-es="Precios Transparentes">Transparent Pricing</h4>
+        <p data-en="Flat-rate monthly billing — no surprise invoices, no nickel-and-diming. You know exactly what you're paying." data-es="Facturación mensual de tarifa fija — sin facturas sorpresa, sin cobros adicionales. Usted sabe exactamente lo que paga.">Flat-rate monthly billing — no surprise invoices, no nickel-and-diming. You know exactly what you're paying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INDUSTRIES ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-building"></i> <span data-en="Industries We Serve" data-es="Industrias que Servimos">Industries We Serve</span></div>
+      <h2 data-en="Expertise Across Sectors" data-es="Experiencia en Múltiples Sectores">Expertise Across Sectors</h2>
+      <p data-en="We bring deep industry knowledge to every engagement — understanding the compliance requirements, workflows, and risks unique to your business."
+         data-es="Aportamos profundo conocimiento de la industria a cada compromiso — comprendiendo los requisitos de cumplimiento, flujos de trabajo y riesgos únicos de su negocio.">
+        We bring deep industry knowledge to every engagement — understanding the compliance requirements, workflows, and risks unique to your business.
+      </p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-item"><i class="fas fa-briefcase-medical"></i><span data-en="Healthcare" data-es="Salud">Healthcare</span></div>
+      <div class="industry-item"><i class="fas fa-scale-balanced"></i><span data-en="Legal & Law Firms" data-es="Legal y Bufetes">Legal & Law Firms</span></div>
+      <div class="industry-item"><i class="fas fa-coins"></i><span data-en="Financial Services" data-es="Servicios Financieros">Financial Services</span></div>
+      <div class="industry-item"><i class="fas fa-graduation-cap"></i><span data-en="Education" data-es="Educación">Education</span></div>
+      <div class="industry-item"><i class="fas fa-industry"></i><span data-en="Manufacturing" data-es="Manufactura">Manufacturing</span></div>
+      <div class="industry-item"><i class="fas fa-house-chimney"></i><span data-en="Real Estate" data-es="Bienes Raíces">Real Estate</span></div>
+      <div class="industry-item"><i class="fas fa-store"></i><span data-en="Retail & Hospitality" data-es="Comercio y Hospitalidad">Retail & Hospitality</span></div>
+      <div class="industry-item"><i class="fas fa-building-columns"></i><span data-en="Nonprofits" data-es="Organizaciones Sin Fines de Lucro">Nonprofits</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-route"></i> <span data-en="Getting Started" data-es="Cómo Comenzar">Getting Started</span></div>
+      <h2 data-en="Onboarding in 5 Simple Steps" data-es="Incorporación en 5 Pasos Simples">Onboarding in 5 Simple Steps</h2>
+      <p data-en="We've refined our onboarding process to be fast, transparent, and disruption-free — most clients are fully onboarded within 2 weeks."
+         data-es="Hemos refinado nuestro proceso de incorporación para que sea rápido, transparente y sin interrupciones — la mayoría de los clientes se incorporan completamente en 2 semanas.">
+        We've refined our onboarding process to be fast, transparent, and disruption-free — most clients are fully onboarded within 2 weeks.
+      </p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h4 data-en="Discovery Call" data-es="Llamada de Descubrimiento">Discovery Call</h4>
+        <p data-en="We learn about your business, team, and current IT environment." data-es="Conocemos su negocio, equipo y entorno de TI actual.">We learn about your business, team, and current IT environment.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h4 data-en="IT Assessment" data-es="Evaluación de TI">IT Assessment</h4>
+        <p data-en="We audit your systems, identify risks, and document your infrastructure." data-es="Auditamos sus sistemas, identificamos riesgos y documentamos su infraestructura.">We audit your systems, identify risks, and document your infrastructure.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h4 data-en="Proposal & Plan" data-es="Propuesta y Plan">Proposal & Plan</h4>
+        <p data-en="We deliver a custom service plan, pricing, and onboarding timeline." data-es="Entregamos un plan de servicio personalizado, precios y cronograma de incorporación.">We deliver a custom service plan, pricing, and onboarding timeline.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h4 data-en="Onboarding" data-es="Incorporación">Onboarding</h4>
+        <p data-en="We deploy agents, configure security tools, and document your environment." data-es="Desplegamos agentes, configuramos herramientas de seguridad y documentamos su entorno.">We deploy agents, configure security tools, and document your environment.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <h4 data-en="Ongoing Support" data-es="Soporte Continuo">Ongoing Support</h4>
+        <p data-en="Your team has full support — and we proactively manage everything behind the scenes." data-es="Su equipo tiene soporte completo — y nosotros administramos todo de forma proactiva.">Your team has full support — and we proactively manage everything behind the scenes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Let's Talk About Your IT" data-es="Hablemos Sobre Su TI">Let's Talk About Your IT</h2>
+    <p data-en="Schedule a free, no-obligation IT assessment. We'll identify your biggest risks, gaps, and opportunities — and show you exactly what ECSG can do for your business."
+       data-es="Agende una evaluación de TI gratuita y sin compromiso. Identificaremos sus mayores riesgos, brechas y oportunidades — y le mostraremos exactamente lo que ECSG puede hacer por su empresa.">
+      Schedule a free, no-obligation IT assessment. We'll identify your biggest risks, gaps, and opportunities — and show you exactly what ECSG can do for your business.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+    document.getElementById('btnES').classList.toggle('active', lang === 'es');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+
+  document.getElementById('btnEN').addEventListener('click', function () { applyLang('en'); });
+  document.getElementById('btnES').addEventListener('click', function () { applyLang('es'); });
+
+  try { var s = localStorage.getItem('ecsg_lang'); if (s === 'es') applyLang('es'); } catch (e) {}
+})();
+</script>
+</body>
+</html>
