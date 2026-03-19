@@ -33,27 +33,29 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
 
-    /* ─── LANG TOGGLE STRIP ─── */
-    .lang-strip {
+    /* ─── NAVBAR ─── */
+    #navbar {
       background: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 32px;
-      position: sticky; top: 0; z-index: 100;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
     }
-    .lang-strip .brand {
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none;
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
     }
-    .lang-strip .brand img { height: 36px; display: block; }
-    .lang-strip .brand span {
-      font-family: var(--font-display);
-      font-size: 0.85rem; font-weight: 700;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.06em; text-transform: uppercase;
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 8px 14px; border-radius: 6px;
+      transition: var(--transition); white-space: nowrap;
     }
-    .lang-strip-right { display: flex; align-items: center; gap: 14px; }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
     .lang-toggle {
       display: flex; align-items: center; gap: 4px;
       background: rgba(255,255,255,0.1);
@@ -66,14 +68,27 @@
       cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition);
     }
     .lang-btn.active { background: #fff; color: var(--navy); }
-    .strip-cta {
+    .nav-cta {
       display: inline-flex; align-items: center; gap: 7px;
       background: var(--blue-light); color: #fff;
-      padding: 7px 16px; border-radius: 6px;
-      font-size: 0.8rem; font-weight: 700;
-      text-decoration: none; transition: var(--transition);
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; transition: var(--transition); white-space: nowrap;
     }
-    .strip-cta:hover { background: #4EA3E8; }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
 
     /* ─── HERO ─── */
     .page-hero {
@@ -353,13 +368,14 @@
       .industry-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
       .deep-dive { grid-template-columns: 1fr; }
       .deep-dive.reverse { direction: ltr; }
       .tiers-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
       .process-steps::after { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .lang-strip { padding: 10px 20px; }
     }
     @media (max-width: 600px) {
       .content-section { padding: 48px 20px; }
@@ -371,29 +387,55 @@
       .footer-grid { grid-template-columns: 1fr; }
       .cta-band, footer { padding-left: 20px; padding-right: 20px; }
       .hero-stats { gap: 24px; }
-      .strip-cta { display: none; }
+      .nav-cta { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── LANG STRIP ─── -->
-<div class="lang-strip">
-  <a href="index.html" class="brand">
-    <img src="assets/img/logo1_white.png" alt="ECSG Logo">
-    <span data-en="Managed Services" data-es="Servicios Administrados">Managed Services</span>
-  </a>
-  <div class="lang-strip-right">
-    <div class="lang-toggle">
-      <button class="lang-btn active" id="btnEN">EN</button>
-      <button class="lang-btn" id="btnES">ES</button>
-    </div>
-    <a href="ecsgcontact_sales.html" class="strip-cta">
-      <i class="fas fa-envelope"></i>
-      <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group">
     </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" class="active" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
-</div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
 
 <!-- ─── HERO ─── -->
 <section class="page-hero">
@@ -834,16 +876,28 @@
     document.querySelectorAll('[data-en]').forEach(function (el) {
       el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
     });
-    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
-    document.getElementById('btnES').classList.toggle('active', lang === 'es');
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
     document.documentElement.lang = lang;
     try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
   }
 
-  document.getElementById('btnEN').addEventListener('click', function () { applyLang('en'); });
-  document.getElementById('btnES').addEventListener('click', function () { applyLang('es'); });
+  ['btnEN','btnEN2'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function(){ applyLang('en'); });
+  });
+  ['btnES','btnES2'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function(){ applyLang('es'); });
+  });
 
   try { var s = localStorage.getItem('ecsg_lang'); if (s === 'es') applyLang('es'); } catch (e) {}
+
+  var ham = document.getElementById('hamburger');
+  var mob = document.getElementById('mobile-menu');
+  if (ham && mob) {
+    ham.addEventListener('click', function () { mob.classList.toggle('open'); });
+  }
 })();
 </script>
 </body>
