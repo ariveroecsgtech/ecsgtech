@@ -361,6 +361,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
 .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; width: 0; }
 .hamburger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+
 /* Mobile Nav Drawer */
 
 .mobile-nav {
@@ -372,7 +373,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
   backdrop-filter: blur(24px);
   z-index: 999;
   padding: 1rem 0 1.5rem;
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   opacity: 0;
   visibility: hidden;
   transition: transform 300ms ease, opacity 300ms ease, visibility 300ms ease;
@@ -403,7 +404,9 @@ p  { font-size: 1rem; color: var(--text-muted); }
 }
 
 .mobile-nav-link {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: .85rem 1rem;
   font-family: var(--font-display);
   font-size: .9375rem;
@@ -434,17 +437,32 @@ p  { font-size: 1rem; color: var(--text-muted); }
   border-radius: var(--radius-sm);
   transition: color var(--transition), background var(--transition);
 }
-.mobile-submenu a:hover { color: var(--cyan); background: rgba(255,255,255,.05); }
+.mobile-submenu a:hover {
+  color: var(--cyan);
+  background: rgba(255,255,255,.05);
+}
 
-.mobile-nav-divider { height: 1px; background: rgba(255,255,255,.08); margin: .5rem 0; }
+.mobile-nav-divider {
+  height: 1px;
+  background: rgba(255,255,255,.08);
+  margin: .5rem 0;
+}
 
 .mobile-nav-cta {
   margin-top: 1rem;
-  display: flex; flex-direction: column; gap: .75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
 }
-.mobile-lang { display: flex; gap: .5rem; margin-top: .5rem; }
+
+.mobile-lang {
+  display: flex;
+  gap: .5rem;
+  margin-top: .5rem;
+}
 .mobile-lang a {
-  flex: 1; text-align: center;
+  flex: 1;
+  text-align: center;
   padding: .6rem;
   font-family: var(--font-display);
   font-size: .8125rem;
@@ -453,8 +471,14 @@ p  { font-size: 1rem; color: var(--text-muted); }
   border-radius: var(--radius-sm);
   transition: all var(--transition);
 }
-.mobile-lang a.active { background: var(--blue); color: #fff; }
-.mobile-lang a:not(.active) { background: rgba(255,255,255,.08); color: rgba(255,255,255,.6); }
+.mobile-lang a.active {
+  background: var(--blue);
+  color: #fff;
+}
+.mobile-lang a:not(.active) {
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+}
 
 /* ─── HERO ───────────────────────────────────────────────────── */
 .hero {
