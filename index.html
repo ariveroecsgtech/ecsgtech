@@ -1,36 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Cloud Solutions Group — Managed IT, Cloud & Azure Services</title>
+  <title>Enterprise Cloud Solutions Group — Managed IT, Cloud &amp; Azure Services</title>
   <meta name="description" content="ECSG delivers enterprise-grade managed IT, Microsoft 365, Azure, cloud infrastructure, and project management for mid-size businesses across the U.S. and internationally.">
   <meta name="keywords" content="managed IT services, cloud solutions, Microsoft 365, Azure, project management, MSP, cybersecurity, Connecticut">
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.ecsgtech.com/">
-  <meta property="og:title" content="Enterprise Cloud Solutions Group — Managed IT & Cloud Services">
+  <meta property="og:title" content="Enterprise Cloud Solutions Group — Managed IT &amp; Cloud Services">
   <meta property="og:description" content="Trusted managed IT partner for mid-size businesses. Microsoft 365, Azure, cybersecurity, and vCIO consulting.">
   <meta property="og:image" content="https://www.ecsgtech.com/assets/img/og-image.jpg">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Enterprise Cloud Solutions Group">
   <meta name="twitter:description" content="Enterprise-grade managed IT and cloud services for growing businesses.">
-  <!-- Preload fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- TODO: Add sitemap.xml and robots.txt -->
+
+  <style>
+    /* ── Language Toggle ───────────────────────────────── */
+    [data-en], [data-es] { display: none; }
+    [data-lang="en"] [data-en] { display: revert; }
+    [data-lang="es"] [data-es] { display: revert; }
+    /* Inline spans override */
+    span[data-en], span[data-es],
+    a[data-en], a[data-es] { display: inline; }
+    [data-lang="en"] span[data-es],
+    [data-lang="en"] a[data-es] { display: none; }
+    [data-lang="es"] span[data-en],
+    [data-lang="es"] a[data-en] { display: none; }
+
+    /* ── Lang Switch Button ─────────────────────────────── */
+    .lang-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 220ms ease, border-color 220ms ease;
+      white-space: nowrap;
+      backdrop-filter: blur(8px);
+    }
+    .lang-toggle-btn:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .lang-toggle-btn:focus-visible {
+      outline: 2px solid #22D3EE;
+      outline-offset: 3px;
+    }
+    .lang-toggle-btn .globe-icon { width: 14px; height: 14px; opacity: 0.8; }
+
+    /* ── Unified Navbar ────────────────────────────────── */
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Hamburger ─────────────────────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: background 220ms ease;
+      flex-shrink: 0;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.12); }
+    .hamburger:focus-visible { outline: 2px solid #22D3EE; }
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 300ms ease, opacity 300ms ease;
+      transform-origin: center;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Mobile Nav Panel (slide down from navbar) ─────── */
+    .mobile-nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 300ms ease, visibility 300ms ease;
+    }
+    .mobile-nav-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0;
+      background: rgba(11,31,58,0.98);
+      backdrop-filter: blur(24px);
+      z-index: 999;
+      padding: 1rem 0 1.5rem;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 300ms ease, opacity 300ms ease, visibility 300ms ease;
+      max-height: calc(100vh - var(--nav-height));
+      overflow-y: auto;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .mobile-nav.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: color 220ms ease;
+    }
+    .mobile-nav-link:hover { color: #22D3EE; }
+    .mobile-nav-link .chevron {
+      width: 16px; height: 16px;
+      flex-shrink: 0;
+      transition: transform 300ms ease;
+    }
+    .mobile-nav-link.expanded .chevron { transform: rotate(180deg); }
+
+    .mobile-submenu {
+      display: none;
+      padding: 0.25rem 0 0.25rem 1rem;
+      border-left: 2px solid rgba(47,111,237,0.4);
+      margin-bottom: 0.25rem;
+    }
+    .mobile-submenu.open { display: block; }
+    .mobile-submenu a {
+      display: block;
+      padding: 0.55rem 0;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 220ms ease;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .mobile-submenu a:hover { color: #22D3EE; }
+
+    .mobile-nav-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 1rem 0;
+    }
+
+    .mobile-nav-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+    .mobile-nav-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .mobile-lang {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .mobile-lang a {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      transition: color 220ms ease, border-color 220ms ease;
+    }
+    .mobile-lang a:hover,
+    .mobile-lang a.active { color: #22D3EE; border-color: #22D3EE; }
+
+    @media (max-width: 1024px) {
+      .navbar-nav { display: none !important; }
+      .hamburger { display: flex !important; }
+    }
+    @media (min-width: 1025px) {
+      .hamburger { display: none !important; }
+      .mobile-nav, .mobile-nav-overlay { display: none !important; }
+    }
+
+    /* ── Logo size fix ─────────────────────────────────── */
+    .navbar-logo-img { height: 52px; width: auto; }
+  </style>
 </head>
 <body>
 
-<!-- Skip to content -->
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" data-en>Skip to main content</a>
+<a href="#main-content" class="skip-link" data-es>Ir al contenido principal</a>
 
-<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<!-- ════════════════════ NAVBAR ════════════════════ -->
 <header>
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
@@ -40,251 +252,134 @@
         <a href="index.html" class="navbar-logo" aria-label="ECSG — Home">
           <img src="assets/img/logo1_white.png" alt="ECSG Logo" class="navbar-logo-img">
         </a>
-<!--
-<div class="logo-mark" aria-hidden="true">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-    <path d="M2 17l10 5 10-5"/>
-    <path d="M2 12l10 5 10-5"/>
-  </svg>
-</div>
 
-<div class="logo-text">
-  <span class="brand">ECSG</span>
-  <span class="tagline">Enterprise Cloud Solutions</span>
-</div>
--->
         <!-- Desktop Nav -->
         <ul class="navbar-nav" role="list">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link">
+              <span data-en>Home</span><span data-es>Inicio</span>
+            </a>
           </li>
+
+          <!-- Services & Plans -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-plans">
-              Services &amp; Plans
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-services">
+              <span data-en>Services &amp; Plans</span><span data-es>Servicios y Planes</span>
               <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
-            <ul class="dropdown-menu" id="dropdown-plans" role="menu">
-              <li role="none">
-                <a href="managed-services.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Managed Services</span>
-                    <span class="di-desc">IT Outsourcing</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="cloud-services.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Cloud Services</span>
-                    <span class="di-desc">Hosted Computing</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_Planes_M365.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Microsoft 365</span>
-                    <span class="di-desc">Licensing &amp; plans</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_Azure.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v12l-8 4-8-4V6z"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Microsoft Azure</span>
-                    <span class="di-desc">Cloud infrastructure</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_Planes_DisWebv.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Web Design</span>
-                    <span class="di-desc">Corporate sites &amp; portals</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_Training_Programs.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">IT Trainings</span>
-                    <span class="di-desc">M365, Azure &amp; more</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="rmm.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Remote Monitoring Service</span>
-                    <span class="di-desc">Remote System Oversight</span>
-                  </span>
-                </a>
-              </li>
+            <ul class="dropdown-menu" id="dropdown-services" role="menu">
+              <li role="none"><a href="managed-services.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Managed Services</span><span class="di-name" data-es>Servicios Administrados</span><span class="di-desc" data-en>IT Outsourcing</span><span class="di-desc" data-es>Subcontratación IT</span></span>
+              </a></li>
+              <li role="none"><a href="cloud-services.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Cloud Services</span><span class="di-name" data-es>Servicios en la Nube</span><span class="di-desc" data-en>Hosted Computing</span><span class="di-desc" data-es>Computación en la Nube</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_Planes_M365.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span>
+                <span class="di-text"><span class="di-name">Microsoft 365</span><span class="di-desc" data-en>Licensing &amp; Plans</span><span class="di-desc" data-es>Licencias y Planes</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_Azure.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v12l-8 4-8-4V6z"/></svg></span>
+                <span class="di-text"><span class="di-name">Microsoft Azure</span><span class="di-desc" data-en>Cloud Infrastructure</span><span class="di-desc" data-es>Infraestructura en la Nube</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_Planes_DisWebv.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Web Design</span><span class="di-name" data-es>Diseño Web</span><span class="di-desc" data-en>Corporate Sites &amp; Portals</span><span class="di-desc" data-es>Sitios corporativos y portales</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_Training_Programs.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>IT Trainings</span><span class="di-name" data-es>Capacitaciones IT</span><span class="di-desc" data-en>M365, Azure &amp; more</span><span class="di-desc" data-es>M365, Azure y más</span></span>
+              </a></li>
+              <li role="none"><a href="rmm.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Remote Monitoring</span><span class="di-name" data-es>Monitoreo Remoto</span><span class="di-desc" data-en>Remote System Oversight</span><span class="di-desc" data-es>Supervisión de Sistemas</span></span>
+              </a></li>
             </ul>
           </li>
+
+          <!-- Modern Workplace -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-plans">
-              Modern Workplace Solutions
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-workplace">
+              <span data-en>Modern Workplace</span><span data-es>Lugar de Trabajo Moderno</span>
               <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
-            <ul class="dropdown-menu" id="dropdown-plans" role="menu">
-              <li role="none">
-                <a href="ECSG_Azure_CloudAdoption.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Azure Cloud Adoption</span>
-                    <span class="di-desc">Azure Cloud</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_M365_ModernAdoption.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Microsoft 365</span>
-                    <span class="di-desc">Workplace Platform</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_Outlook_UnifiedCommunication.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Outlook Unified Communication</span>
-                    <span class="di-desc">Email Collaboration</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_SharePoint_Intranet.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">SharePoint Intranet</span>
-                    <span class="di-desc">Team Workspace</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_Teams_ModernWork.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Teams Modern Work</span>
-                    <span class="di-desc">Modern Collaboration</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="ECSG_MSP_Adoption_Training.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">IT Trainings</span>
-                    <span class="di-desc">M365, Azure &amp; more</span>
-                  </span>
-                </a>
-              </li>
+            <ul class="dropdown-menu" id="dropdown-workplace" role="menu">
+              <li role="none"><a href="ECSG_Azure_CloudAdoption.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Azure Cloud Adoption</span><span class="di-name" data-es>Adopción Azure</span><span class="di-desc">Azure Cloud</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_M365_ModernAdoption.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span>
+                <span class="di-text"><span class="di-name">Microsoft 365</span><span class="di-desc" data-en>Workplace Platform</span><span class="di-desc" data-es>Plataforma de Trabajo</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_Outlook_UnifiedCommunication.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Outlook Unified Comm.</span><span class="di-name" data-es>Outlook Comunicación</span><span class="di-desc" data-en>Email Collaboration</span><span class="di-desc" data-es>Colaboración por Email</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_SharePoint_Intranet.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></span>
+                <span class="di-text"><span class="di-name">SharePoint Intranet</span><span class="di-desc" data-en>Team Workspace</span><span class="di-desc" data-es>Espacio de Trabajo en Equipo</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_Teams_ModernWork.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Teams Modern Work</span><span class="di-name" data-es>Teams Trabajo Moderno</span><span class="di-desc" data-en>Modern Collaboration</span><span class="di-desc" data-es>Colaboración Moderna</span></span>
+              </a></li>
+              <li role="none"><a href="ECSG_MSP_Adoption_Training.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>IT Trainings</span><span class="di-name" data-es>Capacitaciones IT</span><span class="di-desc" data-en>M365, Azure &amp; more</span><span class="di-desc" data-es>M365, Azure y más</span></span>
+              </a></li>
             </ul>
           </li>
+
+          <!-- Project Management -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-plans">
-              Project Management
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-projects">
+              <span data-en>Project Management</span><span data-es>Gestión de Proyectos</span>
               <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
-            <ul class="dropdown-menu" id="dropdown-plans" role="menu">
-              <li role="none">
-                <a href="camera-installation.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Camera Installations</span>
-                    <span class="di-desc">Security Setup</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="networks-installation.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v12l-8 4-8-4V6z"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Network Installations</span>
-                    <span class="di-desc">Infrastructure Deployment</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="rmm2.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">Remote Monitoring</span>
-                    <span class="di-desc">Proactive surveillance</span>
-                  </span>
-                </a>
-              </li>
-              <li role="none">
-                <a href="vCIO-services.html" class="dropdown-item" role="menuitem">
-                  <span class="di-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                  </span>
-                  <span class="di-text">
-                    <span class="di-name">vCIO &amp; Consulting</span>
-                    <span class="di-desc">Technology Advisory</span>
-                  </span>
-                </a>
-              </li>
+            <ul class="dropdown-menu" id="dropdown-projects" role="menu">
+              <li role="none"><a href="camera-installation.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Camera Installations</span><span class="di-name" data-es>Instalación de Cámaras</span><span class="di-desc" data-en>Security Setup</span><span class="di-desc" data-es>Configuración de Seguridad</span></span>
+              </a></li>
+              <li role="none"><a href="networks-installation.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v12l-8 4-8-4V6z"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Network Installations</span><span class="di-name" data-es>Instalación de Redes</span><span class="di-desc" data-en>Infrastructure Deployment</span><span class="di-desc" data-es>Despliegue de Infraestructura</span></span>
+              </a></li>
+              <li role="none"><a href="rmm2.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>Remote Monitoring</span><span class="di-name" data-es>Monitoreo Remoto</span><span class="di-desc" data-en>Proactive Surveillance</span><span class="di-desc" data-es>Vigilancia Proactiva</span></span>
+              </a></li>
+              <li role="none"><a href="vCIO-services.html" class="dropdown-item" role="menuitem">
+                <span class="di-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <span class="di-text"><span class="di-name" data-en>vCIO &amp; Consulting</span><span class="di-name" data-es>vCIO y Consultoría</span><span class="di-desc" data-en>Technology Advisory</span><span class="di-desc" data-es>Asesoría Tecnológica</span></span>
+              </a></li>
             </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="ECSG_CyberSecurity_Report_2024.html" class="nav-link">
+              <span data-en>Cybersecurity Research</span><span data-es>Investigación en Ciberseguridad</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a href="ECSG_CyberSecurity_Report_2024.html" class="nav-link">Cybersecurity Research</a>
+            <a href="ECSG_About.html" class="nav-link">
+              <span data-en>About Us</span><span data-es>Nosotros</span>
+            </a>
           </li>
-              <li class="nav-item">
-            <a href="ECSG_About.html" class="nav-link">About Us</a>
-          </li>
-           </ul>
+        </ul>
 
-        <!-- Right: Lang + CTA + Hamburger -->
+        <!-- Right: Lang Toggle + CTA + Hamburger -->
         <div class="navbar-right">
-          <div class="lang-switch" role="group" aria-label="Language selector">
-            <a href="index.html" class="lang-btn active" aria-current="page" aria-label="English (current)">EN</a>
-            <a href="index-es.html" class="lang-btn" aria-label="Español">ES</a>
-          </div>
-          <a href="ecsgcontact_sales.html" class="btn btn-nav" aria-label="Contact Us">Contact Us</a>
+          <button class="lang-toggle-btn" id="langToggle" aria-label="Switch language / Cambiar idioma">
+            <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="langLabel">ES</span>
+          </button>
+          <a href="ecsgcontact_sales.html" class="btn btn-nav" aria-label="Contact Us">
+            <span data-en>Contact Us</span><span data-es>Contáctenos</span>
+          </a>
           <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
             <span></span><span></span><span></span>
           </button>
@@ -297,74 +392,85 @@
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobileOverlay" aria-hidden="true"></div>
 
-  <!-- Mobile Nav Drawer -->
+  <!-- Mobile Nav Panel -->
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="ECSG_About.html" class="mobile-nav-link">About Us</a>
-    <!-- Mobile Nav Overlay Services Plan-->
-    <button class="mobile-nav-link has-sub" data-submenu="submenu-plans" aria-expanded="false" aria-controls="mobile-plans">
-      Services &amp; Plans
-      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="mobile-submenu" id="submenu-plans">
-      <a href="managed-services.html">Managed Services</a>
-      <a href="cloud-services.html">Cloud Services</a>
-      <a href="ECSG_Planes_M365.html">Microsoft 365</a>
-      <a href="ECSG_Azure.html">Microsoft Azure</a>
-      <a href="ECSG_Planes_DisWebv.html">Web Design</a>
-      <a href="ECSG_Training_Programs.html">IT Trainings</a>
-    </div>
-    <a href="managed-services.html" class="mobile-nav-link">Managed Services</a>
-    <a href="cloud-services.html" class="mobile-nav-link">Cloud Services</a>
-    <a href="project-management.html" class="mobile-nav-link">Project Management</a>
-    
-    <!-- Mobile Nav Overlay Insigths-->
-    <button class="mobile-nav-link has-sub" data-submenu="submenu-insights" aria-expanded="false" aria-controls="mobile-plans">
-      Insigths
-      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="mobile-submenu" id="submenu-insights">
-      <a href="ECSG_Azure_CloudAdoption.html">Azure Cloud</a>
-      <a href="ECSG_M365_ModernAdoption.html">Workplace Platform</a>
-      <a href="ECSG_Outlook_UnifiedCommunication.html">E-mail Collaboration</a>
-      <a href="ECSG_SharePoint_Intranet.html">Team Workspace</a>
-      <a href="ECSG_Teams_ModernWork.html">Modern Collaboration</a>
-      <a href="ECSG_MSP_Adoption_Training.html">Microsoft 365, Azure and More</a>              
-      <a href="ECSG_CyberSecurity_Report_2024.html">Security Overview</a>
-    </div>
-    
-    <!-- Mobile Nav Overlay Project Management-->
-    <button class="mobile-nav-link has-sub" data-submenu="submenu-projects" aria-expanded="false" aria-controls="mobile-plans">
-      Projects Management
-      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="mobile-submenu" id="submenu-projects">
-      <a href="project-management.html">Projects Management</a>
-      <a href="ECSG_Planes_M365.html">Microsoft 365</a>
-      <a href="ECSG_Azure.html">Microsoft Azure</a>
-      <a href="ECSG_Planes_DisWebv.html">Web Design</a>
-      <a href="ECSG_Training_Programs.html">IT Trainings</a>
-    </div>
-    <a href="faq.html" class="mobile-nav-link">FAQ</a>
-    <a href="ceo.html" class="mobile-nav-link">Meet the CEO</a>
-    
+    <div class="mobile-nav-inner">
 
-    <div class="mobile-nav-divider"></div>
+      <a href="index.html" class="mobile-nav-link">
+        <span data-en>Home</span><span data-es>Inicio</span>
+      </a>
+      <a href="ECSG_About.html" class="mobile-nav-link">
+        <span data-en>About Us</span><span data-es>Nosotros</span>
+      </a>
 
-    <div class="mobile-nav-cta">
-      <a href="ecsgcontact_sales.html" class="btn btn-primary">Contact Us</a>
-      <div class="mobile-lang">
-        <a href="index.html" class="active" aria-current="page">EN — English</a>
-        <a href="index-es.html">ES — Español</a>
+      <!-- Services & Plans -->
+      <button class="mobile-nav-link has-sub" data-submenu="mob-services" aria-expanded="false">
+        <span data-en>Services &amp; Plans</span><span data-es>Servicios y Planes</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-submenu" id="mob-services">
+        <a href="managed-services.html"><span data-en>Managed Services</span><span data-es>Servicios Administrados</span></a>
+        <a href="cloud-services.html"><span data-en>Cloud Services</span><span data-es>Servicios en la Nube</span></a>
+        <a href="ECSG_Planes_M365.html">Microsoft 365</a>
+        <a href="ECSG_Azure.html">Microsoft Azure</a>
+        <a href="ECSG_Planes_DisWebv.html"><span data-en>Web Design</span><span data-es>Diseño Web</span></a>
+        <a href="ECSG_Training_Programs.html"><span data-en>IT Trainings</span><span data-es>Capacitaciones IT</span></a>
+        <a href="rmm.html"><span data-en>Remote Monitoring</span><span data-es>Monitoreo Remoto</span></a>
+      </div>
+
+      <!-- Modern Workplace -->
+      <button class="mobile-nav-link has-sub" data-submenu="mob-workplace" aria-expanded="false">
+        <span data-en>Modern Workplace</span><span data-es>Lugar de Trabajo Moderno</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-submenu" id="mob-workplace">
+        <a href="ECSG_Azure_CloudAdoption.html"><span data-en>Azure Cloud Adoption</span><span data-es>Adopción Azure</span></a>
+        <a href="ECSG_M365_ModernAdoption.html">Microsoft 365</a>
+        <a href="ECSG_Outlook_UnifiedCommunication.html"><span data-en>Outlook Unified Comm.</span><span data-es>Outlook Comunicación</span></a>
+        <a href="ECSG_SharePoint_Intranet.html">SharePoint Intranet</a>
+        <a href="ECSG_Teams_ModernWork.html"><span data-en>Teams Modern Work</span><span data-es>Teams Trabajo Moderno</span></a>
+        <a href="ECSG_MSP_Adoption_Training.html"><span data-en>IT Trainings</span><span data-es>Capacitaciones IT</span></a>
+      </div>
+
+      <!-- Project Management -->
+      <button class="mobile-nav-link has-sub" data-submenu="mob-projects" aria-expanded="false">
+        <span data-en>Project Management</span><span data-es>Gestión de Proyectos</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-submenu" id="mob-projects">
+        <a href="camera-installation.html"><span data-en>Camera Installations</span><span data-es>Instalación de Cámaras</span></a>
+        <a href="networks-installation.html"><span data-en>Network Installations</span><span data-es>Instalación de Redes</span></a>
+        <a href="rmm2.html"><span data-en>Remote Monitoring</span><span data-es>Monitoreo Remoto</span></a>
+        <a href="vCIO-services.html"><span data-en>vCIO &amp; Consulting</span><span data-es>vCIO y Consultoría</span></a>
+      </div>
+
+      <a href="ECSG_CyberSecurity_Report_2024.html" class="mobile-nav-link">
+        <span data-en>Cybersecurity Research</span><span data-es>Investigación en Ciberseguridad</span>
+      </a>
+      <a href="faq.html" class="mobile-nav-link">FAQ</a>
+      <a href="ceo.html" class="mobile-nav-link">
+        <span data-en>Meet the CEO</span><span data-es>Conoce al CEO</span>
+      </a>
+
+      <div class="mobile-nav-divider"></div>
+
+      <div class="mobile-nav-cta">
+        <a href="ecsgcontact_sales.html" class="btn btn-primary">
+          <span data-en>Contact Us</span><span data-es>Contáctenos</span>
+        </a>
+        <div class="mobile-lang">
+          <a href="#" id="mobileLangEN" class="active" data-lang-target="en">EN — English</a>
+          <a href="#" id="mobileLangES" data-lang-target="es">ES — Español</a>
+        </div>
       </div>
     </div>
   </nav>
 </header>
 
-<!-- ═══════════════════════════ MAIN ════════════════════════════ -->
+<!-- ════════════════════ MAIN ═════════════════════ -->
 <main id="main-content">
 
-  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
   <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-bg" aria-hidden="true">
       <div class="hero-grid"></div>
@@ -373,41 +479,48 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <p class="hero-eyebrow">Trusted Managed IT Partner</p>
+          <p class="hero-eyebrow">
+            <span data-en>Trusted Managed IT Partner</span>
+            <span data-es>Socio Tecnológico de Confianza</span>
+          </p>
           <h1 id="hero-heading">
-            Cloud-Powered IT
-            <span class="accent">Built for Business Growth</span>
+            <span data-en>Cloud-Powered IT<br><span class="accent">Built for Business Growth</span></span>
+            <span data-es>IT Impulsado por la Nube<br><span class="accent">Construido para el Crecimiento</span></span>
           </h1>
           <p class="hero-sub">
-            From Microsoft 365 and Azure to full managed infrastructure — ECSG delivers
-            enterprise-grade IT services that keep your business secure, connected, and ahead.
+            <span data-en>From Microsoft 365 and Azure to full managed infrastructure — ECSG delivers enterprise-grade IT services that keep your business secure, connected, and ahead.</span>
+            <span data-es>Desde Microsoft 365 y Azure hasta infraestructura administrada completa — ECSG entrega servicios IT de nivel empresarial que mantienen su negocio seguro, conectado y competitivo.</span>
           </p>
           <div class="hero-actions">
             <a href="ecsgcontact_sales.html" class="btn btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Contact Us
+              <span data-en>Contact Us</span><span data-es>Contáctenos</span>
             </a>
             <a href="#services" class="btn btn-ghost-white">
-              Explore Services
+              <span data-en>Explore Services</span><span data-es>Ver Servicios</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
           </div>
           <div class="hero-stats" role="list" aria-label="Key statistics">
             <div class="hero-stat" role="listitem">
               <div class="num"><span data-count="200" data-suffix="+">200+</span></div>
-              <div class="label">Clients Served</div>
+              <div class="label" data-en>Clients Served</div>
+              <div class="label" data-es>Clientes Atendidos</div>
             </div>
             <div class="hero-stat" role="listitem">
               <div class="num"><span data-count="99" data-suffix=".9%">99.9%</span></div>
-              <div class="label">Uptime SLA</div>
+              <div class="label" data-en>Uptime SLA</div>
+              <div class="label" data-es>SLA de Disponibilidad</div>
             </div>
             <div class="hero-stat" role="listitem">
               <div class="num"><span data-count="15" data-suffix="+ yrs">15+ yrs</span></div>
-              <div class="label">Industry Experience</div>
+              <div class="label" data-en>Industry Experience</div>
+              <div class="label" data-es>Experiencia en la Industria</div>
             </div>
             <div class="hero-stat" role="listitem">
               <div class="num"><span data-count="24" data-suffix="/7">24/7</span></div>
-              <div class="label">Support Coverage</div>
+              <div class="label" data-en>Support Coverage</div>
+              <div class="label" data-es>Cobertura de Soporte</div>
             </div>
           </div>
         </div>
@@ -445,36 +558,27 @@
               </div>
               <div class="hc-services">
                 <div class="hc-service">
-                  <div class="hc-service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                  </div>
+                  <div class="hc-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
                   <span class="hc-service-name">Managed Infrastructure</span>
                   <span class="hc-service-status">Active</span>
                 </div>
                 <div class="hc-service">
-                  <div class="hc-service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
+                  <div class="hc-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                   <span class="hc-service-name">Security Operations</span>
                   <span class="hc-service-status">Active</span>
                 </div>
                 <div class="hc-service">
-                  <div class="hc-service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                  </div>
+                  <div class="hc-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                   <span class="hc-service-name">Azure Monitoring</span>
                   <span class="hc-service-status">Active</span>
                 </div>
               </div>
             </div>
-            <!-- Floating badge -->
             <div class="hero-float">
-              <div class="hf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </div>
+              <div class="hf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
               <div class="hf-text">
-                <div class="hf-label">Latest Audit</div>
-                <div class="hf-value">All systems compliant</div>
+                <div class="hf-label" data-en>Latest Audit</div><div class="hf-label" data-es>Última Auditoría</div>
+                <div class="hf-value" data-en>All systems compliant</div><div class="hf-value" data-es>Todos los sistemas en cumplimiento</div>
               </div>
             </div>
           </div>
@@ -484,236 +588,239 @@
     </div>
   </section>
 
-  <!-- ── SERVICES OVERVIEW ──────────────────────────────────── -->
+  <!-- ── SERVICES OVERVIEW ─────────────────────────────────────── -->
   <section class="section services" id="services" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-intro reveal">
-        <p class="section-label">What We Do</p>
-        <h2 id="services-heading">End-to-End IT Services,<br>Tailored to Your Business</h2>
-        <p>From day-to-day managed support to enterprise cloud migrations, ECSG provides the full spectrum of technology services your organization needs to thrive.</p>
+        <p class="section-label">
+          <span data-en>What We Do</span><span data-es>Qué Hacemos</span>
+        </p>
+        <h2 id="services-heading">
+          <span data-en>End-to-End IT Services,<br>Tailored to Your Business</span>
+          <span data-es>Servicios IT de Extremo a Extremo,<br>Adaptados a su Negocio</span>
+        </h2>
+        <p>
+          <span data-en>From day-to-day managed support to enterprise cloud migrations, ECSG provides the full spectrum of technology services your organization needs to thrive.</span>
+          <span data-es>Desde soporte administrado diario hasta migraciones a la nube empresarial, ECSG ofrece el espectro completo de servicios tecnológicos que su organización necesita para prosperar.</span>
+        </p>
       </div>
       <div class="services-grid">
+
         <a href="managed-services.html" class="service-card reveal reveal-delay-1">
-          <div class="sc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
+          <div class="sc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
           <div class="sc-body">
-            <h3>Managed Services</h3>
-            <p>Proactive monitoring, helpdesk support, endpoint management, and vCIO consulting — we manage your IT so you can focus on your business.</p>
+            <h3 data-en>Managed Services</h3><h3 data-es>Servicios Administrados</h3>
+            <p data-en>Proactive monitoring, helpdesk support, endpoint management, and vCIO consulting — we manage your IT so you can focus on your business.</p>
+            <p data-es>Monitoreo proactivo, soporte de helpdesk, gestión de endpoints y consultoría vCIO — administramos su IT para que usted se enfoque en su negocio.</p>
           </div>
           <span class="sc-link">
-            Learn more
+            <span data-en>Learn more</span><span data-es>Saber más</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
         </a>
 
         <a href="cloud-services.html" class="service-card reveal reveal-delay-2">
-          <div class="sc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          </div>
+          <div class="sc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
           <div class="sc-body">
-            <h3>Cloud Services</h3>
-            <p>Azure infrastructure, cloud migrations, hybrid environments, and cost optimization — secure, scalable cloud solutions built for your workloads.</p>
+            <h3 data-en>Cloud Services</h3><h3 data-es>Servicios en la Nube</h3>
+            <p data-en>Azure infrastructure, cloud migrations, hybrid environments, and cost optimization — secure, scalable cloud solutions built for your workloads.</p>
+            <p data-es>Infraestructura Azure, migraciones a la nube, entornos híbridos y optimización de costos — soluciones de nube seguras y escalables para sus cargas de trabajo.</p>
           </div>
           <span class="sc-link">
-            Learn more
+            <span data-en>Learn more</span><span data-es>Saber más</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
         </a>
 
         <a href="project-management.html" class="service-card reveal reveal-delay-3">
-          <div class="sc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
-          </div>
+          <div class="sc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
           <div class="sc-body">
-            <h3>Project Management</h3>
-            <p>Structured IT project delivery — from scoping and planning to execution and post-deployment support, on time and within budget.</p>
+            <h3 data-en>Project Management</h3><h3 data-es>Gestión de Proyectos</h3>
+            <p data-en>Structured IT project delivery — from scoping and planning to execution and post-deployment support, on time and within budget.</p>
+            <p data-es>Entrega estructurada de proyectos IT — desde el alcance y planificación hasta la ejecución y soporte post-despliegue, a tiempo y dentro del presupuesto.</p>
           </div>
           <span class="sc-link">
-            Learn more
+            <span data-en>Learn more</span><span data-es>Saber más</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
         </a>
 
         <a href="vCIO-services.html" class="service-card reveal reveal-delay-4">
-          <div class="sc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
+          <div class="sc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div class="sc-body">
-            <h3>vCIO &amp; Consulting</h3>
-            <p>Strategic technology advisory, IT roadmaps, vendor management, and compliance guidance — your virtual CIO, on demand.</p>
+            <h3 data-en>vCIO &amp; Consulting</h3><h3 data-es>vCIO y Consultoría</h3>
+            <p data-en>Strategic technology advisory, IT roadmaps, vendor management, and compliance guidance — your virtual CIO, on demand.</p>
+            <p data-es>Asesoría tecnológica estratégica, hojas de ruta IT, gestión de proveedores y orientación en cumplimiento — su CIO virtual, cuando lo necesite.</p>
           </div>
           <span class="sc-link">
-            Learn more
+            <span data-en>Learn more</span><span data-es>Saber más</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
         </a>
+
       </div>
     </div>
   </section>
 
-  <!-- ── WHY ECSG ───────────────────────────────────────────── -->
+  <!-- ── WHY ECSG ───────────────────────────────────────────────── -->
   <section class="section why" id="why" aria-labelledby="why-heading">
     <div class="container">
       <div class="why-layout">
 
-        <!-- Visual panel -->
         <div class="why-visual reveal">
           <div class="why-visual-inner">
             <div class="why-items">
               <div class="why-item">
-                <div class="wi-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
+                <div class="wi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <div class="wi-text">
-                  <h4>Enterprise-grade Security</h4>
-                  <p>Multi-layered cybersecurity, endpoint protection, and compliance frameworks — built for regulated industries.</p>
+                  <h4 data-en>Enterprise-grade Security</h4><h4 data-es>Seguridad Empresarial</h4>
+                  <p data-en>Multi-layered cybersecurity, endpoint protection, and compliance frameworks — built for regulated industries.</p>
+                  <p data-es>Ciberseguridad multicapa, protección de endpoints y marcos de cumplimiento — diseñados para industrias reguladas.</p>
                 </div>
               </div>
               <div class="why-item">
-                <div class="wi-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </div>
+                <div class="wi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                 <div class="wi-text">
-                  <h4>Proactive Monitoring &amp; SLAs</h4>
-                  <p>24/7 infrastructure monitoring with guaranteed response times. We resolve issues before they impact your operations.</p>
+                  <h4 data-en>Proactive Monitoring &amp; SLAs</h4><h4 data-es>Monitoreo Proactivo y SLAs</h4>
+                  <p data-en>24/7 infrastructure monitoring with guaranteed response times. We resolve issues before they impact your operations.</p>
+                  <p data-es>Monitoreo de infraestructura 24/7 con tiempos de respuesta garantizados. Resolvemos problemas antes de que afecten sus operaciones.</p>
                 </div>
               </div>
               <div class="why-item">
-                <div class="wi-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
+                <div class="wi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                 <div class="wi-text">
-                  <h4>Rapid Deployment</h4>
-                  <p>Onboard quickly with our streamlined processes. Most clients are fully managed within days, not weeks.</p>
+                  <h4 data-en>Rapid Deployment</h4><h4 data-es>Despliegue Rápido</h4>
+                  <p data-en>Onboard quickly with our streamlined processes. Most clients are fully managed within days, not weeks.</p>
+                  <p data-es>Incorporación ágil con nuestros procesos optimizados. La mayoría de los clientes están totalmente administrados en días, no semanas.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Text content -->
         <div class="reveal reveal-delay-2">
-          <p class="section-label">Why ECSG</p>
-          <h2 id="why-heading">Your Technology Partner,<br>Not Just a Vendor</h2>
-          <p style="margin-bottom:2rem;">We don't just fix tickets — we align your IT with your business strategy. ECSG acts as a true extension of your team, delivering expertise, accountability, and long-term value.</p>
+          <p class="section-label"><span data-en>Why ECSG</span><span data-es>Por Qué ECSG</span></p>
+          <h2 id="why-heading">
+            <span data-en>Your Technology Partner,<br>Not Just a Vendor</span>
+            <span data-es>Su Socio Tecnológico,<br>No Solo un Proveedor</span>
+          </h2>
+          <p style="margin-bottom:2rem;">
+            <span data-en>We don't just fix tickets — we align your IT with your business strategy. ECSG acts as a true extension of your team, delivering expertise, accountability, and long-term value.</span>
+            <span data-es>No solo resolvemos tickets — alineamos su IT con su estrategia empresarial. ECSG actúa como una verdadera extensión de su equipo, aportando experiencia, responsabilidad y valor a largo plazo.</span>
+          </p>
 
           <div class="why-list" role="list">
             <div class="why-check" role="listitem">
-              <div class="wc-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
+              <div class="wc-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div class="wc-body">
-                <h4>Microsoft Gold Partner Expertise</h4>
-                <p>Certified specialists in Microsoft 365, Azure AD, SharePoint, Teams, and the full M365 ecosystem.</p>
+                <h4 data-en>Microsoft Gold Partner Expertise</h4><h4 data-es>Expertise de Partner Microsoft Gold</h4>
+                <p data-en>Certified specialists in Microsoft 365, Azure AD, SharePoint, Teams, and the full M365 ecosystem.</p>
+                <p data-es>Especialistas certificados en Microsoft 365, Azure AD, SharePoint, Teams y todo el ecosistema M365.</p>
               </div>
             </div>
             <div class="why-check" role="listitem">
-              <div class="wc-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
+              <div class="wc-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div class="wc-body">
-                <h4>Transparent, Predictable Pricing</h4>
-                <p>Flat-rate managed services starting at $500/mo — no surprise bills, no hidden fees.</p>
+                <h4 data-en>Transparent, Predictable Pricing</h4><h4 data-es>Precios Transparentes y Predecibles</h4>
+                <p data-en>Flat-rate managed services starting at $500/mo — no surprise bills, no hidden fees.</p>
+                <p data-es>Servicios administrados a tarifa fija desde $500/mes — sin facturas sorpresa, sin cargos ocultos.</p>
               </div>
             </div>
             <div class="why-check" role="listitem">
-              <div class="wc-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
+              <div class="wc-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div class="wc-body">
-                <h4>Bilingual Support Team</h4>
-                <p>Full English and Spanish support — serving U.S.-based and international clients with equal care.</p>
+                <h4 data-en>Bilingual Support Team</h4><h4 data-es>Equipo de Soporte Bilingüe</h4>
+                <p data-en>Full English and Spanish support — serving U.S.-based and international clients with equal care.</p>
+                <p data-es>Soporte completo en inglés y español — atendiendo clientes en EE.UU. e internacionales con igual dedicación.</p>
               </div>
             </div>
             <div class="why-check" role="listitem">
-              <div class="wc-check" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
+              <div class="wc-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div class="wc-body">
-                <h4>Compliance &amp; Risk Management</h4>
-                <p>HIPAA, SOC 2, and industry-specific compliance guidance built into every managed services engagement.</p>
+                <h4 data-en>Compliance &amp; Risk Management</h4><h4 data-es>Cumplimiento y Gestión de Riesgos</h4>
+                <p data-en>HIPAA, SOC 2, and industry-specific compliance guidance built into every managed services engagement.</p>
+                <p data-es>Orientación de cumplimiento HIPAA, SOC 2 y específica de la industria integrada en cada contrato de servicios administrados.</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── SOLUTIONS / PLANS ──────────────────────────────────── -->
+  <!-- ── SOLUTIONS / PLANS ──────────────────────────────────────── -->
   <section class="section solutions section-alt" id="solutions" aria-labelledby="solutions-heading">
     <div class="container">
       <div class="section-intro reveal">
-        <p class="section-label">Solutions</p>
-        <h2 id="solutions-heading">Specialized Technology<br>Services &amp; Plans</h2>
-        <p>Purpose-built solutions across Microsoft platforms, cloud infrastructure, and custom web development — designed to accelerate your team's performance.</p>
+        <p class="section-label"><span data-en>Solutions</span><span data-es>Soluciones</span></p>
+        <h2 id="solutions-heading">
+          <span data-en>Specialized Technology<br>Services &amp; Plans</span>
+          <span data-es>Servicios y Planes de<br>Tecnología Especializada</span>
+        </h2>
+        <p>
+          <span data-en>Purpose-built solutions across Microsoft platforms, cloud infrastructure, and custom web development — designed to accelerate your team's performance.</span>
+          <span data-es>Soluciones diseñadas específicamente para plataformas Microsoft, infraestructura en la nube y desarrollo web personalizado — creadas para acelerar el rendimiento de su equipo.</span>
+        </p>
       </div>
       <div class="solutions-grid">
-        <a href="ECSG_Planes_M365.html" class="sol-card featured reveal reveal-delay-1" aria-label="Microsoft 365 Plans">
-          <span class="sol-tag">Most Popular</span>
-          <div class="sol-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-          </div>
+
+        <a href="ECSG_Planes_M365.html" class="sol-card featured reveal reveal-delay-1">
+          <span class="sol-tag" data-en>Most Popular</span><span class="sol-tag" data-es>Más Popular</span>
+          <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
           <h3>Microsoft 365</h3>
-          <p>Licensing, deployment, migration, Teams setup, SharePoint, Exchange, and ongoing administration.</p>
-          <span class="sol-cta">
-            View Plans
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-          </span>
+          <p data-en>Licensing, deployment, migration, Teams setup, SharePoint, Exchange, and ongoing administration.</p>
+          <p data-es>Licenciamiento, despliegue, migración, configuración de Teams, SharePoint, Exchange y administración continua.</p>
+          <span class="sol-cta"><span data-en>View Plans</span><span data-es>Ver Planes</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
 
-        <a href="ECSG_Azure.html" class="sol-card reveal reveal-delay-2" aria-label="Microsoft Azure Services">
+        <a href="ECSG_Azure.html" class="sol-card reveal reveal-delay-2">
           <span class="sol-tag">Enterprise</span>
-          <div class="sol-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v12l-8 4-8-4V6z"/></svg>
-          </div>
+          <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v12l-8 4-8-4V6z"/></svg></div>
           <h3>Microsoft Azure</h3>
-          <p>Infrastructure-as-a-Service, hybrid cloud, disaster recovery, backup, and cost management on Azure.</p>
-          <span class="sol-cta">
-            Learn More
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-          </span>
+          <p data-en>Infrastructure-as-a-Service, hybrid cloud, disaster recovery, backup, and cost management on Azure.</p>
+          <p data-es>Infraestructura como servicio, nube híbrida, recuperación ante desastres, respaldo y gestión de costos en Azure.</p>
+          <span class="sol-cta"><span data-en>Learn More</span><span data-es>Saber Más</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
 
-        <a href="ECSG_Planes_DisWebv.html" class="sol-card reveal reveal-delay-3" aria-label="Web Design Services">
-          <span class="sol-tag">New</span>
-          <div class="sol-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-          </div>
-          <h3>Web Design</h3>
-          <p>Corporate websites, landing pages, SharePoint portals, and intranet solutions — responsive and SEO-optimized.</p>
-          <span class="sol-cta">
-            View Plans
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-          </span>
+        <a href="ECSG_Planes_DisWebv.html" class="sol-card reveal reveal-delay-3">
+          <span class="sol-tag" data-en>New</span><span class="sol-tag" data-es>Nuevo</span>
+          <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+          <h3 data-en>Web Design</h3><h3 data-es>Diseño Web</h3>
+          <p data-en>Corporate websites, landing pages, SharePoint portals, and intranet solutions — responsive and SEO-optimized.</p>
+          <p data-es>Sitios web corporativos, landing pages, portales SharePoint y soluciones de intranet — responsivos y optimizados para SEO.</p>
+          <span class="sol-cta"><span data-en>View Plans</span><span data-es>Ver Planes</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
 
-        <a href="ECSG_Training_Programs.html" class="sol-card reveal reveal-delay-4" aria-label="IT Training Programs">
-          <span class="sol-tag">Programs</span>
-          <div class="sol-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <h3>IT Trainings</h3>
-          <p>Live and on-demand training programs on Microsoft 365, Azure, cybersecurity, and productivity tools for your team.</p>
-          <span class="sol-cta">
-            View Programs
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-          </span>
+        <a href="ECSG_Training_Programs.html" class="sol-card reveal reveal-delay-4">
+          <span class="sol-tag" data-en>Programs</span><span class="sol-tag" data-es>Programas</span>
+          <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3 data-en>IT Trainings</h3><h3 data-es>Capacitaciones IT</h3>
+          <p data-en>Live and on-demand training programs on Microsoft 365, Azure, cybersecurity, and productivity tools for your team.</p>
+          <p data-es>Programas de capacitación en vivo y bajo demanda sobre Microsoft 365, Azure, ciberseguridad y herramientas de productividad para su equipo.</p>
+          <span class="sol-cta"><span data-en>View Programs</span><span data-es>Ver Programas</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
+
       </div>
     </div>
   </section>
 
-  <!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+  <!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
   <section class="section testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-intro reveal">
-        <p class="section-label">Client Trust</p>
-        <h2 id="testimonials-heading">Businesses That Rely on ECSG</h2>
-        <p>Don't take our word for it — here's what our clients say about working with the ECSG team.</p>
+        <p class="section-label"><span data-en>Client Trust</span><span data-es>Confianza del Cliente</span></p>
+        <h2 id="testimonials-heading">
+          <span data-en>Businesses That Rely on ECSG</span>
+          <span data-es>Empresas que Confían en ECSG</span>
+        </h2>
+        <p>
+          <span data-en>Don't take our word for it — here's what our clients say about working with the ECSG team.</span>
+          <span data-es>No solo lo decimos nosotros — esto es lo que dicen nuestros clientes sobre trabajar con el equipo ECSG.</span>
+        </p>
       </div>
       <div class="testimonials-grid">
+
         <div class="testi-card reveal reveal-delay-1">
           <div class="testi-stars" aria-label="5 out of 5 stars" role="img">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -722,12 +829,14 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="testi-quote">"ECSG completely transformed our IT infrastructure. The migration to Microsoft 365 was seamless, and their team was available every step of the way. Best vendor decision we've made."</p>
+          <p class="testi-quote" data-en>"ECSG completely transformed our IT infrastructure. The migration to Microsoft 365 was seamless, and their team was available every step of the way. Best vendor decision we've made."</p>
+          <p class="testi-quote" data-es>"ECSG transformó completamente nuestra infraestructura IT. La migración a Microsoft 365 fue perfecta y su equipo estuvo disponible en cada paso. La mejor decisión de proveedor que hemos tomado."</p>
           <div class="testi-author">
             <div class="testi-avatar" aria-hidden="true">JM</div>
             <div class="testi-info">
               <div class="name">James M.</div>
-              <div class="role">Operations Director, Financial Services</div>
+              <div class="role" data-en>Operations Director, Financial Services</div>
+              <div class="role" data-es>Director de Operaciones, Servicios Financieros</div>
             </div>
           </div>
         </div>
@@ -740,12 +849,14 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="testi-quote">"The Azure deployment was handled professionally and the ongoing monitoring gives our leadership team real peace of mind. Response times are incredible. Highly recommend."</p>
+          <p class="testi-quote" data-en>"The Azure deployment was handled professionally and the ongoing monitoring gives our leadership team real peace of mind. Response times are incredible. Highly recommend."</p>
+          <p class="testi-quote" data-es>"El despliegue de Azure fue manejado profesionalmente y el monitoreo continuo brinda a nuestro equipo directivo una verdadera tranquilidad. Los tiempos de respuesta son increíbles. Muy recomendado."</p>
           <div class="testi-author">
             <div class="testi-avatar" aria-hidden="true">SR</div>
             <div class="testi-info">
               <div class="name">Sandra R.</div>
-              <div class="role">CTO, Healthcare Group</div>
+              <div class="role" data-en>CTO, Healthcare Group</div>
+              <div class="role" data-es>CTO, Grupo de Salud</div>
             </div>
           </div>
         </div>
@@ -758,32 +869,45 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="testi-quote">"We needed bilingual IT support for our team and ECSG delivered on every level. Their training programs for our staff were engaging, practical, and really effective."</p>
+          <p class="testi-quote" data-en>"We needed bilingual IT support for our team and ECSG delivered on every level. Their training programs for our staff were engaging, practical, and really effective."</p>
+          <p class="testi-quote" data-es>"Necesitábamos soporte IT bilingüe para nuestro equipo y ECSG cumplió en todos los aspectos. Sus programas de capacitación para nuestro personal fueron atractivos, prácticos y realmente efectivos."</p>
           <div class="testi-author">
             <div class="testi-avatar" aria-hidden="true">CP</div>
             <div class="testi-info">
               <div class="name">Carlos P.</div>
-              <div class="role">VP Technology, Logistics Company</div>
+              <div class="role" data-en>VP Technology, Logistics Company</div>
+              <div class="role" data-es>VP de Tecnología, Empresa de Logística</div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── CTA BANNER ─────────────────────────────────────────── -->
+  <!-- ── CTA BANNER ─────────────────────────────────────────────── -->
   <section class="section cta-banner" aria-labelledby="cta-heading">
     <div class="container">
       <div class="cta-inner reveal">
-        <p class="section-label" style="justify-content:center;margin-bottom:1.25rem;">Ready to Get Started?</p>
-        <h2 id="cta-heading">Let's Talk About Your Cloud Strategy</h2>
-        <p>Whether you need a full IT overhaul or just want to optimize what you already have — our team is ready to build a plan around your goals.</p>
+        <p class="section-label" style="justify-content:center;margin-bottom:1.25rem;">
+          <span data-en>Ready to Get Started?</span><span data-es>¿Listo para Comenzar?</span>
+        </p>
+        <h2 id="cta-heading">
+          <span data-en>Let's Talk About Your Cloud Strategy</span>
+          <span data-es>Hablemos de su Estrategia en la Nube</span>
+        </h2>
+        <p>
+          <span data-en>Whether you need a full IT overhaul or just want to optimize what you already have — our team is ready to build a plan around your goals.</span>
+          <span data-es>Ya sea que necesite una renovación completa de IT o simplemente quiera optimizar lo que ya tiene — nuestro equipo está listo para construir un plan alrededor de sus objetivos.</span>
+        </p>
         <div class="cta-actions">
           <a href="ecsgcontact_sales.html" class="btn btn-primary">
-            Schedule a Free Consultation
+            <span data-en>Schedule a Free Consultation</span>
+            <span data-es>Agendar una Consulta Gratuita</span>
           </a>
           <a href="ECSG_About.html" class="btn btn-ghost-white">
-            Learn About ECSG
+            <span data-en>Learn About ECSG</span>
+            <span data-es>Conocer a ECSG</span>
           </a>
         </div>
       </div>
@@ -792,10 +916,11 @@
 
 </main>
 
-<!-- ═══════════════════════════ FOOTER ══════════════════════════ -->
+<!-- ════════════════════ FOOTER ═════════════════════ -->
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-top">
+
       <!-- Brand col -->
       <div class="footer-brand">
         <div class="footer-logo">
@@ -807,7 +932,8 @@
             <span class="tagline">Enterprise Cloud Solutions</span>
           </div>
         </div>
-        <p>Enterprise-grade managed IT, cloud, and consulting services for growing mid-size businesses across the U.S. and internationally.</p>
+        <p data-en>Enterprise-grade managed IT, cloud, and consulting services for growing mid-size businesses across the U.S. and internationally.</p>
+        <p data-es>Servicios administrados de IT, nube y consultoría de nivel empresarial para medianas empresas en crecimiento en EE.UU. e internacionalmente.</p>
         <div class="footer-social">
           <a href="https://www.linkedin.com/company/ecsgtech" class="social-link" aria-label="ECSG on LinkedIn" rel="noopener noreferrer" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -820,33 +946,32 @@
 
       <!-- Services col -->
       <nav class="footer-col" aria-label="Services navigation">
-        <h5>Services</h5>
+        <h5 data-en>Services</h5><h5 data-es>Servicios</h5>
         <ul>
-          <li><a href="managed-services.html">Managed Services</a></li>
-          <li><a href="cloud-services.html">Cloud Services</a></li>
-          <li><a href="project-management.html">Project Management</a></li>
+          <li><a href="managed-services.html" data-en>Managed Services</a><a href="managed-services.html" data-es>Servicios Administrados</a></li>
+          <li><a href="cloud-services.html" data-en>Cloud Services</a><a href="cloud-services.html" data-es>Servicios en la Nube</a></li>
+          <li><a href="project-management.html" data-en>Project Management</a><a href="project-management.html" data-es>Gestión de Proyectos</a></li>
           <li><a href="ECSG_Planes_M365.html">Microsoft 365</a></li>
           <li><a href="ECSG_Azure.html">Microsoft Azure</a></li>
-          <li><a href="ECSG_Planes_DisWebv.html">Web Design</a></li>
-          <li><a href="ECSG_Training_Programs.html">IT Trainings</a></li>
+          <li><a href="ECSG_Planes_DisWebv.html" data-en>Web Design</a><a href="ECSG_Planes_DisWebv.html" data-es>Diseño Web</a></li>
+          <li><a href="ECSG_Training_Programs.html" data-en>IT Trainings</a><a href="ECSG_Training_Programs.html" data-es>Capacitaciones IT</a></li>
         </ul>
       </nav>
 
       <!-- Company col -->
       <nav class="footer-col" aria-label="Company navigation">
-        <h5>Company</h5>
+        <h5 data-en>Company</h5><h5 data-es>Empresa</h5>
         <ul>
-          <li><a href="ECSG_About.html">About Us</a></li>
-          <li><a href="ceo.html">Meet the CEO</a></li>
+          <li><a href="ECSG_About.html" data-en>About Us</a><a href="ECSG_About.html" data-es>Nosotros</a></li>
+          <li><a href="ceo.html" data-en>Meet the CEO</a><a href="ceo.html" data-es>Conoce al CEO</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="ecsgcontact_sales.html">Contact Us</a></li>
-          <li><a href="index-es.html">Versión en Español</a></li>
+          <li><a href="ecsgcontact_sales.html" data-en>Contact Us</a><a href="ecsgcontact_sales.html" data-es>Contáctenos</a></li>
         </ul>
       </nav>
 
       <!-- Contact col -->
       <address class="footer-col" aria-label="Contact information">
-        <h5>Contact</h5>
+        <h5 data-en>Contact</h5><h5 data-es>Contacto</h5>
         <div class="footer-contact">
           <div class="fc-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -862,23 +987,235 @@
           </div>
           <div class="fc-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Fri 9am–6pm ET<br>24/7 Emergency Support</span>
+            <span data-en>Mon–Fri 9am–6pm ET<br>24/7 Emergency Support</span>
+            <span data-es>Lun–Vie 9am–6pm ET<br>Soporte de Emergencia 24/7</span>
           </div>
         </div>
       </address>
+
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Enterprise Cloud Solutions Group LLC. All rights reserved.</p>
-      <nav class="footer-bottom-links" aria-label="Legal navigation">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Accessibility</a>
+      <p data-en>&copy; 2025 Enterprise Cloud Solutions Group LLC. All rights reserved.</p>
+      <p data-es>&copy; 2025 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="privacy.html" data-en>Privacy Policy</a><a href="privacy.html" data-es>Política de Privacidad</a>
+        <a href="terms.html" data-en>Terms of Service</a><a href="terms.html" data-es>Términos de Servicio</a>
       </nav>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Language Toggle ─────────────────────────────────── */
+  const html       = document.documentElement;
+  const langToggle = document.getElementById('langToggle');
+  const langLabel  = document.getElementById('langLabel');
+  const mobileLangEN = document.getElementById('mobileLangEN');
+  const mobileLangES = document.getElementById('mobileLangES');
+
+  function setLang(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang);
+    langLabel.textContent = lang === 'en' ? 'ES' : 'EN';
+    if (mobileLangEN) {
+      mobileLangEN.classList.toggle('active', lang === 'en');
+      mobileLangES.classList.toggle('active', lang === 'es');
+    }
+    try { localStorage.setItem('ecsg-lang', lang); } catch(e) {}
+  }
+
+  // Restore saved language
+  try {
+    const saved = localStorage.getItem('ecsg-lang');
+    if (saved === 'es') setLang('es');
+  } catch(e) {}
+
+  langToggle.addEventListener('click', function () {
+    const current = html.getAttribute('data-lang');
+    setLang(current === 'en' ? 'es' : 'en');
+  });
+
+  if (mobileLangEN) {
+    mobileLangEN.addEventListener('click', function(e) { e.preventDefault(); setLang('en'); });
+    mobileLangES.addEventListener('click', function(e) { e.preventDefault(); setLang('es'); });
+  }
+
+  /* ── Navbar scroll ───────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ── Desktop Dropdowns ───────────────────────────────── */
+  const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+  dropdownItems.forEach(function(item) {
+    const trigger = item.querySelector('.nav-link');
+    const menu    = item.querySelector('.dropdown-menu');
+    if (!trigger || !menu) return;
+    let closeTimer;
+
+    function openMenu() {
+      clearTimeout(closeTimer);
+      dropdownItems.forEach(function(other) {
+        if (other !== item) {
+          other.querySelector('.dropdown-menu')?.classList.remove('open');
+          other.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+          other.removeAttribute('aria-expanded');
+        }
+      });
+      menu.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      item.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu(delay) {
+      delay = delay === undefined ? 150 : delay;
+      closeTimer = setTimeout(function() {
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+        item.removeAttribute('aria-expanded');
+      }, delay);
+    }
+
+    item.addEventListener('mouseenter', openMenu);
+    item.addEventListener('mouseleave', function() { closeMenu(); });
+    trigger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); menu.classList.contains('open') ? closeMenu(0) : openMenu(); }
+      if (e.key === 'Escape') closeMenu(0);
+    });
+    menu.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { closeMenu(0); trigger.focus(); }
+    });
+    item.addEventListener('focusout', function(e) {
+      if (!item.contains(e.relatedTarget)) closeMenu(0);
+    });
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      dropdownItems.forEach(function(item) {
+        item.querySelector('.dropdown-menu')?.classList.remove('open');
+        item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
+  /* ── Mobile Nav ──────────────────────────────────────── */
+  const hamburger     = document.getElementById('hamburger');
+  const mobileNav     = document.getElementById('mobileNav');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function openMobileNav() {
+    mobileNav?.classList.add('open');
+    mobileOverlay?.classList.add('open');
+    mobileNav?.removeAttribute('aria-hidden');
+    mobileOverlay?.removeAttribute('aria-hidden');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    mobileNav?.querySelector('a, button')?.focus();
+  }
+
+  function closeMobileNav() {
+    mobileNav?.classList.remove('open');
+    mobileOverlay?.classList.remove('open');
+    mobileNav?.setAttribute('aria-hidden', 'true');
+    mobileOverlay?.setAttribute('aria-hidden', 'true');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    hamburger?.focus();
+  }
+
+  hamburger?.addEventListener('click', function() {
+    hamburger.getAttribute('aria-expanded') === 'true' ? closeMobileNav() : openMobileNav();
+  });
+  mobileOverlay?.addEventListener('click', closeMobileNav);
+  mobileNav?.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+
+  /* ── Mobile Submenus ─────────────────────────────────── */
+  document.querySelectorAll('.mobile-nav-link.has-sub').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const submenu = document.getElementById(btn.dataset.submenu);
+      if (!submenu) return;
+      const isOpen = submenu.classList.contains('open');
+      document.querySelectorAll('.mobile-submenu').forEach(function(s) { s.classList.remove('open'); });
+      document.querySelectorAll('.mobile-nav-link.has-sub').forEach(function(l) {
+        l.classList.remove('expanded');
+        l.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        submenu.classList.add('open');
+        btn.classList.add('expanded');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ── Scroll Reveal ───────────────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function(el) { el.classList.add('revealed'); });
+  }
+
+  /* ── Smooth Scroll ───────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || '72');
+        const top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        closeMobileNav();
+      }
+    });
+  });
+
+  /* ── Counter Animation ───────────────────────────────── */
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    function animateCounter(el) {
+      const target   = parseInt(el.dataset.count);
+      const suffix   = el.dataset.suffix || '';
+      const duration = 1800;
+      const start    = performance.now();
+      function update(now) {
+        const elapsed  = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased    = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+    const statsIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { animateCounter(entry.target); statsIO.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(c) { statsIO.observe(c); });
+  }
+
+})();
+</script>
 </body>
 </html>
