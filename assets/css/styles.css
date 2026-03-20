@@ -202,10 +202,11 @@ p  { font-size: 1rem; color: var(--text-muted); }
 }
 .navbar-inner {
   display: flex;
-  align-items: flex-start;   /* ← este es el cambio que arregla tu problema */
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
+  padding-top: 25px;   /* ← esto baja el menú sin afectar el logo */
 }
 /* Logo */
 .navbar-logo {
