@@ -93,7 +93,6 @@
   const mobileNavClose  = document.getElementById('mobileNavClose');
 
   const openMobileNav = () => {
-    console.log("OPEN FIRED");
     mobileNav?.classList.add('open');
     mobileOverlay?.classList.add('open');
     hamburger?.setAttribute('aria-expanded', 'true');
@@ -103,7 +102,6 @@
   };
 
   const closeMobileNav = () => {
-    onsole.log("CLOSE FIRED");
     mobileNav?.classList.remove('open');
     mobileOverlay?.classList.remove('open');
     hamburger?.setAttribute('aria-expanded', 'false');
