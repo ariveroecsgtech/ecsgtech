@@ -989,3 +989,15 @@ p  { font-size: 1rem; color: var(--text-muted); }
   .lang-switch { display: none !important; }
   .btn.btn-nav { padding: .5rem .9rem !important; font-size: .8rem !important; }
 }
+
+.hero-logo {
+  margin-bottom: 1.25rem;
+}
+
+.hero-logo img {
+  height: 48px;   /* Ajusta el tamaño aquí */
+  width: auto;
+  display: block;
+  opacity: 0.95;  /* Se ve muy elegante con leve transparencia */
+}
+
