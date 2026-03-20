@@ -183,15 +183,15 @@ p  { font-size: 1rem; color: var(--text-muted); }
 .section-intro p { font-size: 1.0625rem; }
 
 /* ─── NAVBAR ─────────────────────────────────────────────────── */
-.navbar {
+.navbar 
+{
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
- /* height: var(--nav-height); */
+  display: flex;
+  align-items: flex-start;   /* ← clave para que el logo no se suba */
   padding-top: 10px;
   padding-bottom: 10px;
-  display: flex;
-  align-items: center;
   background: transparent;
   transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
 }
