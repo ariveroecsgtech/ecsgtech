@@ -1009,3 +1009,16 @@ p  { font-size: 1rem; color: var(--text-muted); }
   .lang-switch { display: none !important; }
   .btn.btn-nav { padding: .5rem .9rem !important; font-size: .8rem !important; }
 }
+
+/* 1. Traer el botón hamburguesa al frente */
+.hamburger {
+  position: relative !important;
+  z-index: 999999 !important;
+}
+
+/* 2. Reducir el botón de idioma que lo está tapando */
+.lang-toggle-btn {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  z-index: 1 !important;
+}
