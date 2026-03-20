@@ -995,7 +995,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
 }
 
 .hero-logo img {
-  height: 48px;   /* Ajusta el tamaño aquí */
+  height: 200px;   /* Ajusta el tamaño aquí */
   width: auto;
   display: block;
   opacity: 0.95;  /* Se ve muy elegante con leve transparencia */
