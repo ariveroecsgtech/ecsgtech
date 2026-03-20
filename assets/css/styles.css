@@ -183,14 +183,13 @@ p  { font-size: 1rem; color: var(--text-muted); }
 .section-intro p { font-size: 1.0625rem; }
 
 /* ─── NAVBAR ─────────────────────────────────────────────────── */
-
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
+  height: var(--nav-height);
   display: flex;
   align-items: center;
-  padding: 10px 0;
   background: transparent;
   transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
 }
@@ -201,12 +200,12 @@ p  { font-size: 1rem; color: var(--text-muted); }
 }
 .navbar-inner {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  padding-top: 20px;   /* ← esto baja el menú sin afectar el logo */
 }
+
 /* Logo */
 .navbar-logo {
   display: flex;
@@ -214,11 +213,11 @@ p  { font-size: 1rem; color: var(--text-muted); }
   gap: .65rem;
   flex-shrink: 0;
   text-decoration: none;
- }
+}
 
 .navbar-logo-img {
-  height: 220px;  /* aquí cambias el tamaño del logo */
-  width: 200px;
+  height: 200px;  /* aquí cambias el tamaño del logo */
+  width: auto;
 }
 
 .logo-mark {
@@ -245,7 +244,6 @@ p  { font-size: 1rem; color: var(--text-muted); }
   gap: .25rem;
   flex: 1;
   justify-content: center;
-  padding-top: 25px;
 }
 .nav-item { position: relative; }
 .nav-link {
