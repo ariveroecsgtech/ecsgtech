@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>RMM – Managed Monitoring Plans | Enterprise Cloud Solutions Group</title>
+  <meta name="description" content="Enterprise Cloud Solutions Group – RMM service plans: Standard, Pro, and Enterprise. 24/7 monitoring, automated patching, endpoint security, and advanced threat response for businesses in Connecticut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:       #1E3A5F;
+      --blue:       #2E75B6;
+      --blue-light: #3D8FD4;
+      --blue-pale:  #EAF2FB;
+      --white:      #ffffff;
+      --gray-50:    #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --shadow-md:  0 4px 20px rgba(30,58,95,0.10);
+      --shadow-lg:  0 8px 40px rgba(30,58,95,0.15);
+      --radius:     10px;
+      --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+      --max-w:      1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); line-height: 1.65; }
+
+    /* ─── NAVBAR ─── */
+    #navbar { background: var(--navy); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.18); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo img { height: 42px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: var(--transition); white-space: nowrap; }
+    .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-links a.active { background: rgba(255,255,255,0.14); color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle { display: flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.1); border-radius: 30px; padding: 3px 5px; }
+    .lang-btn { border: none; background: transparent; padding: 4px 12px; border-radius: 24px; font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; cursor: pointer; color: rgba(255,255,255,0.65); transition: var(--transition); }
+    .lang-btn.active { background: #fff; color: var(--navy); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 7px; background: var(--blue-light); color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: var(--transition); white-space: nowrap; }
+    .nav-cta:hover { background: #4EA3E8; transform: translateY(-1px); }
+    #hamburger { display: none; flex-direction: column; gap: 5px; background: transparent; border: none; cursor: pointer; padding: 6px; }
+    #hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+    #mobile-menu { display: none; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px 20px; }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-lang { display: flex; gap: 8px; }
+    .mobile-lang button { border: 1px solid rgba(255,255,255,0.3); background: transparent; color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: var(--transition); }
+    .mobile-lang button.active { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #172F52 50%, #1B4D82 100%);
+      color: #fff; padding: 80px 32px 70px; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 92% 45%, rgba(46,117,182,0.38) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 800; line-height: 1.05; margin-bottom: 18px; text-transform: uppercase; letter-spacing: -0.01em; }
+    .page-hero h1 em { color: #7EC8F5; font-style: normal; }
+    .page-hero p.lead { font-size: 1.05rem; max-width: 640px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--navy); padding: 13px 28px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
+    .hero-cta:hover { background: var(--blue-pale); transform: translateY(-2px); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat .number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: #7EC8F5; line-height: 1; }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* ─── SHARED LAYOUT ─── */
+    .section-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .content-section { padding: 72px 32px; }
+    .content-section.alt { background: var(--gray-50); }
+    .content-section.dark-alt { background: var(--gray-100); }
+    .section-tag { display: inline-flex; align-items: center; gap: 7px; background: var(--blue-pale); color: var(--blue); border-radius: 30px; padding: 4px 14px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+    .section-header { margin-bottom: 44px; }
+    .section-header h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 10px; }
+    .section-header p { font-size: 1rem; color: var(--gray-600); max-width: 700px; line-height: 1.75; }
+
+    /* ─── DEEP DIVE ─── */
+    .deep-dive { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .deep-dive.reverse { direction: rtl; }
+    .deep-dive.reverse > * { direction: ltr; }
+    .deep-dive-text h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 14px; line-height: 1.1; }
+    .deep-dive-text p { font-size: 0.93rem; color: var(--gray-600); line-height: 1.78; margin-bottom: 12px; }
+    .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .benefit-pill { background: var(--blue-pale); color: var(--navy); border-radius: 30px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; }
+    .deep-dive-visual { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); border-radius: 14px; padding: 32px; color: #fff; box-shadow: var(--shadow-lg); }
+    .deep-dive-visual .visual-title { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+    .capability-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .capability-row:last-child { border-bottom: none; }
+    .cap-ico { width: 32px; height: 32px; background: rgba(255,255,255,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; flex-shrink: 0; }
+    .cap-name { font-size: 0.86rem; font-weight: 600; flex: 1; }
+    .cap-bar-wrap { width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+    .cap-bar { height: 100%; background: #7EC8F5; border-radius: 4px; }
+
+    /* ─── PLANS ─── */
+    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
+
+    .plan-card {
+      border-radius: 14px; overflow: hidden;
+      border: 2px solid var(--gray-200);
+      background: var(--white);
+      transition: var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .plan-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .plan-card.featured {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(46,117,182,0.18), var(--shadow-lg);
+      transform: translateY(-8px);
+    }
+    .plan-card.featured:hover { transform: translateY(-12px); }
+
+    .plan-header { padding: 32px 28px 24px; }
+    .plan-card:not(.featured) .plan-header { background: var(--gray-50); }
+    .plan-card.featured .plan-header { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: #fff; }
+
+    .plan-badge {
+      display: inline-block;
+      border-radius: 20px; padding: 3px 12px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .plan-card:not(.featured) .plan-badge { background: var(--blue-pale); color: var(--blue); }
+    .plan-card.featured .plan-badge { background: rgba(255,255,255,0.2); color: #fff; }
+
+    .plan-name {
+      font-family: var(--font-display); font-size: 2.2rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.03em; line-height: 1;
+      margin-bottom: 8px;
+    }
+    .plan-card:not(.featured) .plan-name { color: var(--navy); }
+    .plan-card.featured .plan-name { color: #fff; }
+
+    .plan-tagline {
+      font-size: 0.87rem; line-height: 1.55; margin-bottom: 0;
+    }
+    .plan-card:not(.featured) .plan-tagline { color: var(--gray-600); }
+    .plan-card.featured .plan-tagline { color: rgba(255,255,255,0.8); }
+
+    .plan-ideal {
+      display: flex; align-items: center; gap: 7px;
+      margin-top: 16px; padding: 8px 12px; border-radius: 7px;
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .plan-card:not(.featured) .plan-ideal { background: var(--blue-pale); color: var(--navy); }
+    .plan-card.featured .plan-ideal { background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.9); }
+
+    .plan-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+
+    .plan-features { list-style: none; flex: 1; }
+    .plan-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.86rem; color: var(--gray-600);
+      padding: 8px 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li .fi {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; margin-top: 1px;
+    }
+    .fi-check { background: rgba(34,197,94,0.12); color: #16A34A; }
+    .fi-cross { background: var(--gray-100); color: var(--gray-200); }
+
+    .plan-features li.section-divider {
+      border-bottom: none; padding: 14px 0 4px;
+    }
+    .plan-features li.section-divider span {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue);
+    }
+
+    .plan-cta {
+      display: block; text-align: center;
+      padding: 13px; border-radius: 7px;
+      font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; margin-top: 24px;
+      transition: var(--transition);
+    }
+    .plan-card:not(.featured) .plan-cta { background: var(--navy); color: #fff; }
+    .plan-card:not(.featured) .plan-cta:hover { background: var(--blue); }
+    .plan-card.featured .plan-cta { background: #fff; color: var(--navy); }
+    .plan-card.featured .plan-cta:hover { background: var(--blue-pale); }
+
+    /* ─── COMPARISON TABLE ─── */
+    .compare-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table thead th { padding: 16px 20px; font-family: var(--font-display); font-size: 0.92rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+    .compare-table thead th:first-child { background: var(--gray-50); color: var(--gray-600); width: 38%; text-align: left; }
+    .compare-table thead th:nth-child(2) { background: var(--navy); color: #fff; text-align: center; }
+    .compare-table thead th:nth-child(3) { background: var(--blue); color: #fff; text-align: center; position: relative; }
+    .compare-table thead th:nth-child(3)::after { content: '★'; display: block; font-size: 0.65rem; letter-spacing: 0.06em; color: #7EC8F5; margin-top: 2px; }
+    .compare-table thead th:nth-child(4) { background: var(--gray-800); color: #fff; text-align: center; }
+    .compare-table td { padding: 11px 20px; border-top: 1px solid var(--gray-100); font-size: 0.86rem; }
+    .compare-table td:first-child { color: var(--gray-800); font-weight: 500; background: var(--gray-50); }
+    .compare-table td:not(:first-child) { text-align: center; }
+    .compare-table td:nth-child(3) { background: rgba(46,117,182,0.04); }
+    .compare-table tr.cat-row td { background: var(--navy); color: rgba(255,255,255,0.6); font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 8px 20px; border-top: none; }
+    .compare-table tr:hover td { background: var(--blue-pale); }
+    .compare-table tr:hover td:first-child { background: var(--blue-pale); }
+    .compare-table tr.cat-row:hover td { background: var(--navy); }
+    .check { color: #16A34A; font-size: 1rem; }
+    .cross { color: var(--gray-200); font-size: 1rem; }
+    .partial { color: var(--blue); font-size: 0.78rem; font-weight: 700; }
+
+    /* ─── WHY RMM ─── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .why-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 26px 22px; text-align: center; transition: var(--transition); }
+    .why-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .why-icon { width: 58px; height: 58px; background: linear-gradient(135deg, var(--navy), var(--blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: #fff; margin: 0 auto 14px; }
+    .why-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .why-card p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── DASHBOARD VISUAL ─── */
+    .dashboard-visual { background: var(--gray-800); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .dash-header { background: var(--navy); padding: 14px 20px; display: flex; align-items: center; gap: 8px; }
+    .dash-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dash-title { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-left: 8px; }
+    .dash-body { padding: 20px; }
+    .dash-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; gap: 12px; }
+    .dash-row:last-child { margin-bottom: 0; }
+    .dash-label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.8); flex: 1; }
+    .dash-status { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .status-ok { background: rgba(34,197,94,0.15); color: #4ADE80; }
+    .status-warn { background: rgba(251,191,36,0.15); color: #FCD34D; }
+    .status-patch { background: rgba(96,165,250,0.15); color: #93C5FD; }
+    .dash-value { font-size: 0.78rem; color: rgba(255,255,255,0.45); min-width: 60px; text-align: right; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); padding: 72px 32px; text-align: center; color: #fff; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") center/80px; pointer-events: none; }
+    .cta-band .inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-band h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 28px; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--navy); padding: 14px 32px; border-radius: 6px; font-weight: 700; font-size: 0.92rem; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .btn-white:hover { background: var(--blue-pale); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-800); color: rgba(255,255,255,0.65); padding: 48px 32px 24px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+    .footer-col h4 { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .footer-col p, .footer-col a { font-size: 0.83rem; line-height: 1.9; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .plans-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .plan-card.featured { transform: none; }
+      .plan-card.featured:hover { transform: translateY(-5px); }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      .deep-dive { grid-template-columns: 1fr; }
+      .deep-dive.reverse { direction: ltr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .compare-wrap { overflow-x: auto; }
+    }
+    @media (max-width: 600px) {
+      .content-section { padding: 48px 20px; }
+      .page-hero { padding: 52px 20px 44px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-band, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-stats { gap: 24px; }
+      .nav-cta { display: none; }
+      .compare-table thead th, .compare-table td { padding: 10px 10px; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/img/logo1_white.png" alt="Enterprise Cloud Solutions Group"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a></li>
+      <li><a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a></li>
+      <li><a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a></li>
+      <li><a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN">EN</button>
+        <button class="lang-btn" id="btnES">ES</button>
+      </div>
+      <a href="ecsgcontact_sales.html" class="nav-cta">
+        <i class="fas fa-envelope"></i>
+        <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span>
+      </a>
+      <button id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+    <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+    <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+    <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+    <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+    <div class="mobile-bottom">
+      <a href="ecsgcontact_sales.html" class="nav-cta" style="font-size:0.82rem;"><i class="fas fa-envelope"></i> <span data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</span></a>
+      <div class="mobile-lang">
+        <button id="btnEN2" class="active">EN</button>
+        <button id="btnES2">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><i class="fas fa-display"></i> <span data-en="Managed Monitoring Service" data-es="Servicio de Monitoreo Administrado">Managed Monitoring Service</span></div>
+    <h1><em data-en="Remote Monitoring" data-es="Monitoreo Remoto">Remote Monitoring</em><br><span data-en="& Management (RMM)" data-es="y Gestión (RMM)">&amp; Management (RMM)</span></h1>
+    <p class="lead"
+       data-en="Choose the right plan for your business — from essential 24/7 monitoring to advanced threat response, automation, and full compliance coverage. Three tiers. Zero blind spots."
+       data-es="Elija el plan adecuado para su negocio — desde monitoreo 24/7 esencial hasta respuesta avanzada a amenazas, automatización y cobertura completa de cumplimiento. Tres niveles. Cero puntos ciegos.">
+      Choose the right plan for your business — from essential 24/7 monitoring to advanced threat response, automation, and full compliance coverage. Three tiers. Zero blind spots.
+    </p>
+    <a href="#plans" class="hero-cta">
+      <i class="fas fa-layer-group"></i>
+      <span data-en="View Service Plans" data-es="Ver Planes de Servicio">View Service Plans</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">24/7</div>
+        <div class="label" data-en="Continuous Monitoring" data-es="Monitoreo Continuo">Continuous Monitoring</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">&lt;15m</div>
+        <div class="label" data-en="Alert Response Time" data-es="Tiempo de Respuesta">Alert Response Time</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">100%</div>
+        <div class="label" data-en="Automated Patching" data-es="Parches Automatizados">Automated Patching</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">3</div>
+        <div class="label" data-en="Plans for Every Business" data-es="Planes para Cada Negocio">Plans for Every Business</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT IS RMM ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-circle-question"></i> <span data-en="What Is RMM?" data-es="¿Qué Es RMM?">What Is RMM?</span></div>
+      <h2 data-en="Proactive IT Care — Before Problems Happen" data-es="Cuidado de TI Proactivo — Antes de que Ocurran los Problemas">Proactive IT Care — Before Problems Happen</h2>
+      <p data-en="Remote Monitoring and Management (RMM) is the engine behind modern managed IT. A lightweight agent on every device sends continuous health data to ECSG's NOC — where automation and our engineers detect issues, apply fixes, and enforce security policies, often before your users ever notice a problem."
+         data-es="El Monitoreo y Gestión Remota (RMM) es el motor detrás de la TI administrada moderna. Un agente ligero en cada dispositivo envía datos de salud continuos al NOC de ECSG — donde la automatización y nuestros ingenieros detectan problemas, aplican correcciones y hacen cumplir políticas de seguridad, a menudo antes de que sus usuarios noten un problema.">
+        Remote Monitoring and Management (RMM) is the engine behind modern managed IT. A lightweight agent on every device sends continuous health data to ECSG's NOC — where automation and our engineers detect issues, apply fixes, and enforce security policies, often before your users ever notice a problem.
+      </p>
+    </div>
+    <div class="deep-dive">
+      <div class="deep-dive-text">
+        <h3 data-en="Proactive, Not Reactive" data-es="Proactivo, No Reactivo">Proactive, Not Reactive</h3>
+        <p data-en="Traditional IT waits for things to break. ECSG's RMM flips that entirely. We watch every server, workstation, cloud service, and network device in real time — catching disk space issues, failing hardware, missed backups, and security policy violations before they become outages."
+           data-es="La TI tradicional espera a que las cosas se rompan. El RMM de ECSG invierte eso por completo. Vigilamos cada servidor, estación de trabajo, servicio en la nube y dispositivo de red en tiempo real — detectando problemas de espacio en disco, hardware fallido, backups perdidos y violaciones de políticas de seguridad antes de que se conviertan en interrupciones.">
+          Traditional IT waits for things to break. ECSG's RMM flips that entirely. We watch every server, workstation, cloud service, and network device in real time — catching disk space issues, failing hardware, missed backups, and security policy violations before they become outages.
+        </p>
+        <p data-en="Our automated remediation scripts resolve common problems instantly — no ticket, no wait. When escalation is needed, our NOC team acts within minutes, resolving most issues remotely before your team is ever disrupted. Every plan includes real-time visibility, automated patching, and 24/7 alert response."
+           data-es="Nuestros scripts de remediación automatizados resuelven problemas comunes al instante — sin ticket, sin espera. Cuando se necesita escalación, nuestro equipo del NOC actúa en minutos, resolviendo la mayoría de los problemas de forma remota. Cada plan incluye visibilidad en tiempo real, parches automatizados y respuesta a alertas 24/7.">
+          Our automated remediation scripts resolve common problems instantly — no ticket, no wait. When escalation is needed, our NOC team acts within minutes, resolving most issues remotely before your team is ever disrupted. Every plan includes real-time visibility, automated patching, and 24/7 alert response.
+        </p>
+        <div class="benefit-pills">
+          <span class="benefit-pill" data-en="Always-On Visibility" data-es="Visibilidad Permanente">Always-On Visibility</span>
+          <span class="benefit-pill" data-en="Automated Remediation" data-es="Remediación Automatizada">Automated Remediation</span>
+          <span class="benefit-pill" data-en="Proactive Patching" data-es="Parches Proactivos">Proactive Patching</span>
+          <span class="benefit-pill" data-en="Zero Blind Spots" data-es="Cero Puntos Ciegos">Zero Blind Spots</span>
+        </div>
+      </div>
+      <!-- NOC Dashboard Visual -->
+      <div class="dashboard-visual">
+        <div class="dash-header">
+          <div class="dash-dot" style="background:#EF4444;"></div>
+          <div class="dash-dot" style="background:#FBBF24; margin-left:4px;"></div>
+          <div class="dash-dot" style="background:#22C55E; margin-left:4px;"></div>
+          <div class="dash-title" data-en="ECSG NOC · Live View" data-es="ECSG NOC · Vista en Vivo">ECSG NOC · Live View</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-row"><span class="dash-label" data-en="Server – DC01 (Primary)" data-es="Servidor – DC01 (Principal)">Server – DC01 (Primary)</span><span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Healthy" data-es="Saludable">Healthy</span></span><span class="dash-value">CPU 12%</span></div>
+          <div class="dash-row"><span class="dash-label" data-en="Workstations (47 Endpoints)" data-es="Estaciones de Trabajo (47)">Workstations (47 Endpoints)</span><span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Healthy" data-es="Saludable">Healthy</span></span><span class="dash-value">46/47</span></div>
+          <div class="dash-row"><span class="dash-label" data-en="Patch Compliance" data-es="Cumplimiento de Parches">Patch Compliance</span><span class="dash-status status-patch"><i class="fas fa-rotate" style="font-size:0.7rem;"></i> <span data-en="Deploying" data-es="Desplegando">Deploying</span></span><span class="dash-value">98.7%</span></div>
+          <div class="dash-row"><span class="dash-label" data-en="Firewall – Perimeter" data-es="Firewall – Perímetro">Firewall – Perimeter</span><span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Healthy" data-es="Saludable">Healthy</span></span><span class="dash-value">0 Threats</span></div>
+          <div class="dash-row"><span class="dash-label" data-en="Microsoft 365 Services" data-es="Servicios Microsoft 365">Microsoft 365 Services</span><span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Online" data-es="En Línea">Online</span></span><span class="dash-value">99.99%</span></div>
+          <div class="dash-row"><span class="dash-label" data-en="Backup Jobs – Last 24h" data-es="Jobs de Backup – 24h">Backup Jobs – Last 24h</span><span class="dash-status status-ok"><i class="fas fa-circle" style="font-size:0.55rem;"></i> <span data-en="Verified" data-es="Verificado">Verified</span></span><span class="dash-value">12/12 ✓</span></div>
+          <div class="dash-row"><span class="dash-label" data-en="Disk Space – FileServer01" data-es="Espacio – FileServer01">Disk Space – FileServer01</span><span class="dash-status status-warn"><i class="fas fa-triangle-exclamation" style="font-size:0.7rem;"></i> <span data-en="Warning" data-es="Advertencia">Warning</span></span><span class="dash-value">82% Used</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICE PLANS ─── -->
+<section class="content-section alt" id="plans">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:680px; margin:0 auto 52px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-layer-group"></i> <span data-en="Service Plans" data-es="Planes de Servicio">Service Plans</span></div>
+      <h2 data-en="Choose Your RMM Plan" data-es="Elija Su Plan RMM">Choose Your RMM Plan</h2>
+      <p data-en="Three plans built to match your business size, risk profile, and IT complexity. All plans include 24/7 monitoring, automated patching, and asset inventory. Scale up as your needs grow."
+         data-es="Tres planes diseñados para adaptarse al tamaño de su negocio, perfil de riesgo y complejidad de TI. Todos los planes incluyen monitoreo 24/7, parches automatizados e inventario de activos. Escale según crezcan sus necesidades.">
+        Three plans built to match your business size, risk profile, and IT complexity. All plans include 24/7 monitoring, automated patching, and asset inventory. Scale up as your needs grow.
+      </p>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- ── STANDARD ── -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-badge" data-en="Foundation" data-es="Base">Foundation</div>
+          <div class="plan-name">Standard</div>
+          <p class="plan-tagline" data-en="Essential visibility and automated maintenance for small businesses. Everything you need to keep your systems healthy without complexity."
+             data-es="Visibilidad esencial y mantenimiento automatizado para pequeñas empresas. Todo lo que necesita para mantener sus sistemas saludables sin complejidad.">Essential visibility and automated maintenance for small businesses. Everything you need to keep your systems healthy without complexity.</p>
+          <div class="plan-ideal"><i class="fas fa-users"></i> <span data-en="Best for: 1–25 users" data-es="Ideal para: 1–25 usuarios">Best for: 1–25 users</span></div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li class="section-divider"><span data-en="MONITORING" data-es="MONITOREO">MONITORING</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="24/7 workstation & server monitoring" data-es="Monitoreo 24/7 de estaciones de trabajo y servidores">24/7 workstation & server monitoring</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="CPU, memory, disk & network metrics" data-es="Métricas de CPU, memoria, disco y red">CPU, memory, disk & network metrics</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Service & process health checks" data-es="Verificaciones de salud de servicios y procesos">Service & process health checks</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Hardware failure early warning" data-es="Advertencia temprana de falla de hardware">Hardware failure early warning</span></li>
+            <li><div class="fi fi-cross"><i class="fas fa-minus"></i></div><span style="color:var(--gray-200);" data-en="Network device monitoring" data-es="Monitoreo de dispositivos de red">Network device monitoring</span></li>
+            <li class="section-divider"><span data-en="MAINTENANCE" data-es="MANTENIMIENTO">MAINTENANCE</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Automated OS patch management" data-es="Gestión automatizada de parches de SO">Automated OS patch management</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Third-party app patching (top 50 apps)" data-es="Parches de aplicaciones de terceros (top 50)">Third-party app patching (top 50 apps)</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Automated disk cleanup scripts" data-es="Scripts de limpieza automática de disco">Automated disk cleanup scripts</span></li>
+            <li><div class="fi fi-cross"><i class="fas fa-minus"></i></div><span style="color:var(--gray-200);" data-en="Custom remediation scripting" data-es="Scripting de remediación personalizado">Custom remediation scripting</span></li>
+            <li class="section-divider"><span data-en="SECURITY" data-es="SEGURIDAD">SECURITY</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Antivirus / AV health monitoring" data-es="Monitoreo de salud de antivirus / AV">Antivirus / AV health monitoring</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Backup job monitoring & alerts" data-es="Monitoreo de jobs de backup y alertas">Backup job monitoring & alerts</span></li>
+            <li><div class="fi fi-cross"><i class="fas fa-minus"></i></div><span style="color:var(--gray-200);" data-en="EDR / XDR integration & response" data-es="Integración y respuesta EDR / XDR">EDR / XDR integration & response</span></li>
+            <li><div class="fi fi-cross"><i class="fas fa-minus"></i></div><span style="color:var(--gray-200);" data-en="Dark web credential monitoring" data-es="Monitoreo de credenciales en dark web">Dark web credential monitoring</span></li>
+            <li class="section-divider"><span data-en="REPORTING" data-es="REPORTES">REPORTING</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Asset & software inventory" data-es="Inventario de activos y software">Asset & software inventory</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Monthly health summary report" data-es="Informe mensual de resumen de salud">Monthly health summary report</span></li>
+            <li><div class="fi fi-cross"><i class="fas fa-minus"></i></div><span style="color:var(--gray-200);" data-en="Executive KPI dashboard" data-es="Dashboard ejecutivo de KPIs">Executive KPI dashboard</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="plan-cta" data-en="Get Started with Standard" data-es="Comenzar con Standard">Get Started with Standard</a>
+        </div>
+      </div>
+
+      <!-- ── PRO (featured) ── -->
+      <div class="plan-card featured">
+        <div class="plan-header">
+          <div class="plan-badge" data-en="Most Popular" data-es="Más Popular">Most Popular</div>
+          <div class="plan-name">Pro</div>
+          <p class="plan-tagline" data-en="Full-stack monitoring, EDR security integration, cloud service visibility, and advanced automation for growing mid-size businesses."
+             data-es="Monitoreo de stack completo, integración de seguridad EDR, visibilidad de servicios en la nube y automatización avanzada para empresas medianas en crecimiento.">Full-stack monitoring, EDR security integration, cloud service visibility, and advanced automation for growing mid-size businesses.</p>
+          <div class="plan-ideal"><i class="fas fa-building"></i> <span data-en="Best for: 25–100 users" data-es="Ideal para: 25–100 usuarios">Best for: 25–100 users</span></div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li class="section-divider"><span data-en="MONITORING" data-es="MONITOREO">MONITORING</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Everything in Standard" data-es="Todo en Standard">Everything in Standard</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Network device monitoring (switches, firewalls, APs)" data-es="Monitoreo de dispositivos de red (switches, firewalls, APs)">Network device monitoring (switches, firewalls, APs)</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Microsoft 365 & Azure AD monitoring" data-es="Monitoreo de Microsoft 365 y Azure AD">Microsoft 365 & Azure AD monitoring</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Performance trending & capacity planning" data-es="Tendencias de rendimiento y planificación de capacidad">Performance trending & capacity planning</span></li>
+            <li class="section-divider"><span data-en="MAINTENANCE" data-es="MANTENIMIENTO">MAINTENANCE</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Full third-party app patch library" data-es="Biblioteca completa de parches de aplicaciones de terceros">Full third-party app patch library</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Custom remediation scripting" data-es="Scripting de remediación personalizado">Custom remediation scripting</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Self-healing automation scripts" data-es="Scripts de automatización auto-reparadores">Self-healing automation scripts</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Scheduled maintenance windows" data-es="Ventanas de mantenimiento programadas">Scheduled maintenance windows</span></li>
+            <li class="section-divider"><span data-en="SECURITY" data-es="SEGURIDAD">SECURITY</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="EDR / XDR integration & alert response" data-es="Integración y respuesta a alertas EDR / XDR">EDR / XDR integration & alert response</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Endpoint isolation capability" data-es="Capacidad de aislamiento de endpoints">Endpoint isolation capability</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Security posture scoring" data-es="Puntuación de postura de seguridad">Security posture scoring</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Dark web credential monitoring" data-es="Monitoreo de credenciales en dark web">Dark web credential monitoring</span></li>
+            <li class="section-divider"><span data-en="REPORTING" data-es="REPORTES">REPORTING</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Executive KPI dashboard" data-es="Dashboard ejecutivo de KPIs">Executive KPI dashboard</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Monthly & quarterly health reports" data-es="Informes mensuales y trimestrales de salud">Monthly & quarterly health reports</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Patch compliance & risk scorecard" data-es="Scorecard de cumplimiento de parches y riesgo">Patch compliance & risk scorecard</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="plan-cta" data-en="Get Started with Pro" data-es="Comenzar con Pro">Get Started with Pro</a>
+        </div>
+      </div>
+
+      <!-- ── ENTERPRISE ── -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-badge" data-en="Maximum Coverage" data-es="Cobertura Máxima">Maximum Coverage</div>
+          <div class="plan-name">Enterprise</div>
+          <p class="plan-tagline" data-en="Advanced threat intelligence, SIEM integration, compliance management, and a dedicated account manager for complex, multi-site, or regulated environments."
+             data-es="Inteligencia avanzada de amenazas, integración SIEM, gestión de cumplimiento y un gerente de cuenta dedicado para entornos complejos, multi-sitio o regulados.">Advanced threat intelligence, SIEM integration, compliance management, and a dedicated account manager for complex, multi-site, or regulated environments.</p>
+          <div class="plan-ideal"><i class="fas fa-sitemap"></i> <span data-en="Best for: 100+ users / regulated industries" data-es="Ideal para: 100+ usuarios / industrias reguladas">Best for: 100+ users / regulated industries</span></div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li class="section-divider"><span data-en="MONITORING" data-es="MONITOREO">MONITORING</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Everything in Pro" data-es="Todo en Pro">Everything in Pro</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="SIEM log aggregation & correlation" data-es="Agregación y correlación de logs SIEM">SIEM log aggregation & correlation</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Multi-site unified monitoring" data-es="Monitoreo unificado multi-sitio">Multi-site unified monitoring</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Custom alert thresholds & escalation paths" data-es="Umbrales de alerta personalizados y rutas de escalación">Custom alert thresholds & escalation paths</span></li>
+            <li class="section-divider"><span data-en="MAINTENANCE" data-es="MANTENIMIENTO">MAINTENANCE</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Dedicated maintenance window management" data-es="Gestión dedicada de ventanas de mantenimiento">Dedicated maintenance window management</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Configuration drift detection & enforcement" data-es="Detección y aplicación de desviación de configuración">Configuration drift detection & enforcement</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Advanced scripting & workflow automation" data-es="Scripting avanzado y automatización de flujos">Advanced scripting & workflow automation</span></li>
+            <li class="section-divider"><span data-en="SECURITY & COMPLIANCE" data-es="SEGURIDAD Y CUMPLIMIENTO">SECURITY & COMPLIANCE</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Advanced threat intelligence feeds" data-es="Feeds avanzados de inteligencia de amenazas">Advanced threat intelligence feeds</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Vulnerability scanning & remediation" data-es="Escaneo de vulnerabilidades y remediación">Vulnerability scanning & remediation</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="HIPAA / SOC 2 / CMMC compliance monitoring" data-es="Monitoreo de cumplimiento HIPAA / SOC 2 / CMMC">HIPAA / SOC 2 / CMMC compliance monitoring</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Incident response plan & IR retainer" data-es="Plan de respuesta a incidentes y retención IR">Incident response plan & IR retainer</span></li>
+            <li class="section-divider"><span data-en="REPORTING & STRATEGY" data-es="REPORTES Y ESTRATEGIA">REPORTING & STRATEGY</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Dedicated Account Manager" data-es="Gerente de Cuenta Dedicado">Dedicated Account Manager</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Monthly vCIO strategy sessions" data-es="Sesiones mensuales de estrategia vCIO">Monthly vCIO strategy sessions</span></li>
+            <li><div class="fi fi-check"><i class="fas fa-check"></i></div><span data-en="Compliance audit-ready reports" data-es="Informes listos para auditoría de cumplimiento">Compliance audit-ready reports</span></li>
+          </ul>
+          <a href="ecsgcontact_sales.html" class="plan-cta" data-en="Get Started with Enterprise" data-es="Comenzar con Enterprise">Get Started with Enterprise</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── COMPARISON TABLE ─── -->
+<section class="content-section">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-table-columns"></i> <span data-en="Plan Comparison" data-es="Comparación de Planes">Plan Comparison</span></div>
+      <h2 data-en="Compare All Three Plans" data-es="Compara los Tres Planes">Compare All Three Plans</h2>
+      <p data-en="Not sure which plan is right for your business? Use this detailed comparison to find your fit."
+         data-es="¿No está seguro qué plan es el correcto para su negocio? Use esta comparación detallada para encontrar el suyo.">
+        Not sure which plan is right for your business? Use this detailed comparison to find your fit.
+      </p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th data-en="Feature" data-es="Función">Feature</th>
+            <th>Standard</th>
+            <th>Pro</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4" data-en="MONITORING" data-es="MONITOREO">MONITORING</td></tr>
+          <tr><td data-en="24/7 Workstation & Server Monitoring" data-es="Monitoreo 24/7 de Estaciones y Servidores">24/7 Workstation & Server Monitoring</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Network Device Monitoring" data-es="Monitoreo de Dispositivos de Red">Network Device Monitoring</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Microsoft 365 / Azure AD Monitoring" data-es="Monitoreo de M365 / Azure AD">Microsoft 365 / Azure AD Monitoring</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="SIEM Log Aggregation & Correlation" data-es="Agregación y Correlación SIEM">SIEM Log Aggregation & Correlation</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Multi-Site Unified Monitoring" data-es="Monitoreo Unificado Multi-Sitio">Multi-Site Unified Monitoring</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+
+          <tr class="cat-row"><td colspan="4" data-en="PATCHING & AUTOMATION" data-es="PARCHES Y AUTOMATIZACIÓN">PATCHING & AUTOMATION</td></tr>
+          <tr><td data-en="Automated OS Patch Management" data-es="Gestión Automatizada de Parches de SO">Automated OS Patch Management</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Third-Party App Patching" data-es="Parches de Aplicaciones de Terceros">Third-Party App Patching</td><td><span class="partial" data-en="Top 50" data-es="Top 50">Top 50</span></td><td><span class="partial" data-en="Full Library" data-es="Biblioteca Completa">Full Library</span></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Automated Disk Cleanup Scripts" data-es="Scripts de Limpieza de Disco">Automated Disk Cleanup Scripts</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Custom Remediation Scripting" data-es="Scripting de Remediación Personalizado">Custom Remediation Scripting</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Configuration Drift Detection" data-es="Detección de Desviación de Configuración">Configuration Drift Detection</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+
+          <tr class="cat-row"><td colspan="4" data-en="SECURITY" data-es="SEGURIDAD">SECURITY</td></tr>
+          <tr><td data-en="AV / Antivirus Health Monitoring" data-es="Monitoreo de Salud AV / Antivirus">AV / Antivirus Health Monitoring</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="EDR / XDR Integration & Response" data-es="Integración y Respuesta EDR / XDR">EDR / XDR Integration & Response</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Endpoint Isolation Capability" data-es="Capacidad de Aislamiento de Endpoints">Endpoint Isolation Capability</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Dark Web Credential Monitoring" data-es="Monitoreo de Credenciales Dark Web">Dark Web Credential Monitoring</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Vulnerability Scanning & Remediation" data-es="Escaneo de Vulnerabilidades y Remediación">Vulnerability Scanning & Remediation</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Advanced Threat Intelligence Feeds" data-es="Feeds de Inteligencia de Amenazas Avanzados">Advanced Threat Intelligence Feeds</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+
+          <tr class="cat-row"><td colspan="4" data-en="COMPLIANCE & BACKUP" data-es="CUMPLIMIENTO Y BACKUP">COMPLIANCE & BACKUP</td></tr>
+          <tr><td data-en="Backup Job Monitoring & Alerts" data-es="Monitoreo de Jobs de Backup y Alertas">Backup Job Monitoring & Alerts</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="HIPAA / SOC 2 / CMMC Compliance Monitoring" data-es="Monitoreo Cumplimiento HIPAA / SOC 2 / CMMC">HIPAA / SOC 2 / CMMC Compliance Monitoring</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Incident Response Retainer" data-es="Retención de Respuesta a Incidentes">Incident Response Retainer</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+
+          <tr class="cat-row"><td colspan="4" data-en="REPORTING & STRATEGY" data-es="REPORTES Y ESTRATEGIA">REPORTING & STRATEGY</td></tr>
+          <tr><td data-en="Asset & Software Inventory" data-es="Inventario de Activos y Software">Asset & Software Inventory</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Monthly Health Summary Report" data-es="Informe Mensual de Resumen de Salud">Monthly Health Summary Report</td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Executive KPI Dashboard" data-es="Dashboard Ejecutivo de KPIs">Executive KPI Dashboard</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Quarterly Business Reviews (vCIO)" data-es="Revisiones Trimestrales de Negocio (vCIO)">Quarterly Business Reviews (vCIO)</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Dedicated Account Manager" data-es="Gerente de Cuenta Dedicado">Dedicated Account Manager</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+          <tr><td data-en="Compliance Audit-Ready Reports" data-es="Informes Listos para Auditoría">Compliance Audit-Ready Reports</td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-xmark cross"></i></td><td><i class="fas fa-circle-check check"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY ECSG ─── -->
+<section class="content-section dark-alt">
+  <div class="section-wrap">
+    <div class="section-header" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <div class="section-tag" style="justify-content:center;"><i class="fas fa-star"></i> <span data-en="Why ECSG RMM" data-es="Por Qué ECSG RMM">Why ECSG RMM</span></div>
+      <h2 data-en="More Than a Platform. A Managed Service." data-es="Más que una Plataforma. Un Servicio Administrado.">More Than a Platform. A Managed Service.</h2>
+      <p data-en="We don't just hand you a dashboard. Every ECSG RMM plan is backed by certified engineers who watch, respond, and optimize your environment — every day."
+         data-es="No solo le entregamos un dashboard. Cada plan RMM de ECSG está respaldado por ingenieros certificados que vigilan, responden y optimizan su entorno — todos los días.">
+        We don't just hand you a dashboard. Every ECSG RMM plan is backed by certified engineers who watch, respond, and optimize your environment — every day.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-eye"></i></div>
+        <h4 data-en="Proactive, Not Reactive" data-es="Proactivo, No Reactivo">Proactive, Not Reactive</h4>
+        <p data-en="We catch and fix issues before your users feel them — not after the helpdesk call. Proactive detection is the core of every RMM plan we offer." data-es="Detectamos y resolvemos problemas antes de que sus usuarios los sientan — no después de la llamada al helpdesk. La detección proactiva es el núcleo de cada plan RMM que ofrecemos.">We catch and fix issues before your users feel them — not after the helpdesk call. Proactive detection is the core of every RMM plan we offer.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-bolt"></i></div>
+        <h4 data-en="Automation-First" data-es="Automatización Primero">Automation-First</h4>
+        <p data-en="Scripts resolve common issues instantly — no ticket, no wait. Faster resolution, less disruption, more reliability. Pro and Enterprise plans include fully custom automation." data-es="Los scripts resuelven problemas comunes al instante — sin ticket, sin espera. Resolución más rápida, menos interrupción, más confiabilidad. Los planes Pro y Enterprise incluyen automatización completamente personalizada.">Scripts resolve common issues instantly — no ticket, no wait. Faster resolution, less disruption, more reliability. Pro and Enterprise plans include fully custom automation.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+        <h4 data-en="Security in Every Plan" data-es="Seguridad en Cada Plan">Security in Every Plan</h4>
+        <p data-en="Every tier includes AV health monitoring and backup verification as a baseline — with EDR integration, dark web monitoring, and SIEM available in Pro and Enterprise." data-es="Cada nivel incluye monitoreo de salud AV y verificación de backups como base — con integración EDR, monitoreo dark web y SIEM disponibles en Pro y Enterprise.">Every tier includes AV health monitoring and backup verification as a baseline — with EDR integration, dark web monitoring, and SIEM available in Pro and Enterprise.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-arrows-up-down"></i></div>
+        <h4 data-en="Grow Into the Right Plan" data-es="Crezca Hacia el Plan Correcto">Grow Into the Right Plan</h4>
+        <p data-en="Start with Standard and upgrade to Pro or Enterprise as your business grows. Your RMM plan scales with you — no gaps in coverage, no disruption to the transition." data-es="Comience con Standard y actualice a Pro o Enterprise a medida que su negocio crece. Su plan RMM escala con usted — sin brechas en la cobertura, sin interrupciones en la transición.">Start with Standard and upgrade to Pro or Enterprise as your business grows. Your RMM plan scales with you — no gaps in coverage, no disruption to the transition.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+        <h4 data-en="Real Engineers. Real Accountability." data-es="Ingenieros Reales. Responsabilidad Real.">Real Engineers. Real Accountability.</h4>
+        <p data-en="Your environment is monitored by certified engineers who know your business — not an anonymous offshore NOC. Personalized, accountable, expert-level service at every tier." data-es="Su entorno es monitoreado por ingenieros certificados que conocen su negocio — no un NOC anónimo externo. Servicio personalizado, responsable y de nivel experto en cada nivel.">Your environment is monitored by certified engineers who know your business — not an anonymous offshore NOC. Personalized, accountable, expert-level service at every tier.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-tags"></i></div>
+        <h4 data-en="Flat, Predictable Pricing" data-es="Precios Fijos y Predecibles">Flat, Predictable Pricing</h4>
+        <p data-en="No surprise invoices. No per-incident fees. A flat monthly fee per plan covers all monitoring, patching, remediation, and reporting — budget with confidence." data-es="Sin facturas sorpresa. Sin tarifas por incidente. Una tarifa mensual fija por plan cubre todo el monitoreo, parches, remediación e informes — presupueste con confianza.">No surprise invoices. No per-incident fees. A flat monthly fee per plan covers all monitoring, patching, remediation, and reporting — budget with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="inner">
+    <h2 data-en="Not Sure Which Plan Is Right?" data-es="¿No Está Seguro Qué Plan Es el Correcto?">Not Sure Which Plan Is Right?</h2>
+    <p data-en="Talk to our team. We'll assess your environment, your risk profile, and your growth plans — then recommend the plan that gives you the best protection for your budget. No pressure, no commitment."
+       data-es="Hable con nuestro equipo. Evaluaremos su entorno, perfil de riesgo y planes de crecimiento — luego recomendaremos el plan que le brinde la mejor protección para su presupuesto. Sin presión, sin compromiso.">
+      Talk to our team. We'll assess your environment, your risk profile, and your growth plans — then recommend the plan that gives you the best protection for your budget. No pressure, no commitment.
+    </p>
+    <a href="ecsgcontact_sales.html" class="btn-white">
+      <i class="fas fa-calendar-check"></i>
+      <span data-en="Contact Our Sales Team" data-es="Contactar a Nuestro Equipo de Ventas">Contact Our Sales Team</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Enterprise Cloud Solutions Group LLC</h4>
+        <p>26 Belden Ave, Norwalk, CT</p>
+        <p>info@ecsgtech.com</p>
+        <p>www.ecsgtech.com</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <a href="managed-services.html" data-en="Managed Services" data-es="Servicios Administrados">Managed Services</a>
+        <a href="rmm.html" data-en="RMM Plans" data-es="Planes RMM">RMM Plans</a>
+        <a href="cloud-services.html" data-en="Cloud Services" data-es="Servicios en la Nube">Cloud Services</a>
+        <a href="cybersecurity.html" data-en="Cybersecurity" data-es="Ciberseguridad">Cybersecurity</a>
+        <a href="ecsgcontact_sales.html" data-en="Contact Sales" data-es="Contactar Ventas">Contact Sales</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-es="Empresa">Company</h4>
+        <a href="ECSG_About.html" data-en="About Us" data-es="Nosotros">About Us</a>
+        <a href="ceo.html" data-en="Leadership" data-es="Liderazgo">Leadership</a>
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT."
+         data-es="© 2026 Enterprise Cloud Solutions Group LLC. Todos los derechos reservados. Norwalk, CT.">
+        © 2026 Enterprise Cloud Solutions Group LLC. All rights reserved. Norwalk, CT.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.textContent = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+    ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='en'); });
+    ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('active', lang==='es'); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('ecsg_lang', lang); } catch (e) {}
+  }
+  ['btnEN','btnEN2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('en'); }); });
+  ['btnES','btnES2'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', function(){ applyLang('es'); }); });
+  try { var s=localStorage.getItem('ecsg_lang'); if(s==='es') applyLang('es'); } catch(e) {}
+  var ham=document.getElementById('hamburger');
+  var mob=document.getElementById('mobile-menu');
+  if(ham&&mob){ ham.addEventListener('click', function(){ mob.classList.toggle('open'); }); }
+})();
+</script>
+</body>
+</html>
