@@ -183,15 +183,14 @@ p  { font-size: 1rem; color: var(--text-muted); }
 .section-intro p { font-size: 1.0625rem; }
 
 /* ─── NAVBAR ─────────────────────────────────────────────────── */
-.navbar 
-{
+
+.navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
   display: flex;
-  align-items: flex-start;   /* ← clave para que el logo no se suba */
-  padding-top: 10px;
-  padding-bottom: 10px;
+  align-items: center;
+  padding: 10px 0;
   background: transparent;
   transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
 }
@@ -206,7 +205,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  padding-top: 25px;   /* ← esto baja el menú sin afectar el logo */
+  padding-top: 20px;   /* ← esto baja el menú sin afectar el logo */
 }
 /* Logo */
 .navbar-logo {
@@ -215,8 +214,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
   gap: .65rem;
   flex-shrink: 0;
   text-decoration: none;
-  align-self: flex-start;
-}
+ }
 
 .navbar-logo-img {
   height: 220px;  /* aquí cambias el tamaño del logo */
