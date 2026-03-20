@@ -364,7 +364,8 @@ p  { font-size: 1rem; color: var(--text-muted); }
 /* Mobile Nav Drawer */
 .mobile-nav {
   position: fixed;
-  top: 0; right: -100%;
+ /* top: 0; right: -100%; */
+  top: var(--nav-height);
   width: min(340px, 90vw); height: 100vh;
   background: var(--navy);
   z-index: 999;
