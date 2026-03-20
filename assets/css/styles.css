@@ -1009,14 +1009,13 @@ p  { font-size: 1rem; color: var(--text-muted); }
 /* Reducir el tamaño del título del hero específicamente en móvil */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2rem !important;
-    line-height: 1.1 !important;
+    font-size: 1.5rem !important;    line-height: 1.1 !important;
   }
 }
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 1.7rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.1 !important;
   }
 }
