@@ -215,6 +215,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
   gap: .65rem;
   flex-shrink: 0;
   text-decoration: none;
+  align-self: flex-start;
 }
 
 .navbar-logo-img {
@@ -246,6 +247,7 @@ p  { font-size: 1rem; color: var(--text-muted); }
   gap: .25rem;
   flex: 1;
   justify-content: center;
+  padding-top: 25px;
 }
 .nav-item { position: relative; }
 .nav-link {
